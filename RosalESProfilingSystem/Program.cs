@@ -22,7 +22,7 @@ namespace RosalESProfilingSystem
             splash.Show();
             Application.DoEvents();
 
-            System.Threading.Thread.Sleep(2500);
+            System.Threading.Thread.Sleep(3000);
             splash.Close();
 
             Application.Run(new Forms.MainForm());
