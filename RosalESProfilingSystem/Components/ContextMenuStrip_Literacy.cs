@@ -31,8 +31,8 @@ namespace RosalESProfilingSystem.Components
                 activeButton.ForeColor = Color.Black;
             }
             activeButton = btnDashboard;
-            activeButton.BackColor = Color.FromArgb(96, 193, 187);
-            activeButton.ForeColor = Color.Black;
+            activeButton.BackColor = Color.FromArgb(8, 114, 217);
+            activeButton.ForeColor = Color.White;
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)

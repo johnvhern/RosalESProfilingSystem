@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RosalESProfilingSystem.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,14 @@ namespace RosalESProfilingSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            SplashScreen splash = new SplashScreen();
+            splash.Show();
+            Application.DoEvents();
+
+            System.Threading.Thread.Sleep(2500);
+            splash.Close();
+
             Application.Run(new Forms.MainForm());
         }
     }

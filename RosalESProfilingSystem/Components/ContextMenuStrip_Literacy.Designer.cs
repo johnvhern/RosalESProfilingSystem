@@ -37,8 +37,9 @@
             // 
             this.btnDashboard.BackColor = System.Drawing.Color.Transparent;
             this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.Location = new System.Drawing.Point(193, 0);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(196, 28);
@@ -51,6 +52,7 @@
             // 
             this.btnProfLearners.BackColor = System.Drawing.Color.Transparent;
             this.btnProfLearners.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnProfLearners.FlatAppearance.BorderSize = 0;
             this.btnProfLearners.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnProfLearners.Location = new System.Drawing.Point(0, 0);
@@ -65,6 +67,7 @@
             // 
             this.btnProgTrack.BackColor = System.Drawing.Color.Transparent;
             this.btnProgTrack.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnProgTrack.FlatAppearance.BorderSize = 0;
             this.btnProgTrack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProgTrack.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnProgTrack.Location = new System.Drawing.Point(389, 0);

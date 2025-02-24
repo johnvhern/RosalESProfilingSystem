@@ -36,3 +36,4 @@ C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\bin\Debug\Sys
 C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\bin\Debug\System.Memory.xml
 C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\obj\Debug\RosalESProfilingSystem.Forms.SplashScreen.resources
