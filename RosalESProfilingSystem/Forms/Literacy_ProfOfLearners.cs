@@ -17,9 +17,11 @@ namespace RosalESProfilingSystem.Forms
     public partial class Literacy_ProfOfLearners: Form
     {
         private string dbConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=RosalES;Integrated Security=True;";
+        string column;
         public Literacy_ProfOfLearners()
         {
             InitializeComponent();
+            metroComboBox1.SelectedIndex = 0;
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -126,13 +128,14 @@ namespace RosalESProfilingSystem.Forms
             }
             
 
-            
+                
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             try
             {
+
                 string column = metroComboBox1.SelectedItem.ToString();
                 string searchValue = textBox1.Text.Trim();
 

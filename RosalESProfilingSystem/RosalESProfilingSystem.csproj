@@ -103,6 +103,12 @@
     <Compile Include="Components\SidePanelNavigation.Designer.cs">
       <DependentUpon>SidePanelNavigation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\TimeDateBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\TimeDateBar.Designer.cs">
+      <DependentUpon>TimeDateBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\SidePanelNavigation.resx">
       <DependentUpon>SidePanelNavigation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\TimeDateBar.resx">
+      <DependentUpon>TimeDateBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

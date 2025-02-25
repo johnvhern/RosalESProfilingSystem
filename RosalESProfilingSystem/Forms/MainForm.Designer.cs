@@ -33,8 +33,11 @@
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.btnClose = new MetroFramework.Controls.MetroButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.timeDateBar1 = new RosalESProfilingSystem.Components.TimeDateBar();
             this.metroPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -42,7 +45,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1158, 742);
+            this.panel1.Size = new System.Drawing.Size(1158, 712);
             this.panel1.TabIndex = 0;
             // 
             // metroPanel1
@@ -82,6 +85,26 @@
             this.panel2.Size = new System.Drawing.Size(1158, 26);
             this.panel2.TabIndex = 1;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.timeDateBar1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 738);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1158, 30);
+            this.panel3.TabIndex = 2;
+            // 
+            // timeDateBar1
+            // 
+            this.timeDateBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(114)))), ((int)(((byte)(217)))));
+            this.timeDateBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeDateBar1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeDateBar1.Location = new System.Drawing.Point(0, 0);
+            this.timeDateBar1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.timeDateBar1.Name = "timeDateBar1";
+            this.timeDateBar1.Size = new System.Drawing.Size(1158, 30);
+            this.timeDateBar1.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -89,6 +112,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1158, 768);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
@@ -99,6 +123,7 @@
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.metroPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -109,5 +134,7 @@
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroButton btnClose;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private Components.TimeDateBar timeDateBar1;
     }
 }
