@@ -47,5 +47,11 @@ namespace RosalESProfilingSystem.Components
             mainForm.OpenForm(new Forms.Literacy_Skills());
             ColorActiveButton((Button)sender);
         }
+
+        private void btnNumeracyPage_Click(object sender, EventArgs e)
+        {
+            mainForm.OpenForm(new Forms.Numeracy_Skills());
+            ColorActiveButton((Button)sender);
+        }
     }
 }

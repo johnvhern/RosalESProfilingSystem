@@ -38,3 +38,6 @@ C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\bin\Debug\Sys
 C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\obj\Debug\RosalESProfilingSystem.Forms.SplashScreen.resources
 C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\obj\Debug\RosalESProfilingSystem.Components.TimeDateBar.resources
+C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\obj\Debug\RosalESProfilingSystem.Components.ContextMenuStrip_Numeracy.resources
+C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\obj\Debug\RosalESProfilingSystem.Forms.Numeracy_Dashboard.resources
+C:\Users\vhern\Codes\RosalESProfilingSystem\RosalESProfilingSystem\obj\Debug\RosalESProfilingSystem.Forms.Numeracy_Skills.resources

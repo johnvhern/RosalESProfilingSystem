@@ -14,16 +14,22 @@ namespace RosalESProfilingSystem.Components
     {
         public TimeDateBar()
         {
-            DateTime now = DateTime.Now;
+            
             InitializeComponent();
 
-            lblDateTime.Text = now.ToString("f");
+           
 
         }
 
-        private void lblDateTime_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
+            DateTime now = DateTime.Now;
+            lblDateTime.Text = now.ToString("f");
+        }
 
+        private void TimeDateBar_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
         }
     }
 }

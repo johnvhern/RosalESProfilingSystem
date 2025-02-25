@@ -92,6 +92,7 @@
             this.btnNumeracyPage.Text = "Numeracy";
             this.btnNumeracyPage.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnNumeracyPage.UseVisualStyleBackColor = true;
+            this.btnNumeracyPage.Click += new System.EventHandler(this.btnNumeracyPage_Click);
             // 
             // btnSciProf
             // 

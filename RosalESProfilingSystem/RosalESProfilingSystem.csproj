@@ -97,6 +97,12 @@
     <Compile Include="Components\ContextMenuStrip_Literacy.Designer.cs">
       <DependentUpon>ContextMenuStrip_Literacy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\ContextMenuStrip_Numeracy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ContextMenuStrip_Numeracy.Designer.cs">
+      <DependentUpon>ContextMenuStrip_Numeracy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\SidePanelNavigation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +145,18 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Numeracy_Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Numeracy_Dashboard.Designer.cs">
+      <DependentUpon>Numeracy_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Numeracy_Skills.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Numeracy_Skills.Designer.cs">
+      <DependentUpon>Numeracy_Skills.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +167,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Components\ContextMenuStrip_Literacy.resx">
       <DependentUpon>ContextMenuStrip_Literacy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ContextMenuStrip_Numeracy.resx">
+      <DependentUpon>ContextMenuStrip_Numeracy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\SidePanelNavigation.resx">
       <DependentUpon>SidePanelNavigation.cs</DependentUpon>
@@ -170,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Numeracy_Dashboard.resx">
+      <DependentUpon>Numeracy_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Numeracy_Skills.resx">
+      <DependentUpon>Numeracy_Skills.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>

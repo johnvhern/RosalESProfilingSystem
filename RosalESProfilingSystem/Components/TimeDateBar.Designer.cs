@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblDateTime = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +46,6 @@
             this.lblDateTime.TabIndex = 0;
             this.lblDateTime.Text = "DateTime";
             this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblDateTime.Click += new System.EventHandler(this.lblDateTime_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -61,6 +62,10 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 36);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // TimeDateBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -71,6 +76,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TimeDateBar";
             this.Size = new System.Drawing.Size(498, 36);
+            this.Load += new System.EventHandler(this.TimeDateBar_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -80,5 +86,6 @@
         #endregion
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
