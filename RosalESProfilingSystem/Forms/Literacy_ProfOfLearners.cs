@@ -72,6 +72,16 @@ namespace RosalESProfilingSystem.Forms
                             Convert.ToInt32(worksheet.Cells[row, 6].Value),
                             worksheet.Cells[row, 7].Text
                         );
+                        
+                        if (IsDataAlreadySaved(worksheet.Cells[1,2], worksheet.Cells[row, 4]))
+                        {
+                            MessageBox.Show("Data already saved in the database. Please check the data and try again.");
+                            return;
+                        }
+                        else
+                        {
+                            continue;
+                        }
                     }
 
                     dataGridView1.DataSource = dataTable;
@@ -84,6 +94,23 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
+        private bool IsDataAlreadySaved(ExcelRange excelRange1, ExcelRange excelRange2)
+        {
+            using (SqlConnection conn = new SqlConnection(dbConnection))
+            {
+                string query = "SELECT COUNT(*) FROM LearnersProfile WHERE AssessmentType = @AssessmentType AND LRN = @LRN";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@AssessmentType", excelRange1.Text);
+                    cmd.Parameters.AddWithValue("@LRN", excelRange2.Text);
+                    conn.Open();
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -91,6 +118,7 @@ namespace RosalESProfilingSystem.Forms
                 var metadata = (dynamic)dataGridView1.Tag;
                 string assessmentType = metadata.AssessmentType;
                 int gradeLevel = metadata.GradeLevel;
+
 
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
@@ -123,8 +151,10 @@ namespace RosalESProfilingSystem.Forms
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
-            }
+            }   
         }
+
+
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
