@@ -13,13 +13,14 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace RosalESProfilingSystem.Forms
 {
-    public partial class Numeracy_Dashboard: Form
+    public partial class Numeracy_Dashboard : Form
     {
         private string dbConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=RosalES;Integrated Security=True;";
         public Numeracy_Dashboard()
         {
             InitializeComponent();
-            metroComboBox1.SelectedIndex = 0;
+            cbAssessmentType.SelectedIndex = 0;
+            cbPollingAssessment.SelectedIndex = 0;
         }
 
         private void btnLoadEnrollment_Click(object sender, EventArgs e)
@@ -94,14 +95,187 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        private void btnLoadRMA_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string selectedAssessment = cbAssessmentType.SelectedItem.ToString();
+                TallyRMAData(selectedAssessment);
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        private void TallyRMAData(string selectedAssessment)
         {
+            using (SqlConnection conn = new SqlConnection(dbConnection))
+            {
+                string query = "SELECT RMAClassification, COUNT(*) AS Total FROM LearnersProfile WHERE AssessmentType = @AssessmentType AND GradeLevel IN ('1', '2', '3') GROUP BY RMAClassification";
 
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@AssessmentType", selectedAssessment);
+                    conn.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        txtLowEmerging.Text = "0";
+                        txtHighEmerging.Text = "0";
+                        txtDeveloping.Text = "0";
+                        txtTransitioning.Text = "0";
+                        txtGradeReady.Text = "0";
+
+                        chartRMA.Series.Clear();
+                        chartRMA.Titles.Clear();
+
+                        Title chartTitle = new Title("RMA Classification")
+                        {
+                            Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold)
+                        };
+
+                        chartRMA.Titles.Add(chartTitle);
+
+                        Series series = new Series
+                        {
+                            Name = "RMA Classification",
+                            IsVisibleInLegend = true,
+                            ChartType = SeriesChartType.Doughnut
+                        };
+
+                        chartRMA.Series.Add(series);
+
+                        int totalClassification = 0;
+                        Dictionary<string, int> classificationData = new Dictionary<string, int>();
+
+
+                        while (reader.Read())
+                        {
+                            string rmaClassification = reader["RMAClassification"].ToString();
+                            int total = Convert.ToInt32(reader["Total"]);
+                            classificationData[rmaClassification] = total;
+                            totalClassification += total;
+
+                            switch (rmaClassification)
+                            {
+                                case "Low Emerging":
+                                    txtLowEmerging.Text = total.ToString();
+                                    break;
+                                case "High Emerging":
+                                    txtHighEmerging.Text = total.ToString();
+                                    break;
+                                case "Developing":
+                                    txtDeveloping.Text = total.ToString();
+                                    break;
+                                case "Transitioning":
+                                    txtTransitioning.Text = total.ToString();
+                                    break;
+                                case "Grade Ready":
+                                    txtGradeReady.Text = total.ToString();
+                                    break;
+                            }
+                        }
+
+                        foreach (var item in classificationData)
+                        {
+                            double percentage = totalClassification > 0 ? (double)item.Value / totalClassification : 0;
+                            DataPoint dp = new DataPoint(0, item.Value)
+                            {
+                                AxisLabel = item.Key,
+                                LegendText = item.Key,
+                                Label = string.Format("{0} ({1:P1})", item.Value, percentage)
+                            };
+                            series.Points.Add(dp);
+                        }
+
+                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+                        chartRMA.Invalidate();
+                    }
+
+
+                }
+
+            }
+        }
+
+        private void btnLoadPoll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectedAssessmentPolling = cbPollingAssessment.SelectedItem.ToString();
+                TallyPollingData(selectedAssessmentPolling);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void TallyPollingData(string selectedAssessmentPolling)
+        {
+            using (SqlConnection conn = new SqlConnection(dbConnection))
+            {
+                string query = "SELECT GradeLevel, RMAClassification, COUNT(*) AS Total FROM LearnersProfile WHERE AssessmentType = @AssessmentType AND GradeLevel IN ('1', '2', '3') GROUP BY GradeLevel, RMAClassification";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@AssessmentType", selectedAssessmentPolling);
+                    conn.Open();
+
+                    var gradeData = new Dictionary<string, Dictionary<string, int>>();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string gradeLevel = reader["GradeLevel"].ToString();
+                            string rmaClassification = reader["RMAClassification"].ToString();
+                            int total = Convert.ToInt32(reader["Total"]);
+                            if (!gradeData.ContainsKey(gradeLevel))
+                            {
+                                gradeData[gradeLevel] = new Dictionary<string, int>
+                                {
+                                    { "Low Emerging", 0 },
+                                    { "High Emerging", 0 },
+                                    { "Developing", 0 },
+                                    { "Transitioning", 0 },
+                                    { "Grade Ready", 0 }
+                                };
+                               
+                            }
+                            gradeData[gradeLevel][rmaClassification] = total;
+                        }
+
+                        DisplayDelayed(gradeData, "1", txtDelayedNumbersG1, txtDelayedPercentG1);
+                        DisplayDelayed(gradeData, "2", txtDelayedNumbersG2, txtDelayedPercentG2);
+                        DisplayDelayed(gradeData, "3", txtDelayedNumbersG3, txtDelayedPercentG3);
+
+                    }
+
+                }
+            }
+        }
+
+        private void DisplayDelayed(Dictionary<string, Dictionary<string, int>> data, string grade, TextBox txtDelayedNumber, TextBox txtDelayedPercent)
+        {
+            if (data.ContainsKey(grade))
+            {
+                var gradeData = data[grade];
+                int totalLearners = gradeData.Values.Sum();
+                int delayedLearners = gradeData["Low Emerging"] + gradeData["High Emerging"] + gradeData["Developing"] + gradeData["Transitioning"];
+                double delayedPercentage = totalLearners > 0 ? ((double)delayedLearners / totalLearners) * 100 : 0;
+
+                txtDelayedNumber.Text = delayedLearners.ToString();
+                txtDelayedPercent.Text = $"{delayedPercentage:F2}%";
+            }
+            else
+            {
+                txtDelayedNumber.Text = "0";
+                txtDelayedPercent.Text = "0%";
+            }
         }
     }
 }
