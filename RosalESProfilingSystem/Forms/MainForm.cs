@@ -53,7 +53,7 @@ namespace RosalESProfilingSystem.Forms
             this.Top = 0;
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnClose_Click_1(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -63,8 +63,13 @@ namespace RosalESProfilingSystem.Forms
             }
             else
             {
-                return; 
+                return;
             }
+        }
+
+        private void btnMinimize_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

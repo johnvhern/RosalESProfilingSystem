@@ -17,118 +17,113 @@ namespace RosalESProfilingSystem.Forms
     public partial class Literacy_ProfOfLearners: Form
     {
         private string dbConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=RosalES;Integrated Security=True;";
-        string column;
+        private DataTable dataTable = new DataTable();
         public Literacy_ProfOfLearners()
         {
             InitializeComponent();
             metroComboBox1.SelectedIndex = 0;
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
         }
 
         private void btnImport_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
 
                 if(openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    DataTable dt = ReadExcelFile(openFileDialog.FileName);
-                    dataGridView1.DataSource = dt;
+                    txtFilePath.Text = openFileDialog.FileName;
+                    PreviewExcelData(openFileDialog.FileName);
                 }
             }
         }
 
-        private DataTable ReadExcelFile(string filePath)
+        private void PreviewExcelData(string fileName)
         {
-            DataTable dt = new DataTable();
-
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
-            using (var package = new ExcelPackage(new FileInfo(filePath)))
+            try
             {
-                var  worksheet = package.Workbook.Worksheets[0];
-                int colCount = worksheet.Dimension.End.Column;
-                int rowCount = worksheet.Dimension.End.Row;
-
-                for (int col = 1; col <= colCount; col++)
+                using (var package = new ExcelPackage(new FileInfo(fileName)))
                 {
-                    dt.Columns.Add(worksheet.Cells[1, col].Text);
-                }
+                    var worksheet = package.Workbook.Worksheets[0];
+                    var assessmentType = worksheet.Cells[1, 2].Text;
+                    var gradeLevel = Convert.ToInt32(worksheet.Cells[2, 2].Value);
 
-                for (int row = 2; row <= rowCount; row++)
-                {
-                    DataRow dr = dt.NewRow();
-                    for(int col = 1; col <= colCount; col++)
+                    dataTable.Clear();
+                    dataTable.Columns.Clear();
+
+                    dataTable.Columns.Add("Last Name", typeof(string));
+                    dataTable.Columns.Add("First Name", typeof(string));
+                    dataTable.Columns.Add("Middle Name", typeof(string));
+                    dataTable.Columns.Add("LRN", typeof(string));
+                    dataTable.Columns.Add("Sex", typeof(string));
+                    dataTable.Columns.Add("Age", typeof(int));
+                    dataTable.Columns.Add("RMA Classification", typeof(string));
+
+                    int startRow = 5; // Data starts from row 5
+                    for (int row = startRow; row <= worksheet.Dimension.End.Row; row++)
                     {
-                        dr[col - 1] = worksheet.Cells[row, col].Text;
+                        dataTable.Rows.Add(
+                            worksheet.Cells[row, 1].Text,
+                            worksheet.Cells[row, 2].Text,
+                            worksheet.Cells[row, 3].Text,
+                            worksheet.Cells[row, 4].Text,
+                            worksheet.Cells[row, 5].Text,
+                            Convert.ToInt32(worksheet.Cells[row, 6].Value),
+                            worksheet.Cells[row, 7].Text
+                        );
                     }
-                    dt.Rows.Add(dr);    
+
+                    dataGridView1.DataSource = dataTable;
+                    dataGridView1.Tag = new { AssessmentType = assessmentType, GradeLevel = gradeLevel };
                 }
             }
-            return dt;
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.DataSource == null)
-                {
-                    MessageBox.Show("No data to save. Please import an Excel file first.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-                DataTable dt = (DataTable)dataGridView1.DataSource;
-
-                if (dt.Rows.Count == 0)
-                {
-                    MessageBox.Show("No data to save. The imported file appears to be empty.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+                var metadata = (dynamic)dataGridView1.Tag;
+                string assessmentType = metadata.AssessmentType;
+                int gradeLevel = metadata.GradeLevel;
 
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
                     conn.Open();
 
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        string query = @"INSERT INTO Learners (GradeLevel, LRN, LastName, FirstName, MiddleName, Gender, Birthdate, MotherMaidenName, Guardian, Relationship, Father, EmergencyContact, CurrentResidence, Religion, MotherTongue, Dialects, Ethnicities)
-                                    VALUES (@GradeLevel, @LRN, @LastName, @FirstName, @MiddleName, @Gender, @Birthdate, @MotherMaidenName, @Guardian, @Relationship, @Father, @EmergencyContact, @CurrentResidence, @Religion, @MotherTongue, @Dialects, @Ethnicities)";
+                            foreach (DataRow row in dataTable.Rows)
+                            {
+                                string query = @"INSERT INTO LearnersProfile 
+                                         (AssessmentType, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age, RMAClassification) 
+                                         VALUES (@AssessmentType, @GradeLevel, @LastName, @FirstName, @MiddleName, @LRN, @Sex, @Age, @Classification)";
 
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@GradeLevel", row["Grade Level"]);
-                            cmd.Parameters.AddWithValue("@LRN", row["LRN Number"]);
-                            cmd.Parameters.AddWithValue("@LastName", row["Last Name"]);
-                            cmd.Parameters.AddWithValue("@FirstName", row["First Name"]);
-                            cmd.Parameters.AddWithValue("@MiddleName", row["Middle Name"]);
-                            cmd.Parameters.AddWithValue("@Gender", row["Gender"]);
-                            cmd.Parameters.AddWithValue("@Birthdate", row["Birthdate"]);
-                            cmd.Parameters.AddWithValue("@MotherMaidenName", row["Mother's Maiden Name"]);
-                            cmd.Parameters.AddWithValue("@Guardian", row["Guardian"]);
-                            cmd.Parameters.AddWithValue("@Relationship", row["Relationship"]);
-                            cmd.Parameters.AddWithValue("@Father", row["Father"]);
-                            cmd.Parameters.AddWithValue("@EmergencyContact", row["Emergency Contact Number"]);
-                            cmd.Parameters.AddWithValue("@CurrentResidence", row["Current Residence"]);
-                            cmd.Parameters.AddWithValue("@Religion", row["Religion"]);
-                            cmd.Parameters.AddWithValue("@MotherTongue", row["Mother Tongue"]);
-                            cmd.Parameters.AddWithValue("@Dialects", row["Dialects"]);
-                            cmd.Parameters.AddWithValue("@Ethnicities", row["Ethnicities"]);
+                                using (SqlCommand cmd = new SqlCommand(query, conn))
+                                {
+                                    cmd.Parameters.AddWithValue("@AssessmentType", assessmentType);
+                                    cmd.Parameters.AddWithValue("@GradeLevel", gradeLevel);
+                                    cmd.Parameters.AddWithValue("@LastName", row["Last Name"]);
+                                    cmd.Parameters.AddWithValue("@FirstName", row["First Name"]);
+                                    cmd.Parameters.AddWithValue("@MiddleName", row["Middle Name"]);
+                                    cmd.Parameters.AddWithValue("@LRN", row["LRN"]);
+                                    cmd.Parameters.AddWithValue("@Sex", row["Sex"]);
+                                    cmd.Parameters.AddWithValue("@Age", row["Age"]);
+                                    cmd.Parameters.AddWithValue("@Classification", row["RMA Classification"]);
 
-
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
                 }
-
-                MessageBox.Show("Data saved successfully.");
+                MessageBox.Show("Data successfully saved to the database!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occured: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
             }
-            
-
-                
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -148,7 +143,7 @@ namespace RosalESProfilingSystem.Forms
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
                     conn.Open();
-                    string query = $"SELECT * FROM Learners WHERE {column} LIKE @SearchValue";
+                    string query = $"SELECT * FROM LearnersProfile WHERE {column} LIKE @SearchValue";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {

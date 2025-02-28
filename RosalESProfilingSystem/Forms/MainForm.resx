@@ -118,7 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnClose.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnMinimize.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAALAAAACwARRqq2kAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAABL0lEQVRIS72VSU7DQBBF3yFYMIrLsCBiOEeYjgBScoOsEFFOwBrCTZhOkYEdoEQ/si27VHa3cYsv
+        PclSddW3ytVlaNYBcA28AG/AV4aep8AVsG+TYrQHPADfwCrAL/AIHNoidToHFk6hEMo5s8WsbrI3ssmx
+        KFctddUDfpyktshEXahIPf9LW+qYAztlg4lzqCsako00iilaY9EEqjObD2uDqbiUgS6MDaTiSQafTiAV
+        7zJomp5b4CjA0MnLUe1Gg4FT0HLn5FUMPpxAKl7/5SNr5dpAKvoy0D6PWcttKS6aNHYOdOU+Ly7tBqap
+        LTNgu2wgHSfaSVrXp7Z4Lv0suv5wNDSNkrv2uU0Oobac2GJ12gJGkdOlM9r9lR9MrDRmF8BzdiuXGXrW
+        JVKsGEVPayBqsf4WKFDDAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAF
         hgAABYYBG6Yz4AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGfSURBVEhLzZXL
