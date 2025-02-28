@@ -20,7 +20,7 @@ namespace RosalESProfilingSystem.Forms
         {
             InitializeComponent();
             cbAssessmentType.SelectedIndex = 0;
-            cbPollingAssessment.SelectedIndex = 0;
+           
         }
 
         private void btnLoadEnrollment_Click(object sender, EventArgs e)
@@ -202,16 +202,7 @@ namespace RosalESProfilingSystem.Forms
 
         private void btnLoadPoll_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string selectedAssessmentPolling = cbPollingAssessment.SelectedItem.ToString();
-                TallyPollingData(selectedAssessmentPolling);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+           
         }
 
         private void TallyPollingData(string selectedAssessmentPolling)
@@ -275,6 +266,85 @@ namespace RosalESProfilingSystem.Forms
             {
                 txtDelayedNumber.Text = "0";
                 txtDelayedPercent.Text = "0%";
+            }
+        }
+
+        private void btnViewDelayedG1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDelayedNumbersG1.Text))
+            {
+                MessageBox.Show("No data to display for Grade 1. Please select assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtDelayedNumbersG1.Text == "0")
+            {
+                MessageBox.Show("No delayed learners for Grade 1", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                OpenDelayedDevelopmentForm("1");
+            }
+                
+        }
+
+        
+
+        private void btnViewDelayedG2_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDelayedNumbersG2.Text))
+            {
+                MessageBox.Show("No data to display for Grade 2. Please select assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtDelayedNumbersG2.Text == "0")
+            {
+                MessageBox.Show("No delayed learners for Grade 2", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                OpenDelayedDevelopmentForm("2");
+            }
+                
+        }
+
+        private void btnViewDelayedG3_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDelayedNumbersG3.Text))
+            {
+                MessageBox.Show("No data to display for Grade 3. Please select assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtDelayedNumbersG3.Text == "0")
+            {
+                MessageBox.Show("No delayed learners for Grade 3", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                OpenDelayedDevelopmentForm("3");
+            }
+        }
+
+        private void OpenDelayedDevelopmentForm(string gradeLevel)
+        {
+            string selectedAssessmentPolling = cbPollingAssessment.SelectedItem.ToString();
+            DelayedDevelopmentForm form = new DelayedDevelopmentForm(gradeLevel, selectedAssessmentPolling);
+            form.ShowDialog();
+        }
+
+        private void cbPollingAssessment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectedAssessmentPolling = cbPollingAssessment.SelectedItem.ToString();
+                TallyPollingData(selectedAssessmentPolling);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
     }

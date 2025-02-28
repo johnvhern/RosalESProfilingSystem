@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea18 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -78,7 +78,6 @@
             this.txtDelayedNumbersG1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.cbPollingAssessment = new MetroFramework.Controls.MetroComboBox();
-            this.btnLoadPoll = new System.Windows.Forms.Button();
             this.btnViewDelayedG1 = new System.Windows.Forms.Button();
             this.btnViewDelayedG2 = new System.Windows.Forms.Button();
             this.btnViewDelayedG3 = new System.Windows.Forms.Button();
@@ -655,11 +654,9 @@
             // 
             // tableLayoutPanel12
             // 
-            this.tableLayoutPanel12.ColumnCount = 2;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.ColumnCount = 1;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.Controls.Add(this.cbPollingAssessment, 0, 0);
-            this.tableLayoutPanel12.Controls.Add(this.btnLoadPoll, 1, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(565, 10);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -679,25 +676,10 @@
             "EoSY"});
             this.cbPollingAssessment.Location = new System.Drawing.Point(3, 3);
             this.cbPollingAssessment.Name = "cbPollingAssessment";
-            this.cbPollingAssessment.Size = new System.Drawing.Size(154, 29);
+            this.cbPollingAssessment.Size = new System.Drawing.Size(314, 29);
             this.cbPollingAssessment.TabIndex = 4;
             this.cbPollingAssessment.UseSelectable = true;
-            // 
-            // btnLoadPoll
-            // 
-            this.btnLoadPoll.BackColor = System.Drawing.Color.DimGray;
-            this.btnLoadPoll.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLoadPoll.FlatAppearance.BorderSize = 0;
-            this.btnLoadPoll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadPoll.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoadPoll.ForeColor = System.Drawing.Color.White;
-            this.btnLoadPoll.Location = new System.Drawing.Point(163, 3);
-            this.btnLoadPoll.Name = "btnLoadPoll";
-            this.btnLoadPoll.Size = new System.Drawing.Size(154, 29);
-            this.btnLoadPoll.TabIndex = 5;
-            this.btnLoadPoll.Text = "Load Polling";
-            this.btnLoadPoll.UseVisualStyleBackColor = false;
-            this.btnLoadPoll.Click += new System.EventHandler(this.btnLoadPoll_Click);
+            this.cbPollingAssessment.SelectedIndexChanged += new System.EventHandler(this.cbPollingAssessment_SelectedIndexChanged);
             // 
             // btnViewDelayedG1
             // 
@@ -709,6 +691,7 @@
             this.btnViewDelayedG1.TabIndex = 14;
             this.btnViewDelayedG1.Text = "View All";
             this.btnViewDelayedG1.UseVisualStyleBackColor = true;
+            this.btnViewDelayedG1.Click += new System.EventHandler(this.btnViewDelayedG1_Click);
             // 
             // btnViewDelayedG2
             // 
@@ -720,6 +703,7 @@
             this.btnViewDelayedG2.TabIndex = 15;
             this.btnViewDelayedG2.Text = "View All";
             this.btnViewDelayedG2.UseVisualStyleBackColor = true;
+            this.btnViewDelayedG2.Click += new System.EventHandler(this.btnViewDelayedG2_Click);
             // 
             // btnViewDelayedG3
             // 
@@ -731,6 +715,7 @@
             this.btnViewDelayedG3.TabIndex = 16;
             this.btnViewDelayedG3.Text = "View All";
             this.btnViewDelayedG3.UseVisualStyleBackColor = true;
+            this.btnViewDelayedG3.Click += new System.EventHandler(this.btnViewDelayedG3_Click);
             // 
             // panel3
             // 
@@ -774,17 +759,17 @@
             // 
             // chartRMA
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chartRMA.ChartAreas.Add(chartArea7);
+            chartArea17.Name = "ChartArea1";
+            this.chartRMA.ChartAreas.Add(chartArea17);
             this.chartRMA.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend7.Name = "Legend1";
-            this.chartRMA.Legends.Add(legend7);
+            legend17.Name = "Legend1";
+            this.chartRMA.Legends.Add(legend17);
             this.chartRMA.Location = new System.Drawing.Point(118, 6);
             this.chartRMA.Name = "chartRMA";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.chartRMA.Series.Add(series7);
+            series17.ChartArea = "ChartArea1";
+            series17.Legend = "Legend1";
+            series17.Name = "Series1";
+            this.chartRMA.Series.Add(series17);
             this.chartRMA.Size = new System.Drawing.Size(452, 214);
             this.chartRMA.TabIndex = 0;
             this.chartRMA.Text = "chart1";
@@ -808,17 +793,17 @@
             // 
             // chartLearners
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chartLearners.ChartAreas.Add(chartArea8);
+            chartArea18.Name = "ChartArea1";
+            this.chartLearners.ChartAreas.Add(chartArea18);
             this.chartLearners.Dock = System.Windows.Forms.DockStyle.Left;
-            legend8.Name = "Legend1";
-            this.chartLearners.Legends.Add(legend8);
+            legend18.Name = "Legend1";
+            this.chartLearners.Legends.Add(legend18);
             this.chartLearners.Location = new System.Drawing.Point(156, 7);
             this.chartLearners.Name = "chartLearners";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.chartLearners.Series.Add(series8);
+            series18.ChartArea = "ChartArea1";
+            series18.Legend = "Legend1";
+            series18.Name = "Series1";
+            this.chartLearners.Series.Add(series18);
             this.chartLearners.Size = new System.Drawing.Size(414, 213);
             this.chartLearners.TabIndex = 0;
             this.chartLearners.Text = "chart1";
@@ -916,7 +901,6 @@
         private System.Windows.Forms.TextBox txtDelayedPercentG1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private MetroFramework.Controls.MetroComboBox cbPollingAssessment;
-        private System.Windows.Forms.Button btnLoadPoll;
         private System.Windows.Forms.Button btnViewDelayedG1;
         private System.Windows.Forms.Button btnViewDelayedG2;
         private System.Windows.Forms.Button btnViewDelayedG3;
