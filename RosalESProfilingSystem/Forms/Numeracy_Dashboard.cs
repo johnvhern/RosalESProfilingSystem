@@ -287,7 +287,7 @@ namespace RosalESProfilingSystem.Forms
         {
             if (string.IsNullOrEmpty(txtDelayedNumbersG1.Text))
             {
-                MessageBox.Show("No data to display for Grade 1. Please select assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No data to display for Grade 1. Please select school year and assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else if (txtDelayedNumbersG1.Text == "0")
@@ -308,7 +308,7 @@ namespace RosalESProfilingSystem.Forms
         {
             if (string.IsNullOrEmpty(txtDelayedNumbersG2.Text))
             {
-                MessageBox.Show("No data to display for Grade 2. Please select assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No data to display for Grade 2. Please select school year and assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else if (txtDelayedNumbersG2.Text == "0")
@@ -327,7 +327,7 @@ namespace RosalESProfilingSystem.Forms
         {
             if (string.IsNullOrEmpty(txtDelayedNumbersG3.Text))
             {
-                MessageBox.Show("No data to display for Grade 3. Please select assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No data to display for Grade 3. Please select school year and assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else if (txtDelayedNumbersG3.Text == "0")
@@ -343,8 +343,9 @@ namespace RosalESProfilingSystem.Forms
 
         private void OpenDelayedDevelopmentForm(string gradeLevel)
         {
+            string schoolYear = cbNumeracyLearnerEnrollment.SelectedItem.ToString();
             string selectedAssessmentPolling = cbPollingAssessment.SelectedItem.ToString();
-            DelayedDevelopmentForm form = new DelayedDevelopmentForm(gradeLevel, selectedAssessmentPolling);
+            DelayedDevelopmentForm form = new DelayedDevelopmentForm(schoolYear, gradeLevel, selectedAssessmentPolling);
             form.ShowDialog();
         }
 

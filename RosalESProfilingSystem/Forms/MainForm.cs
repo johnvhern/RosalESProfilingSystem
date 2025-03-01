@@ -22,6 +22,8 @@ namespace RosalESProfilingSystem.Forms
             this.Controls.Add(sidePanelNavigation);
 
             this.Load += MainForm_Load;
+
+            showAppVersion();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -70,6 +72,12 @@ namespace RosalESProfilingSystem.Forms
         private void btnMinimize_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void showAppVersion()
+        {
+            string version = Application.ProductVersion;
+            label1.Text = $"Rosal Elementary School Profiling System | Version: {version}";
         }
     }
 }
