@@ -37,12 +37,16 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cbSchoolYear = new MetroFramework.Controls.MetroComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.cbSchoolYear);
             this.panel2.Controls.Add(this.txtFilePath);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
@@ -53,7 +57,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1158, 208);
+            this.panel2.Size = new System.Drawing.Size(1158, 271);
             this.panel2.TabIndex = 8;
             // 
             // txtFilePath
@@ -68,7 +72,7 @@
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(12, 164);
+            this.textBox1.Location = new System.Drawing.Point(12, 232);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(222, 29);
             this.textBox1.TabIndex = 14;
@@ -76,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 105);
+            this.label1.Location = new System.Drawing.Point(12, 173);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 21);
             this.label1.TabIndex = 13;
@@ -94,7 +98,7 @@
             "MiddleName",
             "Gender",
             "RMAClassification"});
-            this.metroComboBox1.Location = new System.Drawing.Point(12, 129);
+            this.metroComboBox1.Location = new System.Drawing.Point(12, 197);
             this.metroComboBox1.Name = "metroComboBox1";
             this.metroComboBox1.Size = new System.Drawing.Size(222, 29);
             this.metroComboBox1.TabIndex = 10;
@@ -106,7 +110,7 @@
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(240, 164);
+            this.btnSearch.Location = new System.Drawing.Point(240, 232);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(142, 29);
             this.btnSearch.TabIndex = 11;
@@ -120,7 +124,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(37, 57);
+            this.btnSave.Location = new System.Drawing.Point(36, 57);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(169, 29);
             this.btnSave.TabIndex = 12;
@@ -150,11 +154,31 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 208);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 271);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1158, 560);
+            this.dataGridView1.Size = new System.Drawing.Size(1158, 497);
             this.dataGridView1.TabIndex = 9;
+            // 
+            // cbSchoolYear
+            // 
+            this.cbSchoolYear.FormattingEnabled = true;
+            this.cbSchoolYear.ItemHeight = 23;
+            this.cbSchoolYear.Location = new System.Drawing.Point(12, 141);
+            this.cbSchoolYear.Name = "cbSchoolYear";
+            this.cbSchoolYear.Size = new System.Drawing.Size(222, 29);
+            this.cbSchoolYear.TabIndex = 16;
+            this.cbSchoolYear.UseSelectable = true;
+            this.cbSchoolYear.DropDown += new System.EventHandler(this.cbSchoolYear_DropDown);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 21);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "School Year:";
             // 
             // Literacy_ProfOfLearners
             // 
@@ -189,5 +213,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFilePath;
+        private MetroFramework.Controls.MetroComboBox cbSchoolYear;
+        private System.Windows.Forms.Label label2;
     }
 }

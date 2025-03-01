@@ -63,10 +63,17 @@ namespace RosalESProfilingSystem.Forms
                     dataTable.Columns.Add("Age", typeof(int));
                     dataTable.Columns.Add("RMA Classification", typeof(string));
 
-                    int startRow = 6; // Data starts from row 5
+                    int startRow = 6; // Data starts from row 6
                     for (int row = startRow; row <= worksheet.Dimension.End.Row; row++)
                     {
                         var lrn = worksheet.Cells[row, 4].Text;
+
+                        if (string.IsNullOrWhiteSpace(worksheet.Cells[row, 1].Text) &&  // Last Name
+                        string.IsNullOrWhiteSpace(worksheet.Cells[row, 2].Text) &&  // First Name
+                        string.IsNullOrWhiteSpace(lrn))  // LRN (important identifier)
+                        {
+                            continue;
+                        }                           
 
                         if (!IsDataAlreadySaved(schoolYear, assessmentType, gradeLevel, lrn))
                         {
@@ -179,25 +186,30 @@ namespace RosalESProfilingSystem.Forms
         {
             try
             {
-
+                if (cbSchoolYear.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a school year, and enter a search term.");
+                    return;
+                }
+                string schoolYear = cbSchoolYear.SelectedItem.ToString();
                 string column = metroComboBox1.SelectedItem.ToString();
                 string searchValue = textBox1.Text.Trim();
 
-                if (string.IsNullOrEmpty(searchValue))
+                if (string.IsNullOrEmpty(searchValue) || string.IsNullOrEmpty(schoolYear))
                 {
-                    MessageBox.Show("Please enter a search term");
+                    MessageBox.Show("Please select a school year, and enter a search term.");
                     return;
                 }
 
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
                     conn.Open();
-                    string query = $"SELECT DISTINCT GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age FROM LearnersProfile WHERE {column} LIKE @SearchValue";
+                    string query = $"SELECT DISTINCT SchoolYear, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age FROM LearnersProfile WHERE {column} LIKE @SearchValue AND SchoolYear = @SchoolYear";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@SearchValue", $"%{searchValue}%");
-
+                        cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
                         DataTable dt = new DataTable();
                         using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                         {
@@ -210,6 +222,35 @@ namespace RosalESProfilingSystem.Forms
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occured: {ex.Message}");
+            }
+        }
+
+        private void cbSchoolYear_DropDown(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(dbConnection))
+                {
+                    string query = "SELECT DISTINCT SchoolYear FROM LearnersProfile ORDER BY SchoolYear ASC";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        conn.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            cbSchoolYear.Items.Clear();
+
+                            while (reader.Read())
+                            {
+                                cbSchoolYear.Items.Add(reader["SchoolYear"].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
             }
         }
     }

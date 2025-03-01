@@ -27,6 +27,12 @@ namespace RosalESProfilingSystem.Forms
         {
             try
             {
+                if (cbNumeracyLearnerEnrollment.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a school year.", "No School Year Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
                     conn.Open();
@@ -87,9 +93,11 @@ namespace RosalESProfilingSystem.Forms
 
         private int GetLearnerCount(SqlConnection conn, int gradeLevel)
         {
-            string query = "SELECT COUNT(DISTINCT LRN) FROM LearnersProfile WHERE GradeLevel = @GradeLevel";
+            string schoolYear = cbNumeracyLearnerEnrollment.SelectedItem.ToString();
+            string query = "SELECT COUNT(DISTINCT LRN) FROM LearnersProfile WHERE GradeLevel = @GradeLevel AND SchoolYear = @SchoolYear";
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
+                cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
                 cmd.Parameters.AddWithValue("@GradeLevel", gradeLevel);
                 return (int)cmd.ExecuteScalar();
             }
@@ -97,6 +105,12 @@ namespace RosalESProfilingSystem.Forms
 
         private void btnLoadRMA_Click(object sender, EventArgs e)
         {
+            if (cbNumeracyLearnerEnrollment.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a school year.", "No School Year Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             try
             {
                 string selectedAssessment = cbAssessmentType.SelectedItem.ToString();
@@ -111,12 +125,15 @@ namespace RosalESProfilingSystem.Forms
 
         private void TallyRMAData(string selectedAssessment)
         {
+           
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
-                string query = "SELECT RMAClassification, COUNT(*) AS Total FROM LearnersProfile WHERE AssessmentType = @AssessmentType AND GradeLevel IN ('1', '2', '3') GROUP BY RMAClassification";
+                string schoolYear = cbNumeracyLearnerEnrollment.SelectedItem.ToString();
+                string query = "SELECT RMAClassification, COUNT(*) AS Total FROM LearnersProfile WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('1', '2', '3') GROUP BY RMAClassification";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
+                    cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
                     cmd.Parameters.AddWithValue("@AssessmentType", selectedAssessment);
                     conn.Open();
 
@@ -200,19 +217,16 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
-        private void btnLoadPoll_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void TallyPollingData(string selectedAssessmentPolling)
         {
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
-                string query = "SELECT GradeLevel, RMAClassification, COUNT(*) AS Total FROM LearnersProfile WHERE AssessmentType = @AssessmentType AND GradeLevel IN ('1', '2', '3') GROUP BY GradeLevel, RMAClassification";
+                string schoolYear = cbNumeracyLearnerEnrollment.SelectedItem.ToString();
+                string query = "SELECT GradeLevel, RMAClassification, COUNT(*) AS Total FROM LearnersProfile WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('1', '2', '3') GROUP BY GradeLevel, RMAClassification";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
+                    cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
                     cmd.Parameters.AddWithValue("@AssessmentType", selectedAssessmentPolling);
                     conn.Open();
 
@@ -334,18 +348,59 @@ namespace RosalESProfilingSystem.Forms
             form.ShowDialog();
         }
 
-        private void cbPollingAssessment_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbNumeracyLearnerEnrollment_DropDown(object sender, EventArgs e)
         {
             try
             {
-                string selectedAssessmentPolling = cbPollingAssessment.SelectedItem.ToString();
-                TallyPollingData(selectedAssessmentPolling);
+                using (SqlConnection conn = new SqlConnection(dbConnection))
+                {
+                    string query = "SELECT DISTINCT SchoolYear FROM LearnersProfile ORDER BY SchoolYear ASC";
 
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        conn.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            cbNumeracyLearnerEnrollment.Items.Clear();
+
+                            while (reader.Read())
+                            {
+                                cbNumeracyLearnerEnrollment.Items.Add(reader["SchoolYear"].ToString());
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show($"Error: {ex.Message}");
             }
+        }
+
+        private void btnLoadPolling_Click(object sender, EventArgs e)
+        {
+            if (cbNumeracyLearnerEnrollment.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a school year.", "No School Year Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (cbPollingAssessment.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an assessment type.", "No Assessment Type Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+                try
+                {
+                    string selectedAssessmentPolling = cbPollingAssessment.SelectedItem.ToString();
+                    TallyPollingData(selectedAssessmentPolling);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+
         }
     }
 }
