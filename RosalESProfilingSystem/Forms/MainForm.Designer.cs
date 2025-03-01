@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.timeDateBar1 = new RosalESProfilingSystem.Components.TimeDateBar();
-            this.btnMinimize = new System.Windows.Forms.Button();
             this.metroPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -46,7 +46,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1158, 704);
+            this.panel1.Size = new System.Drawing.Size(1158, 710);
             this.panel1.TabIndex = 0;
             // 
             // metroPanel1
@@ -64,6 +64,19 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
+            this.btnMinimize.Location = new System.Drawing.Point(1100, 0);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(29, 34);
+            this.btnMinimize.TabIndex = 5;
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click_1);
             // 
             // btnClose
             // 
@@ -91,9 +104,9 @@
             // 
             this.panel3.Controls.Add(this.timeDateBar1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 738);
+            this.panel3.Location = new System.Drawing.Point(0, 744);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1158, 30);
+            this.panel3.Size = new System.Drawing.Size(1158, 24);
             this.panel3.TabIndex = 2;
             // 
             // timeDateBar1
@@ -104,21 +117,8 @@
             this.timeDateBar1.Location = new System.Drawing.Point(0, 0);
             this.timeDateBar1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.timeDateBar1.Name = "timeDateBar1";
-            this.timeDateBar1.Size = new System.Drawing.Size(1158, 30);
+            this.timeDateBar1.Size = new System.Drawing.Size(1158, 24);
             this.timeDateBar1.TabIndex = 0;
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimize.FlatAppearance.BorderSize = 0;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(1100, 0);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(29, 34);
-            this.btnMinimize.TabIndex = 5;
-            this.btnMinimize.UseVisualStyleBackColor = true;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click_1);
             // 
             // MainForm
             // 
@@ -131,7 +131,7 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(1158, 768);
+            this.MinimumSize = new System.Drawing.Size(1158, 730);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -1,1 +1,41 @@
+# Visual Studio-specific files and folders
 .vs/
+
+# Build output
+bin/
+obj/
+
+# NuGet Packages
+packages/
+
+# User-specific files
+*.user
+*.suo
+
+# Cache and build artifacts
+*.Cache
+*.pdb
+
+# Database files (Local MS SQL)
+*.mdf
+*.ldf
+
+# Backup and temp files
+*.bak
+*.tmp
+
+# IDE configuration files
+*.ideconfig
+
+# PDF exports (Avoid pushing generated reports)
+*.pdf
+
+# Excel files (Learner assessment uploads)
+*.xlsx
+*.xls
+
+# Logs and error reports
+*.log
+
+# EPPlus temporary files
+EPPlusTemp*
