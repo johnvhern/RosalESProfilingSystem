@@ -16,6 +16,7 @@ namespace RosalESProfilingSystem.Forms
 {
     public partial class Literacy_ProfOfLearners: Form
     {
+        OpenFileDialog openFileDialog;
         private string dbConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=RosalES;Integrated Security=True;";
         private DataTable dataTable = new DataTable();
         public Literacy_ProfOfLearners()
@@ -27,7 +28,7 @@ namespace RosalESProfilingSystem.Forms
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using (openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
 
@@ -35,6 +36,7 @@ namespace RosalESProfilingSystem.Forms
                 {
                     txtFilePath.Text = openFileDialog.FileName;
                     PreviewExcelData(openFileDialog.FileName);
+                    
                 }
             }
         }
@@ -46,8 +48,9 @@ namespace RosalESProfilingSystem.Forms
                 using (var package = new ExcelPackage(new FileInfo(fileName)))
                 {
                     var worksheet = package.Workbook.Worksheets[0];
-                    var assessmentType = worksheet.Cells[1, 2].Text;
-                    var gradeLevel = Convert.ToInt32(worksheet.Cells[2, 2].Value);
+                    var schoolYear = worksheet.Cells[1, 2].Text;
+                    var assessmentType = worksheet.Cells[2, 2].Text;
+                    var gradeLevel = Convert.ToInt32(worksheet.Cells[3, 2].Value);
 
                     dataTable.Clear();
                     dataTable.Columns.Clear();
@@ -60,32 +63,34 @@ namespace RosalESProfilingSystem.Forms
                     dataTable.Columns.Add("Age", typeof(int));
                     dataTable.Columns.Add("RMA Classification", typeof(string));
 
-                    int startRow = 5; // Data starts from row 5
+                    int startRow = 6; // Data starts from row 5
                     for (int row = startRow; row <= worksheet.Dimension.End.Row; row++)
                     {
-                        dataTable.Rows.Add(
-                            worksheet.Cells[row, 1].Text,
-                            worksheet.Cells[row, 2].Text,
-                            worksheet.Cells[row, 3].Text,
-                            worksheet.Cells[row, 4].Text,
-                            worksheet.Cells[row, 5].Text,
-                            Convert.ToInt32(worksheet.Cells[row, 6].Value),
-                            worksheet.Cells[row, 7].Text
-                        );
-                        
-                        if (IsDataAlreadySaved(worksheet.Cells[1,2], worksheet.Cells[row, 4]))
+                        var lrn = worksheet.Cells[row, 4].Text;
+
+                        if (!IsDataAlreadySaved(schoolYear, assessmentType, gradeLevel, lrn))
                         {
-                            MessageBox.Show("Data already saved in the database. Please check the data and try again.");
-                            return;
-                        }
-                        else
-                        {
-                            continue;
+                            dataTable.Rows.Add(
+                                worksheet.Cells[row, 1].Text,
+                                worksheet.Cells[row, 2].Text,
+                                worksheet.Cells[row, 3].Text,
+                                lrn,
+                                worksheet.Cells[row, 5].Text,
+                                Convert.ToInt32(worksheet.Cells[row, 6].Value),
+                                worksheet.Cells[row, 7].Text
+                            );
                         }
                     }
 
+                    if (dataTable.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Data already saved. Please upload another excel file", "Already Saved Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtFilePath.Clear();
+                        return;
+                    }
+
                     dataGridView1.DataSource = dataTable;
-                    dataGridView1.Tag = new { AssessmentType = assessmentType, GradeLevel = gradeLevel };
+                    dataGridView1.Tag = new { SchoolYear = schoolYear, AssessmentType = assessmentType, GradeLevel = gradeLevel };
                 }
             }
             catch (Exception ex)
@@ -94,16 +99,18 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
-        private bool IsDataAlreadySaved(ExcelRange excelRange1, ExcelRange excelRange2)
+        private bool IsDataAlreadySaved(string schoolYear, string assessmentType, int gradeLevel, string lrn)
         {
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
-                string query = "SELECT COUNT(*) FROM LearnersProfile WHERE AssessmentType = @AssessmentType AND LRN = @LRN";
+                string query = "SELECT COUNT(*) FROM LearnersProfile WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel = @GradeLevel AND LRN = @LRN";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@AssessmentType", excelRange1.Text);
-                    cmd.Parameters.AddWithValue("@LRN", excelRange2.Text);
+                    cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                    cmd.Parameters.AddWithValue("@AssessmentType", assessmentType);
+                    cmd.Parameters.AddWithValue("@GradeLevel", gradeLevel);
+                    cmd.Parameters.AddWithValue("@LRN", lrn);
                     conn.Open();
                     int count = (int)cmd.ExecuteScalar();
                     return count > 0;
@@ -111,11 +118,20 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
+
+                if (txtFilePath.Text == "")
+                {
+                    MessageBox.Show("Please import an excel file first.");
+                    return;
+                }
+
                 var metadata = (dynamic)dataGridView1.Tag;
+                string schoolYear = metadata.SchoolYear;
                 string assessmentType = metadata.AssessmentType;
                 int gradeLevel = metadata.GradeLevel;
 
@@ -127,11 +143,12 @@ namespace RosalESProfilingSystem.Forms
                             foreach (DataRow row in dataTable.Rows)
                             {
                                 string query = @"INSERT INTO LearnersProfile 
-                                         (AssessmentType, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age, RMAClassification) 
-                                         VALUES (@AssessmentType, @GradeLevel, @LastName, @FirstName, @MiddleName, @LRN, @Sex, @Age, @Classification)";
+                                         (SchoolYear, AssessmentType, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age, RMAClassification) 
+                                         VALUES (@SchoolYear, @AssessmentType, @GradeLevel, @LastName, @FirstName, @MiddleName, @LRN, @Sex, @Age, @Classification)";
 
                                 using (SqlCommand cmd = new SqlCommand(query, conn))
                                 {
+                                    cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
                                     cmd.Parameters.AddWithValue("@AssessmentType", assessmentType);
                                     cmd.Parameters.AddWithValue("@GradeLevel", gradeLevel);
                                     cmd.Parameters.AddWithValue("@LastName", row["Last Name"]);
@@ -147,6 +164,8 @@ namespace RosalESProfilingSystem.Forms
                             }
                 }
                 MessageBox.Show("Data successfully saved to the database!");
+                dataGridView1.DataSource = null;
+                txtFilePath.Clear();
             }
             catch (Exception ex)
             {
