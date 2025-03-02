@@ -178,6 +178,12 @@
     <Compile Include="Components\ContextMenuStrip_Numeracy.Designer.cs">
       <DependentUpon>ContextMenuStrip_Numeracy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\ExportPDFLoading_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\ExportPDFLoading_Form.Designer.cs">
+      <DependentUpon>ExportPDFLoading_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\SidePanelNavigation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\ContextMenuStrip_Numeracy.resx">
       <DependentUpon>ContextMenuStrip_Numeracy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ExportPDFLoading_Form.resx">
+      <DependentUpon>ExportPDFLoading_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\SidePanelNavigation.resx">
       <DependentUpon>SidePanelNavigation.cs</DependentUpon>

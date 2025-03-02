@@ -4,6 +4,7 @@ using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
+using RosalESProfilingSystem.Components;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,7 +67,7 @@ namespace RosalESProfilingSystem.Forms
             this.Text = $"Delayed Development Learners - Grade {_gradeLevel} ({_assessmentType} - {_schoolYear})";
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
+        private async void btnExport_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
@@ -77,62 +78,86 @@ namespace RosalESProfilingSystem.Forms
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                try
+                if (dataGridView1.Rows.Count == 0)
                 {
-                    if (dataGridView1.Rows.Count == 0)
+                    MessageBox.Show("No data available to export.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                using (Form loadingForm = new Form())
+                {
+                    loadingForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                    loadingForm.StartPosition = FormStartPosition.CenterScreen;
+                    loadingForm.Size = new System.Drawing.Size(300, 70);
+                    loadingForm.ControlBox = false;
+                    loadingForm.Text = "Exporting...";
+
+                    ProgressBar progressBar = new ProgressBar()
                     {
-                        MessageBox.Show("No data available to export.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                        Style = ProgressBarStyle.Marquee,
+                        Dock = DockStyle.Fill
+                    };
 
-                    using (FileStream fs = new FileStream(saveFileDialog.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
-                    using (PdfWriter writer = new PdfWriter(fs))
-                    using (PdfDocument pdf = new PdfDocument(writer))
-                    using (Document document = new Document(pdf))
+                    loadingForm.Controls.Add(progressBar);
+                    loadingForm.Show();
+
+                    await Task.Run(() => ExportToPDF(saveFileDialog.FileName));
+
+                    loadingForm.Close();
+                }
+
+                MessageBox.Show("Report exported successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void ExportToPDF(string fileName)
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
+                using (PdfWriter writer = new PdfWriter(fs))
+                using (PdfDocument pdf = new PdfDocument(writer))
+                using (Document document = new Document(pdf))
+                {
+                    PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+
+                    document.Add(new Paragraph($"Delayed Development Learners Report - Grade {_gradeLevel} {_assessmentType} - {_schoolYear}")
+                        .SetFont(boldFont)
+                        .SetFontSize(18)
+                        .SetTextAlignment(TextAlignment.CENTER));
+
+                    Table table = new Table(4).UseAllAvailableWidth();
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Grade Level").SetFont(boldFont)));
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
-
-                        document.Add(new Paragraph($"Delayed Development Learners Report - Grade {_gradeLevel} {_assessmentType} - {_schoolYear}")
-                            .SetFont(boldFont)
-                            .SetFontSize(18)
-                            .SetTextAlignment(TextAlignment.CENTER));
-
-                        Table table = new Table(4).UseAllAvailableWidth();
-                        table.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
-                        table.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
-                        table.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
-                        table.AddHeaderCell(new Cell().Add(new Paragraph("Grade Level").SetFont(boldFont)));
-
-                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        if (!row.IsNewRow)
                         {
-                            if (!row.IsNewRow)
-                            {
-                                table.AddCell(row.Cells["LastName"].Value?.ToString() ?? "");
-                                table.AddCell(row.Cells["FirstName"].Value?.ToString() ?? "");
-                                table.AddCell(row.Cells["LRN"].Value?.ToString() ?? "");
-                                table.AddCell(row.Cells["GradeLevel"].Value?.ToString() ?? "");
-                            }
+                            table.AddCell(row.Cells["LastName"].Value?.ToString() ?? "");
+                            table.AddCell(row.Cells["FirstName"].Value?.ToString() ?? "");
+                            table.AddCell(row.Cells["LRN"].Value?.ToString() ?? "");
+                            table.AddCell(row.Cells["GradeLevel"].Value?.ToString() ?? "");
                         }
-
-                        document.Add(table);
                     }
 
-                    MessageBox.Show("Report exported successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (IOException ioEx)
-                {
-                    MessageBox.Show($"File access error: {ioEx.Message}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (UnauthorizedAccessException uaEx)
-                {
-                    MessageBox.Show($"Access denied: {uaEx.Message}", "Permission Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An unknown error occurred: {ex}", "Unknown Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    document.Add(table);
                 }
             }
-
+            catch (IOException ioEx)
+            {
+                MessageBox.Show($"File access error: {ioEx.Message}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (UnauthorizedAccessException uaEx)
+            {
+                MessageBox.Show($"Access denied: {uaEx.Message}", "Permission Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unknown error occurred: {ex}", "Unknown Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
-}
+    }
