@@ -81,13 +81,30 @@ namespace RosalESProfilingSystem.Forms
                         {
                             adapter.Fill(dt);
                         }
-                        dataGridView1.DataSource = dt;
+                        gridLearners.DataSource = dt;
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occured: {ex.Message}");
+            }
+        }
+
+        private void gridLearners_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0){
+                DataGridViewRow row = gridLearners.Rows[e.RowIndex];
+
+                string lastName = row.Cells["LastName"].Value.ToString();
+                string firstName = row.Cells["FirstName"].Value.ToString();
+                string middleName = row.Cells["MiddleName"].Value.ToString();
+                string lrn = row.Cells["LRN"].Value.ToString();
+                string gradeLevel = row.Cells["GradeLevel"].Value.ToString();
+
+                txtNameofLearner.Text = $"{firstName} {middleName} {lastName}";
+                txtLRN.Text = lrn;
+                txtGradeLevel.Text = gradeLevel;
             }
         }
     }
