@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbSchoolYear = new MetroFramework.Controls.MetroComboBox();
             this.txtFilePath = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,8 +39,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cbSchoolYear = new MetroFramework.Controls.MetroComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1158, 271);
             this.panel2.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 21);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "School Year:";
+            // 
+            // cbSchoolYear
+            // 
+            this.cbSchoolYear.FormattingEnabled = true;
+            this.cbSchoolYear.ItemHeight = 23;
+            this.cbSchoolYear.Location = new System.Drawing.Point(12, 141);
+            this.cbSchoolYear.Name = "cbSchoolYear";
+            this.cbSchoolYear.Size = new System.Drawing.Size(222, 29);
+            this.cbSchoolYear.TabIndex = 16;
+            this.cbSchoolYear.UseSelectable = true;
+            this.cbSchoolYear.DropDown += new System.EventHandler(this.cbSchoolYear_DropDown);
             // 
             // txtFilePath
             // 
@@ -157,28 +177,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 271);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(1158, 497);
             this.dataGridView1.TabIndex = 9;
-            // 
-            // cbSchoolYear
-            // 
-            this.cbSchoolYear.FormattingEnabled = true;
-            this.cbSchoolYear.ItemHeight = 23;
-            this.cbSchoolYear.Location = new System.Drawing.Point(12, 141);
-            this.cbSchoolYear.Name = "cbSchoolYear";
-            this.cbSchoolYear.Size = new System.Drawing.Size(222, 29);
-            this.cbSchoolYear.TabIndex = 16;
-            this.cbSchoolYear.UseSelectable = true;
-            this.cbSchoolYear.DropDown += new System.EventHandler(this.cbSchoolYear_DropDown);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 117);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 21);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "School Year:";
             // 
             // Literacy_ProfOfLearners
             // 

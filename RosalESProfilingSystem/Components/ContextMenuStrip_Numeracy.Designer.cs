@@ -46,6 +46,7 @@
             this.btnProgTrack.TabIndex = 5;
             this.btnProgTrack.Text = "Numeracy Progress Tracking";
             this.btnProgTrack.UseVisualStyleBackColor = false;
+            this.btnProgTrack.Click += new System.EventHandler(this.btnProgTrack_Click);
             // 
             // btnProfLearners
             // 

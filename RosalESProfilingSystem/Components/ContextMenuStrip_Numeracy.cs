@@ -45,5 +45,11 @@ namespace RosalESProfilingSystem.Components
             numeracySkills.OpenForm(new Forms.Numeracy_Dashboard());
             ColorActiveButton((Button)sender);
         }
+
+        private void btnProgTrack_Click(object sender, EventArgs e)
+        {
+            numeracySkills.OpenForm(new Forms.NumeracyProgressTracking_Form());
+            ColorActiveButton((Button)sender);
+        }
     }
 }
