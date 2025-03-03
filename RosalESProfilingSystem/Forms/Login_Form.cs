@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace RosalESProfilingSystem.Forms
@@ -14,6 +15,10 @@ namespace RosalESProfilingSystem.Forms
     public partial class Login_Form : Form
     {
         private readonly string dbConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=RosalES;Integrated Security=True;";
+        private int loginAttempts = 0;
+        private const int maxLoginAttempts = 5;
+        private System.Timers.Timer timer;
+
         public Login_Form()
         {
             InitializeComponent();
@@ -42,19 +47,38 @@ namespace RosalESProfilingSystem.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
+            if (loginAttempts >= maxLoginAttempts)
+            {
+                MessageBox.Show("Maximum login attempts reached. Please try again later.");
+                return; 
+            }
+
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
 
             if (AuthenticateUser(username, password))
             {
                 MessageBox.Show("Login successful!");
+                loginAttempts = 0;
                 this.Hide();
                 Forms.MainForm mainForm = new Forms.MainForm();
                 mainForm.Show();
             }
             else
             {
-                MessageBox.Show("Invalid username or password.");
+                loginAttempts++;
+                MessageBox.Show($"Invalid username or password. Attempt {loginAttempts} of {maxLoginAttempts}");
+
+                if (loginAttempts >= maxLoginAttempts)
+                {
+                    btnLogin.Enabled = false;
+                    lblForgotPassword.Visible = true;
+                    timer = new System.Timers.Timer(60000);
+                    timer.Elapsed += UnlockLoginButton;
+                    timer.AutoReset = false;
+                    timer.Start();
+                }
             }
 
             //private void AddNewUser(object sender, EventArgs e)
@@ -106,6 +130,20 @@ namespace RosalESProfilingSystem.Forms
             //    }
         }
 
+        private void UnlockLoginButton(object sender, ElapsedEventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => btnLogin.Enabled = true));
+            }
+            else
+            {
+                btnLogin.Enabled = true;
+            }
+            loginAttempts = 0;
+            timer.Dispose();
+        }
+
         private bool AuthenticateUser(string username, string password)
         {
             try
@@ -134,6 +172,13 @@ namespace RosalESProfilingSystem.Forms
             return false;
         }
 
-       
+        private void lblForgotPassword_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Forms.ChangePassword_Form changePasswordForm = new Forms.ChangePassword_Form();
+            changePasswordForm.ShowDialog();
+            this.Close();
+
+        }
     }
 }
