@@ -232,7 +232,7 @@ namespace RosalESProfilingSystem.Forms
 
                         Series series = new Series
                         {
-                            Name = $"CRLA Classification {language}" ,
+                            Name = $"CRLA Classification {language}",
                             IsVisibleInLegend = true,
                             ChartType = SeriesChartType.Doughnut
                         };
@@ -290,5 +290,122 @@ namespace RosalESProfilingSystem.Forms
                 }
             }
         }
+
+        private void btnLoadPolling_Click(object sender, EventArgs e)
+        {
+            if (cbLiteracyLearnerEnrollment.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select school year.", "No School Year Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (cbPollingAssessment.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an assessment type.", "No Assessment Type Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (cbPollingLanguage.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a language.", "No Language Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                string languageColumn = "";
+
+                if (cbPollingLanguage.SelectedItem.ToString() == "Akeanon")
+                {
+                    languageColumn = "CRLAClassificationAkeanon";
+                }
+                else if (cbPollingLanguage.SelectedItem.ToString() == "Filipino")
+                {
+                    languageColumn = "CRLAClassificationFilipino";
+                }
+                else if (cbPollingLanguage.SelectedItem.ToString() == "English")
+                {
+                    languageColumn = "CRLAClassificationEnglish";
+                }
+                else
+                {
+                    MessageBox.Show("Invalid language selected.");
+                    return;
+                }
+
+                string assessmentType = cbPollingAssessment.SelectedItem.ToString();
+
+                TallyCRLAPolling(languageColumn, assessmentType);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void TallyCRLAPolling(string languageColumn, string assessmentType)
+        {
+            using (SqlConnection conn = new SqlConnection(dbConnection))
+            {
+                string language = cbPollingLanguage.SelectedItem.ToString();
+                string schoolYear = cbLiteracyLearnerEnrollment.SelectedItem.ToString();
+                string query = $@"SELECT GradeLevel, {languageColumn}, COUNT(*) AS Total FROM LearnersProfile WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('1', '2', '3') GROUP BY GradeLevel, {languageColumn}";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                    cmd.Parameters.AddWithValue("@AssessmentType", assessmentType);
+                    conn.Open();
+
+                    var gradeData = new Dictionary<string, Dictionary<string, int>>();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string gradeLevel = reader["GradeLevel"].ToString();
+                            string crlaLanguage = reader[$"{languageColumn}"].ToString();
+                            int total = Convert.ToInt32(reader["Total"]);
+
+                            if (!gradeData.ContainsKey(gradeLevel))
+                            {
+                                gradeData[gradeLevel] = new Dictionary<string, int>
+                                {
+                                    { "Low Emerging", 0},
+                                    { "High Emerging", 0},
+                                    { "Developing", 0},
+                                    { "Transitioning", 0},
+                                    { "Grade Ready", 0}
+                                };
+                            }
+
+                            gradeData[gradeLevel][crlaLanguage] = total;
+
+                        }
+
+                        DisplayedDelayed(gradeData, "1", txtDelayedNumbersG1, txtDelayedPercentG1);
+                        DisplayedDelayed(gradeData, "2", txtDelayedNumbersG2, txtDelayedPercentG2);
+                        DisplayedDelayed(gradeData, "3", txtDelayedNumbersG3, txtDelayedPercentG3);
+                    }
+                }
+            }
+        }
+
+        private void DisplayedDelayed(Dictionary<string, Dictionary<string, int>> gradeData, string grade, TextBox txtDelayedNumber, TextBox txtDelayedPercent)
+        {
+            if (gradeData.ContainsKey(grade))
+            {
+                var data = gradeData[grade];
+                int totalLearners = data.Values.Sum();
+                int delayedLearners = data["Low Emerging"] + data["High Emerging"] + data["Developing"] + data["Transitioning"];
+                double delayedPercentage = totalLearners > 0 ? ((double)delayedLearners / totalLearners) * 100 : 0;
+
+                txtDelayedNumber.Text = delayedLearners.ToString();
+                txtDelayedPercent.Text = $"{delayedPercentage:F2}%";
+            }
+            else
+            {
+                txtDelayedNumber.Text = "0";
+                txtDelayedPercent.Text = "0%";
+            }
+        }
     }
-    }
+}
