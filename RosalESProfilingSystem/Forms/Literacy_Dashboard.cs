@@ -410,8 +410,23 @@ namespace RosalESProfilingSystem.Forms
 
         private void btnViewDelayedG1_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrEmpty(txtDelayedNumbersG1.Text))
+            {
+                MessageBox.Show("No data to display for Grade 1. Please select school year and assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtDelayedNumbersG1.Text == "0")
+            {
+                MessageBox.Show("No delayed learners for Grade 1", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                OpenDelayedDevelopmentForm("1");
+            }
         }
+
+      
 
         private void btnViewDelayedG2_Click(object sender, EventArgs e)
         {
@@ -421,6 +436,11 @@ namespace RosalESProfilingSystem.Forms
         private void btnViewDelayedG3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void OpenDelayedDevelopmentForm(string gradeLevel)
+        {
+            throw new NotImplementedException();
         }
     }
 }

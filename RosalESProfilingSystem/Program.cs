@@ -25,7 +25,7 @@ namespace RosalESProfilingSystem
             System.Threading.Thread.Sleep(3000);
             splash.Close();
 
-            Application.Run(new Forms.MainForm());
+            Application.Run(new Forms.Login_Form());
         }
     }
 }
