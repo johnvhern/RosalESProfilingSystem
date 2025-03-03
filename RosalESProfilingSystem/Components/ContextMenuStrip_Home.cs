@@ -19,14 +19,14 @@ namespace RosalESProfilingSystem.Components
         {
             InitializeComponent();
             this.home = form;
-            ColorActiveButton(btnProfOfLearners);
+            ColorActiveButton(btnHome);
         }
 
         private void ColorActiveButton(Button btnHome)
         {
             if (activeButton != null)
             {
-                activeButton.BackColor = SystemColors.Control;
+                activeButton.BackColor = Color.WhiteSmoke;
                 activeButton.ForeColor = Color.Black;
             }
             activeButton = btnHome;

@@ -28,60 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnHome = new System.Windows.Forms.Button();
             this.btnProfOfLearners = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.Transparent;
-            this.btnHome.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnHome.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.btnHome.Location = new System.Drawing.Point(196, 0);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(207, 28);
-            this.btnHome.TabIndex = 3;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnProfOfLearners
             // 
-            this.btnProfOfLearners.BackColor = System.Drawing.Color.Transparent;
-            this.btnProfOfLearners.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnProfOfLearners.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnProfOfLearners.FlatAppearance.BorderSize = 0;
             this.btnProfOfLearners.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfOfLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfOfLearners.Location = new System.Drawing.Point(0, 0);
+            this.btnProfOfLearners.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProfOfLearners.Name = "btnProfOfLearners";
-            this.btnProfOfLearners.Size = new System.Drawing.Size(196, 28);
-            this.btnProfOfLearners.TabIndex = 2;
+            this.btnProfOfLearners.Size = new System.Drawing.Size(138, 28);
+            this.btnProfOfLearners.TabIndex = 0;
             this.btnProfOfLearners.Text = "Profile of Learners";
-            this.btnProfOfLearners.UseVisualStyleBackColor = false;
+            this.btnProfOfLearners.UseVisualStyleBackColor = true;
             this.btnProfOfLearners.Click += new System.EventHandler(this.btnProfLearners_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Location = new System.Drawing.Point(138, 0);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(88, 28);
+            this.btnHome.TabIndex = 1;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // ContextMenuStrip_Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnProfOfLearners);
-            this.MaximumSize = new System.Drawing.Size(403, 28);
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ContextMenuStrip_Home";
-            this.Size = new System.Drawing.Size(403, 28);
+            this.Size = new System.Drawing.Size(553, 28);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnProfOfLearners;
+        private System.Windows.Forms.Button btnHome;
     }
 }

@@ -18,6 +18,7 @@ namespace RosalESProfilingSystem.Forms
         public NumeracyProgressTracking_Form()
         {
             InitializeComponent();
+            cbSearchTerm.SelectedIndex = 0;
         }
 
         private void cbSchoolYear_DropDown(object sender, EventArgs e)
@@ -61,9 +62,9 @@ namespace RosalESProfilingSystem.Forms
                 string column = cbSearchTerm.SelectedItem.ToString();
                 string searchValue = textBox1.Text.Trim();
 
-                if (string.IsNullOrEmpty(searchValue) || string.IsNullOrEmpty(schoolYear))
+                if (string.IsNullOrEmpty(searchValue))
                 {
-                    MessageBox.Show("Please select a school year, and enter a search term.");
+                    MessageBox.Show("Please enter a search term.");
                     return;
                 }
 

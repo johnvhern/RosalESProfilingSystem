@@ -42,7 +42,7 @@
             this.btnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.Location = new System.Drawing.Point(0, 0);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(196, 28);
+            this.btnDashboard.Size = new System.Drawing.Size(146, 28);
             this.btnDashboard.TabIndex = 0;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
@@ -56,9 +56,9 @@
             this.btnProgTrack.FlatAppearance.BorderSize = 0;
             this.btnProgTrack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProgTrack.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.btnProgTrack.Location = new System.Drawing.Point(196, 0);
+            this.btnProgTrack.Location = new System.Drawing.Point(146, 0);
             this.btnProgTrack.Name = "btnProgTrack";
-            this.btnProgTrack.Size = new System.Drawing.Size(211, 28);
+            this.btnProgTrack.Size = new System.Drawing.Size(194, 28);
             this.btnProgTrack.TabIndex = 2;
             this.btnProgTrack.Text = "Literacy Progress Tracking";
             this.btnProgTrack.UseVisualStyleBackColor = false;

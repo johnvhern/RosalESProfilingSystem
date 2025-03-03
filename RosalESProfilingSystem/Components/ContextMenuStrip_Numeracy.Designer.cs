@@ -40,9 +40,9 @@
             this.btnProgTrack.FlatAppearance.BorderSize = 0;
             this.btnProgTrack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProgTrack.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.btnProgTrack.Location = new System.Drawing.Point(196, 0);
+            this.btnProgTrack.Location = new System.Drawing.Point(138, 0);
             this.btnProgTrack.Name = "btnProgTrack";
-            this.btnProgTrack.Size = new System.Drawing.Size(234, 28);
+            this.btnProgTrack.Size = new System.Drawing.Size(205, 28);
             this.btnProgTrack.TabIndex = 5;
             this.btnProgTrack.Text = "Numeracy Progress Tracking";
             this.btnProgTrack.UseVisualStyleBackColor = false;
@@ -58,7 +58,7 @@
             this.btnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.Location = new System.Drawing.Point(0, 0);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(196, 28);
+            this.btnDashboard.Size = new System.Drawing.Size(138, 28);
             this.btnDashboard.TabIndex = 3;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
@@ -68,6 +68,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnProgTrack);
             this.Controls.Add(this.btnDashboard);
             this.Name = "ContextMenuStrip_Numeracy";
