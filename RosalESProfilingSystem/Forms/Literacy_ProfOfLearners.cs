@@ -156,8 +156,8 @@ namespace RosalESProfilingSystem.Forms
                             foreach (DataRow row in dataTable.Rows)
                             {
                                 string query = @"INSERT INTO LearnersProfile 
-                                         (SchoolYear, AssessmentType, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age, RMAClassification) 
-                                         VALUES (@SchoolYear, @AssessmentType, @GradeLevel, @LastName, @FirstName, @MiddleName, @LRN, @Sex, @Age, @Classification)";
+                                         (SchoolYear, AssessmentType, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age, RMAClassification, CRLAClassificationAkeanon, CRLAClassificationFilipino, CRLAClassificationEnglish) 
+                                         VALUES (@SchoolYear, @AssessmentType, @GradeLevel, @LastName, @FirstName, @MiddleName, @LRN, @Sex, @Age, @RMAClassification, @CRLAClassificationAkeanon, @CRLAClassificationFilipino, @CRLAClassificationEnglish)";
 
                                 using (SqlCommand cmd = new SqlCommand(query, conn))
                                 {
@@ -170,9 +170,12 @@ namespace RosalESProfilingSystem.Forms
                                     cmd.Parameters.AddWithValue("@LRN", row["LRN"]);
                                     cmd.Parameters.AddWithValue("@Sex", row["Sex"]);
                                     cmd.Parameters.AddWithValue("@Age", row["Age"]);
-                                    cmd.Parameters.AddWithValue("@Classification", row["RMA Classification"]);
+                                    cmd.Parameters.AddWithValue("@RMAClassification", row["RMA Classification"]);
+                                    cmd.Parameters.AddWithValue("@CRLAClassificationAkeanon", row["CRLA Classification (Akeanon)"]);
+                                    cmd.Parameters.AddWithValue("@CRLAClassificationFilipino", row["CRLA Classification (Filipino)"]);
+                                    cmd.Parameters.AddWithValue("@CRLAClassificationEnglish", row["CRLA Classification (English)"]);
 
-                                    cmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
                                 }
                             }
                 }
