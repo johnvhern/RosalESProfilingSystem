@@ -345,7 +345,7 @@ namespace RosalESProfilingSystem.Forms
         {
             string schoolYear = cbNumeracyLearnerEnrollment.SelectedItem.ToString();
             string selectedAssessmentPolling = cbPollingAssessment.SelectedItem.ToString();
-            DelayedDevelopmentForm form = new DelayedDevelopmentForm(schoolYear, gradeLevel, selectedAssessmentPolling);
+            DelayedDevelopmentForm_Numeracy form = new DelayedDevelopmentForm_Numeracy(schoolYear, gradeLevel, selectedAssessmentPolling);
             form.ShowDialog();
         }
 

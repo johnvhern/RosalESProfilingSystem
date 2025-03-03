@@ -202,11 +202,17 @@
     <Compile Include="Components\TimeDateBar.Designer.cs">
       <DependentUpon>TimeDateBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DelayedDevelopmentForm.cs">
+    <Compile Include="Forms\DelayedDevelopmentForm_Literacy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DelayedDevelopmentForm.Designer.cs">
-      <DependentUpon>DelayedDevelopmentForm.cs</DependentUpon>
+    <Compile Include="Forms\DelayedDevelopmentForm_Literacy.Designer.cs">
+      <DependentUpon>DelayedDevelopmentForm_Literacy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DelayedDevelopmentForm_Numeracy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DelayedDevelopmentForm_Numeracy.Designer.cs">
+      <DependentUpon>DelayedDevelopmentForm_Numeracy.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
@@ -288,8 +294,11 @@
     <EmbeddedResource Include="Components\TimeDateBar.resx">
       <DependentUpon>TimeDateBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DelayedDevelopmentForm.resx">
-      <DependentUpon>DelayedDevelopmentForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DelayedDevelopmentForm_Literacy.resx">
+      <DependentUpon>DelayedDevelopmentForm_Literacy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DelayedDevelopmentForm_Numeracy.resx">
+      <DependentUpon>DelayedDevelopmentForm_Numeracy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

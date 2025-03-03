@@ -20,14 +20,14 @@ using System.Xml.Linq;
 
 namespace RosalESProfilingSystem.Forms
 {
-    public partial class DelayedDevelopmentForm: Form
+    public partial class DelayedDevelopmentForm_Numeracy: Form
     {
         private string dbConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=RosalES;Integrated Security=True;";
 
         private string _schoolYear;
         private string _gradeLevel;
         private string _assessmentType;
-        public DelayedDevelopmentForm(string schoolYear, string gradeLevel, string assessmentType)
+        public DelayedDevelopmentForm_Numeracy(string schoolYear, string gradeLevel, string assessmentType)
         {
             InitializeComponent();
             _schoolYear = schoolYear;

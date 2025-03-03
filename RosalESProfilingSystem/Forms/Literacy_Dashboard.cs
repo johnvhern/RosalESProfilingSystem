@@ -407,5 +407,20 @@ namespace RosalESProfilingSystem.Forms
                 txtDelayedPercent.Text = "0%";
             }
         }
+
+        private void btnViewDelayedG1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnViewDelayedG2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnViewDelayedG3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

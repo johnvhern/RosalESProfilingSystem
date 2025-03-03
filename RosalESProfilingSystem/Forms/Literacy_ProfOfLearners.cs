@@ -213,7 +213,7 @@ namespace RosalESProfilingSystem.Forms
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
                     conn.Open();
-                    string query = $"SELECT DISTINCT SchoolYear, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age FROM LearnersProfile WHERE {column} LIKE @SearchValue AND SchoolYear = @SchoolYear";
+                    string query = $"SELECT DISTINCT GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age FROM LearnersProfile WHERE {column} LIKE @SearchValue AND SchoolYear = @SchoolYear";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
