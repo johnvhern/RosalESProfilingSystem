@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.topPanel = new System.Windows.Forms.Panel();
             this.gridLearners = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -117,7 +117,7 @@
             this.gridLearners.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridLearners.Size = new System.Drawing.Size(454, 507);
             this.gridLearners.TabIndex = 1;
-            this.gridLearners.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridLearners_CellContentDoubleClick);
+            this.gridLearners.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridLearners_CellDoubleClick);
             // 
             // panel2
             // 
@@ -216,7 +216,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.80925F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.19075F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 181F));
             this.tableLayoutPanel2.Controls.Add(this.btnSearch, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(93, 165);
@@ -234,7 +234,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(40, 3);
+            this.btnSearch.Location = new System.Drawing.Point(39, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(134, 29);
             this.btnSearch.TabIndex = 0;
@@ -429,6 +429,7 @@
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox5.Location = new System.Drawing.Point(259, 3);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(73, 27);
             this.textBox5.TabIndex = 2;
             // 
@@ -437,6 +438,7 @@
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox6.Location = new System.Drawing.Point(259, 37);
             this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(73, 27);
             this.textBox6.TabIndex = 3;
             // 
@@ -453,17 +455,17 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(3, 115);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(352, 347);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
@@ -531,6 +533,7 @@
             this.txtNameofLearner.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNameofLearner.Location = new System.Drawing.Point(158, 34);
             this.txtNameofLearner.Name = "txtNameofLearner";
+            this.txtNameofLearner.ReadOnly = true;
             this.txtNameofLearner.Size = new System.Drawing.Size(237, 27);
             this.txtNameofLearner.TabIndex = 2;
             // 
@@ -540,6 +543,7 @@
             this.txtGradeLevel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtGradeLevel.Location = new System.Drawing.Point(158, 68);
             this.txtGradeLevel.Name = "txtGradeLevel";
+            this.txtGradeLevel.ReadOnly = true;
             this.txtGradeLevel.Size = new System.Drawing.Size(237, 27);
             this.txtGradeLevel.TabIndex = 3;
             // 
@@ -560,6 +564,7 @@
             this.txtLRN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLRN.Location = new System.Drawing.Point(457, 34);
             this.txtLRN.Name = "txtLRN";
+            this.txtLRN.ReadOnly = true;
             this.txtLRN.Size = new System.Drawing.Size(236, 27);
             this.txtLRN.TabIndex = 5;
             // 

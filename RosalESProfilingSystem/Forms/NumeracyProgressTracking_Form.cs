@@ -57,7 +57,7 @@ namespace RosalESProfilingSystem.Forms
                     MessageBox.Show("Please select a school year, and enter a search term.");
                     return;
                 }
-                string schoolYear = cbSchoolYear.SelectedItem.ToString();
+                string schoolYear = cbSchoolYear.SelectedItem.ToString(); 
                 string column = cbSearchTerm.SelectedItem.ToString();
                 string searchValue = textBox1.Text.Trim();
 
@@ -91,9 +91,10 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
-        private void gridLearners_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void gridLearners_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0){
+            if (e.RowIndex >= 0)
+            {
                 DataGridViewRow row = gridLearners.Rows[e.RowIndex];
 
                 string lastName = row.Cells["LastName"].Value.ToString();

@@ -62,6 +62,9 @@ namespace RosalESProfilingSystem.Forms
                     dataTable.Columns.Add("Sex", typeof(string));
                     dataTable.Columns.Add("Age", typeof(int));
                     dataTable.Columns.Add("RMA Classification", typeof(string));
+                    dataTable.Columns.Add("CRLA Classification (Akeanon)", typeof(string));
+                    dataTable.Columns.Add("CRLA Classification (Filipino)", typeof(string));
+                    dataTable.Columns.Add("CRLA Classification (English)", typeof(string));
 
                     int startRow = 6; // Data starts from row 6
                     for (int row = startRow; row <= worksheet.Dimension.End.Row; row++)
@@ -84,7 +87,10 @@ namespace RosalESProfilingSystem.Forms
                                 lrn,
                                 worksheet.Cells[row, 5].Text,
                                 Convert.ToInt32(worksheet.Cells[row, 6].Value),
-                                worksheet.Cells[row, 7].Text
+                                worksheet.Cells[row, 7].Text,
+                                worksheet.Cells[row, 8].Text,
+                                worksheet.Cells[row, 9].Text,
+                                worksheet.Cells[row, 10].Text
                             );
                         }
                     }

@@ -36,9 +36,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.panel1.MinimumSize = new System.Drawing.Size(1366, 768);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1366, 768);
+            this.panel1.Size = new System.Drawing.Size(1158, 768);
             this.panel1.TabIndex = 2;
             // 
             // Literacy_Skills
