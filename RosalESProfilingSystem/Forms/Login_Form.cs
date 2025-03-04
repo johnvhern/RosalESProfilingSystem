@@ -21,7 +21,8 @@ namespace RosalESProfilingSystem.Forms
 
         public Login_Form()
         {
-            InitializeComponent();
+            InitializeComponent();           
+            this.ActiveControl = label1;
         }
 
         //private string HashPassword(string password)
@@ -187,7 +188,10 @@ namespace RosalESProfilingSystem.Forms
 
         private void cbShowPass_CheckedChanged(object sender, EventArgs e)
         {
-            txtPassword.UseSystemPasswordChar = !cbShowPass.Checked;
+           
+                txtPassword.UseSystemPasswordChar = !txtPassword.UseSystemPasswordChar;
+            
         }
+
     }
 }
