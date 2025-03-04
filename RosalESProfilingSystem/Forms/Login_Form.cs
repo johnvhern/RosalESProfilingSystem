@@ -24,10 +24,10 @@ namespace RosalESProfilingSystem.Forms
             InitializeComponent();
         }
 
-        private string HashPassword(string password)
-        {
-            return BCrypt.Net.BCrypt.HashPassword(password);
-        }
+        //private string HashPassword(string password)
+        //{
+        //    return BCrypt.Net.BCrypt.HashPassword(password);
+        //}
 
         private bool verifyPassword(string password, string hash)
         {
@@ -42,6 +42,10 @@ namespace RosalESProfilingSystem.Forms
             if (dialogResult == DialogResult.Yes)
             {
                 Application.Exit();
+            }
+            else
+            {
+                return;
             }
         }
 
@@ -179,6 +183,11 @@ namespace RosalESProfilingSystem.Forms
             changePasswordForm.ShowDialog();
             this.Close();
 
+        }
+
+        private void cbShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = !cbShowPass.Checked;
         }
     }
 }
