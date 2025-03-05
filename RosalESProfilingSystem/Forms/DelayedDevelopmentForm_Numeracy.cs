@@ -121,9 +121,9 @@ namespace RosalESProfilingSystem.Forms
                 {
                     PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
-                    document.Add(new Paragraph($"Delayed Development Learners Report - Grade {_gradeLevel} {_assessmentType} - {_schoolYear}")
+                    document.Add(new Paragraph($"Delayed Development Learners in Numeracy Report - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
                         .SetFont(boldFont)
-                        .SetFontSize(18)
+                        .SetFontSize(14)
                         .SetTextAlignment(TextAlignment.CENTER));
 
                     Table table = new Table(4).UseAllAvailableWidth();

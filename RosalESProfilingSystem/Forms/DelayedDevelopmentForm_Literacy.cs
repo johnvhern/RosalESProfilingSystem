@@ -1,9 +1,16 @@
-﻿using System;
+﻿using iText.IO.Font.Constants;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,5 +83,99 @@ namespace RosalESProfilingSystem.Forms
                 this.Text = $"Delayed Development Learners in Literacy ({_originalLanguage}) - Grade {_gradeLevel} ({_assessmentType} - {_schoolYear})";
             }
         }
+
+        private async void btnExport_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "PDF files (*.pdf)|*.pdf",
+                Title = "Save Delayed Development in Literacy Report",
+                FileName = $"Learners with Delayed Development in Literacy Report ({_originalLanguage}) - Grade {_gradeLevel} ({_assessmentType} {_schoolYear}).pdf"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("No data available to export.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                using (Form loadingForm = new Form())
+                {
+                    loadingForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                    loadingForm.StartPosition = FormStartPosition.CenterScreen;
+                    loadingForm.Size = new System.Drawing.Size(300, 70);
+                    loadingForm.ControlBox = false;
+                    loadingForm.Text = "Exporting...";
+
+                    ProgressBar progressBar = new ProgressBar()
+                    {
+                        Style = ProgressBarStyle.Marquee,
+                        Dock = DockStyle.Fill
+                    };
+
+                    loadingForm.Controls.Add(progressBar);
+                    loadingForm.Show();
+
+                    await Task.Run(() => ExportToPDF(saveFileDialog.FileName));
+
+                    loadingForm.Close();
+                }
+
+                MessageBox.Show("Report exported successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void ExportToPDF(string fileName)
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
+                using (PdfWriter writer = new PdfWriter(fs))
+                using (PdfDocument pdf = new PdfDocument(writer))
+                using (Document document = new Document(pdf))
+                {
+                    PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+
+                    document.Add(new Paragraph($"Delayed Development Learners in Literacy Report ({_originalLanguage}) - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
+                        .SetFont(boldFont)
+                        .SetFontSize(14)
+                        .SetTextAlignment(TextAlignment.CENTER));
+
+                    Table table = new Table(4).UseAllAvailableWidth();
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
+                    table.AddHeaderCell(new Cell().Add(new Paragraph("Grade Level").SetFont(boldFont)));
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (!row.IsNewRow)
+                        {
+                            table.AddCell(row.Cells["LastName"].Value?.ToString() ?? "");
+                            table.AddCell(row.Cells["FirstName"].Value?.ToString() ?? "");
+                            table.AddCell(row.Cells["LRN"].Value?.ToString() ?? "");
+                            table.AddCell(row.Cells["GradeLevel"].Value?.ToString() ?? "");
+                        }
+                    }
+
+                    document.Add(table);
+                }
+            }
+            catch (IOException ioEx)
+            {
+                MessageBox.Show($"File access error: {ioEx.Message}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (UnauthorizedAccessException uaEx)
+            {
+                MessageBox.Show($"Access denied: {uaEx.Message}", "Permission Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unknown error occurred: {ex}", "Unknown Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
-}
+    }
+
