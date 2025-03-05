@@ -53,5 +53,11 @@ namespace RosalESProfilingSystem.Components
             mainForm.OpenForm(new Forms.Numeracy_Skills());
             ColorActiveButton((Button)sender);
         }
+
+        private void btnSciProf_Click(object sender, EventArgs e)
+        {
+            mainForm.OpenForm(new Forms.ScienceProficiency());
+            ColorActiveButton((Button)sender);
+        }
     }
 }

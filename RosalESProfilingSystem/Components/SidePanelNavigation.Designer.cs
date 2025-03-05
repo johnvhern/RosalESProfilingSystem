@@ -110,6 +110,7 @@
             this.btnSciProf.Text = "Science Proficiency";
             this.btnSciProf.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnSciProf.UseVisualStyleBackColor = true;
+            this.btnSciProf.Click += new System.EventHandler(this.btnSciProf_Click);
             // 
             // pictureBox1
             // 
