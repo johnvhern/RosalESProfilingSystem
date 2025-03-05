@@ -25,18 +25,6 @@ namespace RosalESProfilingSystem.Forms
 
         }
 
-        private void Literacy_Dashboard_Resize(object sender, EventArgs e)
-        {
-
-            int y = Screen.PrimaryScreen.Bounds.Height;
-            int x = Screen.PrimaryScreen.Bounds.Width;
-            this.Height = y - 40;
-            this.Width = x;
-            this.Left = 0;
-            this.Top = 0;
-
-        }
-
         private void cbNumeracyLearnerEnrollment_DropDown(object sender, EventArgs e)
         {
             try
@@ -430,17 +418,47 @@ namespace RosalESProfilingSystem.Forms
 
         private void btnViewDelayedG2_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrEmpty(txtDelayedNumbersG2.Text))
+            {
+                MessageBox.Show("No data to display for Grade 2. Please select school year and assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtDelayedNumbersG2.Text == "0")
+            {
+                MessageBox.Show("No delayed learners for Grade 2", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                OpenDelayedDevelopmentForm("2");
+            }
         }
 
         private void btnViewDelayedG3_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrEmpty(txtDelayedNumbersG3.Text))
+            {
+                MessageBox.Show("No data to display for Grade 3. Please select school year and assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtDelayedNumbersG3.Text == "0")
+            {
+                MessageBox.Show("No delayed learners for Grade 3", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                OpenDelayedDevelopmentForm("3");
+            }
         }
 
         private void OpenDelayedDevelopmentForm(string gradeLevel)
         {
-            throw new NotImplementedException();
+            string schoolYear = cbLiteracyLearnerEnrollment.SelectedItem.ToString();
+            string selectedAssessmentPolling = cbPollingAssessment.SelectedItem.ToString();
+            string selectedLanguage = cbPollingLanguage.SelectedItem.ToString();
+            DelayedDevelopmentForm_Literacy form = new DelayedDevelopmentForm_Literacy(schoolYear, gradeLevel, selectedAssessmentPolling, selectedLanguage);
+            form.ShowDialog();
         }
     }
 }

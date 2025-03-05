@@ -64,7 +64,7 @@ namespace RosalESProfilingSystem.Forms
                     dataGridView1.DataSource = dt;
                 }
             }
-            this.Text = $"Delayed Development Learners - Grade {_gradeLevel} ({_assessmentType} - {_schoolYear})";
+            this.Text = $"Delayed Development Learners in Numeracy - Grade {_gradeLevel} ({_assessmentType} - {_schoolYear})";
         }
 
         private async void btnExport_Click(object sender, EventArgs e)
