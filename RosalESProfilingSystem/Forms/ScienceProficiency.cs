@@ -15,7 +15,11 @@ namespace RosalESProfilingSystem.Forms
     {
         public ScienceProficiency()
         {
+           
             InitializeComponent();
+            ContextMenuStrip_Science contextMenuStrip_Science = new ContextMenuStrip_Science(this);
+            contextMenuStrip_Science.Dock = DockStyle.Top;
+            this.Controls.Add(contextMenuStrip_Science);
             this.Load += MainForm_Load;
         }
 
@@ -24,7 +28,7 @@ namespace RosalESProfilingSystem.Forms
             OpenForm(new ScienceProficiency_Dashboard());
         }
 
-        private void OpenForm(Form form)
+        public void OpenForm(Form form)
         {
             panel1.Controls.Clear();
 
