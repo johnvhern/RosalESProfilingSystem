@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.topPanel = new System.Windows.Forms.Panel();
             this.gridLearners = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -216,7 +216,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.80925F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.19075F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 181F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
             this.tableLayoutPanel2.Controls.Add(this.btnSearch, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(93, 165);
@@ -236,7 +236,7 @@
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Location = new System.Drawing.Point(39, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(134, 29);
+            this.btnSearch.Size = new System.Drawing.Size(133, 29);
             this.btnSearch.TabIndex = 0;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -426,6 +426,7 @@
             // 
             // textBox5
             // 
+            this.textBox5.BackColor = System.Drawing.Color.White;
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox5.Location = new System.Drawing.Point(259, 3);
             this.textBox5.Name = "textBox5";
@@ -435,6 +436,7 @@
             // 
             // textBox6
             // 
+            this.textBox6.BackColor = System.Drawing.Color.White;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox6.Location = new System.Drawing.Point(259, 37);
             this.textBox6.Name = "textBox6";
@@ -446,6 +448,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(3, 92);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(352, 20);
@@ -455,17 +458,17 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(3, 115);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(352, 347);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
@@ -529,6 +532,7 @@
             // 
             // txtNameofLearner
             // 
+            this.txtNameofLearner.BackColor = System.Drawing.Color.White;
             this.txtNameofLearner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNameofLearner.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNameofLearner.Location = new System.Drawing.Point(158, 34);
@@ -539,6 +543,7 @@
             // 
             // txtGradeLevel
             // 
+            this.txtGradeLevel.BackColor = System.Drawing.Color.White;
             this.txtGradeLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGradeLevel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtGradeLevel.Location = new System.Drawing.Point(158, 68);
@@ -560,6 +565,7 @@
             // 
             // txtLRN
             // 
+            this.txtLRN.BackColor = System.Drawing.Color.White;
             this.txtLRN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLRN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLRN.Location = new System.Drawing.Point(457, 34);
