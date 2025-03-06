@@ -61,37 +61,60 @@ namespace RosalESProfilingSystem.Forms
                     dataTable.Columns.Add("LRN", typeof(string));
                     dataTable.Columns.Add("Sex", typeof(string));
                     dataTable.Columns.Add("Age", typeof(int));
-                    dataTable.Columns.Add("RMA Classification", typeof(string));
-                    dataTable.Columns.Add("CRLA Classification (Akeanon)", typeof(string));
-                    dataTable.Columns.Add("CRLA Classification (Filipino)", typeof(string));
-                    dataTable.Columns.Add("CRLA Classification (English)", typeof(string));
 
-                    int startRow = 6; // Data starts from row 6
+                    if (gradeLevel <= 3)
+                    {
+                        dataTable.Columns.Add("RMA Classification", typeof(string));
+                        dataTable.Columns.Add("CRLA Classification (Akeanon)", typeof(string));
+                        dataTable.Columns.Add("CRLA Classification (Filipino)", typeof(string));
+                        dataTable.Columns.Add("CRLA Classification (English)", typeof(string));
+                    }
+                    else
+                    {
+                        dataTable.Columns.Add("Classification Level", typeof(string));
+                    }
+
+                    int startRow = 6;
                     for (int row = startRow; row <= worksheet.Dimension.End.Row; row++)
                     {
                         var lrn = worksheet.Cells[row, 4].Text;
 
-                        if (string.IsNullOrWhiteSpace(worksheet.Cells[row, 1].Text) &&  // Last Name
-                        string.IsNullOrWhiteSpace(worksheet.Cells[row, 2].Text) &&  // First Name
-                        string.IsNullOrWhiteSpace(lrn))  // LRN (important identifier)
+                        if (string.IsNullOrWhiteSpace(worksheet.Cells[row, 1].Text) &&
+                            string.IsNullOrWhiteSpace(worksheet.Cells[row, 2].Text) &&
+                            string.IsNullOrWhiteSpace(lrn))
                         {
                             continue;
-                        }                           
+                        }
 
                         if (!IsDataAlreadySaved(schoolYear, assessmentType, gradeLevel, lrn))
                         {
-                            dataTable.Rows.Add(
-                                worksheet.Cells[row, 1].Text,
-                                worksheet.Cells[row, 2].Text,
-                                worksheet.Cells[row, 3].Text,
-                                lrn,
-                                worksheet.Cells[row, 5].Text,
-                                Convert.ToInt32(worksheet.Cells[row, 6].Value),
-                                worksheet.Cells[row, 7].Text,
-                                worksheet.Cells[row, 8].Text,
-                                worksheet.Cells[row, 9].Text,
-                                worksheet.Cells[row, 10].Text
-                            );
+                            if (gradeLevel <= 3)
+                            {
+                                dataTable.Rows.Add(
+                                    worksheet.Cells[row, 1].Text,
+                                    worksheet.Cells[row, 2].Text,
+                                    worksheet.Cells[row, 3].Text,
+                                    lrn,
+                                    worksheet.Cells[row, 5].Text,
+                                    Convert.ToInt32(worksheet.Cells[row, 6].Value),
+                                    worksheet.Cells[row, 7].Text,
+                                    worksheet.Cells[row, 8].Text,
+                                    worksheet.Cells[row, 9].Text,
+                                    worksheet.Cells[row, 10].Text
+                                );
+                            }
+                            else
+                            {
+                                dataTable.Rows.Add(
+                                    worksheet.Cells[row, 1].Text,
+                                    worksheet.Cells[row, 2].Text,
+                                    worksheet.Cells[row, 3].Text,
+                                    lrn,
+                                    worksheet.Cells[row, 5].Text,
+                                    Convert.ToInt32(worksheet.Cells[row, 6].Value),
+                                    worksheet.Cells[row, 7].Text
+                                );
+                            }
                         }
                     }
 
@@ -116,7 +139,7 @@ namespace RosalESProfilingSystem.Forms
         {
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
-                string query = "SELECT COUNT(*) FROM LearnersProfile WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel = @GradeLevel AND LRN = @LRN";
+                string query = "SELECT COUNT(*) FROM " + (gradeLevel <= 3 ? "LearnersProfile" : "LearnersProfileScience") + " WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel = @GradeLevel AND LRN = @LRN";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -136,57 +159,80 @@ namespace RosalESProfilingSystem.Forms
         {
             try
             {
-
-                if (txtFilePath.Text == "")
+                if (string.IsNullOrWhiteSpace(txtFilePath.Text))
                 {
                     MessageBox.Show("Please import an excel file first.");
                     return;
                 }
 
-                var metadata = (dynamic)dataGridView1.Tag;
-                string schoolYear = metadata.SchoolYear;
-                string assessmentType = metadata.AssessmentType;
-                int gradeLevel = metadata.GradeLevel;
-
-
-                using (SqlConnection conn = new SqlConnection(dbConnection))
+                if (dataTable.Rows.Count == 0)
                 {
-                    conn.Open();
-
-                            foreach (DataRow row in dataTable.Rows)
-                            {
-                                string query = @"INSERT INTO LearnersProfile 
-                                         (SchoolYear, AssessmentType, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age, RMAClassification, CRLAClassificationAkeanon, CRLAClassificationFilipino, CRLAClassificationEnglish) 
-                                         VALUES (@SchoolYear, @AssessmentType, @GradeLevel, @LastName, @FirstName, @MiddleName, @LRN, @Sex, @Age, @RMAClassification, @CRLAClassificationAkeanon, @CRLAClassificationFilipino, @CRLAClassificationEnglish)";
-
-                                using (SqlCommand cmd = new SqlCommand(query, conn))
-                                {
-                                    cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
-                                    cmd.Parameters.AddWithValue("@AssessmentType", assessmentType);
-                                    cmd.Parameters.AddWithValue("@GradeLevel", gradeLevel);
-                                    cmd.Parameters.AddWithValue("@LastName", row["Last Name"]);
-                                    cmd.Parameters.AddWithValue("@FirstName", row["First Name"]);
-                                    cmd.Parameters.AddWithValue("@MiddleName", row["Middle Name"]);
-                                    cmd.Parameters.AddWithValue("@LRN", row["LRN"]);
-                                    cmd.Parameters.AddWithValue("@Sex", row["Sex"]);
-                                    cmd.Parameters.AddWithValue("@Age", row["Age"]);
-                                    cmd.Parameters.AddWithValue("@RMAClassification", row["RMA Classification"]);
-                                    cmd.Parameters.AddWithValue("@CRLAClassificationAkeanon", row["CRLA Classification (Akeanon)"]);
-                                    cmd.Parameters.AddWithValue("@CRLAClassificationFilipino", row["CRLA Classification (Filipino)"]);
-                                    cmd.Parameters.AddWithValue("@CRLAClassificationEnglish", row["CRLA Classification (English)"]);
-
-                            cmd.ExecuteNonQuery();
-                                }
-                            }
+                    MessageBox.Show("No data to save.", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-                MessageBox.Show("Data successfully saved to the database!");
-                dataGridView1.DataSource = null;
+
+                SaveData(); // Call the existing SaveData method
                 txtFilePath.Clear();
+                dataGridView1.DataSource = null;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
-            }   
+            }
+        }
+
+        private void SaveData()
+        {
+            if (dataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to save.", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var tableName = ((dynamic)dataGridView1.Tag).GradeLevel <= 3 ? "LearnersProfile" : "UpperGradesProfile";
+
+            using (SqlConnection conn = new SqlConnection(dbConnection))
+            {
+                conn.Open();
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    var query = tableName == "LearnersProfile" ?
+                        "INSERT INTO LearnersProfile (SchoolYear, AssessmentType, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age, RMAClassification, CRLAClassificationAkeanon, CRLAClassificationFilipino, CRLAClassificationEnglish) " +
+                        "VALUES (@SchoolYear, @AssessmentType, @GradeLevel, @LastName, @FirstName, @MiddleName, @LRN, @Sex, @Age, @RMAClassification, @CRLAClassificationAkeanon, @CRLAClassificationFilipino, @CRLAClassificationEnglish)" :
+                        "INSERT INTO LearnersProfileScience (SchoolYear, AssessmentType, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age, ClassificationLevel) " +
+                        "VALUES (@SchoolYear, @AssessmentType, @GradeLevel, @LastName, @FirstName, @MiddleName, @LRN, @Sex, @Age, @ClassificationLevel)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SchoolYear", ((dynamic)dataGridView1.Tag).SchoolYear);
+                        cmd.Parameters.AddWithValue("@AssessmentType", ((dynamic)dataGridView1.Tag).AssessmentType);
+                        cmd.Parameters.AddWithValue("@GradeLevel", ((dynamic)dataGridView1.Tag).GradeLevel);
+                        cmd.Parameters.AddWithValue("@LastName", row["Last Name"]);
+                        cmd.Parameters.AddWithValue("@FirstName", row["First Name"]);
+                        cmd.Parameters.AddWithValue("@MiddleName", row["Middle Name"]);
+                        cmd.Parameters.AddWithValue("@LRN", row["LRN"]);
+                        cmd.Parameters.AddWithValue("@Sex", row["Sex"]);
+                        cmd.Parameters.AddWithValue("@Age", row["Age"]);
+
+                        if (tableName == "LearnersProfile")
+                        {
+                            cmd.Parameters.AddWithValue("@RMAClassification", row["RMA Classification"]);
+                            cmd.Parameters.AddWithValue("@CRLAClassificationAkeanon", row["CRLA Classification (Akeanon)"]);
+                            cmd.Parameters.AddWithValue("@CRLAClassificationFilipino", row["CRLA Classification (Filipino)"]);
+                            cmd.Parameters.AddWithValue("@CRLAClassificationEnglish", row["CRLA Classification (English)"]);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@ClassificationLevel", row["Classification Level"]);
+                        }
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+
+            MessageBox.Show("Data saved successfully.", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            dataTable.Clear();
         }
 
 
@@ -213,7 +259,8 @@ namespace RosalESProfilingSystem.Forms
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
                     conn.Open();
-                    string query = $"SELECT DISTINCT GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age FROM LearnersProfile WHERE {column} LIKE @SearchValue AND SchoolYear = @SchoolYear";
+                    string query = $"SELECT DISTINCT GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age FROM LearnersProfile WHERE {column} LIKE @SearchValue AND SchoolYear = @SchoolYear " +
+                        $"UNION SELECT DISTINCT GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age FROM LearnersProfileScience WHERE {column} LIKE @SearchValue AND SchoolYear = @SchoolYear";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -240,7 +287,7 @@ namespace RosalESProfilingSystem.Forms
             {
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
-                    string query = "SELECT DISTINCT SchoolYear FROM LearnersProfile ORDER BY SchoolYear ASC";
+                    string query = @"SELECT DISTINCT SchoolYear FROM LearnersProfile UNION SELECT DISTINCT SchoolYear FROM LearnersProfileScience ORDER BY SchoolYear DESC";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
