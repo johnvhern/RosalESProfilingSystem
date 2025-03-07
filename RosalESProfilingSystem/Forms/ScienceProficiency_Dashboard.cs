@@ -349,5 +349,69 @@ namespace RosalESProfilingSystem.Forms
                 txtDelayedPercent.Text = "0%";
             }
         }
+
+        private void btnViewDelayedG4_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDelayedNumbersG4.Text))
+            {
+                MessageBox.Show("No data to display for Grade 4. Please select school year and assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtDelayedNumbersG4.Text == "0")
+            {
+                MessageBox.Show("No delayed learners for Grade 4", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                OpenDelayedDevelopmentForm("4");
+            }
+
+        }
+
+        private void btnViewDelayedG5_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDelayedNumbersG5.Text))
+            {
+                MessageBox.Show("No data to display for Grade 5. Please select school year and assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtDelayedNumbersG5.Text == "0")
+            {
+                MessageBox.Show("No delayed learners for Grade 5", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                OpenDelayedDevelopmentForm("5");
+            }
+        }
+
+        private void btnViewDelayedG6_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDelayedNumbersG6.Text))
+            {
+                MessageBox.Show("No data to display for Grade 6. Please select school year and assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (txtDelayedNumbersG6.Text == "0")
+            {
+                MessageBox.Show("No delayed learners for Grade 6", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                OpenDelayedDevelopmentForm("4");
+            }
+        }
+
+        private void OpenDelayedDevelopmentForm(string gradeLevel)
+        {
+            string schoolYear = cbScienceLearnerEnrollment.SelectedItem.ToString();
+            string selectedAssessmentPolling = cbPollingAssessment.SelectedItem.ToString();
+            DelayedDevelopmentForm_ScienceProficiency form = new DelayedDevelopmentForm_ScienceProficiency(schoolYear, gradeLevel, selectedAssessmentPolling);
+            form.ShowDialog();
+        }
+
     }
 }

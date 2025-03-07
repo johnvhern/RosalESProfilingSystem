@@ -60,8 +60,24 @@ namespace RosalESProfilingSystem.Forms
         {
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
-                string query = $@"SELECT ln.LastName, ln.FirstName, ln.LRN, ln.GradeLevel FROM LearnersProfile ln WHERE ln.{_selectedLanguage} IN ('Low Emerging', 'High Emerging', 
-                                'Developing', 'Transitioning') AND ln.SchoolYear = @SchoolYear AND ln.GradeLevel = @GradeLevel AND ln.AssessmentType = @AssessmentType";
+                string query = $@"
+                                SELECT 
+                                    ln.Sex,
+                                    ln.LastName, 
+                                    ln.FirstName, 
+                                    ln.LRN, 
+                                    ln.GradeLevel                            
+                                FROM LearnersProfile ln 
+                                WHERE ln.{_selectedLanguage} IN (
+                                    'Low Emerging', 
+                                    'High Emerging', 
+                                    'Developing', 
+                                    'Transitioning'
+                                ) 
+                                AND ln.SchoolYear = @SchoolYear 
+                                AND ln.GradeLevel = @GradeLevel 
+                                AND ln.AssessmentType = @AssessmentType
+                                ORDER BY ln.Sex, ln.LastName, ln.FirstName";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {

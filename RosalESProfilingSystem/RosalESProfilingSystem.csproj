@@ -229,6 +229,12 @@
     <Compile Include="Forms\DelayedDevelopmentForm_Numeracy.Designer.cs">
       <DependentUpon>DelayedDevelopmentForm_Numeracy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DelayedDevelopmentForm_ScienceProficiency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DelayedDevelopmentForm_ScienceProficiency.Designer.cs">
+      <DependentUpon>DelayedDevelopmentForm_ScienceProficiency.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DelayedDevelopmentForm_Numeracy.resx">
       <DependentUpon>DelayedDevelopmentForm_Numeracy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DelayedDevelopmentForm_ScienceProficiency.resx">
+      <DependentUpon>DelayedDevelopmentForm_ScienceProficiency.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
