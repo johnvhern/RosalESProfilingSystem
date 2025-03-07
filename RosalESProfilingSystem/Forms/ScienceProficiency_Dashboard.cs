@@ -255,5 +255,99 @@ namespace RosalESProfilingSystem.Forms
 
             }
         }
+
+        private void btnLoadPolling_Click(object sender, EventArgs e)
+        {
+            if (cbScienceLearnerEnrollment.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a school year.", "No School Year Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (cbPollingAssessment.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an assessment type.", "No Assessment Type Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                string selectedAssessmentPolling = cbPollingAssessment.SelectedItem.ToString();
+                TallyPollingData(selectedAssessmentPolling);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void TallyPollingData(string selectedAssessmentPolling)
+        {
+            using (SqlConnection conn = new SqlConnection(dbConnection))
+            {
+                string schoolYear = cbScienceLearnerEnrollment.SelectedItem.ToString();
+                string query = "SELECT GradeLevel, ClassificationLevel, COUNT(*) AS Total FROM LearnersProfileScience WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('4', '5', '36') GROUP BY GradeLevel, ClassificationLevel";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                    cmd.Parameters.AddWithValue("@AssessmentType", selectedAssessmentPolling);
+                    conn.Open();
+
+                    var gradeData = new Dictionary<string, Dictionary<string, int>>();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string gradeLevel = reader["GradeLevel"].ToString();
+                            string rmaClassification = reader["ClassificationLevel"].ToString();
+                            int total = Convert.ToInt32(reader["Total"]);
+                            if (!gradeData.ContainsKey(gradeLevel))
+                            {
+                                gradeData[gradeLevel] = new Dictionary<string, int>
+                                {
+                                    { "No Proficiency at All", 0 },
+                                    { "Poor Proficiency", 0 },
+                                    { "Weak Proficiency", 0 },
+                                    { "Satisfactory Proficiency", 0 },
+                                    { "Good Proficiency", 0 },
+                                    { "Very Good Proficiency", 0},
+                                    { "Exceptional Proficiency", 0}
+                                };
+
+                            }
+                            gradeData[gradeLevel][rmaClassification] = total;
+                        }
+
+                        DisplayDelayed(gradeData, "4", txtDelayedNumbersG4, txtDelayedPercentG4);
+                        DisplayDelayed(gradeData, "5", txtDelayedNumbersG5, txtDelayedPercentG5);
+                        DisplayDelayed(gradeData, "6", txtDelayedNumbersG6, txtDelayedPercentG6);
+
+                    }
+
+                }
+            }
+        }
+
+        private void DisplayDelayed(Dictionary<string, Dictionary<string, int>> data, string grade, TextBox txtDelayedNumber, TextBox txtDelayedPercent)
+        {
+            if (data.ContainsKey(grade))
+            {
+                var gradeData = data[grade];
+                int totalLearners = gradeData.Values.Sum();
+                int delayedLearners = gradeData["No Proficiency at All"] + gradeData["Poor Proficiency"] + gradeData["Weak Proficiency"] + gradeData["Satisfactory Proficiency"] + gradeData["Good Proficiency"] + gradeData["Very Good Proficiency"] + gradeData["Exceptional Proficiency"];
+                ;
+                double delayedPercentage = totalLearners > 0 ? ((double)delayedLearners / totalLearners) * 100 : 0;
+
+                txtDelayedNumber.Text = delayedLearners.ToString();
+                txtDelayedPercent.Text = $"{delayedPercentage:F2}%";
+            }
+            else
+            {
+                txtDelayedNumber.Text = "0";
+                txtDelayedPercent.Text = "0%";
+            }
+        }
     }
 }
