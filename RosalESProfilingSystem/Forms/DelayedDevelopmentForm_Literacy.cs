@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace RosalESProfilingSystem.Forms
 {
@@ -66,7 +67,8 @@ namespace RosalESProfilingSystem.Forms
                                     ln.LastName, 
                                     ln.FirstName, 
                                     ln.LRN, 
-                                    ln.GradeLevel                            
+                                    ln.GradeLevel,       
+                                    ln.{_selectedLanguage} AS '{_selectedLanguage}'
                                 FROM LearnersProfile ln 
                                 WHERE ln.{_selectedLanguage} IN (
                                     'Low Emerging', 
@@ -155,41 +157,125 @@ namespace RosalESProfilingSystem.Forms
                     PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
                     document.Add(new Paragraph($"Delayed Development Learners in Literacy Report ({_originalLanguage}) - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
-                        .SetFont(boldFont)
-                        .SetFontSize(14)
-                        .SetTextAlignment(TextAlignment.CENTER));
+                             .SetFont(boldFont)
+                             .SetFontSize(14)
+                             .SetTextAlignment(TextAlignment.CENTER));
 
-                    Table table = new Table(4).UseAllAvailableWidth();
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
-                    table.AddHeaderCell(new Cell().Add(new Paragraph("Grade Level").SetFont(boldFont)));
+                    // Group data by RMAClassification and Sex
+                    var rmaData = ((DataTable)dataGridView1.DataSource)
+                        .AsEnumerable()
+                        .GroupBy(row => new
+                        {
+                            Classification = row[$"{_selectedLanguage}"].ToString(),
+                            Sex = row["Sex"].ToString()
+                        })
+                        .Select(group => new
+                        {
+                            group.Key.Classification,
+                            group.Key.Sex,
+                            Count = group.Count()
+                        })
+                        .ToList();
+
+                    int totalStudents = rmaData.Sum(x => x.Count);
+
+                    // Create chart
+                    Chart chart = new Chart
+                    {
+                        Width = 600,
+                        Height = 400
+                    };
+
+                    ChartArea chartArea = new ChartArea();
+                    chart.ChartAreas.Add(chartArea);
+
+                    Series maleSeries = new Series("Male")
+                    {
+                        ChartType = SeriesChartType.Column,
+                        IsValueShownAsLabel = true
+                    };
+
+                    Series femaleSeries = new Series("Female")
+                    {
+                        ChartType = SeriesChartType.Column,
+                        IsValueShownAsLabel = true
+                    };
+
+                    // Get distinct RMA classifications
+                    var classifications = rmaData.Select(x => x.Classification).Distinct().ToList();
+
+                    foreach (var classification in classifications)
+                    {
+                        int maleCount = rmaData.FirstOrDefault(x => x.Classification == classification && x.Sex == "M")?.Count ?? 0;
+                        int femaleCount = rmaData.FirstOrDefault(x => x.Classification == classification && x.Sex == "F")?.Count ?? 0;
+
+                        double malePercentage = totalStudents > 0 ? (double)maleCount / totalStudents * 100 : 0;
+                        double femalePercentage = totalStudents > 0 ? (double)femaleCount / totalStudents * 100 : 0;
+
+                        maleSeries.Points.AddXY(classification, maleCount);
+                        maleSeries.Points.Last().Label = $"{maleCount} ({malePercentage:F2}%)";
+
+                        femaleSeries.Points.AddXY(classification, femaleCount);
+                        femaleSeries.Points.Last().Label = $"{femaleCount} ({femalePercentage:F2}%)";
+                    }
+
+                    chart.Series.Add(maleSeries);
+                    chart.Series.Add(femaleSeries);
+
+                    chart.Legends.Add(new Legend("Legend")
+                    {
+                        Docking = Docking.Bottom
+                    });
+
+                    // Save chart image
+                    string chartPath = Path.Combine(Path.GetTempPath(), "CRLAChart.png");
+                    chart.SaveImage(chartPath, ChartImageFormat.Png);
+
+                    // Add chart image to PDF
+                    iText.Layout.Element.Image chartImage = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(chartPath))
+                        .SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER)
+                        .SetAutoScale(true);
+
+                    document.Add(chartImage);
+
+                    // Add Male Learners Table
+                    document.Add(new Paragraph("Male Learners").SetFont(boldFont).SetFontSize(10));
+
+                    Table maleTable = new Table(4).UseAllAvailableWidth();
+                    maleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
+                    maleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
+                    maleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
+                    maleTable.AddHeaderCell(new Cell().Add(new Paragraph($"CRLA Classification ({_originalLanguage})").SetFont(boldFont)));
+
+                    Table femaleTable = new Table(4).UseAllAvailableWidth();
+                    femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
+                    femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
+                    femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
+                    femaleTable.AddHeaderCell(new Cell().Add(new Paragraph($"CRLA Classification ({_originalLanguage})").SetFont(boldFont)));
 
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         if (!row.IsNewRow)
                         {
-                            table.AddCell(row.Cells["LastName"].Value?.ToString() ?? "");
-                            table.AddCell(row.Cells["FirstName"].Value?.ToString() ?? "");
-                            table.AddCell(row.Cells["LRN"].Value?.ToString() ?? "");
-                            table.AddCell(row.Cells["GradeLevel"].Value?.ToString() ?? "");
+                            var targetTable = row.Cells["Sex"].Value?.ToString() == "M" ? maleTable : femaleTable;
+
+                            targetTable.AddCell(row.Cells["LastName"].Value?.ToString() ?? "");
+                            targetTable.AddCell(row.Cells["FirstName"].Value?.ToString() ?? "");
+                            targetTable.AddCell(row.Cells["LRN"].Value?.ToString() ?? "");
+                            targetTable.AddCell(row.Cells[$"{_selectedLanguage}"].Value?.ToString() ?? "");
                         }
                     }
 
-                    document.Add(table);
+                    document.Add(maleTable);
+
+                    // Add Female Learners Table
+                    document.Add(new Paragraph("Female Learners").SetFont(boldFont).SetFontSize(10));
+                    document.Add(femaleTable);
                 }
-            }
-            catch (IOException ioEx)
-            {
-                MessageBox.Show($"File access error: {ioEx.Message}", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (UnauthorizedAccessException uaEx)
-            {
-                MessageBox.Show($"Access denied: {uaEx.Message}", "Permission Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An unknown error occurred: {ex}", "Unknown Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
