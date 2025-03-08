@@ -539,11 +539,6 @@ namespace RosalESProfilingSystem.Forms
 
         }
 
-        private void cbNumeracyLearnerEnrollment_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 

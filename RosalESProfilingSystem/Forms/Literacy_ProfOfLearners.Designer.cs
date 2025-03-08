@@ -116,8 +116,7 @@
             "LRN",
             "LastName",
             "FirstName",
-            "MiddleName",
-            "Sex"});
+            "MiddleName"});
             this.metroComboBox1.Location = new System.Drawing.Point(12, 197);
             this.metroComboBox1.Name = "metroComboBox1";
             this.metroComboBox1.Size = new System.Drawing.Size(222, 29);
