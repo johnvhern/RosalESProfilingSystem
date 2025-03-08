@@ -1,7 +1,9 @@
 ﻿using iText.IO.Font.Constants;
+using iText.Kernel.Colors;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf;
 using iText.Layout;
+using iText.Layout.Borders;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 using System;
@@ -108,7 +110,7 @@ namespace RosalESProfilingSystem.Forms
             {
                 Filter = "PDF files (*.pdf)|*.pdf",
                 Title = "Save Delayed Development in Literacy Report",
-                FileName = $"Learners with Delayed Development in Literacy Report ({_originalLanguage}) - Grade {_gradeLevel} ({_assessmentType} {_schoolYear}).pdf"
+                FileName = $"Learners with Delayed Development in Literacy ({_originalLanguage}) - Grade {_gradeLevel} ({_assessmentType} {_schoolYear}).pdf"
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -154,11 +156,49 @@ namespace RosalESProfilingSystem.Forms
                 using (PdfDocument pdf = new PdfDocument(writer))
                 using (Document document = new Document(pdf))
                 {
+                    string currentDate = DateTime.Now.ToString("MMMM dd, yyyy - hh:mm tt");
+
+                    Paragraph dateParagraph = new Paragraph($"Generated on: {currentDate}")
+                                .SetFontSize(9)
+                                .SetTextAlignment(TextAlignment.RIGHT);
+
+                    document.Add(dateParagraph);
+
                     PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
-                    document.Add(new Paragraph($"Delayed Development Learners in Literacy Report ({_originalLanguage}) - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
+                    Table table = new Table(2).UseAllAvailableWidth();
+
+                    Paragraph titleText = new Paragraph("Reading Literacy Assessment Report")
+                        .SetFont(boldFont)
+                        .SetFontSize(10)
+                        .SetPaddingLeft(3)
+                        .SetBackgroundColor(ColorConstants.GRAY)
+                        .SetFontColor(ColorConstants.WHITE)
+                        .SetTextAlignment(TextAlignment.LEFT);
+
+                    Cell textCell = new Cell().Add(titleText)
+                            .SetBorder(Border.NO_BORDER)
+                            .SetVerticalAlignment(VerticalAlignment.MIDDLE);
+
+                    table.AddCell(textCell);
+
+                    Paragraph assessmentTitle = new Paragraph("COMPREHENSIVE RAPID LITERACY ASSESSMENT (CRLA)")
+                        .SetFont(boldFont)
+                        .SetFontSize(10)
+                        .SetTextAlignment(TextAlignment.RIGHT);
+
+                    Cell assessmentText = new Cell().Add(assessmentTitle)
+                                .SetBorder(Border.NO_BORDER)
+                                .SetVerticalAlignment(VerticalAlignment.MIDDLE);
+
+                    table.AddCell(assessmentText);
+
+                    document.Add(table);
+
+                    document.Add(new Paragraph($"Delayed Development Learners in Literacy ({_originalLanguage}) - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
                              .SetFont(boldFont)
-                             .SetFontSize(14)
+                             .SetFontSize(11)
+                             .SetPaddingTop(20)
                              .SetTextAlignment(TextAlignment.CENTER));
 
                     // Group data by RMAClassification and Sex
@@ -241,13 +281,13 @@ namespace RosalESProfilingSystem.Forms
                     // Add Male Learners Table
                     document.Add(new Paragraph("Male Learners").SetFont(boldFont).SetFontSize(10));
 
-                    Table maleTable = new Table(4).UseAllAvailableWidth();
+                    Table maleTable = new Table(4).UseAllAvailableWidth().SetFontSize(11);
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph($"CRLA Classification ({_originalLanguage})").SetFont(boldFont)));
 
-                    Table femaleTable = new Table(4).UseAllAvailableWidth();
+                    Table femaleTable = new Table(4).UseAllAvailableWidth().SetFontSize(11);
                     femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
                     femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
                     femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));

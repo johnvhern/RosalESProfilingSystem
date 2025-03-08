@@ -87,7 +87,7 @@ namespace RosalESProfilingSystem.Forms
             {
                 Filter = "PDF files (*.pdf)|*.pdf",
                 Title = "Save Delayed Development in Numeracy Report",
-                FileName = $"Learners with Delayed Development in Numeracy Report - Grade {_gradeLevel} ({_assessmentType} {_schoolYear}).pdf"
+                FileName = $"Learners with Delayed Development in Numeracy - Grade {_gradeLevel} ({_assessmentType} {_schoolYear}).pdf"
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -133,11 +133,50 @@ namespace RosalESProfilingSystem.Forms
                 using (PdfDocument pdf = new PdfDocument(writer))
                 using (Document document = new Document(pdf))
                 {
-                    PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+                    string currentDate = DateTime.Now.ToString("MMMM dd, yyyy - hh:mm tt");
 
-                    document.Add(new Paragraph($"Delayed Development Learners in Numeracy Report - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
+                    Paragraph dateParagraph = new Paragraph($"Generated on: {currentDate}")
+                                .SetFontSize(9)
+                                .SetTextAlignment(TextAlignment.RIGHT);
+
+                    document.Add(dateParagraph);
+
+                    PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+                    
+
+                    Table table = new Table(2).UseAllAvailableWidth();
+
+                    Paragraph titleText = new Paragraph("Rapid Mathematics Assessment Report")
                         .SetFont(boldFont)
-                        .SetFontSize(14)
+                        .SetFontSize(10)
+                        .SetPaddingLeft(3)
+                        .SetBackgroundColor(ColorConstants.GRAY)
+                        .SetFontColor(ColorConstants.WHITE)
+                        .SetTextAlignment(TextAlignment.LEFT);
+
+                    Cell textCell = new Cell().Add(titleText)
+                            .SetBorder(Border.NO_BORDER)
+                            .SetVerticalAlignment(VerticalAlignment.MIDDLE);
+
+                    table.AddCell(textCell);
+
+                    Paragraph assessmentTitle = new Paragraph("RAPID MATHEMATICS ASSESSMENT (RMA)")
+                        .SetFont(boldFont)
+                        .SetFontSize(10)
+                        .SetTextAlignment(TextAlignment.RIGHT);
+
+                    Cell assessmentText = new Cell().Add(assessmentTitle)
+                                .SetBorder(Border.NO_BORDER)
+                                .SetVerticalAlignment(VerticalAlignment.MIDDLE);
+
+                    table.AddCell(assessmentText);
+
+                    document.Add(table);
+
+                    document.Add(new Paragraph($"Delayed Development Learners in Numeracy - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
+                        .SetFont(boldFont)
+                        .SetFontSize(11)
+                        .SetPaddingTop(20)
                         .SetTextAlignment(TextAlignment.CENTER));
 
                     // Group data by RMAClassification and Sex
@@ -220,13 +259,13 @@ namespace RosalESProfilingSystem.Forms
                     // Add Male Learners Table
                     document.Add(new Paragraph("Male Learners").SetFont(boldFont).SetFontSize(10));
 
-                    Table maleTable = new Table(4).UseAllAvailableWidth();
+                    Table maleTable = new Table(4).UseAllAvailableWidth().SetFontSize(11);
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("RMA Classification").SetFont(boldFont)));
 
-                    Table femaleTable = new Table(4).UseAllAvailableWidth();
+                    Table femaleTable = new Table(4).UseAllAvailableWidth().SetFontSize(11);
                     femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
                     femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
                     femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
