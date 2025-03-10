@@ -22,7 +22,7 @@ namespace RosalESProfilingSystem.Forms
         public Login_Form()
         {
             InitializeComponent();           
-            this.ActiveControl = label1;
+            
         }
 
         //private string HashPassword(string password)

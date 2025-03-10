@@ -286,7 +286,7 @@ namespace RosalESProfilingSystem.Forms
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
                 string schoolYear = cbScienceLearnerEnrollment.SelectedItem.ToString();
-                string query = "SELECT GradeLevel, ClassificationLevel, COUNT(*) AS Total FROM LearnersProfileScience WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('4', '5', '36') GROUP BY GradeLevel, ClassificationLevel";
+                string query = "SELECT GradeLevel, ClassificationLevel, COUNT(*) AS Total FROM LearnersProfileScience WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('4', '5', '6') GROUP BY GradeLevel, ClassificationLevel";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -313,7 +313,6 @@ namespace RosalESProfilingSystem.Forms
                                     { "Satisfactory Proficiency", 0 },
                                     { "Good Proficiency", 0 },
                                     { "Very Good Proficiency", 0},
-                                    { "Exceptional Proficiency", 0}
                                 };
 
                             }
@@ -336,7 +335,7 @@ namespace RosalESProfilingSystem.Forms
             {
                 var gradeData = data[grade];
                 int totalLearners = gradeData.Values.Sum();
-                int delayedLearners = gradeData["No Proficiency at All"] + gradeData["Poor Proficiency"] + gradeData["Weak Proficiency"] + gradeData["Satisfactory Proficiency"] + gradeData["Good Proficiency"] + gradeData["Very Good Proficiency"] + gradeData["Exceptional Proficiency"];
+                int delayedLearners = gradeData["No Proficiency at All"] + gradeData["Poor Proficiency"] + gradeData["Weak Proficiency"] + gradeData["Satisfactory Proficiency"] + gradeData["Good Proficiency"] + gradeData["Very Good Proficiency"];
                 ;
                 double delayedPercentage = totalLearners > 0 ? ((double)delayedLearners / totalLearners) * 100 : 0;
 

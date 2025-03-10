@@ -126,8 +126,46 @@ namespace RosalESProfilingSystem.Forms
 
         private void ExportToPDF(string fileName)
         {
+            int lowEmergingCount = 0, highEmergingCount = 0, developingCount = 0, transitioningCount = 0, gradeReadyCount = 0, totalLearners = 0;
             try
             {
+                using (SqlConnection conn = new SqlConnection(dbConnection))
+                {
+                    string query = @"
+                                SELECT 
+                                    COUNT(CASE WHEN RMAClassification = 'Low Emerging' THEN 1 END) AS LowEmerging,
+                                    COUNT(CASE WHEN RMAClassification = 'High Emerging' THEN 1 END) AS HighEmerging,
+                                    COUNT(CASE WHEN RMAClassification = 'Developing' THEN 1 END) AS Developing,
+                                    COUNT(CASE WHEN RMAClassification = 'Transitioning' THEN 1 END) AS Transitioning,
+                                    COUNT(CASE WHEN RMAClassification = 'Grade Ready' THEN 1 END) AS GradeReady
+                                FROM LearnersProfile WHERE SchoolYear = @SchoolYear AND GradeLevel = @GradeLevel AND AssessmentType = @AssessmentType";
+
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        command.Parameters.AddWithValue("@SchoolYear", _schoolYear);
+                        command.Parameters.AddWithValue("@GradeLevel", _gradeLevel);
+                        command.Parameters.AddWithValue("@AssessmentType", _assessmentType);
+                        conn.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                        
+                            if (reader.Read())
+                            {
+                                lowEmergingCount = reader.GetInt32(0);
+                                highEmergingCount = reader.GetInt32(1);
+                                developingCount = reader.GetInt32(2);
+                                transitioningCount = reader.GetInt32(3);
+                                gradeReadyCount = reader.GetInt32(4);
+                                totalLearners = lowEmergingCount + highEmergingCount + developingCount + transitioningCount + gradeReadyCount;
+                            }
+                        }
+
+                            
+                    }
+                }
+          
                 using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
                 using (PdfWriter writer = new PdfWriter(fs))
                 using (PdfDocument pdf = new PdfDocument(writer))
@@ -142,7 +180,7 @@ namespace RosalESProfilingSystem.Forms
                     document.Add(dateParagraph);
 
                     PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
-                    
+
 
                     Table table = new Table(2).UseAllAvailableWidth();
 
@@ -173,10 +211,40 @@ namespace RosalESProfilingSystem.Forms
 
                     document.Add(table);
 
-                    document.Add(new Paragraph($"Delayed Development Learners in Numeracy - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
+
+
+                    document.Add(new Paragraph($"Rapid Mathematics Assessment Result - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
                         .SetFont(boldFont)
                         .SetFontSize(11)
-                        .SetPaddingTop(20)
+                        .SetPaddingTop(10)
+                        .SetTextAlignment(TextAlignment.CENTER));
+
+                    Table summaryTable = new Table(2).UseAllAvailableWidth().SetFontSize(10);
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Low Emerging")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(lowEmergingCount.ToString())));
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("High Emerging")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(highEmergingCount.ToString())));
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Developing")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(developingCount.ToString())));
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Transitioning")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(transitioningCount.ToString())));
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Grade Ready")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(gradeReadyCount.ToString())));
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Total Learners Assessed")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(totalLearners.ToString())).SetFont(boldFont));
+
+                    document.Add(summaryTable);
+
+                    document.Add(new Paragraph($"Learners with Delayed Development in Numeracy")
+                        .SetFont(boldFont)
+                        .SetFontSize(11)
+                        .SetPaddingTop(10)
                         .SetTextAlignment(TextAlignment.CENTER));
 
                     // Group data by RMAClassification and Sex
@@ -200,8 +268,8 @@ namespace RosalESProfilingSystem.Forms
                     // Create chart
                     Chart chart = new Chart
                     {
-                        Width = 600,
-                        Height = 400
+                        Width = 500,
+                        Height = 300
                     };
 
                     ChartArea chartArea = new ChartArea();
@@ -259,13 +327,13 @@ namespace RosalESProfilingSystem.Forms
                     // Add Male Learners Table
                     document.Add(new Paragraph("Male Learners").SetFont(boldFont).SetFontSize(10));
 
-                    Table maleTable = new Table(4).UseAllAvailableWidth().SetFontSize(11);
+                    Table maleTable = new Table(4).UseAllAvailableWidth().SetFontSize(10);
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("RMA Classification").SetFont(boldFont)));
 
-                    Table femaleTable = new Table(4).UseAllAvailableWidth().SetFontSize(11);
+                    Table femaleTable = new Table(4).UseAllAvailableWidth().SetFontSize(10);
                     femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
                     femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
                     femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
