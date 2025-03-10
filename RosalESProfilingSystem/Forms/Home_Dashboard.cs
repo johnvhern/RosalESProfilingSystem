@@ -49,6 +49,7 @@ namespace RosalESProfilingSystem.Forms
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }
+
         }
 
         private void btnLoadAllEnrollments_Click(object sender, EventArgs e)
@@ -119,8 +120,8 @@ namespace RosalESProfilingSystem.Forms
 
                 try
                 {
-                    string selectedAssessment = metroComboBox1.SelectedItem.ToString();
-                    string Year = metroComboBox1.SelectedItem.ToString();
+                    string selectedAssessment = cbRMAList.SelectedItem.ToString();
+                    string Year = cbRMAList.SelectedItem.ToString();
                     TallyRMAData(selectedAssessment);
                     TallyTotalLearners(Year);
 
@@ -265,6 +266,5 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
-        
     }
 }

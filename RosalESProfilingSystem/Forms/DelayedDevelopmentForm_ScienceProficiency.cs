@@ -133,13 +133,59 @@ namespace RosalESProfilingSystem.Forms
 
         private void ExportToPDF(string fileName)
         {
+            int noProfCount = 0, poorProfCount = 0, weakProfCount = 0, satProfCount = 0, goodProfCount = 0, verygoodProfCount = 0, excepProfCount = 0, totalLearners = 0;
+
             try
             {
+
+                using (SqlConnection conn = new SqlConnection(dbConnection))
+                {
+                    string query = @"
+                                SELECT 
+                                    COUNT(CASE WHEN ClassificationLevel = 'No Proficiency at All' THEN 1 END) AS NoProficiency,
+                                    COUNT(CASE WHEN ClassificationLevel = 'Poor Proficiency' THEN 1 END) AS PoorProficiency,
+                                    COUNT(CASE WHEN ClassificationLevel = 'Weak Proficiency' THEN 1 END) AS WeakProficiency,
+                                    COUNT(CASE WHEN ClassificationLevel = 'Satisfactory Proficiency' THEN 1 END) AS SatisfactoryProficiency,
+                                    COUNT(CASE WHEN ClassificationLevel = 'Good Proficiency' THEN 1 END) AS GoodProficiency,
+                                    COUNT(CASE WHEN ClassificationLevel = 'Very Good Proficiency' THEN 1 END) AS VeryGoodProficiency,
+                                    COUNT(CASE WHEN ClassificationLevel = 'Exceptional Proficiency' THEN 1 END) AS ExceptionalProficiency
+                                FROM LearnersProfileScience WHERE SchoolYear = @SchoolYear AND GradeLevel = @GradeLevel AND AssessmentType = @AssessmentType";
+
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        command.Parameters.AddWithValue("@SchoolYear", _schoolYear);
+                        command.Parameters.AddWithValue("@GradeLevel", _gradeLevel);
+                        command.Parameters.AddWithValue("@AssessmentType", _assessmentType);
+                        conn.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            if (reader.Read())
+                            {
+                                noProfCount = reader.GetInt32(0);
+                                poorProfCount = reader.GetInt32(1);
+                                weakProfCount = reader.GetInt32(2);
+                                satProfCount = reader.GetInt32(3);
+                                goodProfCount = reader.GetInt32(4);
+                                verygoodProfCount = reader.GetInt32(5);
+                                excepProfCount = reader.GetInt32(6);
+                                totalLearners = noProfCount + poorProfCount + weakProfCount + satProfCount + goodProfCount + verygoodProfCount + excepProfCount;
+                            }
+                        }
+
+
+                    }
+                }
+
                 using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
                 using (PdfWriter writer = new PdfWriter(fs))
                 using (PdfDocument pdf = new PdfDocument(writer))
                 using (Document document = new Document(pdf))
                 {
+
+
                     string currentDate = DateTime.Now.ToString("MMMM dd, yyyy - hh:mm tt");
 
                     Paragraph dateParagraph = new Paragraph($"Generated on: {currentDate}")
@@ -179,9 +225,44 @@ namespace RosalESProfilingSystem.Forms
 
                     document.Add(table);
 
-                    document.Add(new Paragraph($"Delayed Development Learners in Science Proficiency - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
+                    document.Add(new Paragraph($"Science Confirmative Assessment Tool Result - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
                         .SetFont(boldFont)
-                        .SetFontSize(12)
+                        .SetFontSize(11)
+                        .SetPaddingTop(10)
+                        .SetTextAlignment(TextAlignment.CENTER));
+
+                    Table summaryTable = new Table(2).UseAllAvailableWidth().SetFontSize(10);
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("No Proficiency at All")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(noProfCount.ToString())));
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Poor Proficiency")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(poorProfCount.ToString())));
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Weak Proficiency")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(weakProfCount.ToString())));
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Satisfactory Proficiency")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(satProfCount.ToString())));
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Good Proficiency")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(goodProfCount.ToString())));
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Very Good Proficiency")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(verygoodProfCount.ToString())));
+                    
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Exceptional Proficiency")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(excepProfCount.ToString())));
+
+                    summaryTable.AddCell(new Cell().Add(new Paragraph("Total Learners Assessed")).SetFont(boldFont));
+                    summaryTable.AddCell(new Cell().Add(new Paragraph(totalLearners.ToString())).SetFont(boldFont));
+
+                    document.Add(summaryTable);
+
+                    document.Add(new Paragraph("Learners with Delayed Development in Science Proficiency")
+                        .SetFont(boldFont)
+                        .SetFontSize(11)
+                        .SetPaddingTop(10)
                         .SetTextAlignment(TextAlignment.CENTER));
 
                     // Group data by RMAClassification and Sex
