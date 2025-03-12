@@ -247,6 +247,12 @@
     <Compile Include="Forms\Home_Dashboard.Designer.cs">
       <DependentUpon>Home_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LiteracyProgressTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LiteracyProgressTracking.Designer.cs">
+      <DependentUpon>LiteracyProgressTracking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Literacy_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +307,12 @@
     <Compile Include="Forms\ScienceProficiency.Designer.cs">
       <DependentUpon>ScienceProficiency.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ScienceProficiencyProgressTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ScienceProficiencyProgressTracking.Designer.cs">
+      <DependentUpon>ScienceProficiencyProgressTracking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ScienceProficiency_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,6 +366,9 @@
     <EmbeddedResource Include="Forms\Home_Dashboard.resx">
       <DependentUpon>Home_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LiteracyProgressTracking.resx">
+      <DependentUpon>LiteracyProgressTracking.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Literacy_Dashboard.resx">
       <DependentUpon>Literacy_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -380,6 +395,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ScienceProficiency.resx">
       <DependentUpon>ScienceProficiency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ScienceProficiencyProgressTracking.resx">
+      <DependentUpon>ScienceProficiencyProgressTracking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ScienceProficiency_Dashboard.resx">
       <DependentUpon>ScienceProficiency_Dashboard.cs</DependentUpon>

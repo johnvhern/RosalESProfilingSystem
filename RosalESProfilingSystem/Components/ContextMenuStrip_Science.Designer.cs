@@ -46,6 +46,7 @@
             this.btnProgTrack.TabIndex = 4;
             this.btnProgTrack.Text = "Science Proficiency Progress Tracking";
             this.btnProgTrack.UseVisualStyleBackColor = false;
+            this.btnProgTrack.Click += new System.EventHandler(this.btnProgTrack_Click);
             // 
             // btnDashboard
             // 

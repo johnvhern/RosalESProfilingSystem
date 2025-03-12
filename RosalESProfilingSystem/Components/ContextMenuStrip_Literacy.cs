@@ -46,5 +46,11 @@ namespace RosalESProfilingSystem.Components
             literacySkills.OpenForm(new Forms.Literacy_ProfOfLearners());
             ColorActiveButton((Button)sender);
         }
+
+        private void btnProgTrack_Click(object sender, EventArgs e)
+        {
+            literacySkills.OpenForm(new Forms.LiteracyProgressTracking());
+            ColorActiveButton((Button)sender);  
+        }
     }
 }

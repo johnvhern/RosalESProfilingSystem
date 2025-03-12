@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace RosalESProfilingSystem.Forms
     {
         private string dbConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=RosalES;Integrated Security=True;";
         private int selectedLearnerID;
+        private int selectedLearnerGrade;
         public NumeracyProgressTracking_Form()
         {
             InitializeComponent();
@@ -103,6 +105,7 @@ namespace RosalESProfilingSystem.Forms
                 DataGridViewRow row = gridLearners.Rows[e.RowIndex];
 
                 selectedLearnerID = Convert.ToInt32(row.Cells["Id"].Value);
+                selectedLearnerGrade = Convert.ToInt32(row.Cells["GradeLevel"].Value);
 
                 string lastName = row.Cells["LastName"].Value.ToString();
                 string firstName = row.Cells["FirstName"].Value.ToString();
@@ -181,9 +184,10 @@ namespace RosalESProfilingSystem.Forms
                                 FROM RMACompetencies c
                                 LEFT JOIN RMALearnerCompetencyProgress lp
                                 ON c.CompetencyId = lp.CompetencyId AND lp.LearnerId = @LearnerId
-                                WHERE c.Quarter = @Quarter";
+                                WHERE c.Quarter = @Quarter AND GradeLevel = @GradeLevel";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                da.SelectCommand.Parameters.AddWithValue("@GradeLevel", selectedLearnerGrade);
                 da.SelectCommand.Parameters.AddWithValue("@LearnerId", selectedLearnerID);
                 da.SelectCommand.Parameters.AddWithValue("@Quarter", quarter);
 

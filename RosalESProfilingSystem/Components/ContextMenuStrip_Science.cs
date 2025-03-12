@@ -38,5 +38,11 @@ namespace RosalESProfilingSystem.Components
             scienceProficiency.OpenForm(new Forms.ScienceProficiency_Dashboard());
             ColorActiveButton((Button)sender);
         }
+
+        private void btnProgTrack_Click(object sender, EventArgs e)
+        {
+            scienceProficiency.OpenForm(new Forms.ScienceProficiencyProgressTracking());
+            ColorActiveButton((Button)sender);
+        }
     }
 }

@@ -58,10 +58,11 @@
             this.btnProgTrack.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnProgTrack.Location = new System.Drawing.Point(146, 0);
             this.btnProgTrack.Name = "btnProgTrack";
-            this.btnProgTrack.Size = new System.Drawing.Size(194, 28);
+            this.btnProgTrack.Size = new System.Drawing.Size(202, 28);
             this.btnProgTrack.TabIndex = 2;
             this.btnProgTrack.Text = "Literacy Progress Tracking";
             this.btnProgTrack.UseVisualStyleBackColor = false;
+            this.btnProgTrack.Click += new System.EventHandler(this.btnProgTrack_Click);
             // 
             // ContextMenuStrip_Literacy
             // 
@@ -72,7 +73,7 @@
             this.Controls.Add(this.btnProgTrack);
             this.Controls.Add(this.btnDashboard);
             this.Name = "ContextMenuStrip_Literacy";
-            this.Size = new System.Drawing.Size(407, 28);
+            this.Size = new System.Drawing.Size(348, 28);
             this.ResumeLayout(false);
 
         }
