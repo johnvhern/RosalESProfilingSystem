@@ -404,67 +404,7 @@ namespace RosalESProfilingSystem.Forms
 
         }
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtGradeReady_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTransitioning_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDeveloping_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtHighEmerging_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLowEmerging_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
         {
 
         }
@@ -474,57 +414,7 @@ namespace RosalESProfilingSystem.Forms
 
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtTotalLearners_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtGrade3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtGrade2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtGrade1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -539,27 +429,7 @@ namespace RosalESProfilingSystem.Forms
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void tableLayoutPanel11_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtDelayedPercentG3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDelayedNumbersG3_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -569,47 +439,7 @@ namespace RosalESProfilingSystem.Forms
 
         }
 
-        private void txtDelayedPercentG2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDelayedNumbersG2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tableLayoutPanel9_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtDelayedPercentG1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDelayedNumbersG1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -620,36 +450,6 @@ namespace RosalESProfilingSystem.Forms
         }
 
         private void cbPollingAssessment_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void chartRMA_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void chartLearners_Click(object sender, EventArgs e)
         {
 
         }

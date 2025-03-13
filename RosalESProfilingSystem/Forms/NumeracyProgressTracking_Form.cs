@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -102,6 +103,7 @@ namespace RosalESProfilingSystem.Forms
         {
             if (e.RowIndex >= 0)
             {
+
                 DataGridViewRow row = gridLearners.Rows[e.RowIndex];
 
                 selectedLearnerID = Convert.ToInt32(row.Cells["Id"].Value);
@@ -118,8 +120,8 @@ namespace RosalESProfilingSystem.Forms
                 txtGradeLevel.Text = gradeLevel;
 
                 metroComboBox1.SelectedIndex = 0;
-                LoadCompetencies(1);
 
+                LoadCompetencies(1);
                 UpdateCompetencyStats();
             }
         }
@@ -175,43 +177,96 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
-        private void LoadCompetencies(int quarter)
+        private async void LoadCompetencies(int quarter)
         {
-            using (SqlConnection conn = new SqlConnection(dbConnection))
+            using (Form loadingForm = new Form())
             {
-                string query = @"SELECT c.CompetencyId, c.Quarter, c.CompetencyNumber, c.CompetencyName, 
-                                ISNULL(lp.Mastered, 0) AS Mastered
-                                FROM RMACompetencies c
-                                LEFT JOIN RMALearnerCompetencyProgress lp
-                                ON c.CompetencyId = lp.CompetencyId AND lp.LearnerId = @LearnerId
-                                WHERE c.Quarter = @Quarter AND GradeLevel = @GradeLevel";
+                loadingForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                loadingForm.StartPosition = FormStartPosition.CenterScreen;
+                loadingForm.Size = new System.Drawing.Size(300, 70);
+                loadingForm.ControlBox = false;
+                loadingForm.Text = "Loading Competencies...";
 
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                da.SelectCommand.Parameters.AddWithValue("@GradeLevel", selectedLearnerGrade);
-                da.SelectCommand.Parameters.AddWithValue("@LearnerId", selectedLearnerID);
-                da.SelectCommand.Parameters.AddWithValue("@Quarter", quarter);
-
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                dataGridView2.DataSource = dt;
-                dataGridView2.Columns["CompetencyId"].Visible = false;
-                dataGridView2.Columns["Quarter"].HeaderText = "Quarter";
-                dataGridView2.Columns["CompetencyNumber"].HeaderText = "Competency No.";
-                dataGridView2.Columns["CompetencyName"].HeaderText = "Competency";
-                dataGridView2.Columns["Mastered"].HeaderText = "Mastered";
-
-                foreach (DataGridViewColumn col in dataGridView2.Columns)
+                ProgressBar progressBar = new ProgressBar()
                 {
-                    col.ReadOnly = col.Name != "Mastered";
-                }
+                    Style = ProgressBarStyle.Marquee,
+                    Dock = DockStyle.Fill
+                };
 
-                UpdateCompetencyStats();
+                loadingForm.Controls.Add(progressBar);
+                loadingForm.Show();
+
+                try
+                {
+                    DataTable dt = await Task.Run(() =>
+                    {
+                        using (SqlConnection conn = new SqlConnection(dbConnection))
+                        {
+                            string query = @"SELECT c.CompetencyId, c.Quarter, c.CompetencyNumber, c.CompetencyName, 
+                                    ISNULL(lp.Mastered, 0) AS Mastered
+                                    FROM RMACompetencies c
+                                    LEFT JOIN RMALearnerCompetencyProgress lp
+                                    ON c.CompetencyId = lp.CompetencyId AND lp.LearnerId = @LearnerId
+                                    WHERE c.Quarter = @Quarter AND GradeLevel = @GradeLevel";
+
+                            using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                            {
+                                da.SelectCommand.Parameters.AddWithValue("@GradeLevel", selectedLearnerGrade);
+                                da.SelectCommand.Parameters.AddWithValue("@LearnerId", selectedLearnerID);
+                                da.SelectCommand.Parameters.AddWithValue("@Quarter", quarter);
+
+                                DataTable tempDt = new DataTable();
+                                da.Fill(tempDt);
+                                return tempDt;
+                            }
+                        }
+                    });
+
+                    // UI updates must stay on the main thread
+                    Invoke(new Action(() =>
+                    {
+                        dataGridView2.DataSource = dt;
+                        dataGridView2.Columns["CompetencyId"].Visible = false;
+                        dataGridView2.Columns["Quarter"].HeaderText = "Quarter";
+                        dataGridView2.Columns["CompetencyNumber"].HeaderText = "Competency No.";
+                        dataGridView2.Columns["CompetencyName"].HeaderText = "Competency";
+                        dataGridView2.Columns["Mastered"].HeaderText = "Mastered";
+
+                        foreach (DataGridViewColumn col in dataGridView2.Columns)
+                        {
+                            col.ReadOnly = col.Name != "Mastered";
+                        }
+
+                        UpdateCompetencyStats();
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading competencies: {ex.Message}");
+                }
+                finally
+                {
+                    loadingForm.Close();
+                }
             }
         }
 
+
         private void btnUpdateProgress_Click(object sender, EventArgs e)
         {
+
+            if (cbSchoolYear.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a school year.", "No school year selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtNameofLearner.Text))
+            {
+                MessageBox.Show("Please select a learner.", "No learner selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
                 conn.Open();
