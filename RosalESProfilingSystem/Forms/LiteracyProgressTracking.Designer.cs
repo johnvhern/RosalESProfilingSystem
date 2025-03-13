@@ -101,7 +101,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(454, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1466, 1080);
+            this.panel1.Size = new System.Drawing.Size(1466, 1061);
             this.panel1.TabIndex = 1;
             // 
             // panel5
@@ -110,7 +110,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(364, 100);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1102, 980);
+            this.panel5.Size = new System.Drawing.Size(1102, 961);
             this.panel5.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -125,7 +125,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.47541F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.52459F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1102, 980);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1102, 961);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // dataGridView2
@@ -138,7 +138,7 @@
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 115);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 113);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
@@ -146,7 +146,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView2.Size = new System.Drawing.Size(1096, 862);
+            this.dataGridView2.Size = new System.Drawing.Size(1096, 845);
             this.dataGridView2.TabIndex = 1;
             // 
             // label6
@@ -154,7 +154,7 @@
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 82);
+            this.label6.Location = new System.Drawing.Point(3, 80);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.label6.Size = new System.Drawing.Size(1096, 30);
@@ -168,7 +168,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 100);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(364, 980);
+            this.panel4.Size = new System.Drawing.Size(364, 961);
             this.panel4.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -184,7 +184,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 99F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 449F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(364, 980);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(364, 961);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -245,7 +245,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(358, 835);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(358, 816);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // tableLayoutPanel8
@@ -335,7 +335,7 @@
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(352, 717);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(352, 698);
             this.tableLayoutPanel9.TabIndex = 2;
             // 
             // chart1
@@ -596,7 +596,7 @@
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(454, 1080);
+            this.topPanel.Size = new System.Drawing.Size(454, 1061);
             this.topPanel.TabIndex = 0;
             // 
             // gridLearners
@@ -615,7 +615,7 @@
             this.gridLearners.ReadOnly = true;
             this.gridLearners.RowHeadersVisible = false;
             this.gridLearners.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridLearners.Size = new System.Drawing.Size(454, 877);
+            this.gridLearners.Size = new System.Drawing.Size(454, 858);
             this.gridLearners.TabIndex = 1;
             // 
             // mainPanel
@@ -625,14 +625,14 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1920, 1080);
+            this.mainPanel.Size = new System.Drawing.Size(1920, 1061);
             this.mainPanel.TabIndex = 2;
             // 
             // LiteracyProgressTracking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.ClientSize = new System.Drawing.Size(1920, 1061);
             this.Controls.Add(this.mainPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

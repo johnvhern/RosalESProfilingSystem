@@ -246,5 +246,20 @@ namespace RosalESProfilingSystem.Forms
             MessageBox.Show("Competency progress updated successfully!");
             UpdateCompetencyStats();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (CompetenciesExpandedView view = new CompetenciesExpandedView(dataGridView2))
+            {
+                view.DataUpdated += ExpandedForm_DataUpdated;
+                view.ShowDialog();
+            }
+        }
+
+        private void ExpandedForm_DataUpdated()
+        {
+            // Refresh DataGridView to reflect changes
+            dataGridView2.Refresh();
+        }
     }
     }
