@@ -20,17 +20,7 @@ namespace RosalESProfilingSystem.Forms
             originalGrid = sourceGrid;
 
             dataGridView1.DataSource = originalGrid.DataSource;
-        }
-
-        public void SetData(object dataSource)
-        {
-            dataGridView1.DataSource = dataSource;
-            dataGridView1.Columns[0].Visible = false;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            dataGridView1.Columns["CompetencyId"].Visible = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
