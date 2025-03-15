@@ -176,23 +176,6 @@ namespace RosalESProfilingSystem.Forms
 
         private async void LoadCompetencies(int quarter)
         {
-            using (Form loadingForm = new Form())
-            {
-                loadingForm.FormBorderStyle = FormBorderStyle.FixedDialog;
-                loadingForm.StartPosition = FormStartPosition.CenterScreen;
-                loadingForm.Size = new System.Drawing.Size(300, 70);
-                loadingForm.ControlBox = false;
-                loadingForm.Text = "Loading Competencies...";
-
-                ProgressBar progressBar = new ProgressBar()
-                {
-                    Style = ProgressBarStyle.Marquee,
-                    Dock = DockStyle.Fill
-                };
-
-                loadingForm.Controls.Add(progressBar);
-                loadingForm.Show();
-
                 try
                 {
                     DataTable dt = await Task.Run(() =>
@@ -241,12 +224,7 @@ namespace RosalESProfilingSystem.Forms
                 {
                     MessageBox.Show($"Error loading competencies: {ex.Message}");
                 }
-                finally
-                {
-                    loadingForm.Close();
-                }
             }
-        }
 
         private void btnUpdateProgress_Click(object sender, EventArgs e)
         {

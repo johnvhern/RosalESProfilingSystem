@@ -118,6 +118,12 @@ namespace RosalESProfilingSystem.Forms
                     return;
                 }
 
+                else if (cbRMAList.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select an assessment type.", "No Assessment Type Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 try
                 {
                     string selectedAssessment = cbRMAList.SelectedItem.ToString();
