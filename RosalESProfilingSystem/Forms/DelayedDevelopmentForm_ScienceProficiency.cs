@@ -31,6 +31,7 @@ namespace RosalESProfilingSystem.Forms
         public DelayedDevelopmentForm_ScienceProficiency(string schoolYear, string gradeLevel, string assessmentType)
         {
             InitializeComponent();
+            this.ShowInTaskbar = false;
             _schoolYear = schoolYear;
             _gradeLevel = gradeLevel;
             _assessmentType = assessmentType;

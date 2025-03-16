@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.timeDateBar1 = new RosalESProfilingSystem.Components.TimeDateBar();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.timeDateBar1 = new RosalESProfilingSystem.Components.TimeDateBar();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -50,6 +50,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1158, 24);
             this.panel3.TabIndex = 2;
+            // 
+            // timeDateBar1
+            // 
+            this.timeDateBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(114)))), ((int)(((byte)(217)))));
+            this.timeDateBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeDateBar1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeDateBar1.Location = new System.Drawing.Point(0, 0);
+            this.timeDateBar1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.timeDateBar1.Name = "timeDateBar1";
+            this.timeDateBar1.Size = new System.Drawing.Size(1158, 24);
+            this.timeDateBar1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -106,17 +117,6 @@
             this.panel2.Size = new System.Drawing.Size(1158, 712);
             this.panel2.TabIndex = 4;
             // 
-            // timeDateBar1
-            // 
-            this.timeDateBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(114)))), ((int)(((byte)(217)))));
-            this.timeDateBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.timeDateBar1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeDateBar1.Location = new System.Drawing.Point(0, 0);
-            this.timeDateBar1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.timeDateBar1.Name = "timeDateBar1";
-            this.timeDateBar1.Size = new System.Drawing.Size(1158, 24);
-            this.timeDateBar1.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +132,7 @@
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

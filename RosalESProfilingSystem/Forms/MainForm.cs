@@ -78,5 +78,15 @@ namespace RosalESProfilingSystem.Forms
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Application.ExitThread();  // Ensures all threads exit
+                Application.Exit();        // Completely shuts down the app
+                Environment.Exit(0);       // Hard exit (if needed)
+            }
+        }
     }
 }

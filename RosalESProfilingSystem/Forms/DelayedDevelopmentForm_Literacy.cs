@@ -33,6 +33,7 @@ namespace RosalESProfilingSystem.Forms
         public DelayedDevelopmentForm_Literacy(string schoolYear, string gradeLevel, string assessmentType, string selectedLanguage)
         {
             InitializeComponent();
+            this.ShowInTaskbar = false;
             _schoolYear = schoolYear;
             _gradeLevel = gradeLevel;
             _assessmentType = assessmentType;

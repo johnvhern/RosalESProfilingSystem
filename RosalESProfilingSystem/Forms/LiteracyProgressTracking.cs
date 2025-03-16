@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RosalESProfilingSystem.Components;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -177,12 +178,18 @@ namespace RosalESProfilingSystem.Forms
 
             string selectedCompetencyType = cbCompetencyType.SelectedItem.ToString();
 
+            LoadingForm loadingForm = new LoadingForm();
+            loadingForm.Show();
+            loadingForm.Refresh();
 
-            DataTable dt = await Task.Run(() =>
-            {
-                using (SqlConnection conn = new SqlConnection(dbConnection))
+            try
                 {
-                    string query = @"
+
+                    DataTable dt = await Task.Run(() =>
+                    {
+                        using (SqlConnection conn = new SqlConnection(dbConnection))
+                        {
+                            string query = @"
                 SELECT c.CompetencyId, c.Quarter, c.Category, c.CompetencyName, 
                        ISNULL(lp.Mastered, 0) AS Mastered
                 FROM CRLACompetencies c
@@ -190,37 +197,49 @@ namespace RosalESProfilingSystem.Forms
                 ON c.CompetencyId = lp.CompetencyId AND lp.LearnerId = @LearnerId
                 WHERE c.Quarter = @Quarter AND c.CompetencyType = @CompetencyType AND c.GradeLevel = @GradeLevel";
 
-                    using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                            using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                            {
+                                da.SelectCommand.Parameters.AddWithValue("@GradeLevel", selectedLearnerGrade);
+                                da.SelectCommand.Parameters.AddWithValue("@LearnerId", selectedLearnerID);
+                                da.SelectCommand.Parameters.AddWithValue("@Quarter", quarter);
+                                da.SelectCommand.Parameters.AddWithValue("@CompetencyType", competencyType);
+
+                                DataTable tempDt = new DataTable();
+                                da.Fill(tempDt);
+                                return tempDt;
+                            }
+                        }
+                    });
+
+                    Invoke(new Action(() =>
                     {
-                        da.SelectCommand.Parameters.AddWithValue("@GradeLevel", selectedLearnerGrade);
-                        da.SelectCommand.Parameters.AddWithValue("@LearnerId", selectedLearnerID);
-                        da.SelectCommand.Parameters.AddWithValue("@Quarter", quarter);
-                        da.SelectCommand.Parameters.AddWithValue("@CompetencyType", competencyType);
+                        dataGridView2.DataSource = dt;
+                        dataGridView2.Columns["CompetencyId"].Visible = false;
+                        dataGridView2.Columns["Quarter"].HeaderText = "Quarter";
+                        dataGridView2.Columns["Category"].HeaderText = "Category";
+                        dataGridView2.Columns["CompetencyName"].HeaderText = "Competency";
+                        dataGridView2.Columns["Mastered"].HeaderText = "Mastered";
 
-                        DataTable tempDt = new DataTable();
-                        da.Fill(tempDt);
-                        return tempDt;
-                    }
+                        foreach (DataGridViewColumn col in dataGridView2.Columns)
+                        {
+                            col.ReadOnly = col.Name != "Mastered";
+                        }
+
+                        UpdateCompetencyStats();
+                    }));
                 }
-            });
 
-            Invoke(new Action(() =>
-            {
-                dataGridView2.DataSource = dt;
-                dataGridView2.Columns["CompetencyId"].Visible = false;
-                dataGridView2.Columns["Quarter"].HeaderText = "Quarter";
-                dataGridView2.Columns["Category"].HeaderText = "Category";
-                dataGridView2.Columns["CompetencyName"].HeaderText = "Competency";
-                dataGridView2.Columns["Mastered"].HeaderText = "Mastered";
-
-                foreach (DataGridViewColumn col in dataGridView2.Columns)
+                catch (Exception ex)
                 {
-                    col.ReadOnly = col.Name != "Mastered";
+                    MessageBox.Show($"Error loading competencies: {ex.Message}");
                 }
+                finally
+                {
+                    loadingForm.Close();
+                }
+                
+            }
 
-                UpdateCompetencyStats();
-            }));
-        }
 
         private void UpdateCompetencyStats()
         {

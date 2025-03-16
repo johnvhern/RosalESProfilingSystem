@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RosalESProfilingSystem.Components;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -176,7 +177,11 @@ namespace RosalESProfilingSystem.Forms
 
         private async void LoadCompetencies(int quarter)
         {
-                try
+            LoadingForm loadingForm = new LoadingForm();
+            loadingForm.Show();
+            loadingForm.Refresh();
+
+            try
                 {
                     DataTable dt = await Task.Run(() =>
                     {
@@ -223,6 +228,10 @@ namespace RosalESProfilingSystem.Forms
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error loading competencies: {ex.Message}");
+                }
+                finally
+                {
+                    loadingForm.Close();
                 }
             }
 

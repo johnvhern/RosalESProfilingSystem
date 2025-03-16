@@ -1,4 +1,5 @@
 ﻿using MetroFramework.Controls;
+using RosalESProfilingSystem.Components;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -179,7 +180,11 @@ namespace RosalESProfilingSystem.Forms
 
         private async void LoadCompetencies(int quarter)
         {
-                try
+            LoadingForm loadingForm = new LoadingForm();
+            loadingForm.Show();
+            loadingForm.Refresh();
+
+            try
                 {
                     DataTable dt = await Task.Run(() =>
                     {
@@ -227,7 +232,11 @@ namespace RosalESProfilingSystem.Forms
                 {
                     MessageBox.Show($"Error loading competencies: {ex.Message}");
                 }
-        }
+                finally
+                {
+                    loadingForm.Close();
+                }
+            }
 
 
         private void btnUpdateProgress_Click(object sender, EventArgs e)

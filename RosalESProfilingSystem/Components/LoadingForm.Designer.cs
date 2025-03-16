@@ -1,6 +1,6 @@
 ﻿namespace RosalESProfilingSystem.Components
 {
-    partial class ExportPDFLoading_Form
+    partial class LoadingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
-            // ExportPDFLoading_Form
+            // progressBar1
+            // 
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBar1.Location = new System.Drawing.Point(0, 0);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(284, 31);
+            this.progressBar1.TabIndex = 0;
+            // 
+            // LoadingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 127);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "ExportPDFLoading_Form";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ExportPDFLoading_Form";
+            this.ClientSize = new System.Drawing.Size(284, 31);
+            this.Controls.Add(this.progressBar1);
+            this.Name = "LoadingForm";
+            this.Text = "LoadingForm";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
