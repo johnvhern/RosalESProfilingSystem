@@ -15,6 +15,8 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace RosalESProfilingSystem.Forms
 {
@@ -82,6 +84,52 @@ namespace RosalESProfilingSystem.Forms
             this.Text = $"Delayed Development Learners in Numeracy - Grade {_gradeLevel} ({_assessmentType} - {_schoolYear})";
         }
 
+        private List<(string LastName, string FirstName, string LRN, string Sex, string Classification)>    GetGradeReadyLearners(string schoolYear, string gradeLevel, string assessmentType)
+        {
+            List<(string LastName, string FirstName, string LRN, string Sex, string Classification)> gradeReadyLearners = new List<(string, string, string, string, string)>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(dbConnection))
+                {
+                    connection.Open();
+                    string query = @"
+                                    SELECT LastName, FirstName, LRN, Sex, RMAClassification 
+                                    FROM LearnersProfile 
+                                    WHERE RMAClassification = 'Grade Ready' AND SchoolYear = @SchoolYear AND GradeLevel = @GradeLevel AND AssessmentType = @AssessmentType";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                        command.Parameters.AddWithValue("@GradeLevel", gradeLevel);
+                        command.Parameters.AddWithValue("@AssessmentType", assessmentType);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+                                gradeReadyLearners.Add((
+                                    reader["LastName"].ToString(),
+                                    reader["FirstName"].ToString(),
+                                    reader["LRN"].ToString(),
+                                    reader["Sex"].ToString(),
+                                    reader["RMAClassification"].ToString()
+                                ));
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return gradeReadyLearners;
+        }
+
         private async void btnExport_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -93,6 +141,10 @@ namespace RosalESProfilingSystem.Forms
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
+                string schoolYear = _schoolYear;
+                string gradeLevel = _gradeLevel;
+                string assessmentType = _assessmentType;
+
                 if (dataGridView1.Rows.Count == 0)
                 {
                     MessageBox.Show("No data available to export.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -116,7 +168,7 @@ namespace RosalESProfilingSystem.Forms
                     loadingForm.Controls.Add(progressBar);
                     loadingForm.Show();
 
-                    await Task.Run(() => ExportToPDF(saveFileDialog.FileName));
+                    await Task.Run(() => ExportToPDF(saveFileDialog.FileName, schoolYear, gradeLevel, assessmentType));
 
                     loadingForm.Close();
                 }
@@ -125,8 +177,9 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
-        private void ExportToPDF(string fileName)
+        private void ExportToPDF(string fileName, string schoolYear, string gradeLevel, string assessmentType)
         {
+            var gradeReadyLearners = GetGradeReadyLearners(schoolYear, gradeLevel, assessmentType);
             int lowEmergingCount = 0, highEmergingCount = 0, developingCount = 0, transitioningCount = 0, gradeReadyCount = 0, totalLearners = 0;
             try
             {
@@ -151,7 +204,7 @@ namespace RosalESProfilingSystem.Forms
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-                        
+
                             if (reader.Read())
                             {
                                 lowEmergingCount = reader.GetInt32(0);
@@ -163,10 +216,10 @@ namespace RosalESProfilingSystem.Forms
                             }
                         }
 
-                            
+
                     }
                 }
-          
+
                 using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
                 using (PdfWriter writer = new PdfWriter(fs))
                 using (PdfDocument pdf = new PdfDocument(writer))
@@ -212,6 +265,22 @@ namespace RosalESProfilingSystem.Forms
 
                     document.Add(table);
 
+                    Paragraph schoolID = new Paragraph("SCHOOL ID: 114798")
+                                   .SetFont(boldFont)
+                                   .SetFontSize(9)
+                                   .SetPaddingLeft(3)
+                                   .SetTextAlignment(TextAlignment.LEFT);
+
+                    document.Add(schoolID);
+
+                    Paragraph schoolName = new Paragraph("SCHOOL NAME: ROSAL ELEMENTARY SCHOOL")
+                              .SetFont(boldFont)
+                              .SetFontSize(9)
+                              .SetPaddingLeft(3)
+                              .SetTextAlignment(TextAlignment.LEFT);
+
+                    document.Add(schoolName);
+
 
 
                     document.Add(new Paragraph($"Rapid Mathematics Assessment Result - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
@@ -242,11 +311,33 @@ namespace RosalESProfilingSystem.Forms
 
                     document.Add(summaryTable);
 
+                    if (gradeReadyLearners.Count > 0)
+                    {
+                        document.Add(new Paragraph("Grade Ready Learners in Numeracy").SetFont(boldFont).SetFontSize(11).SetTextAlignment(TextAlignment.CENTER).SetPaddingTop(5).SetPaddingBottom(5));
+
+                        Table gradeReadyTable = new Table(5).UseAllAvailableWidth().SetFontSize(10);
+                        gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
+                        gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
+                        gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
+                        gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("Sex").SetFont(boldFont)));
+                        gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("Age").SetFont(boldFont)));
+
+                        foreach (var learner in gradeReadyLearners)
+                        {
+                            gradeReadyTable.AddCell(learner.LastName);
+                            gradeReadyTable.AddCell(learner.FirstName);
+                            gradeReadyTable.AddCell(learner.LRN);
+                            gradeReadyTable.AddCell(learner.Sex);
+                            gradeReadyTable.AddCell(learner.Classification);
+                        }
+                        document.Add(gradeReadyTable);
+                    }
+
                     document.Add(new Paragraph($"Learners with Delayed Development in Numeracy")
-                        .SetFont(boldFont)
-                        .SetFontSize(11)
-                        .SetPaddingTop(10)
-                        .SetTextAlignment(TextAlignment.CENTER));
+                    .SetFont(boldFont)
+                    .SetFontSize(11)
+                    .SetPaddingTop(10)
+                    .SetTextAlignment(TextAlignment.CENTER));
 
                     // Group data by RMAClassification and Sex
                     var rmaData = ((DataTable)dataGridView1.DataSource)
@@ -326,7 +417,6 @@ namespace RosalESProfilingSystem.Forms
                     document.Add(chartImage);
 
                     // Add Male Learners Table
-                    document.Add(new Paragraph("Male Learners").SetFont(boldFont).SetFontSize(10));
 
                     Table maleTable = new Table(4).UseAllAvailableWidth().SetFontSize(10);
                     maleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
@@ -353,11 +443,18 @@ namespace RosalESProfilingSystem.Forms
                         }
                     }
 
-                    document.Add(maleTable);
+                    if (maleTable.GetNumberOfRows() > 0)
+                    {
+                        document.Add(new Paragraph("Male Learners").SetFont(boldFont).SetFontSize(10));
+                        document.Add(maleTable);
+                    }
 
-                    // Add Female Learners Table
-                    document.Add(new Paragraph("Female Learners").SetFont(boldFont).SetFontSize(10));
-                    document.Add(femaleTable);
+                    if (femaleTable.GetNumberOfRows() > 0)
+                    {
+                        // Add Female Learners Table
+                        document.Add(new Paragraph("Female Learners").SetFont(boldFont).SetFontSize(10));
+                        document.Add(femaleTable);
+                    }
                 }
             }
             catch (Exception ex)

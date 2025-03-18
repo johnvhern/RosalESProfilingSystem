@@ -147,6 +147,8 @@ namespace RosalESProfilingSystem.Forms
                 {
                     string selectedAssessment = cbAssessmentType.SelectedItem.ToString();
                     TallyScienceProficiencyData(selectedAssessment);
+                    string Year = cbScienceLearnerEnrollment.SelectedItem.ToString();
+                    TallySciCATData(Year);
 
                 }
                 catch (Exception ex)
@@ -155,12 +157,54 @@ namespace RosalESProfilingSystem.Forms
                 }
         }
 
+        private void TallySciCATData(string year)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(dbConnection))
+                {
+                    conn.Open();
+
+                    int grade4Count = GetSciCATLearnerCount(conn, 4);
+                    int grade5Count = GetSciCATLearnerCount(conn, 5);
+                    int grade6Count = GetSciCATLearnerCount(conn, 6);
+                    int totalCount = grade4Count + grade5Count + grade6Count;
+
+                    txtTotalLearnerAssessed.Text = totalCount.ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private int GetSciCATLearnerCount(SqlConnection conn, int gradeLevel)
+        {
+            string schoolYear = cbScienceLearnerEnrollment.SelectedItem.ToString();
+            string selectedAssessment = cbAssessmentType.SelectedItem.ToString();
+            string query = "SELECT COUNT(*) FROM LearnersProfileScience WHERE ClassificationLevel IS NOT NULL AND ClassificationLevel <> '' AND GradeLevel = @GradeLevel AND SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType";
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                cmd.Parameters.AddWithValue("@GradeLevel", gradeLevel);
+                cmd.Parameters.AddWithValue("@AssessmentType", selectedAssessment);
+                return (int)cmd.ExecuteScalar();
+            }
+        }
+
         private void TallyScienceProficiencyData(string selectedAssessment)
         {
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
                 string schoolYear = cbScienceLearnerEnrollment.SelectedItem.ToString();
-                string query = "SELECT ClassificationLevel, COUNT(*) AS Total FROM LearnersProfileScience WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('4', '5', '6') GROUP BY ClassificationLevel";
+                string query = $@"SELECT ClassificationLevel, COUNT(*) AS Total 
+                         FROM LearnersProfileScience 
+                         WHERE SchoolYear = @SchoolYear 
+                         AND AssessmentType = @AssessmentType 
+                         AND GradeLevel IN ('4', '5', '6') 
+                         GROUP BY ClassificationLevel";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -170,6 +214,7 @@ namespace RosalESProfilingSystem.Forms
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
+                        // Reset the textboxes before updating
                         txtNoProficiency.Text = "0";
                         txtPoorProficiency.Text = "0";
                         txtWeakProficiency.Text = "0";
@@ -178,81 +223,82 @@ namespace RosalESProfilingSystem.Forms
                         txtVeryGoodProficiency.Text = "0";
                         txtExceptionalProficiency.Text = "0";
 
+                        // Reset the chart properly
                         chartScience.Series.Clear();
                         chartScience.Titles.Clear();
 
-                        Title chartTitle = new Title("Science Proficiency Classification")
+                        Title chartTitle = new Title($"Science Proficiency Classification")
                         {
                             Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold)
                         };
-
                         chartScience.Titles.Add(chartTitle);
 
                         Series series = new Series
                         {
-                            Name = "Science Proficiency Classification",
+                            Name = $"Science Proficiency Classification",
                             IsVisibleInLegend = true,
                             ChartType = SeriesChartType.Doughnut
                         };
-
                         chartScience.Series.Add(series);
 
                         int totalClassification = 0;
-                        Dictionary<string, int> classificationData = new Dictionary<string, int>();
-
+                        Dictionary<string, int> classificationData = new Dictionary<string, int>()
+                {
+                    { "No Proficiency at All", 0 },
+                    { "Poor Proficiency", 0 },
+                    { "Weak Proficiency", 0 },
+                    { "Satisfactory Proficiency", 0 },
+                    { "Good Proficiency", 0 },
+                    { "Very Good Proficiency", 0 },
+                    { "Exceptional Proficiency", 0 }
+                };
 
                         while (reader.Read())
                         {
-                            string scienceClassification = reader["ClassificationLevel"].ToString();
+                            string rmaClassification = reader["ClassificationLevel"].ToString();
                             int total = Convert.ToInt32(reader["Total"]);
-                            classificationData[scienceClassification] = total;
-                            totalClassification += total;
 
-                            switch (scienceClassification)
+                            if (classificationData.ContainsKey(rmaClassification))
                             {
-                                case "No Proficiency at All":
-                                    txtNoProficiency.Text = total.ToString();
-                                    break;
-                                case "Poor Proficiency":
-                                    txtPoorProficiency.Text = total.ToString();
-                                    break;
-                                case "Weak Proficiency":
-                                    txtWeakProficiency.Text = total.ToString();
-                                    break;
-                                case "Satisfactory Proficiency":
-                                    txtSatisfactoryProficiency.Text = total.ToString();
-                                    break;
-                                case "Good Proficiency":
-                                    txtGoodProficiency.Text = total.ToString();
-                                    break;
-                                case "Very Good Proficiency":
-                                    txtVeryGoodProficiency.Text = total.ToString();
-                                    break;
-                                case "Exceptional Proficiency":
-                                    txtExceptionalProficiency.Text = total.ToString();
-                                    break;
+                                classificationData[rmaClassification] = total;
                             }
+
+                            totalClassification += total;
                         }
+
+                        // Update the textboxes
+                        txtNoProficiency.Text = classificationData["No Proficiency at All"].ToString();
+                        txtPoorProficiency.Text = classificationData["Poor Proficiency"].ToString();
+                        txtWeakProficiency.Text = classificationData["Weak Proficiency"].ToString();
+                        txtSatisfactoryProficiency.Text = classificationData["Satisfactory Proficiency"].ToString();
+                        txtGoodProficiency.Text = classificationData["Good Proficiency"].ToString();
+                        txtVeryGoodProficiency.Text = classificationData["Very Good Proficiency"].ToString();
+                        txtExceptionalProficiency.Text = classificationData["Exceptional Proficiency"].ToString();
+
+
+                        // Calculate total learners correctly (instead of summing classificationData values)
+                        int totalLearners = classificationData.Values.Sum();
 
                         foreach (var item in classificationData)
                         {
-                            double percentage = totalClassification > 0 ? (double)item.Value / totalClassification : 0;
+                            double percentage = totalLearners > 0 ? ((double)item.Value / totalLearners) * 100 : 0;
                             DataPoint dp = new DataPoint(0, item.Value)
                             {
                                 AxisLabel = item.Key,
                                 LegendText = item.Key,
-                                Label = string.Format("{0} ({1:P1})", item.Value, percentage)
+                                Label = $"{item.Value} ({percentage:F1}%)"
                             };
                             series.Points.Add(dp);
                         }
 
+
                         series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+                        chartScience.DataBind();
                         chartScience.Invalidate();
                     }
 
 
                 }
-
             }
         }
 

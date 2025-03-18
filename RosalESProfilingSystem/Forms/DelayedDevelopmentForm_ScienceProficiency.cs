@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -89,8 +90,55 @@ namespace RosalESProfilingSystem.Forms
             this.Text = $"Delayed Development Learners in Science Proficiency - Grade {_gradeLevel} ({_assessmentType} - {_schoolYear})";
         }
 
+        private List<(string LastName, string FirstName, string LRN, string Sex, string Classification)> GetGradeReadyLearners(string schoolYear, string gradeLevel, string assessmentType)
+        {
+            List<(string LastName, string FirstName, string LRN, string Sex, string Classification)> gradeReadyLearners = new List<(string, string, string, string, string)>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(dbConnection))
+                {
+                    connection.Open();
+                    string query = @"
+                                    SELECT LastName, FirstName, LRN, Sex, ClassificationLevel 
+                                    FROM LearnersProfileScience 
+                                    WHERE ClassificationLevel = 'Exceptional Proficiency' AND SchoolYear = @SchoolYear AND GradeLevel = @GradeLevel AND AssessmentType = @AssessmentType";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                        command.Parameters.AddWithValue("@GradeLevel", gradeLevel);
+                        command.Parameters.AddWithValue("@AssessmentType", assessmentType);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+                                gradeReadyLearners.Add((
+                                    reader["LastName"].ToString(),
+                                    reader["FirstName"].ToString(),
+                                    reader["LRN"].ToString(),
+                                    reader["Sex"].ToString(),
+                                    reader["ClassificationLevel"].ToString()
+                                ));
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return gradeReadyLearners;
+        }
+
         private async void btnExport_Click(object sender, EventArgs e)
         {
+
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 Filter = "PDF files (*.pdf)|*.pdf",
@@ -100,6 +148,10 @@ namespace RosalESProfilingSystem.Forms
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
+                string schoolYear = _schoolYear;
+                string gradeLevel = _gradeLevel;
+                string assessmentType = _assessmentType;
+
                 if (dataGridView1.Rows.Count == 0)
                 {
                     MessageBox.Show("No data available to export.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -123,7 +175,7 @@ namespace RosalESProfilingSystem.Forms
                     loadingForm.Controls.Add(progressBar);
                     loadingForm.Show();
 
-                    await Task.Run(() => ExportToPDF(saveFileDialog.FileName));
+                    await Task.Run(() => ExportToPDF(saveFileDialog.FileName, schoolYear, gradeLevel, assessmentType));
 
                     loadingForm.Close();
                 }
@@ -132,8 +184,9 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
-        private void ExportToPDF(string fileName)
+        private void ExportToPDF(string fileName, string schoolYear, string gradeLevel, string assessmentType)
         {
+            var gradeReadyLearners = GetGradeReadyLearners(schoolYear, gradeLevel, assessmentType);
             int noProfCount = 0, poorProfCount = 0, weakProfCount = 0, satProfCount = 0, goodProfCount = 0, verygoodProfCount = 0, excepProfCount = 0, totalLearners = 0;
 
             try
@@ -178,205 +231,248 @@ namespace RosalESProfilingSystem.Forms
 
 
                     }
-                }
 
-                using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
-                using (PdfWriter writer = new PdfWriter(fs))
-                using (PdfDocument pdf = new PdfDocument(writer))
-                using (Document document = new Document(pdf))
-                {
+                    using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
+                    using (PdfWriter writer = new PdfWriter(fs))
+                    using (PdfDocument pdf = new PdfDocument(writer))
+                    using (Document document = new Document(pdf))
+                    {
+                        PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+                        PdfFont regularFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
 
+                        string currentDate = DateTime.Now.ToString("MMMM dd, yyyy - hh:mm tt");
 
-                    string currentDate = DateTime.Now.ToString("MMMM dd, yyyy - hh:mm tt");
+                        Paragraph dateParagraph = new Paragraph($"Generated on: {currentDate}")
+                                    .SetFontSize(9)
+                                    .SetTextAlignment(TextAlignment.RIGHT);
 
-                    Paragraph dateParagraph = new Paragraph($"Generated on: {currentDate}")
-                                .SetFontSize(9)
-                                .SetTextAlignment(TextAlignment.RIGHT);
+                        document.Add(dateParagraph);
 
-                    document.Add(dateParagraph);
+                        Table table = new Table(2).UseAllAvailableWidth();
 
-                    PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+                        Paragraph titleText = new Paragraph("Science Confirmative Assessment Tool Report")
+                            .SetFont(boldFont)
+                            .SetFontSize(10)
+                            .SetPaddingLeft(3)
+                            .SetBackgroundColor(ColorConstants.GRAY)
+                            .SetFontColor(ColorConstants.WHITE)
+                            .SetTextAlignment(TextAlignment.LEFT);
 
-                    Table table = new Table(2).UseAllAvailableWidth();
-
-                    Paragraph titleText = new Paragraph("Science Confirmative Assessment Tool Report")
-                        .SetFont(boldFont)
-                        .SetFontSize(10)
-                        .SetPaddingLeft(3)
-                        .SetBackgroundColor(ColorConstants.GRAY)
-                        .SetFontColor(ColorConstants.WHITE)
-                        .SetTextAlignment(TextAlignment.LEFT);
-
-                    Cell textCell = new Cell().Add(titleText)
-                            .SetBorder(Border.NO_BORDER)
-                            .SetVerticalAlignment(VerticalAlignment.MIDDLE);
-
-                    table.AddCell(textCell);
-
-                    Paragraph assessmentTitle = new Paragraph("Science Confirmative Assessment Tool (SciCAT)")
-                        .SetFont(boldFont)
-                        .SetFontSize(10)
-                        .SetTextAlignment(TextAlignment.RIGHT);
-
-                    Cell assessmentText = new Cell().Add(assessmentTitle)
+                        Cell textCell = new Cell().Add(titleText)
                                 .SetBorder(Border.NO_BORDER)
                                 .SetVerticalAlignment(VerticalAlignment.MIDDLE);
 
-                    table.AddCell(assessmentText);
+                        table.AddCell(textCell);
 
-                    document.Add(table);
+                        Paragraph assessmentTitle = new Paragraph("Science Confirmative Assessment Tool (SciCAT)")
+                            .SetFont(boldFont)
+                            .SetFontSize(10)
+                            .SetTextAlignment(TextAlignment.RIGHT);
 
-                    document.Add(new Paragraph($"Science Confirmative Assessment Tool Result - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
-                        .SetFont(boldFont)
-                        .SetFontSize(11)
-                        .SetPaddingTop(10)
-                        .SetTextAlignment(TextAlignment.CENTER));
+                        Cell assessmentText = new Cell().Add(assessmentTitle)
+                                    .SetBorder(Border.NO_BORDER)
+                                    .SetVerticalAlignment(VerticalAlignment.MIDDLE);
 
-                    Table summaryTable = new Table(2).UseAllAvailableWidth().SetFontSize(10);
+                        table.AddCell(assessmentText);
 
-                    summaryTable.AddCell(new Cell().Add(new Paragraph("No Proficiency at All")).SetFont(boldFont));
-                    summaryTable.AddCell(new Cell().Add(new Paragraph(noProfCount.ToString())));
+                        document.Add(table);
 
-                    summaryTable.AddCell(new Cell().Add(new Paragraph("Poor Proficiency")).SetFont(boldFont));
-                    summaryTable.AddCell(new Cell().Add(new Paragraph(poorProfCount.ToString())));
+                        Paragraph schoolID = new Paragraph("SCHOOL ID: 114798")
+                                   .SetFont(boldFont)
+                                   .SetFontSize(9)
+                                   .SetPaddingLeft(3)
+                                   .SetTextAlignment(TextAlignment.LEFT);
 
-                    summaryTable.AddCell(new Cell().Add(new Paragraph("Weak Proficiency")).SetFont(boldFont));
-                    summaryTable.AddCell(new Cell().Add(new Paragraph(weakProfCount.ToString())));
+                        document.Add(schoolID);
 
-                    summaryTable.AddCell(new Cell().Add(new Paragraph("Satisfactory Proficiency")).SetFont(boldFont));
-                    summaryTable.AddCell(new Cell().Add(new Paragraph(satProfCount.ToString())));
+                        Paragraph schoolName = new Paragraph("SCHOOL NAME: ROSAL ELEMENTARY SCHOOL")
+                                  .SetFont(boldFont)
+                                  .SetFontSize(9)
+                                  .SetPaddingLeft(3)
+                                  .SetTextAlignment(TextAlignment.LEFT);
 
-                    summaryTable.AddCell(new Cell().Add(new Paragraph("Good Proficiency")).SetFont(boldFont));
-                    summaryTable.AddCell(new Cell().Add(new Paragraph(goodProfCount.ToString())));
+                        document.Add(schoolName);
 
-                    summaryTable.AddCell(new Cell().Add(new Paragraph("Very Good Proficiency")).SetFont(boldFont));
-                    summaryTable.AddCell(new Cell().Add(new Paragraph(verygoodProfCount.ToString())));
-                    
-                    summaryTable.AddCell(new Cell().Add(new Paragraph("Exceptional Proficiency")).SetFont(boldFont));
-                    summaryTable.AddCell(new Cell().Add(new Paragraph(excepProfCount.ToString())));
+                        document.Add(new Paragraph($"Science Confirmative Assessment Tool Result - Grade {_gradeLevel} {_assessmentType} {_schoolYear}")
+                            .SetFont(boldFont)
+                            .SetFontSize(11)
+                            .SetPaddingTop(10)
+                            .SetTextAlignment(TextAlignment.CENTER));
 
-                    summaryTable.AddCell(new Cell().Add(new Paragraph("Total Learners Assessed")).SetFont(boldFont));
-                    summaryTable.AddCell(new Cell().Add(new Paragraph(totalLearners.ToString())).SetFont(boldFont));
+                        Table summaryTable = new Table(2).UseAllAvailableWidth().SetFontSize(10);
 
-                    document.Add(summaryTable);
+                        summaryTable.AddCell(new Cell().Add(new Paragraph("No Proficiency at All")).SetFont(boldFont));
+                        summaryTable.AddCell(new Cell().Add(new Paragraph(noProfCount.ToString())));
 
-                    document.Add(new Paragraph("Learners with Delayed Development in Science Proficiency")
-                        .SetFont(boldFont)
-                        .SetFontSize(11)
-                        .SetPaddingTop(10)
-                        .SetTextAlignment(TextAlignment.CENTER));
+                        summaryTable.AddCell(new Cell().Add(new Paragraph("Poor Proficiency")).SetFont(boldFont));
+                        summaryTable.AddCell(new Cell().Add(new Paragraph(poorProfCount.ToString())));
 
-                    // Group data by RMAClassification and Sex
-                    var rmaData = ((DataTable)dataGridView1.DataSource)
-                        .AsEnumerable()
-                        .GroupBy(row => new
+                        summaryTable.AddCell(new Cell().Add(new Paragraph("Weak Proficiency")).SetFont(boldFont));
+                        summaryTable.AddCell(new Cell().Add(new Paragraph(weakProfCount.ToString())));
+
+                        summaryTable.AddCell(new Cell().Add(new Paragraph("Satisfactory Proficiency")).SetFont(boldFont));
+                        summaryTable.AddCell(new Cell().Add(new Paragraph(satProfCount.ToString())));
+
+                        summaryTable.AddCell(new Cell().Add(new Paragraph("Good Proficiency")).SetFont(boldFont));
+                        summaryTable.AddCell(new Cell().Add(new Paragraph(goodProfCount.ToString())));
+
+                        summaryTable.AddCell(new Cell().Add(new Paragraph("Very Good Proficiency")).SetFont(boldFont));
+                        summaryTable.AddCell(new Cell().Add(new Paragraph(verygoodProfCount.ToString())));
+
+                        summaryTable.AddCell(new Cell().Add(new Paragraph("Exceptional Proficiency")).SetFont(boldFont));
+                        summaryTable.AddCell(new Cell().Add(new Paragraph(excepProfCount.ToString())));
+
+                        summaryTable.AddCell(new Cell().Add(new Paragraph("Total Learners Assessed")).SetFont(boldFont));
+                        summaryTable.AddCell(new Cell().Add(new Paragraph(totalLearners.ToString())).SetFont(boldFont));
+
+                        document.Add(summaryTable);
+
+                        if (gradeReadyLearners.Count > 0)
                         {
-                            Classification = row["ClassificationLevel"].ToString(),
-                            Sex = row["Sex"].ToString()
-                        })
-                        .Select(group => new
-                        {
-                            group.Key.Classification,
-                            group.Key.Sex,
-                            Count = group.Count()
-                        })
-                        .ToList();
+                            document.Add(new Paragraph("Grade Ready Learners in Science Proficiency").SetFont(boldFont).SetFontSize(11).SetTextAlignment(TextAlignment.CENTER).SetPaddingTop(5).SetPaddingBottom(5));
+                            Table gradeReadyTable = new Table(5).UseAllAvailableWidth().SetFontSize(10);
+                            gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
+                            gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
+                            gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
+                            gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("Sex").SetFont(boldFont)));
+                            gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("Age").SetFont(boldFont)));
 
-                    int totalStudents = rmaData.Sum(x => x.Count);
+                            foreach (var learner in gradeReadyLearners)
+                            {
+                                gradeReadyTable.AddCell(learner.LastName);
+                                gradeReadyTable.AddCell(learner.FirstName);
+                                gradeReadyTable.AddCell(learner.LRN);
+                                gradeReadyTable.AddCell(learner.Sex);
+                                gradeReadyTable.AddCell(learner.Classification);
+                            }
+                            document.Add(gradeReadyTable);
 
-                    // Create chart
-                    Chart chart = new Chart
-                    {
-                        Width = 600,
-                        Height = 400
-                    };
+                        }
 
-                    ChartArea chartArea = new ChartArea();
-                    chart.ChartAreas.Add(chartArea);
+                            document.Add(new Paragraph("Learners with Delayed Development in Science Proficiency")
+                            .SetFont(boldFont)
+                            .SetFontSize(11)
+                            .SetPaddingTop(10)
+                            .SetTextAlignment(TextAlignment.CENTER));
 
-                    Series maleSeries = new Series("Male")
-                    {
-                        ChartType = SeriesChartType.Column,
-                        IsValueShownAsLabel = true
-                    };
+                            // Group data by RMAClassification and Sex
+                            var rmaData = ((DataTable)dataGridView1.DataSource)
+                                .AsEnumerable()
+                                .GroupBy(row => new
+                                {
+                                    Classification = row["ClassificationLevel"].ToString(),
+                                    Sex = row["Sex"].ToString()
+                                })
+                                .Select(group => new
+                                {
+                                    group.Key.Classification,
+                                    group.Key.Sex,
+                                    Count = group.Count()
+                                })
+                                .ToList();
 
-                    Series femaleSeries = new Series("Female")
-                    {
-                        ChartType = SeriesChartType.Column,
-                        IsValueShownAsLabel = true
-                    };
+                            int totalStudents = rmaData.Sum(x => x.Count);
 
-                    // Get distinct RMA classifications
-                    var classifications = rmaData.Select(x => x.Classification).Distinct().ToList();
+                            // Create chart
+                            Chart chart = new Chart
+                            {
+                                Width = 600,
+                                Height = 400
+                            };
 
-                    foreach (var classification in classifications)
-                    {
-                        int maleCount = rmaData.FirstOrDefault(x => x.Classification == classification && x.Sex == "M")?.Count ?? 0;
-                        int femaleCount = rmaData.FirstOrDefault(x => x.Classification == classification && x.Sex == "F")?.Count ?? 0;
+                            ChartArea chartArea = new ChartArea();
+                            chart.ChartAreas.Add(chartArea);
 
-                        double malePercentage = totalStudents > 0 ? (double)maleCount / totalStudents * 100 : 0;
-                        double femalePercentage = totalStudents > 0 ? (double)femaleCount / totalStudents * 100 : 0;
+                            Series maleSeries = new Series("Male")
+                            {
+                                ChartType = SeriesChartType.Column,
+                                IsValueShownAsLabel = true
+                            };
 
-                        maleSeries.Points.AddXY(classification, maleCount);
-                        maleSeries.Points.Last().Label = $"{maleCount} ({malePercentage:F2}%)";
+                            Series femaleSeries = new Series("Female")
+                            {
+                                ChartType = SeriesChartType.Column,
+                                IsValueShownAsLabel = true
+                            };
 
-                        femaleSeries.Points.AddXY(classification, femaleCount);
-                        femaleSeries.Points.Last().Label = $"{femaleCount} ({femalePercentage:F2}%)";
-                    }
+                            // Get distinct RMA classifications
+                            var classifications = rmaData.Select(x => x.Classification).Distinct().ToList();
 
-                    chart.Series.Add(maleSeries);
-                    chart.Series.Add(femaleSeries);
+                            foreach (var classification in classifications)
+                            {
+                                int maleCount = rmaData.FirstOrDefault(x => x.Classification == classification && x.Sex == "M")?.Count ?? 0;
+                                int femaleCount = rmaData.FirstOrDefault(x => x.Classification == classification && x.Sex == "F")?.Count ?? 0;
 
-                    chart.Legends.Add(new Legend("Legend")
-                    {
-                        Docking = Docking.Bottom
-                    });
+                                double malePercentage = totalStudents > 0 ? (double)maleCount / totalStudents * 100 : 0;
+                                double femalePercentage = totalStudents > 0 ? (double)femaleCount / totalStudents * 100 : 0;
 
-                    // Save chart image
-                    string chartPath = Path.Combine(Path.GetTempPath(), "ScienceProficiencyChart.png");
-                    chart.SaveImage(chartPath, ChartImageFormat.Png);
+                                maleSeries.Points.AddXY(classification, maleCount);
+                                maleSeries.Points.Last().Label = $"{maleCount} ({malePercentage:F2}%)";
 
-                    // Add chart image to PDF
-                    iText.Layout.Element.Image chartImage = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(chartPath))
-                        .SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER)
-                        .SetAutoScale(true);
+                                femaleSeries.Points.AddXY(classification, femaleCount);
+                                femaleSeries.Points.Last().Label = $"{femaleCount} ({femalePercentage:F2}%)";
+                            }
 
-                    document.Add(chartImage);
+                            chart.Series.Add(maleSeries);
+                            chart.Series.Add(femaleSeries);
 
-                    // Add Male Learners Table
-                    document.Add(new Paragraph("Male Learners").SetFont(boldFont).SetFontSize(10));
+                            chart.Legends.Add(new Legend("Legend")
+                            {
+                                Docking = Docking.Bottom
+                            });
 
-                    Table maleTable = new Table(4).UseAllAvailableWidth().SetFontSize(11);
-                    maleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
-                    maleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
-                    maleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
-                    maleTable.AddHeaderCell(new Cell().Add(new Paragraph("Classification Level").SetFont(boldFont)));
+                            // Save chart image
+                            string chartPath = Path.Combine(Path.GetTempPath(), "ScienceProficiencyChart.png");
+                            chart.SaveImage(chartPath, ChartImageFormat.Png);
 
-                    Table femaleTable = new Table(4).UseAllAvailableWidth().SetFontSize(11);
-                    femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
-                    femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
-                    femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
-                    femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("Classification Level").SetFont(boldFont)));
+                            // Add chart image to PDF
+                            iText.Layout.Element.Image chartImage = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(chartPath))
+                                .SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER)
+                                .SetAutoScale(true);
 
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        if (!row.IsNewRow)
-                        {
-                            var targetTable = row.Cells["Sex"].Value?.ToString() == "M" ? maleTable : femaleTable;
+                            document.Add(chartImage);
 
-                            targetTable.AddCell(row.Cells["LastName"].Value?.ToString() ?? "");
-                            targetTable.AddCell(row.Cells["FirstName"].Value?.ToString() ?? "");
-                            targetTable.AddCell(row.Cells["LRN"].Value?.ToString() ?? "");
-                            targetTable.AddCell(row.Cells["ClassificationLevel"].Value?.ToString() ?? "");
+                            // Add Male Learners Table
+
+                            Table maleTable = new Table(4).UseAllAvailableWidth().SetFontSize(11);
+                            maleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
+                            maleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
+                            maleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
+                            maleTable.AddHeaderCell(new Cell().Add(new Paragraph("Classification Level").SetFont(boldFont)));
+
+                            Table femaleTable = new Table(4).UseAllAvailableWidth().SetFontSize(11);
+                            femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
+                            femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
+                            femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
+                            femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("Classification Level").SetFont(boldFont)));
+
+                            foreach (DataGridViewRow row in dataGridView1.Rows)
+                            {
+                                if (!row.IsNewRow)
+                                {
+                                    var targetTable = row.Cells["Sex"].Value?.ToString() == "M" ? maleTable : femaleTable;
+
+                                    targetTable.AddCell(row.Cells["LastName"].Value?.ToString() ?? "");
+                                    targetTable.AddCell(row.Cells["FirstName"].Value?.ToString() ?? "");
+                                    targetTable.AddCell(row.Cells["LRN"].Value?.ToString() ?? "");
+                                    targetTable.AddCell(row.Cells["ClassificationLevel"].Value?.ToString() ?? "");
+                                }
+                            }
+
+                            if (maleTable.GetNumberOfRows() > 0)
+                            {
+                            document.Add(new Paragraph("Male Learners").SetFont(boldFont).SetFontSize(10));
+                            document.Add(maleTable);
+                            }
+
+                            if (femaleTable.GetNumberOfRows() > 0)
+                            {
+                                // Add Female Learners Table
+                                document.Add(new Paragraph("Female Learners").SetFont(boldFont).SetFontSize(10));
+                                document.Add(femaleTable);
+                            }
                         }
                     }
-
-                    document.Add(maleTable);
-
-                    // Add Female Learners Table
-                    document.Add(new Paragraph("Female Learners").SetFont(boldFont).SetFontSize(10));
-                    document.Add(femaleTable);
-                }
             }
             catch (Exception ex)
             {

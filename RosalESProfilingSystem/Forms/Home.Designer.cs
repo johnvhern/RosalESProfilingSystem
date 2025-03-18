@@ -52,7 +52,6 @@
             this.Name = "Home";
             this.ShowIcon = false;
             this.Text = "Home";
-            this.Load += new System.EventHandler(this.Home_Load);
             this.ResumeLayout(false);
 
         }

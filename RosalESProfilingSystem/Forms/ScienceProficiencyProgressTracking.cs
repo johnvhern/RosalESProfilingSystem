@@ -75,7 +75,7 @@ namespace RosalESProfilingSystem.Forms
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
                     conn.Open();
-                    string query = $"SELECT DISTINCT Id, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age FROM LearnersProfileScience WHERE {column} LIKE @SearchValue AND SchoolYear = @SchoolYear";
+                    string query = $"WITH UniqueLearners AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age ORDER BY Id ASC) AS row_num FROM LearnersProfileScience WHERE {column} LIKE @SearchValue AND SchoolYear = @SchoolYear) SELECT Id, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age FROM UniqueLearners WHERE row_num = 1;";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {

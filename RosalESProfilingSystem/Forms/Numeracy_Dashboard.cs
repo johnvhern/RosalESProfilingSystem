@@ -114,7 +114,9 @@ namespace RosalESProfilingSystem.Forms
             try
             {
                 string selectedAssessment = cbAssessmentType.SelectedItem.ToString();
+                string Year = cbNumeracyLearnerEnrollment.SelectedItem.ToString();
                 TallyRMAData(selectedAssessment);
+                TallyRMALearner(Year);
 
             }
             catch (Exception ex)
@@ -123,9 +125,46 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
+        private void TallyRMALearner(string year)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(dbConnection))
+                {
+                    conn.Open();
+
+                    int grade1Count = GetRMALearnerCount(conn, 1);
+                    int grade2Count = GetRMALearnerCount(conn, 2);
+                    int grade3Count = GetRMALearnerCount(conn, 3);
+                    int totalCount = grade1Count + grade2Count + grade3Count;
+
+                    txtTotalLearnerAssessed.Text = totalCount.ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private int GetRMALearnerCount(SqlConnection conn, int gradeLevel)
+        {
+            string schoolYear = cbNumeracyLearnerEnrollment.SelectedItem.ToString();
+            string selectedAssessment = cbAssessmentType.SelectedItem.ToString();
+            string query = "SELECT COUNT(*) FROM LearnersProfile WHERE RMAClassification IS NOT NULL AND RMAClassification <> '' AND GradeLevel = @GradeLevel AND SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType";
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                cmd.Parameters.AddWithValue("@GradeLevel", gradeLevel);
+                cmd.Parameters.AddWithValue("@AssessmentType", selectedAssessment);
+                return (int)cmd.ExecuteScalar();
+            }
+        }
+
         private void TallyRMAData(string selectedAssessment)
         {
-           
+
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
                 string schoolYear = cbNumeracyLearnerEnrollment.SelectedItem.ToString();
@@ -154,7 +193,6 @@ namespace RosalESProfilingSystem.Forms
                         };
 
                         chartRMA.Titles.Add(chartTitle);
-
                         Series series = new Series
                         {
                             Name = "RMA Classification",
@@ -162,53 +200,58 @@ namespace RosalESProfilingSystem.Forms
                             ChartType = SeriesChartType.Doughnut
                         };
 
+
+
                         chartRMA.Series.Add(series);
 
                         int totalClassification = 0;
-                        Dictionary<string, int> classificationData = new Dictionary<string, int>();
+                        Dictionary<string, int> classificationData = new Dictionary<string, int>()
+                            {
+                                { "Low Emerging", 0 },
+                                { "High Emerging", 0 },
+                                { "Developing", 0 },
+                                { "Transitioning", 0 },
+                                { "Grade Ready", 0 }
+                            };
 
 
                         while (reader.Read())
                         {
                             string rmaClassification = reader["RMAClassification"].ToString();
                             int total = Convert.ToInt32(reader["Total"]);
-                            classificationData[rmaClassification] = total;
-                            totalClassification += total;
 
-                            switch (rmaClassification)
+                            if (classificationData.ContainsKey(rmaClassification))
                             {
-                                case "Low Emerging":
-                                    txtLowEmerging.Text = total.ToString();
-                                    break;
-                                case "High Emerging":
-                                    txtHighEmerging.Text = total.ToString();
-                                    break;
-                                case "Developing":
-                                    txtDeveloping.Text = total.ToString();
-                                    break;
-                                case "Transitioning":
-                                    txtTransitioning.Text = total.ToString();
-                                    break;
-                                case "Grade Ready":
-                                    txtGradeReady.Text = total.ToString();
-                                    break;
+                                classificationData[rmaClassification] = total;
                             }
+
+                            totalClassification += total;
                         }
+
+                        // Update the textboxes
+                        txtLowEmerging.Text = classificationData["Low Emerging"].ToString();
+                        txtHighEmerging.Text = classificationData["High Emerging"].ToString();
+                        txtDeveloping.Text = classificationData["Developing"].ToString();
+                        txtTransitioning.Text = classificationData["Transitioning"].ToString();
+                        txtGradeReady.Text = classificationData["Grade Ready"].ToString();
+
+                        int totalLearners = classificationData.Values.Sum();
 
                         foreach (var item in classificationData)
                         {
-                            double percentage = totalClassification > 0 ? (double)item.Value / totalClassification : 0;
+                            double percentage = totalLearners > 0 ? ((double)item.Value / totalLearners) * 100 : 0;
                             DataPoint dp = new DataPoint(0, item.Value)
                             {
                                 AxisLabel = item.Key,
                                 LegendText = item.Key,
-                                Label = string.Format("{0} ({1:P1})", item.Value, percentage)
+                                Label = $"{item.Value} ({percentage:F1}%)"
                             };
                             series.Points.Add(dp);
                         }
 
                         series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
                         chartRMA.Invalidate();
+
                     }
 
 
@@ -222,7 +265,7 @@ namespace RosalESProfilingSystem.Forms
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
                 string schoolYear = cbNumeracyLearnerEnrollment.SelectedItem.ToString();
-                string query = "SELECT GradeLevel, RMAClassification, COUNT(*) AS Total FROM LearnersProfile WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('1', '2', '3') GROUP BY GradeLevel, RMAClassification";
+                string query = "SELECT GradeLevel, RMAClassification, COUNT(*) AS Total FROM LearnersProfile WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('1', '2', '3') AND RMAClassification IS NOT NULL AND RMAClassification <> '' GROUP BY GradeLevel, RMAClassification";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -264,13 +307,16 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
-        private void DisplayDelayed(Dictionary<string, Dictionary<string, int>> data, string grade, TextBox txtDelayedNumber, TextBox txtDelayedPercent)
+        private void DisplayDelayed(Dictionary<string, Dictionary<string, int>> gradeData, string grade, TextBox txtDelayedNumber, TextBox txtDelayedPercent)
         {
-            if (data.ContainsKey(grade))
+            if (gradeData.ContainsKey(grade))
             {
-                var gradeData = data[grade];
-                int totalLearners = gradeData.Values.Sum();
-                int delayedLearners = gradeData["Low Emerging"] + gradeData["High Emerging"] + gradeData["Developing"] + gradeData["Transitioning"];
+                var data = gradeData[grade];
+
+                // Count only learners who have a classification (ignore NULL/empty)
+                int totalLearners = data.Where(kv => !string.IsNullOrEmpty(kv.Key)).Sum(kv => kv.Value);
+                int delayedLearners = data["Low Emerging"] + data["High Emerging"] + data["Developing"] + data["Transitioning"];
+
                 double delayedPercentage = totalLearners > 0 ? ((double)delayedLearners / totalLearners) * 100 : 0;
 
                 txtDelayedNumber.Text = delayedLearners.ToString();

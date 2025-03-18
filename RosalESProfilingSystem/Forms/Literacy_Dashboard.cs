@@ -175,8 +175,11 @@ namespace RosalESProfilingSystem.Forms
                 }
 
                 string assessmentType = cbAssessmentType.SelectedItem.ToString();
+                string Year = cbLiteracyLearnerEnrollment.SelectedItem.ToString();
 
                 TallyCRLAData(languageColumn, assessmentType);
+                TallyCRLALearners(Year, languageColumn);
+
 
             }
             catch (Exception ex)
@@ -186,13 +189,55 @@ namespace RosalESProfilingSystem.Forms
 
         }
 
+        private void TallyCRLALearners(string year, string languageColumn)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(dbConnection))
+                {
+                    conn.Open();
+
+                    int grade1Count = GetCRLALearnerCount(conn, 1, languageColumn);
+                    int grade2Count = GetCRLALearnerCount(conn, 2, languageColumn);
+                    int grade3Count = GetCRLALearnerCount(conn, 3, languageColumn);
+                    int totalCount = grade1Count + grade2Count + grade3Count;
+
+                    txtTotalLearnerAssessed.Text = totalCount.ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private int GetCRLALearnerCount(SqlConnection conn, int gradeLevel, string languageColumn)
+        {
+            string schoolYear = cbLiteracyLearnerEnrollment.SelectedItem.ToString();
+            string selectedAssessment = cbAssessmentType.SelectedItem.ToString();
+            string query = $"SELECT COUNT(*) FROM LearnersProfile WHERE {languageColumn} IS NOT NULL AND {languageColumn} <> '' AND GradeLevel = @GradeLevel AND SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType";
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                cmd.Parameters.AddWithValue("@GradeLevel", gradeLevel);
+                cmd.Parameters.AddWithValue("@AssessmentType", selectedAssessment);
+                return (int)cmd.ExecuteScalar();
+            }
+        }
+
         private void TallyCRLAData(string languageColumn, string assessmentType)
         {
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
                 string language = cbCRLALanguage.SelectedItem.ToString();
                 string schoolYear = cbLiteracyLearnerEnrollment.SelectedItem.ToString();
-                string query = $@"SELECT {languageColumn}, COUNT(*) AS Total FROM LearnersProfile WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('1', '2', '3') GROUP BY {languageColumn}";
+                string query = $@"SELECT {languageColumn} AS Classification, COUNT(*) AS Total 
+                         FROM LearnersProfile 
+                         WHERE SchoolYear = @SchoolYear 
+                         AND AssessmentType = @AssessmentType 
+                         AND GradeLevel IN ('1', '2', '3') 
+                         GROUP BY {languageColumn}";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -202,20 +247,21 @@ namespace RosalESProfilingSystem.Forms
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
+                        // Reset the textboxes before updating
                         txtLowEmerging.Text = "0";
                         txtHighEmerging.Text = "0";
                         txtDeveloping.Text = "0";
                         txtTransitioning.Text = "0";
                         txtGradeReady.Text = "0";
 
+                        // Reset the chart properly
                         chartRMA.Series.Clear();
                         chartRMA.Titles.Clear();
 
-                        Title chartTitle = new Title($"CRLA Classification {language}")
+                        Title chartTitle = new Title($"CRLA Classification - {language}")
                         {
                             Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold)
                         };
-
                         chartRMA.Titles.Add(chartTitle);
 
                         Series series = new Series
@@ -224,53 +270,56 @@ namespace RosalESProfilingSystem.Forms
                             IsVisibleInLegend = true,
                             ChartType = SeriesChartType.Doughnut
                         };
-
                         chartRMA.Series.Add(series);
 
                         int totalClassification = 0;
-                        Dictionary<string, int> classificationData = new Dictionary<string, int>();
-
+                        Dictionary<string, int> classificationData = new Dictionary<string, int>()
+                {
+                    { "Low Emerging", 0 },
+                    { "High Emerging", 0 },
+                    { "Developing", 0 },
+                    { "Transitioning", 0 },
+                    { "Grade Ready", 0 }
+                };
 
                         while (reader.Read())
                         {
-                            string rmaClassification = reader[$"{languageColumn}"].ToString();
+                            string rmaClassification = reader["Classification"].ToString();
                             int total = Convert.ToInt32(reader["Total"]);
-                            classificationData[rmaClassification] = total;
-                            totalClassification += total;
 
-                            switch (rmaClassification)
+                            if (classificationData.ContainsKey(rmaClassification))
                             {
-                                case "Low Emerging":
-                                    txtLowEmerging.Text = total.ToString();
-                                    break;
-                                case "High Emerging":
-                                    txtHighEmerging.Text = total.ToString();
-                                    break;
-                                case "Developing":
-                                    txtDeveloping.Text = total.ToString();
-                                    break;
-                                case "Transitioning":
-                                    txtTransitioning.Text = total.ToString();
-                                    break;
-                                case "Grade Ready":
-                                    txtGradeReady.Text = total.ToString();
-                                    break;
+                                classificationData[rmaClassification] = total;
                             }
+
+                            totalClassification += total;
                         }
+
+                        // Update the textboxes
+                        txtLowEmerging.Text = classificationData["Low Emerging"].ToString();
+                        txtHighEmerging.Text = classificationData["High Emerging"].ToString();
+                        txtDeveloping.Text = classificationData["Developing"].ToString();
+                        txtTransitioning.Text = classificationData["Transitioning"].ToString();
+                        txtGradeReady.Text = classificationData["Grade Ready"].ToString();
+
+                        // Calculate total learners correctly (instead of summing classificationData values)
+                        int totalLearners = classificationData.Values.Sum();
 
                         foreach (var item in classificationData)
                         {
-                            double percentage = totalClassification > 0 ? (double)item.Value / totalClassification : 0;
+                            double percentage = totalLearners > 0 ? ((double)item.Value / totalLearners) * 100 : 0;
                             DataPoint dp = new DataPoint(0, item.Value)
                             {
                                 AxisLabel = item.Key,
                                 LegendText = item.Key,
-                                Label = string.Format("{0} ({1:P1})", item.Value, percentage)
+                                Label = $"{item.Value} ({percentage:F1}%)"
                             };
                             series.Points.Add(dp);
                         }
 
+
                         series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+                        chartRMA.DataBind();
                         chartRMA.Invalidate();
                     }
 
@@ -335,7 +384,15 @@ namespace RosalESProfilingSystem.Forms
             {
                 string language = cbPollingLanguage.SelectedItem.ToString();
                 string schoolYear = cbLiteracyLearnerEnrollment.SelectedItem.ToString();
-                string query = $@"SELECT GradeLevel, {languageColumn}, COUNT(*) AS Total FROM LearnersProfile WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('1', '2', '3') GROUP BY GradeLevel, {languageColumn}";
+                string query = $@"
+                                SELECT GradeLevel, {languageColumn} AS Classification, COUNT(*) AS Total 
+                                FROM LearnersProfile 
+                                WHERE SchoolYear = @SchoolYear 
+                                AND AssessmentType = @AssessmentType 
+                                AND GradeLevel IN ('1', '2', '3') 
+                                AND {languageColumn} IS NOT NULL AND {languageColumn} <> ''
+                                GROUP BY GradeLevel, {languageColumn}";
+
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -350,7 +407,7 @@ namespace RosalESProfilingSystem.Forms
                         while (reader.Read())
                         {
                             string gradeLevel = reader["GradeLevel"].ToString();
-                            string crlaLanguage = reader[$"{languageColumn}"].ToString();
+                            string crlaLanguage = reader["Classification"].ToString();
                             int total = Convert.ToInt32(reader["Total"]);
 
                             if (!gradeData.ContainsKey(gradeLevel))
@@ -382,8 +439,11 @@ namespace RosalESProfilingSystem.Forms
             if (gradeData.ContainsKey(grade))
             {
                 var data = gradeData[grade];
-                int totalLearners = data.Values.Sum();
+
+                // Count only learners who have a classification (ignore NULL/empty)
+                int totalLearners = data.Where(kv => !string.IsNullOrEmpty(kv.Key)).Sum(kv => kv.Value);
                 int delayedLearners = data["Low Emerging"] + data["High Emerging"] + data["Developing"] + data["Transitioning"];
+
                 double delayedPercentage = totalLearners > 0 ? ((double)delayedLearners / totalLearners) * 100 : 0;
 
                 txtDelayedNumber.Text = delayedLearners.ToString();
