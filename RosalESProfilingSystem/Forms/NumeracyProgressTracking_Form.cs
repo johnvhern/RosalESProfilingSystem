@@ -303,5 +303,20 @@ namespace RosalESProfilingSystem.Forms
             // Refresh DataGridView to reflect changes
             dataGridView2.Refresh();
         }
+
+        private void btnViewCompetencyChart_Click(object sender, EventArgs e)
+        {
+            if (cbSchoolYear.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a year first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string selectedYear = cbSchoolYear.SelectedItem.ToString();
+
+            // 🔹 Pass the selected year to the chart form
+            CompetencyChartForm_RMA chartForm = new CompetencyChartForm_RMA(selectedYear);
+            chartForm.Show(); // Opens the chart form
+        }
     }
     }

@@ -252,6 +252,12 @@
     <Compile Include="Forms\CompetenciesExpandedView.Designer.cs">
       <DependentUpon>CompetenciesExpandedView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CompetencyChartForm_RMA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CompetencyChartForm_RMA.Designer.cs">
+      <DependentUpon>CompetencyChartForm_RMA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DelayedDevelopmentForm_Literacy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CompetenciesExpandedView.resx">
       <DependentUpon>CompetenciesExpandedView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CompetencyChartForm_RMA.resx">
+      <DependentUpon>CompetencyChartForm_RMA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DelayedDevelopmentForm_Literacy.resx">
       <DependentUpon>DelayedDevelopmentForm_Literacy.cs</DependentUpon>
