@@ -27,6 +27,11 @@ namespace RosalESProfilingSystem.Forms
         {
             if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
             {
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    col.ReadOnly = col.Name != "Mastered";
+                }
+
                 dataGridView1.EndEdit();
 
                 // Reflect the checkbox state back to the original grid
