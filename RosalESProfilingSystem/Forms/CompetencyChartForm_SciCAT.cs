@@ -1,16 +1,9 @@
-﻿using iText.IO.Image;
-using iText.Kernel.Geom;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Drawing.Printing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,17 +12,16 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace RosalESProfilingSystem.Forms
 {
-    public partial class CompetencyChartForm_RMA: Form
+    public partial class CompetencyChartForm_SciCAT: Form
     {
         private string selectedYear;
         private string selectedQuarter;
         private string dbConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=RosalES;Integrated Security=True;";
-        public CompetencyChartForm_RMA(string year, string quarter)
+        public CompetencyChartForm_SciCAT(string year, string quarter)
         {
             InitializeComponent();
             selectedYear = year;
             selectedQuarter = quarter;
-
         }
 
         private void LoadCompetencyData()
@@ -40,7 +32,7 @@ namespace RosalESProfilingSystem.Forms
 
                 // Get total learners for the selected year
                 int totalLearners = 0;
-                string queryTotal = "SELECT COUNT(DISTINCT LRN) FROM LearnersProfile WHERE SchoolYear = @year";
+                string queryTotal = "SELECT COUNT(DISTINCT LRN) FROM LearnersProfileScience WHERE SchoolYear = @year";
 
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 using (SqlCommand cmd = new SqlCommand(queryTotal, conn))
@@ -59,8 +51,8 @@ namespace RosalESProfilingSystem.Forms
 
                 string query = @"
             SELECT c.CompetencyName, COUNT(r.LearnerId) AS MasteredCount 
-            FROM RMALearnerCompetencyProgress r 
-            INNER JOIN RMACompetencies c ON r.CompetencyId = c.CompetencyId
+            FROM SciCATLearnerCompetencyProgress r 
+            INNER JOIN SciCATCompetencies c ON r.CompetencyId = c.CompetencyId
             WHERE r.Mastered = 1 AND c.Quarter = @quarter
             GROUP BY c.CompetencyName 
             ORDER BY MasteredCount DESC";
@@ -116,52 +108,9 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
-        private void CompetencyChartForm_RMA_Load(object sender, EventArgs e)
+        private void CompetencyChartForm_SciCAT_Load(object sender, EventArgs e)
         {
             LoadCompetencyData();
         }
-
-        //private void btnExportChart_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        SaveFileDialog saveFileDialog = new SaveFileDialog
-        //        {
-        //            Filter = "PDF Files (*.pdf)|*.pdf",
-        //            Title = "Save Competency Report"
-        //        };
-
-        //        if (saveFileDialog.ShowDialog() == DialogResult.OK)
-        //        {
-        //            string filePath = saveFileDialog.FileName;
-
-        //            // Save chart as image
-        //            string tempImagePath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "chart.png");
-        //            chart1.SaveImage(tempImagePath, ChartImageFormat.Png);
-
-        //            // Create PDF
-        //            using (PdfWriter writer = new PdfWriter(filePath))
-        //            {
-        //                using (PdfDocument pdf = new PdfDocument(writer))
-        //                {
-        //                    Document document = new Document(pdf);
-        //                    document.Add(new Paragraph("Competency Mastery Report")
-        //                        .SetFontSize(16));
-
-        //                    // Add chart image to PDF
-        //                    iText.IO.Image.ImageData imageData = iText.IO.Image.ImageDataFactory.Create(tempImagePath);
-        //                    iText.Layout.Element.Image image = new iText.Layout.Element.Image(imageData);
-        //                    document.Add(image);
-        //                }
-        //            }
-
-        //            MessageBox.Show("PDF Exported Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error exporting PDF: " + ex.Message);
-        //    }
-        //}
     }
 }

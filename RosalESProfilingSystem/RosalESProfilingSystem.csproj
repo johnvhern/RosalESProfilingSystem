@@ -252,11 +252,23 @@
     <Compile Include="Forms\CompetenciesExpandedView.Designer.cs">
       <DependentUpon>CompetenciesExpandedView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CompetencyChartForm_CRLA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CompetencyChartForm_CRLA.Designer.cs">
+      <DependentUpon>CompetencyChartForm_CRLA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CompetencyChartForm_RMA.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CompetencyChartForm_RMA.Designer.cs">
       <DependentUpon>CompetencyChartForm_RMA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CompetencyChartForm_SciCAT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CompetencyChartForm_SciCAT.Designer.cs">
+      <DependentUpon>CompetencyChartForm_SciCAT.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DelayedDevelopmentForm_Literacy.cs">
       <SubType>Form</SubType>
@@ -395,8 +407,14 @@
     <EmbeddedResource Include="Forms\CompetenciesExpandedView.resx">
       <DependentUpon>CompetenciesExpandedView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CompetencyChartForm_CRLA.resx">
+      <DependentUpon>CompetencyChartForm_CRLA.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CompetencyChartForm_RMA.resx">
       <DependentUpon>CompetencyChartForm_RMA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CompetencyChartForm_SciCAT.resx">
+      <DependentUpon>CompetencyChartForm_SciCAT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DelayedDevelopmentForm_Literacy.resx">
       <DependentUpon>DelayedDevelopmentForm_Literacy.cs</DependentUpon>

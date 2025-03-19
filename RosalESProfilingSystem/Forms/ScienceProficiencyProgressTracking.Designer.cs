@@ -76,6 +76,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnViewCompetencyChart = new System.Windows.Forms.Button();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -208,15 +209,17 @@
             // 
             this.tableLayoutPanel9.ColumnCount = 3;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 314F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 335F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Controls.Add(this.chart1, 1, 1);
+            this.tableLayoutPanel9.Controls.Add(this.btnViewCompetencyChart, 1, 2);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 115);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 2;
+            this.tableLayoutPanel9.RowCount = 3;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(352, 698);
             this.tableLayoutPanel9.TabIndex = 2;
             // 
@@ -227,13 +230,13 @@
             this.chart1.Dock = System.Windows.Forms.DockStyle.Top;
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(22, 23);
+            this.chart1.Location = new System.Drawing.Point(11, 23);
             this.chart1.Name = "chart1";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(308, 308);
+            this.chart1.Size = new System.Drawing.Size(329, 308);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "chart1";
             // 
@@ -676,6 +679,21 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // btnViewCompetencyChart
+            // 
+            this.btnViewCompetencyChart.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnViewCompetencyChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnViewCompetencyChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewCompetencyChart.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewCompetencyChart.ForeColor = System.Drawing.Color.Black;
+            this.btnViewCompetencyChart.Location = new System.Drawing.Point(11, 666);
+            this.btnViewCompetencyChart.Name = "btnViewCompetencyChart";
+            this.btnViewCompetencyChart.Size = new System.Drawing.Size(329, 29);
+            this.btnViewCompetencyChart.TabIndex = 8;
+            this.btnViewCompetencyChart.Text = "Show All Learners Progress Per Competency";
+            this.btnViewCompetencyChart.UseVisualStyleBackColor = false;
+            this.btnViewCompetencyChart.Click += new System.EventHandler(this.btnViewCompetencyChart_Click);
+            // 
             // ScienceProficiencyProgressTracking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -762,5 +780,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnViewCompetencyChart;
     }
 }

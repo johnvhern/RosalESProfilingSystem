@@ -370,5 +370,30 @@ namespace RosalESProfilingSystem.Forms
             MessageBox.Show("Competency progress updated successfully!");
             UpdateCompetencyStats();
         }
+
+        private void btnViewCompetencyChart_Click(object sender, EventArgs e)
+        {
+            if (cbSchoolYear.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a year first.", "No School Year Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            } else if (metroComboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a quarter first.", "No Quarter Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }else if (cbCompetencyType.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a competency type first.", "No Competency Type Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+                string selectedYear = cbSchoolYear.SelectedItem.ToString();
+            int quarter = Convert.ToInt32(metroComboBox1.SelectedItem);
+            string competencyType = cbCompetencyType.SelectedItem.ToString();
+
+            // 🔹 Pass the selected year to the chart form
+            CompetencyChartForm_CRLA chartForm = new CompetencyChartForm_CRLA(selectedYear, quarter, competencyType);
+            chartForm.Show(); // Opens the chart form
+        }
     }
 }

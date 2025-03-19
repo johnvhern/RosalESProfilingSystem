@@ -297,5 +297,25 @@ namespace RosalESProfilingSystem.Forms
             // Refresh DataGridView to reflect changes
             dataGridView2.Refresh();
         }
+
+        private void btnViewCompetencyChart_Click(object sender, EventArgs e)
+        {
+            if (cbSchoolYear.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a year first.", "No School Year Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }else if(metroComboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a quarter first.", "No Quarter Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+                string selectedYear = cbSchoolYear.SelectedItem.ToString();
+            string selectedQuarter = metroComboBox1.SelectedItem.ToString();
+
+            // 🔹 Pass the selected year to the chart form
+            CompetencyChartForm_SciCAT chartForm = new CompetencyChartForm_SciCAT(selectedYear, selectedQuarter);
+            chartForm.Show(); // Opens the chart form
+        }
     }
 }
