@@ -15,15 +15,15 @@ namespace RosalESProfilingSystem.Forms
     public partial class CompetencyChartForm_CRLA: Form
     {
         private string selectedYear;
-        private int quarter;
-        private string competencyType;
+        private int selectedquarter;
+        private string selectedcompetencyType;
         private string dbConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=RosalES;Integrated Security=True;";
         public CompetencyChartForm_CRLA(string year, int quarter, string competencyType)
         {
             InitializeComponent();
             selectedYear = year;
-            this.quarter = quarter;
-            this.competencyType = competencyType;
+            selectedquarter = quarter;
+            selectedcompetencyType = competencyType;
         }
 
         private void LoadCompetencyData()
@@ -63,8 +63,8 @@ namespace RosalESProfilingSystem.Forms
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     conn.Open();
-                    cmd.Parameters.AddWithValue("@quarter", quarter);
-                    cmd.Parameters.AddWithValue("@competencyType", competencyType);
+                    cmd.Parameters.AddWithValue("@quarter", selectedquarter);
+                    cmd.Parameters.AddWithValue("@competencyType", selectedcompetencyType);
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     adapter.Fill(dt); // ✅ Fill the DataTable
                 }
