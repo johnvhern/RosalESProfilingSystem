@@ -7,14 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
 
 namespace RosalESProfilingSystem.Components
 {
     public partial class ContextMenyStrip_ERUNT: UserControl
     {
-        public ContextMenyStrip_ERUNT()
+        private Forms.ERUNT_Form eRUNT_Form;
+        private Button activeButton;
+        public ContextMenyStrip_ERUNT(Forms.ERUNT_Form eRUNT_Form)
         {
             InitializeComponent();
+            this.eRUNT_Form = eRUNT_Form;
+            ColorActiveButton(btnDashboard);
+        }
+
+        private void ColorActiveButton(Button btnDashboard)
+        {
+            if (activeButton != null)
+            {
+                activeButton.BackColor = SystemColors.Control;
+                activeButton.ForeColor = Color.Black;
+            }
+            activeButton = btnDashboard;
+            activeButton.BackColor = Color.FromArgb(8, 114, 217);
+            activeButton.ForeColor = Color.White;
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            eRUNT_Form.OpenForm(new Forms.ERUNT_Dashboard());
+            ColorActiveButton((Button)sender);
         }
     }
 }

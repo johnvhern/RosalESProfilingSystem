@@ -294,6 +294,12 @@
     <Compile Include="Forms\DelayedDevelopmentForm_ScienceProficiency.Designer.cs">
       <DependentUpon>DelayedDevelopmentForm_ScienceProficiency.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ERUNT_Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ERUNT_Dashboard.Designer.cs">
+      <DependentUpon>ERUNT_Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ERUNT_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DelayedDevelopmentForm_ScienceProficiency.resx">
       <DependentUpon>DelayedDevelopmentForm_ScienceProficiency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ERUNT_Dashboard.resx">
+      <DependentUpon>ERUNT_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ERUNT_Form.resx">
       <DependentUpon>ERUNT_Form.cs</DependentUpon>

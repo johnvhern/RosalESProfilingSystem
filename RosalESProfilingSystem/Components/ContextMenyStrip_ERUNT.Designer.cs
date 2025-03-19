@@ -61,6 +61,7 @@
             this.btnDashboard.TabIndex = 6;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // ContextMenyStrip_ERUNT
             // 
@@ -69,7 +70,7 @@
             this.Controls.Add(this.btnProgTrack);
             this.Controls.Add(this.btnDashboard);
             this.Name = "ContextMenyStrip_ERUNT";
-            this.Size = new System.Drawing.Size(430, 28);
+            this.Size = new System.Drawing.Size(354, 28);
             this.ResumeLayout(false);
 
         }

@@ -98,6 +98,7 @@ namespace RosalESProfilingSystem.Components
 
         private void btnERUNT_Click(object sender, EventArgs e)
         {
+            mainForm.OpenForm(new Forms.ERUNT_Form());
             ColorActiveButton((Button)sender);
         }
     }

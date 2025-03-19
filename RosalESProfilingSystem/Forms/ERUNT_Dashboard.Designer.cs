@@ -1,6 +1,6 @@
 ﻿namespace RosalESProfilingSystem.Forms
 {
-    partial class ERUNT_Form
+    partial class ERUNT_Dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1158, 768);
-            this.panel1.TabIndex = 1;
-            // 
-            // ERUNT_Form
+            // ERUNT_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1158, 768);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1158, 768);
-            this.Name = "ERUNT_Form";
-            this.Text = "ERUNT_Form";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
+            this.Name = "ERUNT_Dashboard";
+            this.Text = "ERUNT_Dashboard";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
     }
 }
