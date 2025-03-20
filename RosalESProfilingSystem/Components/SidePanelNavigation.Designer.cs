@@ -124,7 +124,7 @@
             this.panelNumeracy.MaximumSize = new System.Drawing.Size(207, 155);
             this.panelNumeracy.MinimumSize = new System.Drawing.Size(207, 76);
             this.panelNumeracy.Name = "panelNumeracy";
-            this.panelNumeracy.Size = new System.Drawing.Size(207, 155);
+            this.panelNumeracy.Size = new System.Drawing.Size(207, 76);
             this.panelNumeracy.TabIndex = 12;
             // 
             // btnERUNT
@@ -173,7 +173,7 @@
             this.btnNumeracyPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnNumeracyPage.Size = new System.Drawing.Size(207, 76);
             this.btnNumeracyPage.TabIndex = 2;
-            this.btnNumeracyPage.Text = "Numeracy";
+            this.btnNumeracyPage.Text = "⮟         Numeracy";
             this.btnNumeracyPage.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnNumeracyPage.UseVisualStyleBackColor = false;
             this.btnNumeracyPage.Click += new System.EventHandler(this.btnNumeracyPage_Click);
@@ -185,7 +185,7 @@
             this.btnSciProf.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnSciProf.Image = ((System.Drawing.Image)(resources.GetObject("btnSciProf.Image")));
             this.btnSciProf.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSciProf.Location = new System.Drawing.Point(0, 483);
+            this.btnSciProf.Location = new System.Drawing.Point(0, 404);
             this.btnSciProf.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnSciProf.Name = "btnSciProf";
             this.btnSciProf.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
@@ -204,7 +204,7 @@
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(0, 565);
+            this.button1.Location = new System.Drawing.Point(0, 486);
             this.button1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);

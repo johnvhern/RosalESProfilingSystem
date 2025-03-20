@@ -306,6 +306,12 @@
     <Compile Include="Forms\ERUNT_Form.Designer.cs">
       <DependentUpon>ERUNT_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ERUNT_ProgressTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ERUNT_ProgressTracking.Designer.cs">
+      <DependentUpon>ERUNT_ProgressTracking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -452,6 +458,9 @@
     <EmbeddedResource Include="Forms\ERUNT_Form.resx">
       <DependentUpon>ERUNT_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ERUNT_ProgressTracking.resx">
+      <DependentUpon>ERUNT_ProgressTracking.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -505,6 +514,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -523,6 +533,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icons\logo_small.png" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\down - Copy.png" />
+    <None Include="Resources\arrowup.png" />
+    <None Include="Resources\arrowdown.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

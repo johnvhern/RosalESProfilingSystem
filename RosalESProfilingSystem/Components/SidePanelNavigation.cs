@@ -19,6 +19,7 @@ namespace RosalESProfilingSystem.Components
         {
             InitializeComponent();
             this.mainForm = form;
+            timer1.Start();
             ColorActiveButton(btnHome);
 
         }
@@ -54,7 +55,6 @@ namespace RosalESProfilingSystem.Components
         private void btnNumeracyPage_Click(object sender, EventArgs e)
         {
             timer1.Start();
-            ColorActiveButton((Button)sender);
         }
 
         private void btnSciProf_Click(object sender, EventArgs e)
@@ -73,6 +73,7 @@ namespace RosalESProfilingSystem.Components
             if (isCollapsed)
             {
                 panelNumeracy.Height += 10;
+                btnNumeracyPage.Text = "⮝         Numeracy";
                 if (panelNumeracy.Size == panelNumeracy.MaximumSize)
                 {
                     timer1.Stop();
@@ -82,6 +83,7 @@ namespace RosalESProfilingSystem.Components
             else
             {
                 panelNumeracy.Height -= 10;
+                btnNumeracyPage.Text = "⮟         Numeracy";
                 if (panelNumeracy.Size == panelNumeracy.MinimumSize)
                 {
                     timer1.Stop();

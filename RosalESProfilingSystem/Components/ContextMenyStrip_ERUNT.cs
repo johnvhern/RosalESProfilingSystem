@@ -39,5 +39,11 @@ namespace RosalESProfilingSystem.Components
             eRUNT_Form.OpenForm(new Forms.ERUNT_Dashboard());
             ColorActiveButton((Button)sender);
         }
+
+        private void btnProgTrack_Click(object sender, EventArgs e)
+        {
+            eRUNT_Form.OpenForm(new Forms.ERUNT_ProgressTracking());
+            ColorActiveButton((Button)sender);
+        }
     }
 }

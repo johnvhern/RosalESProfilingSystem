@@ -50,7 +50,6 @@
             this.MinimumSize = new System.Drawing.Size(1158, 768);
             this.Name = "ERUNT_Form";
             this.Text = "ERUNT_Form";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }

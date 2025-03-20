@@ -29,7 +29,7 @@ namespace RosalESProfilingSystem.Forms
             OpenForm(new Forms.ERUNT_Dashboard());
         }
 
-        public void OpenForm(ERUNT_Dashboard eRUNT_Dashboard)
+        public void OpenForm(Form eRUNT_Dashboard)
         {
             panel1.Controls.Clear();
 
