@@ -16,7 +16,21 @@ namespace RosalESProfilingSystem.Forms
         public Home_Dashboard()
         {
             InitializeComponent();
+            typeof(Panel).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
+            null, panel4, new object[] { true });
         }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED - enables smoother UI rendering
+                return cp;
+            }
+        }
+
 
         private void dataOnLoad()
         {
@@ -31,6 +45,8 @@ namespace RosalESProfilingSystem.Forms
                 loadRMA_Click(this, EventArgs.Empty);
                 cbSciCATList.SelectedIndex = 0;
                 loadSciCATData_Click(this, EventArgs.Empty);
+                cbERUNT.SelectedIndex = 0;
+                btnLoadERUNT_Click(this, EventArgs.Empty);
             }
             
         }
@@ -666,6 +682,182 @@ namespace RosalESProfilingSystem.Forms
         private void cbSchoolYear_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             dataOnLoad();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages[1];
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages[0];
+        }
+
+        private void btnLoadERUNT_Click(object sender, EventArgs e)
+        {
+            if (cbSchoolYear.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a school year.", "No School Year Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }else if (cbERUNT.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an assessment type.", "No Assessment Type Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+                try
+                {
+                    string selectedAssessment = cbERUNT.SelectedItem.ToString();
+                    string Year = cbSchoolYear.SelectedItem.ToString();
+                    TallyERUNTData(selectedAssessment);
+                    TallyERUNTLearner(Year);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+        }
+
+        private void TallyERUNTLearner(string year)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(dbConnection))
+                {
+                    conn.Open();
+
+                    int grade4Count = GetERUNTLearnerCount(conn, 4);
+                    int grade5Count = GetERUNTLearnerCount(conn, 5);
+                    int grade6Count = GetERUNTLearnerCount(conn, 6);
+                    int totalCount = grade4Count + grade5Count + grade6Count;
+
+                    txtERUNTLearnerAssessed.Text = totalCount.ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private int GetERUNTLearnerCount(SqlConnection conn, int gradeLevel)
+        {
+            string schoolYear = cbSchoolYear.SelectedItem.ToString();
+            string selectedAssessment = cbERUNT.SelectedItem.ToString();
+            string query = "SELECT COUNT(*) FROM LearnersProfileScience WHERE ERUNTClassification IS NOT NULL AND ERUNTClassification <> '' AND GradeLevel = @GradeLevel AND SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType";
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                cmd.Parameters.AddWithValue("@GradeLevel", gradeLevel);
+                cmd.Parameters.AddWithValue("@AssessmentType", selectedAssessment);
+                return (int)cmd.ExecuteScalar();
+            }
+        }
+
+        private void TallyERUNTData(string selectedAssessment)
+        {
+
+            using (SqlConnection conn = new SqlConnection(dbConnection))
+            {
+                string schoolYear = cbSchoolYear.SelectedItem.ToString();
+                string query = "SELECT ERUNTClassification, COUNT(*) AS Total FROM LearnersProfileScience WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel IN ('4', '5', '6') GROUP BY ERUNTClassification";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                    cmd.Parameters.AddWithValue("@AssessmentType", selectedAssessment);
+                    conn.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        txtNotProficient.Text = "0";
+                        txtLowProficiency.Text = "0";
+                        txtNearlyProficient.Text = "0";
+                        txtProficient.Text = "0";
+                        txtHighlyProficient.Text = "0";
+
+                        chart1.Series.Clear();
+                        chart1.Titles.Clear();
+
+                        Title chartTitle = new Title("ERUNT Classification")
+                        {
+                            Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold)
+                        };
+
+                        chart1.Titles.Add(chartTitle);
+                        Series series = new Series
+                        {
+                            Name = "ERUNT Classification",
+                            IsVisibleInLegend = true,
+                            ChartType = SeriesChartType.Doughnut
+                        };
+
+
+
+                        chart1.Series.Add(series);
+
+                        int totalClassification = 0;
+                        Dictionary<string, int> classificationData = new Dictionary<string, int>()
+                            {
+                                { "Not Proficient", 0 },
+                                { "Low Proficiency", 0 },
+                                { "Nearly Proficient", 0 },
+                                { "Proficient", 0 },
+                                { "Highly Proficient", 0 }
+                            };
+
+
+                        while (reader.Read())
+                        {
+                            string rmaClassification = reader["ERUNTClassification"].ToString();
+                            int total = Convert.ToInt32(reader["Total"]);
+
+                            if (classificationData.ContainsKey(rmaClassification))
+                            {
+                                classificationData[rmaClassification] = total;
+                            }
+
+                            totalClassification += total;
+                        }
+
+                        // Update the textboxes
+                        txtNotProficient.Text = classificationData["Not Proficient"].ToString();
+                        txtLowProficiency.Text = classificationData["Low Proficiency"].ToString();
+                        txtNearlyProficient.Text = classificationData["Nearly Proficient"].ToString();
+                        txtProficient.Text = classificationData["Proficient"].ToString();
+                        txtHighlyProficient.Text = classificationData["Highly Proficient"].ToString();
+
+                        int totalLearners = classificationData.Values.Sum();
+
+                        foreach (var item in classificationData)
+                        {
+                            double percentage = totalLearners > 0 ? ((double)item.Value / totalLearners) * 100 : 0;
+                            DataPoint dp = new DataPoint(0, item.Value)
+                            {
+                                AxisLabel = item.Key,
+                                LegendText = item.Key,
+                                Label = $"{item.Value} ({percentage:F1}%)"
+                            };
+                            series.Points.Add(dp);
+                        }
+
+                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+                        chart1.Invalidate();
+
+                    }
+
+
+                }
+
+            }
+        }
+
+        private void Home_Dashboard_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

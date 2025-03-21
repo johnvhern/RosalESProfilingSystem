@@ -311,7 +311,7 @@
             this.tableLayoutPanel6.ColumnCount = 3;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.73391F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.2661F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.tableLayoutPanel6.Controls.Add(this.btnLoadRMA, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(218, 251);
@@ -330,7 +330,7 @@
             this.btnLoadRMA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadRMA.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadRMA.ForeColor = System.Drawing.Color.White;
-            this.btnLoadRMA.Location = new System.Drawing.Point(29, 3);
+            this.btnLoadRMA.Location = new System.Drawing.Point(28, 3);
             this.btnLoadRMA.Name = "btnLoadRMA";
             this.btnLoadRMA.Size = new System.Drawing.Size(157, 31);
             this.btnLoadRMA.TabIndex = 0;
@@ -367,7 +367,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.14159F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.85841F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 379F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 380F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 2, 8);
             this.tableLayoutPanel1.Controls.Add(this.txtTotalLearners, 2, 7);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 6);
@@ -401,10 +401,10 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.2549F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.74509F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel3.Controls.Add(this.btnLoadEnrollment, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(199, 251);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(198, 251);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -422,7 +422,7 @@
             this.btnLoadEnrollment.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnLoadEnrollment.Location = new System.Drawing.Point(27, 3);
             this.btnLoadEnrollment.Name = "btnLoadEnrollment";
-            this.btnLoadEnrollment.Size = new System.Drawing.Size(171, 31);
+            this.btnLoadEnrollment.Size = new System.Drawing.Size(170, 31);
             this.btnLoadEnrollment.TabIndex = 0;
             this.btnLoadEnrollment.Text = "Load Enrollment";
             this.btnLoadEnrollment.UseVisualStyleBackColor = false;
@@ -435,7 +435,7 @@
             this.txtTotalLearners.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtTotalLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalLearners.ForeColor = System.Drawing.Color.White;
-            this.txtTotalLearners.Location = new System.Drawing.Point(199, 209);
+            this.txtTotalLearners.Location = new System.Drawing.Point(198, 209);
             this.txtTotalLearners.Name = "txtTotalLearners";
             this.txtTotalLearners.ReadOnly = true;
             this.txtTotalLearners.Size = new System.Drawing.Size(256, 29);
@@ -446,9 +446,9 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label4.Location = new System.Drawing.Point(199, 186);
+            this.label4.Location = new System.Drawing.Point(198, 186);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(374, 20);
+            this.label4.Size = new System.Drawing.Size(375, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Total No. of Learners:";
             // 
@@ -458,7 +458,7 @@
             this.txtGrade3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGrade3.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtGrade3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrade3.Location = new System.Drawing.Point(199, 151);
+            this.txtGrade3.Location = new System.Drawing.Point(198, 151);
             this.txtGrade3.Name = "txtGrade3";
             this.txtGrade3.ReadOnly = true;
             this.txtGrade3.Size = new System.Drawing.Size(256, 29);
@@ -469,9 +469,9 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label3.Location = new System.Drawing.Point(199, 129);
+            this.label3.Location = new System.Drawing.Point(198, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(374, 19);
+            this.label3.Size = new System.Drawing.Size(375, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "No. of Grade 3 Learners:";
             // 
@@ -481,7 +481,7 @@
             this.txtGrade2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGrade2.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtGrade2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrade2.Location = new System.Drawing.Point(199, 93);
+            this.txtGrade2.Location = new System.Drawing.Point(198, 93);
             this.txtGrade2.Name = "txtGrade2";
             this.txtGrade2.ReadOnly = true;
             this.txtGrade2.Size = new System.Drawing.Size(256, 29);
@@ -492,9 +492,9 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.Location = new System.Drawing.Point(199, 71);
+            this.label2.Location = new System.Drawing.Point(198, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(374, 19);
+            this.label2.Size = new System.Drawing.Size(375, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "No. of Grade 2 Learners:";
             // 
@@ -504,7 +504,7 @@
             this.txtGrade1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGrade1.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtGrade1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrade1.Location = new System.Drawing.Point(199, 34);
+            this.txtGrade1.Location = new System.Drawing.Point(198, 34);
             this.txtGrade1.Name = "txtGrade1";
             this.txtGrade1.ReadOnly = true;
             this.txtGrade1.Size = new System.Drawing.Size(256, 29);
@@ -514,9 +514,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(199, 10);
+            this.label1.Location = new System.Drawing.Point(198, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(374, 21);
+            this.label1.Size = new System.Drawing.Size(375, 21);
             this.label1.TabIndex = 11;
             this.label1.Text = "No. of Grade 1 Learners:";
             // 
@@ -526,7 +526,7 @@
             this.label15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label15.Location = new System.Drawing.Point(38, 10);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(155, 21);
+            this.label15.Size = new System.Drawing.Size(154, 21);
             this.label15.TabIndex = 9;
             this.label15.Text = "School Year:";
             this.label15.Click += new System.EventHandler(this.label15_Click);
@@ -537,7 +537,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(38, 34);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(155, 34);
+            this.panel4.Size = new System.Drawing.Size(154, 34);
             this.panel4.TabIndex = 10;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -568,7 +568,7 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.18149F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.8185F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 326F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel11, 2, 4);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel10, 2, 3);
             this.tableLayoutPanel8.Controls.Add(this.label11, 1, 1);
@@ -601,7 +601,7 @@
             this.tableLayoutPanel11.Controls.Add(this.txtDelayedPercentG3, 1, 0);
             this.tableLayoutPanel11.Controls.Add(this.txtDelayedNumbersG3, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(588, 133);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(587, 133);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -641,7 +641,7 @@
             this.tableLayoutPanel10.Controls.Add(this.txtDelayedPercentG2, 1, 0);
             this.tableLayoutPanel10.Controls.Add(this.txtDelayedNumbersG2, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(588, 92);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(587, 92);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -678,7 +678,7 @@
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(174, 7);
+            this.label11.Location = new System.Drawing.Point(173, 7);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(408, 41);
             this.label11.TabIndex = 0;
@@ -689,7 +689,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label12.Location = new System.Drawing.Point(195, 48);
+            this.label12.Location = new System.Drawing.Point(194, 48);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(387, 41);
             this.label12.TabIndex = 6;
@@ -700,7 +700,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label13.Location = new System.Drawing.Point(195, 89);
+            this.label13.Location = new System.Drawing.Point(194, 89);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(387, 41);
             this.label13.TabIndex = 7;
@@ -711,7 +711,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label14.Location = new System.Drawing.Point(195, 130);
+            this.label14.Location = new System.Drawing.Point(194, 130);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(387, 41);
             this.label14.TabIndex = 8;
@@ -726,7 +726,7 @@
             this.tableLayoutPanel9.Controls.Add(this.txtDelayedPercentG1, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.txtDelayedNumbersG1, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(588, 51);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(587, 51);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -767,7 +767,7 @@
             this.tableLayoutPanel12.Controls.Add(this.cbPollingAssessment, 0, 0);
             this.tableLayoutPanel12.Controls.Add(this.btnLoadPolling, 1, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(588, 10);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(587, 10);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -811,9 +811,9 @@
             // 
             this.btnViewDelayedG1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnViewDelayedG1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewDelayedG1.Location = new System.Drawing.Point(914, 51);
+            this.btnViewDelayedG1.Location = new System.Drawing.Point(913, 51);
             this.btnViewDelayedG1.Name = "btnViewDelayedG1";
-            this.btnViewDelayedG1.Size = new System.Drawing.Size(104, 35);
+            this.btnViewDelayedG1.Size = new System.Drawing.Size(105, 35);
             this.btnViewDelayedG1.TabIndex = 14;
             this.btnViewDelayedG1.Text = "View All";
             this.btnViewDelayedG1.UseVisualStyleBackColor = true;
@@ -823,9 +823,9 @@
             // 
             this.btnViewDelayedG2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnViewDelayedG2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewDelayedG2.Location = new System.Drawing.Point(914, 92);
+            this.btnViewDelayedG2.Location = new System.Drawing.Point(913, 92);
             this.btnViewDelayedG2.Name = "btnViewDelayedG2";
-            this.btnViewDelayedG2.Size = new System.Drawing.Size(104, 35);
+            this.btnViewDelayedG2.Size = new System.Drawing.Size(105, 35);
             this.btnViewDelayedG2.TabIndex = 15;
             this.btnViewDelayedG2.Text = "View All";
             this.btnViewDelayedG2.UseVisualStyleBackColor = true;
@@ -835,9 +835,9 @@
             // 
             this.btnViewDelayedG3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnViewDelayedG3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewDelayedG3.Location = new System.Drawing.Point(914, 133);
+            this.btnViewDelayedG3.Location = new System.Drawing.Point(913, 133);
             this.btnViewDelayedG3.Name = "btnViewDelayedG3";
-            this.btnViewDelayedG3.Size = new System.Drawing.Size(104, 35);
+            this.btnViewDelayedG3.Size = new System.Drawing.Size(105, 35);
             this.btnViewDelayedG3.TabIndex = 16;
             this.btnViewDelayedG3.Text = "View All";
             this.btnViewDelayedG3.UseVisualStyleBackColor = true;

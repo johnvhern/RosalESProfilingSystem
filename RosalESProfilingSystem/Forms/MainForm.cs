@@ -24,6 +24,20 @@ namespace RosalESProfilingSystem.Forms
             this.Load += MainForm_Load;
 
             showAppVersion();
+            typeof(Panel).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
+            null, panel2, new object[] { true });
+
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED - enables smoother UI rendering
+                return cp;
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
