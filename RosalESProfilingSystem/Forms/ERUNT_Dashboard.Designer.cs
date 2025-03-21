@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.cbScienceLearnerEnrollment = new MetroFramework.Controls.MetroComboBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
@@ -64,7 +64,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnLoadEnrollment = new System.Windows.Forms.Button();
             this.chartLearners = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartScience = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartERUNT = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -76,20 +76,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtGoodProficiency = new System.Windows.Forms.TextBox();
-            this.txtSatisfactoryProficiency = new System.Windows.Forms.TextBox();
-            this.txtWeakProficiency = new System.Windows.Forms.TextBox();
-            this.txtPoorProficiency = new System.Windows.Forms.TextBox();
-            this.txtNoProficiency = new System.Windows.Forms.TextBox();
+            this.txtNearlyProficient = new System.Windows.Forms.TextBox();
+            this.txtLowProficient = new System.Windows.Forms.TextBox();
+            this.txtNotProficient = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtVeryGoodProficiency = new System.Windows.Forms.TextBox();
-            this.txtExceptionalProficiency = new System.Windows.Forms.TextBox();
+            this.txtProficient = new System.Windows.Forms.TextBox();
+            this.txtHighlyProficient = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLoadScienceData = new System.Windows.Forms.Button();
+            this.btnLoadERUNTData = new System.Windows.Forms.Button();
             this.cbAssessmentType = new MetroFramework.Controls.MetroComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtTotalLearnerAssessed = new System.Windows.Forms.TextBox();
@@ -104,7 +100,7 @@
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartLearners)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartScience)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartERUNT)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -127,6 +123,7 @@
             this.cbScienceLearnerEnrollment.Size = new System.Drawing.Size(152, 29);
             this.cbScienceLearnerEnrollment.TabIndex = 0;
             this.cbScienceLearnerEnrollment.UseSelectable = true;
+            this.cbScienceLearnerEnrollment.DropDown += new System.EventHandler(this.cbScienceLearnerEnrollment_DropDown);
             // 
             // tableLayoutPanel8
             // 
@@ -134,7 +131,7 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.21212F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.78788F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 341F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 171F));
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel11, 2, 4);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel10, 2, 3);
             this.tableLayoutPanel8.Controls.Add(this.label13, 1, 1);
@@ -167,7 +164,7 @@
             this.tableLayoutPanel11.Controls.Add(this.txtDelayedPercentG6, 1, 0);
             this.tableLayoutPanel11.Controls.Add(this.txtDelayedNumbersG6, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(563, 136);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(559, 136);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -206,7 +203,7 @@
             this.tableLayoutPanel10.Controls.Add(this.txtDelayedPercentG5, 1, 0);
             this.tableLayoutPanel10.Controls.Add(this.txtDelayedNumbersG5, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(563, 95);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(559, 95);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -244,7 +241,7 @@
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(121, 8);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(436, 44);
+            this.label13.Size = new System.Drawing.Size(432, 44);
             this.label13.TabIndex = 0;
             this.label13.Text = "Assessment Type for Polling:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -253,33 +250,33 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label14.Location = new System.Drawing.Point(182, 52);
+            this.label14.Location = new System.Drawing.Point(246, 52);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(375, 40);
+            this.label14.Size = new System.Drawing.Size(307, 40);
             this.label14.TabIndex = 6;
-            this.label14.Text = "No. Grade 4 Learners with Delayed Dev\'t in Science Proficiency:";
+            this.label14.Text = "No. Grade 4 Learners with Delayed Dev\'t in ERUNT:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label16.Location = new System.Drawing.Point(182, 92);
+            this.label16.Location = new System.Drawing.Point(246, 92);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(375, 41);
+            this.label16.Size = new System.Drawing.Size(307, 41);
             this.label16.TabIndex = 7;
-            this.label16.Text = "No. Grade 5 Learners with Delayed Dev\'t in Science Proficiency:";
+            this.label16.Text = "No. Grade 5 Learners with Delayed Dev\'t in ERUNT:";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label17.Location = new System.Drawing.Point(182, 133);
+            this.label17.Location = new System.Drawing.Point(246, 133);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(375, 42);
+            this.label17.Size = new System.Drawing.Size(307, 42);
             this.label17.TabIndex = 8;
-            this.label17.Text = "No. Grade 6 Learners with Delayed Dev\'t in Science Proficiency:";
+            this.label17.Text = "No. Grade 6 Learners with Delayed Dev\'t in ERUNT:";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel9
@@ -290,7 +287,7 @@
             this.tableLayoutPanel9.Controls.Add(this.txtDelayedPercentG4, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.txtDelayedNumbersG4, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(563, 55);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(559, 55);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -330,7 +327,7 @@
             this.tableLayoutPanel12.Controls.Add(this.cbPollingAssessment, 0, 0);
             this.tableLayoutPanel12.Controls.Add(this.btnLoadPolling, 1, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(563, 11);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(559, 11);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -365,39 +362,43 @@
             this.btnLoadPolling.TabIndex = 6;
             this.btnLoadPolling.Text = "Load Polling";
             this.btnLoadPolling.UseVisualStyleBackColor = false;
+            this.btnLoadPolling.Click += new System.EventHandler(this.btnLoadPolling_Click);
             // 
             // btnViewDelayedG4
             // 
             this.btnViewDelayedG4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnViewDelayedG4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewDelayedG4.Location = new System.Drawing.Point(904, 55);
+            this.btnViewDelayedG4.Location = new System.Drawing.Point(900, 55);
             this.btnViewDelayedG4.Name = "btnViewDelayedG4";
-            this.btnViewDelayedG4.Size = new System.Drawing.Size(162, 34);
+            this.btnViewDelayedG4.Size = new System.Drawing.Size(166, 34);
             this.btnViewDelayedG4.TabIndex = 14;
             this.btnViewDelayedG4.Text = "View All";
             this.btnViewDelayedG4.UseVisualStyleBackColor = true;
+            this.btnViewDelayedG4.Click += new System.EventHandler(this.btnViewDelayedG4_Click);
             // 
             // btnViewDelayedG5
             // 
             this.btnViewDelayedG5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnViewDelayedG5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewDelayedG5.Location = new System.Drawing.Point(904, 95);
+            this.btnViewDelayedG5.Location = new System.Drawing.Point(900, 95);
             this.btnViewDelayedG5.Name = "btnViewDelayedG5";
-            this.btnViewDelayedG5.Size = new System.Drawing.Size(162, 35);
+            this.btnViewDelayedG5.Size = new System.Drawing.Size(166, 35);
             this.btnViewDelayedG5.TabIndex = 15;
             this.btnViewDelayedG5.Text = "View All";
             this.btnViewDelayedG5.UseVisualStyleBackColor = true;
+            this.btnViewDelayedG5.Click += new System.EventHandler(this.btnViewDelayedG5_Click);
             // 
             // btnViewDelayedG6
             // 
             this.btnViewDelayedG6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnViewDelayedG6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewDelayedG6.Location = new System.Drawing.Point(904, 136);
+            this.btnViewDelayedG6.Location = new System.Drawing.Point(900, 136);
             this.btnViewDelayedG6.Name = "btnViewDelayedG6";
-            this.btnViewDelayedG6.Size = new System.Drawing.Size(162, 36);
+            this.btnViewDelayedG6.Size = new System.Drawing.Size(166, 36);
             this.btnViewDelayedG6.TabIndex = 16;
             this.btnViewDelayedG6.Text = "View All";
             this.btnViewDelayedG6.UseVisualStyleBackColor = true;
+            this.btnViewDelayedG6.Click += new System.EventHandler(this.btnViewDelayedG6_Click);
             // 
             // txtTotalLearners
             // 
@@ -406,7 +407,7 @@
             this.txtTotalLearners.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtTotalLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalLearners.ForeColor = System.Drawing.Color.White;
-            this.txtTotalLearners.Location = new System.Drawing.Point(197, 228);
+            this.txtTotalLearners.Location = new System.Drawing.Point(195, 228);
             this.txtTotalLearners.Name = "txtTotalLearners";
             this.txtTotalLearners.ReadOnly = true;
             this.txtTotalLearners.Size = new System.Drawing.Size(256, 29);
@@ -417,9 +418,9 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label4.Location = new System.Drawing.Point(197, 208);
+            this.label4.Location = new System.Drawing.Point(195, 208);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(376, 17);
+            this.label4.Size = new System.Drawing.Size(378, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Total No. of Learners:";
             // 
@@ -429,7 +430,7 @@
             this.txtGrade6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGrade6.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtGrade6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrade6.Location = new System.Drawing.Point(197, 167);
+            this.txtGrade6.Location = new System.Drawing.Point(195, 167);
             this.txtGrade6.Name = "txtGrade6";
             this.txtGrade6.ReadOnly = true;
             this.txtGrade6.Size = new System.Drawing.Size(256, 29);
@@ -440,9 +441,9 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label3.Location = new System.Drawing.Point(197, 147);
+            this.label3.Location = new System.Drawing.Point(195, 147);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(376, 17);
+            this.label3.Size = new System.Drawing.Size(378, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "No. of Grade 6 Learners:";
             // 
@@ -452,7 +453,7 @@
             this.txtGrade5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGrade5.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtGrade5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrade5.Location = new System.Drawing.Point(197, 106);
+            this.txtGrade5.Location = new System.Drawing.Point(195, 106);
             this.txtGrade5.Name = "txtGrade5";
             this.txtGrade5.ReadOnly = true;
             this.txtGrade5.Size = new System.Drawing.Size(256, 29);
@@ -463,9 +464,9 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.Location = new System.Drawing.Point(197, 86);
+            this.label2.Location = new System.Drawing.Point(195, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(376, 17);
+            this.label2.Size = new System.Drawing.Size(378, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "No. of Grade 5 Learners:";
             // 
@@ -474,10 +475,10 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.2549F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.74509F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel3.Controls.Add(this.btnLoadEnrollment, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(197, 275);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(195, 275);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -492,53 +493,54 @@
             this.btnLoadEnrollment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadEnrollment.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadEnrollment.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLoadEnrollment.Location = new System.Drawing.Point(29, 3);
+            this.btnLoadEnrollment.Location = new System.Drawing.Point(28, 3);
             this.btnLoadEnrollment.Name = "btnLoadEnrollment";
-            this.btnLoadEnrollment.Size = new System.Drawing.Size(183, 31);
+            this.btnLoadEnrollment.Size = new System.Drawing.Size(180, 31);
             this.btnLoadEnrollment.TabIndex = 0;
             this.btnLoadEnrollment.Text = "Load Enrollment";
             this.btnLoadEnrollment.UseVisualStyleBackColor = false;
+            this.btnLoadEnrollment.Click += new System.EventHandler(this.btnLoadEnrollment_Click);
             // 
             // chartLearners
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartLearners.ChartAreas.Add(chartArea1);
+            chartArea9.Name = "ChartArea1";
+            this.chartLearners.ChartAreas.Add(chartArea9);
             this.chartLearners.Dock = System.Windows.Forms.DockStyle.Left;
-            legend1.Name = "Legend1";
-            this.chartLearners.Legends.Add(legend1);
-            this.chartLearners.Location = new System.Drawing.Point(141, 12);
+            legend9.Name = "Legend1";
+            this.chartLearners.Legends.Add(legend9);
+            this.chartLearners.Location = new System.Drawing.Point(137, 12);
             this.chartLearners.Name = "chartLearners";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartLearners.Series.Add(series1);
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.chartLearners.Series.Add(series9);
             this.chartLearners.Size = new System.Drawing.Size(414, 491);
             this.chartLearners.TabIndex = 0;
             this.chartLearners.Text = "chart1";
             // 
-            // chartScience
+            // chartERUNT
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartScience.ChartAreas.Add(chartArea2);
-            this.chartScience.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chartScience.Legends.Add(legend2);
-            this.chartScience.Location = new System.Drawing.Point(80, 11);
-            this.chartScience.Name = "chartScience";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartScience.Series.Add(series2);
-            this.chartScience.Size = new System.Drawing.Size(490, 492);
-            this.chartScience.TabIndex = 0;
-            this.chartScience.Text = "chart1";
+            chartArea10.Name = "ChartArea1";
+            this.chartERUNT.ChartAreas.Add(chartArea10);
+            this.chartERUNT.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend10.Name = "Legend1";
+            this.chartERUNT.Legends.Add(legend10);
+            this.chartERUNT.Location = new System.Drawing.Point(80, 11);
+            this.chartERUNT.Name = "chartERUNT";
+            series10.ChartArea = "ChartArea1";
+            series10.Legend = "Legend1";
+            series10.Name = "Series1";
+            this.chartERUNT.Series.Add(series10);
+            this.chartERUNT.Size = new System.Drawing.Size(490, 492);
+            this.chartERUNT.TabIndex = 0;
+            this.chartERUNT.Text = "chart1";
             // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.43816F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 496F));
-            this.tableLayoutPanel6.Controls.Add(this.chartScience, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.chartERUNT, 1, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(582, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -569,7 +571,7 @@
             this.tableLayoutPanel7.ColumnCount = 3;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.372213F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98.62778F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 434F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 438F));
             this.tableLayoutPanel7.Controls.Add(this.chartLearners, 2, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
@@ -605,7 +607,7 @@
             this.txtGrade4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGrade4.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtGrade4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrade4.Location = new System.Drawing.Point(197, 43);
+            this.txtGrade4.Location = new System.Drawing.Point(195, 43);
             this.txtGrade4.Name = "txtGrade4";
             this.txtGrade4.ReadOnly = true;
             this.txtGrade4.Size = new System.Drawing.Size(256, 29);
@@ -629,40 +631,36 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.34934F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 254F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanel2.Controls.Add(this.label9, 1, 6);
-            this.tableLayoutPanel2.Controls.Add(this.label8, 1, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label7, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.txtGoodProficiency, 2, 6);
-            this.tableLayoutPanel2.Controls.Add(this.txtSatisfactoryProficiency, 2, 5);
-            this.tableLayoutPanel2.Controls.Add(this.txtWeakProficiency, 2, 4);
-            this.tableLayoutPanel2.Controls.Add(this.txtPoorProficiency, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.txtNoProficiency, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label9, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.label8, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label7, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtNearlyProficient, 2, 4);
+            this.tableLayoutPanel2.Controls.Add(this.txtLowProficient, 2, 3);
+            this.tableLayoutPanel2.Controls.Add(this.txtNotProficient, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.label10, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label11, 1, 7);
-            this.tableLayoutPanel2.Controls.Add(this.txtVeryGoodProficiency, 2, 7);
-            this.tableLayoutPanel2.Controls.Add(this.txtExceptionalProficiency, 2, 8);
-            this.tableLayoutPanel2.Controls.Add(this.label12, 1, 8);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 2, 10);
+            this.tableLayoutPanel2.Controls.Add(this.label11, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.txtProficient, 2, 5);
+            this.tableLayoutPanel2.Controls.Add(this.txtHighlyProficient, 2, 6);
+            this.tableLayoutPanel2.Controls.Add(this.label12, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 2, 8);
             this.tableLayoutPanel2.Controls.Add(this.cbAssessmentType, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label18, 1, 9);
-            this.tableLayoutPanel2.Controls.Add(this.txtTotalLearnerAssessed, 2, 9);
+            this.tableLayoutPanel2.Controls.Add(this.label18, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(this.txtTotalLearnerAssessed, 2, 7);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(576, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 11;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84F));
+            this.tableLayoutPanel2.RowCount = 9;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.57143F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.42857F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(582, 355);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
@@ -670,126 +668,79 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Location = new System.Drawing.Point(48, 178);
+            this.label9.Location = new System.Drawing.Point(48, 127);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(178, 35);
+            this.label9.Size = new System.Drawing.Size(178, 38);
             this.label9.TabIndex = 4;
-            this.label9.Text = "Good Proficiency:";
+            this.label9.Text = "Nearly Proficient:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(48, 144);
+            this.label8.Location = new System.Drawing.Point(48, 92);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(178, 34);
+            this.label8.Size = new System.Drawing.Size(178, 35);
             this.label8.TabIndex = 3;
-            this.label8.Text = "Satisfactory Proficiency:";
+            this.label8.Text = "Low Proficiency:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(48, 109);
+            this.label7.Location = new System.Drawing.Point(48, 56);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(178, 35);
+            this.label7.Size = new System.Drawing.Size(178, 36);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Weak Proficiency:";
+            this.label7.Text = "Not Proficient:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // txtNearlyProficient
             // 
-            this.label6.AutoSize = true;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(48, 74);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(178, 35);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Poor Proficiency:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtNearlyProficient.BackColor = System.Drawing.Color.White;
+            this.txtNearlyProficient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNearlyProficient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNearlyProficient.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNearlyProficient.Location = new System.Drawing.Point(232, 130);
+            this.txtNearlyProficient.Name = "txtNearlyProficient";
+            this.txtNearlyProficient.ReadOnly = true;
+            this.txtNearlyProficient.Size = new System.Drawing.Size(248, 29);
+            this.txtNearlyProficient.TabIndex = 9;
             // 
-            // label5
+            // txtLowProficient
             // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(48, 39);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(178, 35);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "No Proficiency at All:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtLowProficient.BackColor = System.Drawing.Color.White;
+            this.txtLowProficient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLowProficient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLowProficient.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLowProficient.Location = new System.Drawing.Point(232, 95);
+            this.txtLowProficient.Name = "txtLowProficient";
+            this.txtLowProficient.ReadOnly = true;
+            this.txtLowProficient.Size = new System.Drawing.Size(248, 29);
+            this.txtLowProficient.TabIndex = 8;
             // 
-            // txtGoodProficiency
+            // txtNotProficient
             // 
-            this.txtGoodProficiency.BackColor = System.Drawing.Color.White;
-            this.txtGoodProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGoodProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtGoodProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGoodProficiency.Location = new System.Drawing.Point(232, 181);
-            this.txtGoodProficiency.Name = "txtGoodProficiency";
-            this.txtGoodProficiency.ReadOnly = true;
-            this.txtGoodProficiency.Size = new System.Drawing.Size(248, 29);
-            this.txtGoodProficiency.TabIndex = 9;
-            // 
-            // txtSatisfactoryProficiency
-            // 
-            this.txtSatisfactoryProficiency.BackColor = System.Drawing.Color.White;
-            this.txtSatisfactoryProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSatisfactoryProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSatisfactoryProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSatisfactoryProficiency.Location = new System.Drawing.Point(232, 147);
-            this.txtSatisfactoryProficiency.Name = "txtSatisfactoryProficiency";
-            this.txtSatisfactoryProficiency.ReadOnly = true;
-            this.txtSatisfactoryProficiency.Size = new System.Drawing.Size(248, 29);
-            this.txtSatisfactoryProficiency.TabIndex = 8;
-            // 
-            // txtWeakProficiency
-            // 
-            this.txtWeakProficiency.BackColor = System.Drawing.Color.White;
-            this.txtWeakProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtWeakProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtWeakProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWeakProficiency.Location = new System.Drawing.Point(232, 112);
-            this.txtWeakProficiency.Name = "txtWeakProficiency";
-            this.txtWeakProficiency.ReadOnly = true;
-            this.txtWeakProficiency.Size = new System.Drawing.Size(248, 29);
-            this.txtWeakProficiency.TabIndex = 7;
-            // 
-            // txtPoorProficiency
-            // 
-            this.txtPoorProficiency.BackColor = System.Drawing.Color.White;
-            this.txtPoorProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPoorProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPoorProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPoorProficiency.Location = new System.Drawing.Point(232, 77);
-            this.txtPoorProficiency.Name = "txtPoorProficiency";
-            this.txtPoorProficiency.ReadOnly = true;
-            this.txtPoorProficiency.Size = new System.Drawing.Size(248, 29);
-            this.txtPoorProficiency.TabIndex = 5;
-            // 
-            // txtNoProficiency
-            // 
-            this.txtNoProficiency.BackColor = System.Drawing.Color.White;
-            this.txtNoProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNoProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNoProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNoProficiency.Location = new System.Drawing.Point(232, 42);
-            this.txtNoProficiency.Name = "txtNoProficiency";
-            this.txtNoProficiency.ReadOnly = true;
-            this.txtNoProficiency.Size = new System.Drawing.Size(248, 29);
-            this.txtNoProficiency.TabIndex = 6;
+            this.txtNotProficient.BackColor = System.Drawing.Color.White;
+            this.txtNotProficient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNotProficient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNotProficient.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNotProficient.Location = new System.Drawing.Point(232, 59);
+            this.txtNotProficient.Name = "txtNotProficient";
+            this.txtNotProficient.ReadOnly = true;
+            this.txtNotProficient.Size = new System.Drawing.Size(248, 29);
+            this.txtNotProficient.TabIndex = 7;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(48, 6);
+            this.label10.Location = new System.Drawing.Point(48, 21);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(178, 33);
+            this.label10.Size = new System.Drawing.Size(178, 35);
             this.label10.TabIndex = 11;
             this.label10.Text = "Assessment Type:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -798,46 +749,46 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(48, 213);
+            this.label11.Location = new System.Drawing.Point(48, 165);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(178, 33);
+            this.label11.Size = new System.Drawing.Size(178, 37);
             this.label11.TabIndex = 13;
-            this.label11.Text = "Very Good Proficiency:";
+            this.label11.Text = "Proficient:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtVeryGoodProficiency
+            // txtProficient
             // 
-            this.txtVeryGoodProficiency.BackColor = System.Drawing.Color.White;
-            this.txtVeryGoodProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtVeryGoodProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtVeryGoodProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVeryGoodProficiency.Location = new System.Drawing.Point(232, 216);
-            this.txtVeryGoodProficiency.Name = "txtVeryGoodProficiency";
-            this.txtVeryGoodProficiency.ReadOnly = true;
-            this.txtVeryGoodProficiency.Size = new System.Drawing.Size(248, 29);
-            this.txtVeryGoodProficiency.TabIndex = 14;
+            this.txtProficient.BackColor = System.Drawing.Color.White;
+            this.txtProficient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProficient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtProficient.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProficient.Location = new System.Drawing.Point(232, 168);
+            this.txtProficient.Name = "txtProficient";
+            this.txtProficient.ReadOnly = true;
+            this.txtProficient.Size = new System.Drawing.Size(248, 29);
+            this.txtProficient.TabIndex = 14;
             // 
-            // txtExceptionalProficiency
+            // txtHighlyProficient
             // 
-            this.txtExceptionalProficiency.BackColor = System.Drawing.Color.White;
-            this.txtExceptionalProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtExceptionalProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtExceptionalProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExceptionalProficiency.Location = new System.Drawing.Point(232, 249);
-            this.txtExceptionalProficiency.Name = "txtExceptionalProficiency";
-            this.txtExceptionalProficiency.ReadOnly = true;
-            this.txtExceptionalProficiency.Size = new System.Drawing.Size(248, 29);
-            this.txtExceptionalProficiency.TabIndex = 16;
+            this.txtHighlyProficient.BackColor = System.Drawing.Color.White;
+            this.txtHighlyProficient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHighlyProficient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtHighlyProficient.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHighlyProficient.Location = new System.Drawing.Point(232, 205);
+            this.txtHighlyProficient.Name = "txtHighlyProficient";
+            this.txtHighlyProficient.ReadOnly = true;
+            this.txtHighlyProficient.Size = new System.Drawing.Size(248, 29);
+            this.txtHighlyProficient.TabIndex = 16;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(48, 246);
+            this.label12.Location = new System.Drawing.Point(48, 202);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(178, 34);
+            this.label12.Size = new System.Drawing.Size(178, 36);
             this.label12.TabIndex = 15;
-            this.label12.Text = "Exceptional Proficiency:";
+            this.label12.Text = "Highly Proficient:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel4
@@ -845,29 +796,30 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.2549F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.74509F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel4.Controls.Add(this.btnLoadScienceData, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(232, 317);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel4.Controls.Add(this.btnLoadERUNTData, 1, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(232, 276);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(248, 35);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(248, 40);
             this.tableLayoutPanel4.TabIndex = 17;
             // 
-            // btnLoadScienceData
+            // btnLoadERUNTData
             // 
-            this.btnLoadScienceData.BackColor = System.Drawing.Color.DimGray;
-            this.btnLoadScienceData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLoadScienceData.FlatAppearance.BorderSize = 0;
-            this.btnLoadScienceData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadScienceData.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoadScienceData.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLoadScienceData.Location = new System.Drawing.Point(28, 3);
-            this.btnLoadScienceData.Name = "btnLoadScienceData";
-            this.btnLoadScienceData.Size = new System.Drawing.Size(179, 29);
-            this.btnLoadScienceData.TabIndex = 0;
-            this.btnLoadScienceData.Text = "Load Science Data";
-            this.btnLoadScienceData.UseVisualStyleBackColor = false;
+            this.btnLoadERUNTData.BackColor = System.Drawing.Color.DimGray;
+            this.btnLoadERUNTData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLoadERUNTData.FlatAppearance.BorderSize = 0;
+            this.btnLoadERUNTData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadERUNTData.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadERUNTData.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLoadERUNTData.Location = new System.Drawing.Point(28, 3);
+            this.btnLoadERUNTData.Name = "btnLoadERUNTData";
+            this.btnLoadERUNTData.Size = new System.Drawing.Size(175, 34);
+            this.btnLoadERUNTData.TabIndex = 0;
+            this.btnLoadERUNTData.Text = "Load ERUNT Data";
+            this.btnLoadERUNTData.UseVisualStyleBackColor = false;
+            this.btnLoadERUNTData.Click += new System.EventHandler(this.btnLoadERUNTData_Click);
             // 
             // cbAssessmentType
             // 
@@ -878,7 +830,7 @@
             "BoSY",
             "MoSY",
             "EoSY"});
-            this.cbAssessmentType.Location = new System.Drawing.Point(232, 9);
+            this.cbAssessmentType.Location = new System.Drawing.Point(232, 24);
             this.cbAssessmentType.Name = "cbAssessmentType";
             this.cbAssessmentType.Size = new System.Drawing.Size(156, 29);
             this.cbAssessmentType.TabIndex = 18;
@@ -889,9 +841,9 @@
             this.label18.AutoSize = true;
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(48, 280);
+            this.label18.Location = new System.Drawing.Point(48, 238);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(178, 34);
+            this.label18.Size = new System.Drawing.Size(178, 35);
             this.label18.TabIndex = 19;
             this.label18.Text = "Total Learners Assessed:";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -903,7 +855,7 @@
             this.txtTotalLearnerAssessed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTotalLearnerAssessed.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalLearnerAssessed.ForeColor = System.Drawing.Color.White;
-            this.txtTotalLearnerAssessed.Location = new System.Drawing.Point(232, 283);
+            this.txtTotalLearnerAssessed.Location = new System.Drawing.Point(232, 241);
             this.txtTotalLearnerAssessed.Name = "txtTotalLearnerAssessed";
             this.txtTotalLearnerAssessed.ReadOnly = true;
             this.txtTotalLearnerAssessed.Size = new System.Drawing.Size(248, 29);
@@ -912,9 +864,9 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.14159F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.85841F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 381F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.33334F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 384F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 2, 8);
             this.tableLayoutPanel1.Controls.Add(this.txtTotalLearners, 2, 7);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 6);
@@ -947,9 +899,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(197, 23);
+            this.label1.Location = new System.Drawing.Point(195, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(376, 17);
+            this.label1.Size = new System.Drawing.Size(378, 17);
             this.label1.TabIndex = 11;
             this.label1.Text = "No. of Grade 4 Learners:";
             // 
@@ -957,9 +909,9 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label15.Location = new System.Drawing.Point(38, 23);
+            this.label15.Location = new System.Drawing.Point(35, 23);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(153, 17);
+            this.label15.Size = new System.Drawing.Size(154, 17);
             this.label15.TabIndex = 9;
             this.label15.Text = "School Year:";
             // 
@@ -967,9 +919,9 @@
             // 
             this.panel4.Controls.Add(this.cbScienceLearnerEnrollment);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(38, 43);
+            this.panel4.Location = new System.Drawing.Point(35, 43);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(153, 33);
+            this.panel4.Size = new System.Drawing.Size(154, 33);
             this.panel4.TabIndex = 10;
             // 
             // ERUNT_Dashboard
@@ -998,7 +950,7 @@
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartLearners)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartScience)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartERUNT)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -1047,7 +999,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnLoadEnrollment;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartLearners;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartScience;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartERUNT;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
@@ -1059,20 +1011,16 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtGoodProficiency;
-        private System.Windows.Forms.TextBox txtSatisfactoryProficiency;
-        private System.Windows.Forms.TextBox txtWeakProficiency;
-        private System.Windows.Forms.TextBox txtPoorProficiency;
-        private System.Windows.Forms.TextBox txtNoProficiency;
+        private System.Windows.Forms.TextBox txtNearlyProficient;
+        private System.Windows.Forms.TextBox txtLowProficient;
+        private System.Windows.Forms.TextBox txtNotProficient;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtVeryGoodProficiency;
-        private System.Windows.Forms.TextBox txtExceptionalProficiency;
+        private System.Windows.Forms.TextBox txtProficient;
+        private System.Windows.Forms.TextBox txtHighlyProficient;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button btnLoadScienceData;
+        private System.Windows.Forms.Button btnLoadERUNTData;
         private MetroFramework.Controls.MetroComboBox cbAssessmentType;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtTotalLearnerAssessed;

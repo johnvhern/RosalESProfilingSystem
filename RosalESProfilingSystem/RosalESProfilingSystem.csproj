@@ -276,6 +276,12 @@
     <Compile Include="Forms\CompetencyChartForm_SciCAT.Designer.cs">
       <DependentUpon>CompetencyChartForm_SciCAT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DelayedDevelopmenForm_ERUNT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DelayedDevelopmenForm_ERUNT.Designer.cs">
+      <DependentUpon>DelayedDevelopmenForm_ERUNT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DelayedDevelopmentForm_Literacy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -442,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CompetencyChartForm_SciCAT.resx">
       <DependentUpon>CompetencyChartForm_SciCAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DelayedDevelopmenForm_ERUNT.resx">
+      <DependentUpon>DelayedDevelopmenForm_ERUNT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DelayedDevelopmentForm_Literacy.resx">
       <DependentUpon>DelayedDevelopmentForm_Literacy.cs</DependentUpon>

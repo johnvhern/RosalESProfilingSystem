@@ -71,7 +71,8 @@ namespace RosalESProfilingSystem.Forms
                     }
                     else
                     {
-                        dataTable.Columns.Add("Classification Level", typeof(string));
+                        dataTable.Columns.Add("SciCAT Classification", typeof(string));
+                        dataTable.Columns.Add("ERUNT Classification", typeof(string));
                     }
 
                     int startRow = 13;
@@ -82,6 +83,8 @@ namespace RosalESProfilingSystem.Forms
                         var crlaakeanon = worksheet.Cells[row, 8].Text;
                         var crlafilipino = worksheet.Cells[row, 9].Text;
                         var crlaenglish = worksheet.Cells[row, 10].Text;
+                        var science = worksheet.Cells[row, 7].Text;
+                        var erunt = worksheet.Cells[row, 8].Text;
 
 
 
@@ -92,7 +95,7 @@ namespace RosalESProfilingSystem.Forms
                             continue;
                         }
 
-                        if (!IsDataAlreadySaved(schoolYear, assessmentType, gradeLevel, lrn, rma, crlaakeanon, crlafilipino, crlaenglish))
+                        if (!IsDataAlreadySaved(schoolYear, assessmentType, gradeLevel, lrn, rma, crlaakeanon, crlafilipino, crlaenglish, science, erunt))
                         {
                             if (gradeLevel <= 3)
                             {
@@ -118,7 +121,8 @@ namespace RosalESProfilingSystem.Forms
                                     lrn,
                                     worksheet.Cells[row, 5].Text,
                                     Convert.ToInt32(worksheet.Cells[row, 6].Value),
-                                    worksheet.Cells[row, 7].Text
+                                    science,
+                                    erunt
                                 );
                             }
                         }
@@ -157,8 +161,9 @@ namespace RosalESProfilingSystem.Forms
                         string.IsNullOrWhiteSpace(row.Cells["CRLA Classification (Filipino)"].Value?.ToString()) &&
                         string.IsNullOrWhiteSpace(row.Cells["CRLA Classification (English)"].Value?.ToString()))
                         ||
-                        (dataTable.Columns.Contains("Classification Level") &&
-                        string.IsNullOrWhiteSpace(row.Cells["Classification Level"].Value?.ToString()));
+                        (dataTable.Columns.Contains("SciCAT Classification") &&
+                        string.IsNullOrWhiteSpace(row.Cells["SciCAT Classification"].Value?.ToString())) &&
+                        string.IsNullOrWhiteSpace(row.Cells["ERUNT Classification"].Value?.ToString());
 
                     if (isClassificationEmpty)
                     {
@@ -192,9 +197,12 @@ namespace RosalESProfilingSystem.Forms
                         break;
                     }
                 }
-                else if (dataTable.Columns.Contains("Classification Level"))
+                else if (dataTable.Columns.Contains("SciCAT Classification"))
                 {
-                    if (string.IsNullOrWhiteSpace(row["Classification Level"].ToString()))
+                    bool isClassificationEmpty = string.IsNullOrWhiteSpace(row["SciCAT Classification"].ToString()) &&
+                        string.IsNullOrWhiteSpace(row["ERUNT Classification"].ToString());
+
+                    if (isClassificationEmpty)
                     {
                         hasMissing = true;
                         break;
@@ -206,7 +214,7 @@ namespace RosalESProfilingSystem.Forms
         }
 
 
-        private bool IsDataAlreadySaved(string schoolYear, string assessmentType, int gradeLevel, string lrn, string rma, string crlaakeanon, string crlafilipino, string crlaenglish)
+        private bool IsDataAlreadySaved(string schoolYear, string assessmentType, int gradeLevel, string lrn, string rma, string crlaakeanon, string crlafilipino, string crlaenglish, string science, string erunt)
         {
             using (SqlConnection conn = new SqlConnection(dbConnection))
             {
@@ -224,7 +232,7 @@ namespace RosalESProfilingSystem.Forms
                 {
                     // Only check SchoolYear, AssessmentType, GradeLevel, and LRN in LearnersProfileScience
                     query = "SELECT COUNT(*) FROM LearnersProfileScience WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType " +
-                            "AND GradeLevel = @GradeLevel AND LRN = @LRN";
+                            "AND GradeLevel = @GradeLevel AND LRN = @LRN AND ClassificationLevel = @ClassificationLevel AND ERUNTClassification = @ERUNTClassification";
                 }
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -241,8 +249,13 @@ namespace RosalESProfilingSystem.Forms
                         cmd.Parameters.AddWithValue("@CRLAClassificationFilipino", crlafilipino);
                         cmd.Parameters.AddWithValue("@CRLAClassificationEnglish", crlaenglish);
                     }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@ClassificationLevel", science);
+                        cmd.Parameters.AddWithValue("@ERUNTClassification", erunt);
+                    }
 
-                    conn.Open();
+                        conn.Open();
                     int count = (int)cmd.ExecuteScalar();
                     return count > 0;
                 }
@@ -319,7 +332,7 @@ namespace RosalESProfilingSystem.Forms
                                 ? "UPDATE LearnersProfile SET RMAClassification = @RMAClassification, CRLAClassificationAkeanon = @CRLAClassificationAkeanon, " +
                                   "CRLAClassificationFilipino = @CRLAClassificationFilipino, CRLAClassificationEnglish = @CRLAClassificationEnglish " +
                                   "WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel = @GradeLevel AND LRN = @LRN"
-                                : "UPDATE LearnersProfileScience SET ClassificationLevel = @ClassificationLevel " +
+                                : "UPDATE LearnersProfileScience SET ClassificationLevel = @ClassificationLevel, ERUNTClassification = @ERUNTClassification " +
                                   "WHERE SchoolYear = @SchoolYear AND AssessmentType = @AssessmentType AND GradeLevel = @GradeLevel AND LRN = @LRN";
 
                             using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
@@ -338,7 +351,8 @@ namespace RosalESProfilingSystem.Forms
                                 }
                                 else
                                 {
-                                    updateCmd.Parameters.AddWithValue("@ClassificationLevel", row["Classification Level"]);
+                                    updateCmd.Parameters.AddWithValue("@ClassificationLevel", row["SciCAT Classification"]);
+                                    updateCmd.Parameters.AddWithValue("@ERUNTClassification", row["ERUNT Classification"]);
                                 }
 
                                 updateCmd.ExecuteNonQuery();
@@ -350,8 +364,8 @@ namespace RosalESProfilingSystem.Forms
                             string insertQuery = tableName == "LearnersProfile"
                                 ? "INSERT INTO LearnersProfile (SchoolYear, AssessmentType, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age, RMAClassification, CRLAClassificationAkeanon, CRLAClassificationFilipino, CRLAClassificationEnglish) " +
                                   "VALUES (@SchoolYear, @AssessmentType, @GradeLevel, @LastName, @FirstName, @MiddleName, @LRN, @Sex, @Age, @RMAClassification, @CRLAClassificationAkeanon, @CRLAClassificationFilipino, @CRLAClassificationEnglish)"
-                                : "INSERT INTO LearnersProfileScience (SchoolYear, AssessmentType, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age, ClassificationLevel) " +
-                                  "VALUES (@SchoolYear, @AssessmentType, @GradeLevel, @LastName, @FirstName, @MiddleName, @LRN, @Sex, @Age, @ClassificationLevel)";
+                                : "INSERT INTO LearnersProfileScience (SchoolYear, AssessmentType, GradeLevel, LastName, FirstName, MiddleName, LRN, Sex, Age, ClassificationLevel, ERUNTClassification) " +
+                                  "VALUES (@SchoolYear, @AssessmentType, @GradeLevel, @LastName, @FirstName, @MiddleName, @LRN, @Sex, @Age, @ClassificationLevel, @ERUNTClassification)";
 
                             using (SqlCommand insertCmd = new SqlCommand(insertQuery, conn))
                             {
@@ -374,7 +388,8 @@ namespace RosalESProfilingSystem.Forms
                                 }
                                 else
                                 {
-                                    insertCmd.Parameters.AddWithValue("@ClassificationLevel", row["Classification Level"]);
+                                    insertCmd.Parameters.AddWithValue("@ClassificationLevel", row["SciCAT Classification"]);
+                                    insertCmd.Parameters.AddWithValue("@ERUNTClassification", row["ERUNT Classification"]);
                                 }
 
                                 insertCmd.ExecuteNonQuery();
@@ -441,7 +456,7 @@ namespace RosalESProfilingSystem.Forms
             {
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
-                    string query = @"SELECT DISTINCT SchoolYear FROM LearnersProfile UNION SELECT DISTINCT SchoolYear FROM LearnersProfileScience ORDER BY SchoolYear DESC";
+                    string query = @"SELECT DISTINCT SchoolYear FROM LearnersProfile UNION SELECT DISTINCT SchoolYear FROM LearnersProfileScience ORDER BY SchoolYear ASC";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
