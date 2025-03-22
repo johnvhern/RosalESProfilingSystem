@@ -63,7 +63,7 @@ namespace RosalESProfilingSystem.Forms
         {
             int y = Screen.PrimaryScreen.Bounds.Height;
             int x = Screen.PrimaryScreen.Bounds.Width;
-            this.Height = y - 40;
+            this.Height = y;
             this.Width = x;
             this.Left = 0;
             this.Top = 0;
