@@ -16,7 +16,6 @@ namespace RosalESProfilingSystem.Forms
         public MainForm()
         {
             InitializeComponent();
-
             SidePanelNavigation sidePanelNavigation = new SidePanelNavigation(this);
             sidePanelNavigation.Dock = DockStyle.Left;
             this.Controls.Add(sidePanelNavigation);

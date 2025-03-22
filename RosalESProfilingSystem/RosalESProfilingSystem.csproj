@@ -246,6 +246,7 @@
     <Compile Include="Components\TimeDateBar.Designer.cs">
       <DependentUpon>TimeDateBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseHelper.cs" />
     <Compile Include="Forms\ChangePassword_Form.cs">
       <SubType>Form</SubType>
     </Compile>
