@@ -355,7 +355,7 @@
             // 
             this.txtMastered.BackColor = System.Drawing.Color.White;
             this.txtMastered.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMastered.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMastered.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMastered.Location = new System.Drawing.Point(266, 3);
             this.txtMastered.Name = "txtMastered";
             this.txtMastered.ReadOnly = true;
@@ -366,10 +366,11 @@
             // 
             this.txtUnmastered.BackColor = System.Drawing.Color.White;
             this.txtUnmastered.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUnmastered.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUnmastered.Location = new System.Drawing.Point(266, 39);
             this.txtUnmastered.Name = "txtUnmastered";
             this.txtUnmastered.ReadOnly = true;
-            this.txtUnmastered.Size = new System.Drawing.Size(66, 29);
+            this.txtUnmastered.Size = new System.Drawing.Size(66, 27);
             this.txtUnmastered.TabIndex = 3;
             // 
             // label10

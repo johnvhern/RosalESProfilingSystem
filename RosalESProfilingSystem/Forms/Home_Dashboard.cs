@@ -857,7 +857,6 @@ namespace RosalESProfilingSystem.Forms
 
         private void Home_Dashboard_Load(object sender, EventArgs e)
         {
-           
         }
 
         private void RMAChart_Click(object sender, EventArgs e)
