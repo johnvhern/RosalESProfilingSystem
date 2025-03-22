@@ -458,5 +458,9 @@ namespace RosalESProfilingSystem.Forms
             form.ShowDialog();
         }
 
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -318,5 +318,10 @@ namespace RosalESProfilingSystem.Forms
             CompetencyChart_ERUNT chartForm = new CompetencyChart_ERUNT(selectedYear, selectedQuarter);
             chartForm.Show(); // Opens the chart form
         }
+
+        private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

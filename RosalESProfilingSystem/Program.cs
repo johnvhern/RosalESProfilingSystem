@@ -15,6 +15,7 @@ namespace RosalESProfilingSystem
         [STAThread]
         static void Main()
         {
+            if (Environment.OSVersion.Version.Major >= 1) SetProcessDPIAware();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -24,8 +25,10 @@ namespace RosalESProfilingSystem
 
             System.Threading.Thread.Sleep(3000);
             splash.Close();
-
             Application.Run(new Forms.Login_Form());
         }
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
     }
 }
