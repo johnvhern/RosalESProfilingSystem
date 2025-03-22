@@ -39,7 +39,7 @@
             this.btnRMA = new System.Windows.Forms.Button();
             this.btnNumeracyPage = new System.Windows.Forms.Button();
             this.btnSciProf = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,7 +53,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnLiteracyPage);
             this.flowLayoutPanel1.Controls.Add(this.panelNumeracy);
             this.flowLayoutPanel1.Controls.Add(this.btnSciProf);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.btnSettings);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -197,23 +197,24 @@
             this.btnSciProf.UseVisualStyleBackColor = true;
             this.btnSciProf.Click += new System.EventHandler(this.btnSciProf_Click);
             // 
-            // button1
+            // btnSettings
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(0, 486);
-            this.button1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.button1.Size = new System.Drawing.Size(217, 76);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Settings";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSettings.Location = new System.Drawing.Point(0, 486);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnSettings.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnSettings.Size = new System.Drawing.Size(217, 76);
+            this.btnSettings.TabIndex = 11;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // timer1
             // 
@@ -239,7 +240,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSciProf;
         private System.Windows.Forms.Panel panelNumeracy;

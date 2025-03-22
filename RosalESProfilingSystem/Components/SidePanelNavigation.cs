@@ -103,5 +103,11 @@ namespace RosalESProfilingSystem.Components
             mainForm.OpenForm(new Forms.ERUNT_Form());
             ColorActiveButton((Button)sender);
         }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            mainForm.OpenForm(new Forms.SettingsForm());
+            ColorActiveButton((Button)sender);
+        }
     }
 }

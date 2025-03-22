@@ -822,7 +822,7 @@
   <data name="btnNumeracyPage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        6QAAAOkBVJIUSwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAaFSURBVFhH7ZZ7
+        6AAAAOgBhtX2rwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAaFSURBVFhH7ZZ7
         cBXVHcd/u+fs2bt37+7d3fsg7xcxhCSQQLCEp7yCpOAAPoagMCDaGFokkI4TC21FyttK+4c6lSnqqCgy
         Ul61HZ3SCQIioI5aphYQcOzEUpPc3JsQAmSaX+cs98K9e28Cnekf/uF35jez9/y+e89nf/s75yzA9/r/
         qsCSyGGZwD0AIPsYOeAmZInTlFLpPvdJQ2MRVaEtAJDjzKeQqSrS14bGwgHT9Q8+oBLx6yeLrL4AIyGN
@@ -889,7 +889,7 @@
         xd2+eP4DNAy9kbsgFGYAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
         4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAVGSURBVFhHxVdr
