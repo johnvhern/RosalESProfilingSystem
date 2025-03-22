@@ -447,7 +447,7 @@
             this.txtTotalLearners.Location = new System.Drawing.Point(275, 33);
             this.txtTotalLearners.Name = "txtTotalLearners";
             this.txtTotalLearners.ReadOnly = true;
-            this.txtTotalLearners.Size = new System.Drawing.Size(232, 32);
+            this.txtTotalLearners.Size = new System.Drawing.Size(232, 27);
             this.txtTotalLearners.TabIndex = 3;
             this.txtTotalLearners.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -472,7 +472,7 @@
             this.textBox8.Location = new System.Drawing.Point(37, 33);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(232, 32);
+            this.textBox8.Size = new System.Drawing.Size(232, 27);
             this.textBox8.TabIndex = 5;
             this.textBox8.Text = "1-3";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -495,7 +495,7 @@
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.4661F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.5339F));
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel14.Controls.Add(this.label18, 1, 6);
             this.tableLayoutPanel14.Controls.Add(this.label17, 1, 5);
             this.tableLayoutPanel14.Controls.Add(this.label16, 1, 4);
@@ -590,7 +590,7 @@
             this.txtLowEmerging.Location = new System.Drawing.Point(226, 76);
             this.txtLowEmerging.Name = "txtLowEmerging";
             this.txtLowEmerging.ReadOnly = true;
-            this.txtLowEmerging.Size = new System.Drawing.Size(275, 32);
+            this.txtLowEmerging.Size = new System.Drawing.Size(274, 27);
             this.txtLowEmerging.TabIndex = 5;
             // 
             // txtHighEmerging
@@ -602,7 +602,7 @@
             this.txtHighEmerging.Location = new System.Drawing.Point(226, 118);
             this.txtHighEmerging.Name = "txtHighEmerging";
             this.txtHighEmerging.ReadOnly = true;
-            this.txtHighEmerging.Size = new System.Drawing.Size(275, 32);
+            this.txtHighEmerging.Size = new System.Drawing.Size(274, 27);
             this.txtHighEmerging.TabIndex = 6;
             // 
             // txtDeveloping
@@ -614,7 +614,7 @@
             this.txtDeveloping.Location = new System.Drawing.Point(226, 160);
             this.txtDeveloping.Name = "txtDeveloping";
             this.txtDeveloping.ReadOnly = true;
-            this.txtDeveloping.Size = new System.Drawing.Size(275, 32);
+            this.txtDeveloping.Size = new System.Drawing.Size(274, 27);
             this.txtDeveloping.TabIndex = 7;
             // 
             // txttTransitioning
@@ -626,7 +626,7 @@
             this.txttTransitioning.Location = new System.Drawing.Point(226, 203);
             this.txttTransitioning.Name = "txttTransitioning";
             this.txttTransitioning.ReadOnly = true;
-            this.txttTransitioning.Size = new System.Drawing.Size(275, 32);
+            this.txttTransitioning.Size = new System.Drawing.Size(274, 27);
             this.txttTransitioning.TabIndex = 8;
             // 
             // txttGradeReady
@@ -638,7 +638,7 @@
             this.txttGradeReady.Location = new System.Drawing.Point(226, 245);
             this.txttGradeReady.Name = "txttGradeReady";
             this.txttGradeReady.ReadOnly = true;
-            this.txttGradeReady.Size = new System.Drawing.Size(275, 32);
+            this.txttGradeReady.Size = new System.Drawing.Size(274, 27);
             this.txttGradeReady.TabIndex = 9;
             // 
             // label19
@@ -664,7 +664,7 @@
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(275, 47);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(274, 47);
             this.tableLayoutPanel15.TabIndex = 10;
             // 
             // btnLoadRMA
@@ -690,7 +690,7 @@
             this.panel11.Location = new System.Drawing.Point(226, 33);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(150, 35);
+            this.panel11.Size = new System.Drawing.Size(150, 32);
             this.panel11.TabIndex = 12;
             // 
             // cbRMAList
@@ -705,7 +705,7 @@
             "EoSY"});
             this.cbRMAList.Location = new System.Drawing.Point(0, 0);
             this.cbRMAList.Name = "cbRMAList";
-            this.cbRMAList.Size = new System.Drawing.Size(148, 33);
+            this.cbRMAList.Size = new System.Drawing.Size(148, 28);
             this.cbRMAList.TabIndex = 0;
             // 
             // panel8
@@ -781,7 +781,7 @@
             this.txtCRLATotalLearners.Location = new System.Drawing.Point(274, 33);
             this.txtCRLATotalLearners.Name = "txtCRLATotalLearners";
             this.txtCRLATotalLearners.ReadOnly = true;
-            this.txtCRLATotalLearners.Size = new System.Drawing.Size(231, 32);
+            this.txtCRLATotalLearners.Size = new System.Drawing.Size(231, 27);
             this.txtCRLATotalLearners.TabIndex = 3;
             this.txtCRLATotalLearners.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -806,7 +806,7 @@
             this.textBox2.Location = new System.Drawing.Point(37, 33);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(231, 32);
+            this.textBox2.Size = new System.Drawing.Size(231, 27);
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = "1-3";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -924,7 +924,7 @@
             this.txtCRLALowEmerging.Location = new System.Drawing.Point(196, 75);
             this.txtCRLALowEmerging.Name = "txtCRLALowEmerging";
             this.txtCRLALowEmerging.ReadOnly = true;
-            this.txtCRLALowEmerging.Size = new System.Drawing.Size(307, 32);
+            this.txtCRLALowEmerging.Size = new System.Drawing.Size(307, 27);
             this.txtCRLALowEmerging.TabIndex = 5;
             // 
             // txtCRLAHighEmerging
@@ -936,7 +936,7 @@
             this.txtCRLAHighEmerging.Location = new System.Drawing.Point(196, 117);
             this.txtCRLAHighEmerging.Name = "txtCRLAHighEmerging";
             this.txtCRLAHighEmerging.ReadOnly = true;
-            this.txtCRLAHighEmerging.Size = new System.Drawing.Size(307, 32);
+            this.txtCRLAHighEmerging.Size = new System.Drawing.Size(307, 27);
             this.txtCRLAHighEmerging.TabIndex = 6;
             // 
             // txtCRLADeveloping
@@ -948,7 +948,7 @@
             this.txtCRLADeveloping.Location = new System.Drawing.Point(196, 160);
             this.txtCRLADeveloping.Name = "txtCRLADeveloping";
             this.txtCRLADeveloping.ReadOnly = true;
-            this.txtCRLADeveloping.Size = new System.Drawing.Size(307, 32);
+            this.txtCRLADeveloping.Size = new System.Drawing.Size(307, 27);
             this.txtCRLADeveloping.TabIndex = 7;
             // 
             // txtCRLATransitioning
@@ -960,7 +960,7 @@
             this.txtCRLATransitioning.Location = new System.Drawing.Point(196, 202);
             this.txtCRLATransitioning.Name = "txtCRLATransitioning";
             this.txtCRLATransitioning.ReadOnly = true;
-            this.txtCRLATransitioning.Size = new System.Drawing.Size(307, 32);
+            this.txtCRLATransitioning.Size = new System.Drawing.Size(307, 27);
             this.txtCRLATransitioning.TabIndex = 8;
             // 
             // txtCRLAGradeReady
@@ -972,7 +972,7 @@
             this.txtCRLAGradeReady.Location = new System.Drawing.Point(196, 245);
             this.txtCRLAGradeReady.Name = "txtCRLAGradeReady";
             this.txtCRLAGradeReady.ReadOnly = true;
-            this.txtCRLAGradeReady.Size = new System.Drawing.Size(307, 32);
+            this.txtCRLAGradeReady.Size = new System.Drawing.Size(307, 27);
             this.txtCRLAGradeReady.TabIndex = 9;
             // 
             // label27
@@ -1040,7 +1040,7 @@
             this.panel13.Location = new System.Drawing.Point(104, 3);
             this.panel13.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(202, 36);
+            this.panel13.Size = new System.Drawing.Size(202, 32);
             this.panel13.TabIndex = 16;
             // 
             // cbCRLALanguage
@@ -1055,7 +1055,7 @@
             "English"});
             this.cbCRLALanguage.Location = new System.Drawing.Point(0, 0);
             this.cbCRLALanguage.Name = "cbCRLALanguage";
-            this.cbCRLALanguage.Size = new System.Drawing.Size(200, 33);
+            this.cbCRLALanguage.Size = new System.Drawing.Size(200, 28);
             this.cbCRLALanguage.TabIndex = 0;
             // 
             // panel12
@@ -1065,7 +1065,7 @@
             this.panel12.Location = new System.Drawing.Point(3, 3);
             this.panel12.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(95, 36);
+            this.panel12.Size = new System.Drawing.Size(95, 32);
             this.panel12.TabIndex = 15;
             // 
             // cbCRLAList
@@ -1080,7 +1080,7 @@
             "EoSY"});
             this.cbCRLAList.Location = new System.Drawing.Point(0, 0);
             this.cbCRLAList.Name = "cbCRLAList";
-            this.cbCRLAList.Size = new System.Drawing.Size(93, 33);
+            this.cbCRLAList.Size = new System.Drawing.Size(93, 28);
             this.cbCRLAList.TabIndex = 0;
             // 
             // CRLAChart
@@ -1206,7 +1206,7 @@
             this.txtSciCATLearners.Location = new System.Drawing.Point(275, 32);
             this.txtSciCATLearners.Name = "txtSciCATLearners";
             this.txtSciCATLearners.ReadOnly = true;
-            this.txtSciCATLearners.Size = new System.Drawing.Size(232, 32);
+            this.txtSciCATLearners.Size = new System.Drawing.Size(232, 27);
             this.txtSciCATLearners.TabIndex = 3;
             this.txtSciCATLearners.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1231,7 +1231,7 @@
             this.textBox10.Location = new System.Drawing.Point(37, 32);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(232, 32);
+            this.textBox10.Size = new System.Drawing.Size(232, 27);
             this.textBox10.TabIndex = 5;
             this.textBox10.Text = "4-6";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1254,7 +1254,7 @@
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.6994F));
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.3006F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel21.Controls.Add(this.label30, 1, 5);
             this.tableLayoutPanel21.Controls.Add(this.label31, 1, 4);
             this.tableLayoutPanel21.Controls.Add(this.label32, 1, 3);
@@ -1283,7 +1283,7 @@
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.57143F));
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.57143F));
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.85714F));
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.28571F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.85714F));
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel21.Size = new System.Drawing.Size(546, 350);
@@ -1293,9 +1293,9 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label30.Location = new System.Drawing.Point(11, 187);
+            this.label30.Location = new System.Drawing.Point(11, 182);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(242, 37);
+            this.label30.Size = new System.Drawing.Size(241, 36);
             this.label30.TabIndex = 4;
             this.label30.Text = "Good Proficiency:";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1304,9 +1304,9 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label31.Location = new System.Drawing.Point(11, 150);
+            this.label31.Location = new System.Drawing.Point(11, 146);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(242, 37);
+            this.label31.Size = new System.Drawing.Size(241, 36);
             this.label31.TabIndex = 3;
             this.label31.Text = "Satisfactory Proficiency:";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1315,9 +1315,9 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label32.Location = new System.Drawing.Point(11, 113);
+            this.label32.Location = new System.Drawing.Point(11, 110);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(242, 37);
+            this.label32.Size = new System.Drawing.Size(241, 36);
             this.label32.TabIndex = 2;
             this.label32.Text = "Weak Proficiency:";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1326,9 +1326,9 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label33.Location = new System.Drawing.Point(11, 76);
+            this.label33.Location = new System.Drawing.Point(11, 74);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(242, 37);
+            this.label33.Size = new System.Drawing.Size(241, 36);
             this.label33.TabIndex = 1;
             this.label33.Text = "Poor Proficiency:";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1337,9 +1337,9 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label34.Location = new System.Drawing.Point(11, 39);
+            this.label34.Location = new System.Drawing.Point(11, 38);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(242, 37);
+            this.label34.Size = new System.Drawing.Size(241, 36);
             this.label34.TabIndex = 0;
             this.label34.Text = "No Proficiency at All:";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1350,10 +1350,10 @@
             this.txtNoProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNoProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNoProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNoProficiency.Location = new System.Drawing.Point(259, 42);
+            this.txtNoProficiency.Location = new System.Drawing.Point(258, 41);
             this.txtNoProficiency.Name = "txtNoProficiency";
             this.txtNoProficiency.ReadOnly = true;
-            this.txtNoProficiency.Size = new System.Drawing.Size(244, 32);
+            this.txtNoProficiency.Size = new System.Drawing.Size(244, 27);
             this.txtNoProficiency.TabIndex = 5;
             // 
             // txtPoorProficiency
@@ -1362,10 +1362,10 @@
             this.txtPoorProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPoorProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPoorProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPoorProficiency.Location = new System.Drawing.Point(259, 79);
+            this.txtPoorProficiency.Location = new System.Drawing.Point(258, 77);
             this.txtPoorProficiency.Name = "txtPoorProficiency";
             this.txtPoorProficiency.ReadOnly = true;
-            this.txtPoorProficiency.Size = new System.Drawing.Size(244, 32);
+            this.txtPoorProficiency.Size = new System.Drawing.Size(244, 27);
             this.txtPoorProficiency.TabIndex = 6;
             // 
             // txtWeakProficiency
@@ -1374,10 +1374,10 @@
             this.txtWeakProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtWeakProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtWeakProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWeakProficiency.Location = new System.Drawing.Point(259, 116);
+            this.txtWeakProficiency.Location = new System.Drawing.Point(258, 113);
             this.txtWeakProficiency.Name = "txtWeakProficiency";
             this.txtWeakProficiency.ReadOnly = true;
-            this.txtWeakProficiency.Size = new System.Drawing.Size(244, 32);
+            this.txtWeakProficiency.Size = new System.Drawing.Size(244, 27);
             this.txtWeakProficiency.TabIndex = 7;
             // 
             // txtSatisfactoryProf
@@ -1386,10 +1386,10 @@
             this.txtSatisfactoryProf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSatisfactoryProf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSatisfactoryProf.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSatisfactoryProf.Location = new System.Drawing.Point(259, 153);
+            this.txtSatisfactoryProf.Location = new System.Drawing.Point(258, 149);
             this.txtSatisfactoryProf.Name = "txtSatisfactoryProf";
             this.txtSatisfactoryProf.ReadOnly = true;
-            this.txtSatisfactoryProf.Size = new System.Drawing.Size(244, 32);
+            this.txtSatisfactoryProf.Size = new System.Drawing.Size(244, 27);
             this.txtSatisfactoryProf.TabIndex = 8;
             // 
             // txtGoodProficiency
@@ -1398,10 +1398,10 @@
             this.txtGoodProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGoodProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtGoodProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGoodProficiency.Location = new System.Drawing.Point(259, 190);
+            this.txtGoodProficiency.Location = new System.Drawing.Point(258, 185);
             this.txtGoodProficiency.Name = "txtGoodProficiency";
             this.txtGoodProficiency.ReadOnly = true;
-            this.txtGoodProficiency.Size = new System.Drawing.Size(244, 32);
+            this.txtGoodProficiency.Size = new System.Drawing.Size(244, 27);
             this.txtGoodProficiency.TabIndex = 9;
             // 
             // label35
@@ -1410,7 +1410,7 @@
             this.label35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label35.Location = new System.Drawing.Point(11, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(242, 39);
+            this.label35.Size = new System.Drawing.Size(241, 38);
             this.label35.TabIndex = 11;
             this.label35.Text = "Assessment Type:";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1421,19 +1421,19 @@
             this.txtVeryGoodProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVeryGoodProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtVeryGoodProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVeryGoodProficiency.Location = new System.Drawing.Point(259, 227);
+            this.txtVeryGoodProficiency.Location = new System.Drawing.Point(258, 221);
             this.txtVeryGoodProficiency.Name = "txtVeryGoodProficiency";
             this.txtVeryGoodProficiency.ReadOnly = true;
-            this.txtVeryGoodProficiency.Size = new System.Drawing.Size(244, 32);
+            this.txtVeryGoodProficiency.Size = new System.Drawing.Size(244, 27);
             this.txtVeryGoodProficiency.TabIndex = 14;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
             this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label36.Location = new System.Drawing.Point(11, 224);
+            this.label36.Location = new System.Drawing.Point(11, 218);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(242, 38);
+            this.label36.Size = new System.Drawing.Size(241, 37);
             this.label36.TabIndex = 13;
             this.label36.Text = "Very Good Proficiency:";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1442,9 +1442,9 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label37.Location = new System.Drawing.Point(11, 262);
+            this.label37.Location = new System.Drawing.Point(11, 255);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(242, 36);
+            this.label37.Size = new System.Drawing.Size(241, 44);
             this.label37.TabIndex = 15;
             this.label37.Text = "Exceptional Proficiency:";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1455,10 +1455,10 @@
             this.txtExcepProficiency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtExcepProficiency.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtExcepProficiency.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExcepProficiency.Location = new System.Drawing.Point(259, 265);
+            this.txtExcepProficiency.Location = new System.Drawing.Point(258, 258);
             this.txtExcepProficiency.Name = "txtExcepProficiency";
             this.txtExcepProficiency.ReadOnly = true;
-            this.txtExcepProficiency.Size = new System.Drawing.Size(244, 32);
+            this.txtExcepProficiency.Size = new System.Drawing.Size(244, 27);
             this.txtExcepProficiency.TabIndex = 16;
             // 
             // tableLayoutPanel23
@@ -1468,11 +1468,11 @@
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.12245F));
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.938776F));
             this.tableLayoutPanel23.Controls.Add(this.loadSciCATData, 1, 0);
-            this.tableLayoutPanel23.Location = new System.Drawing.Point(259, 301);
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(258, 302);
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(244, 46);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(244, 45);
             this.tableLayoutPanel23.TabIndex = 17;
             // 
             // loadSciCATData
@@ -1485,7 +1485,7 @@
             this.loadSciCATData.ForeColor = System.Drawing.Color.White;
             this.loadSciCATData.Location = new System.Drawing.Point(19, 3);
             this.loadSciCATData.Name = "loadSciCATData";
-            this.loadSciCATData.Size = new System.Drawing.Size(204, 40);
+            this.loadSciCATData.Size = new System.Drawing.Size(204, 39);
             this.loadSciCATData.TabIndex = 0;
             this.loadSciCATData.Text = "Load SciCAT Data";
             this.loadSciCATData.UseVisualStyleBackColor = false;
@@ -1495,10 +1495,10 @@
             // 
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel15.Controls.Add(this.cbSciCATList);
-            this.panel15.Location = new System.Drawing.Point(259, 3);
+            this.panel15.Location = new System.Drawing.Point(258, 3);
             this.panel15.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(118, 35);
+            this.panel15.Size = new System.Drawing.Size(118, 32);
             this.panel15.TabIndex = 18;
             // 
             // cbSciCATList
@@ -1513,7 +1513,7 @@
             "EoSY"});
             this.cbSciCATList.Location = new System.Drawing.Point(0, 0);
             this.cbSciCATList.Name = "cbSciCATList";
-            this.cbSciCATList.Size = new System.Drawing.Size(116, 33);
+            this.cbSciCATList.Size = new System.Drawing.Size(116, 28);
             this.cbSciCATList.TabIndex = 0;
             // 
             // SciCATChart
@@ -1726,7 +1726,7 @@
             this.txtERUNTLearnerAssessed.Location = new System.Drawing.Point(275, 32);
             this.txtERUNTLearnerAssessed.Name = "txtERUNTLearnerAssessed";
             this.txtERUNTLearnerAssessed.ReadOnly = true;
-            this.txtERUNTLearnerAssessed.Size = new System.Drawing.Size(232, 32);
+            this.txtERUNTLearnerAssessed.Size = new System.Drawing.Size(232, 27);
             this.txtERUNTLearnerAssessed.TabIndex = 3;
             this.txtERUNTLearnerAssessed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1751,7 +1751,7 @@
             this.textBox3.Location = new System.Drawing.Point(37, 32);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(232, 32);
+            this.textBox3.Size = new System.Drawing.Size(232, 27);
             this.textBox3.TabIndex = 5;
             this.textBox3.Text = "4-6";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1774,7 +1774,7 @@
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.77551F));
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.22449F));
-            this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel30.Controls.Add(this.label41, 1, 6);
             this.tableLayoutPanel30.Controls.Add(this.label42, 1, 5);
             this.tableLayoutPanel30.Controls.Add(this.label43, 1, 4);
@@ -1869,7 +1869,7 @@
             this.txtNotProficient.Location = new System.Drawing.Point(222, 57);
             this.txtNotProficient.Name = "txtNotProficient";
             this.txtNotProficient.ReadOnly = true;
-            this.txtNotProficient.Size = new System.Drawing.Size(285, 32);
+            this.txtNotProficient.Size = new System.Drawing.Size(284, 27);
             this.txtNotProficient.TabIndex = 5;
             // 
             // txtLowProficiency
@@ -1881,7 +1881,7 @@
             this.txtLowProficiency.Location = new System.Drawing.Point(222, 96);
             this.txtLowProficiency.Name = "txtLowProficiency";
             this.txtLowProficiency.ReadOnly = true;
-            this.txtLowProficiency.Size = new System.Drawing.Size(285, 32);
+            this.txtLowProficiency.Size = new System.Drawing.Size(284, 27);
             this.txtLowProficiency.TabIndex = 6;
             // 
             // txtNearlyProficient
@@ -1893,7 +1893,7 @@
             this.txtNearlyProficient.Location = new System.Drawing.Point(222, 135);
             this.txtNearlyProficient.Name = "txtNearlyProficient";
             this.txtNearlyProficient.ReadOnly = true;
-            this.txtNearlyProficient.Size = new System.Drawing.Size(285, 32);
+            this.txtNearlyProficient.Size = new System.Drawing.Size(284, 27);
             this.txtNearlyProficient.TabIndex = 7;
             // 
             // txtProficient
@@ -1905,7 +1905,7 @@
             this.txtProficient.Location = new System.Drawing.Point(222, 173);
             this.txtProficient.Name = "txtProficient";
             this.txtProficient.ReadOnly = true;
-            this.txtProficient.Size = new System.Drawing.Size(285, 32);
+            this.txtProficient.Size = new System.Drawing.Size(284, 27);
             this.txtProficient.TabIndex = 8;
             // 
             // txtHighlyProficient
@@ -1917,7 +1917,7 @@
             this.txtHighlyProficient.Location = new System.Drawing.Point(222, 213);
             this.txtHighlyProficient.Name = "txtHighlyProficient";
             this.txtHighlyProficient.ReadOnly = true;
-            this.txtHighlyProficient.Size = new System.Drawing.Size(285, 32);
+            this.txtHighlyProficient.Size = new System.Drawing.Size(284, 27);
             this.txtHighlyProficient.TabIndex = 9;
             // 
             // label46
@@ -1943,7 +1943,7 @@
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
             this.tableLayoutPanel31.RowCount = 1;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(285, 41);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(284, 41);
             this.tableLayoutPanel31.TabIndex = 10;
             // 
             // btnLoadERUNT
@@ -1969,7 +1969,7 @@
             this.panel20.Location = new System.Drawing.Point(222, 17);
             this.panel20.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(150, 37);
+            this.panel20.Size = new System.Drawing.Size(150, 32);
             this.panel20.TabIndex = 12;
             // 
             // cbERUNT
@@ -1984,7 +1984,7 @@
             "EoSY"});
             this.cbERUNT.Location = new System.Drawing.Point(0, 0);
             this.cbERUNT.Name = "cbERUNT";
-            this.cbERUNT.Size = new System.Drawing.Size(148, 33);
+            this.cbERUNT.Size = new System.Drawing.Size(148, 28);
             this.cbERUNT.TabIndex = 0;
             // 
             // panel2
@@ -2044,7 +2044,7 @@
             this.txtGrade5.Location = new System.Drawing.Point(563, 84);
             this.txtGrade5.Name = "txtGrade5";
             this.txtGrade5.ReadOnly = true;
-            this.txtGrade5.Size = new System.Drawing.Size(267, 32);
+            this.txtGrade5.Size = new System.Drawing.Size(267, 27);
             this.txtGrade5.TabIndex = 10;
             // 
             // txtGrade3
@@ -2056,7 +2056,7 @@
             this.txtGrade3.Location = new System.Drawing.Point(290, 84);
             this.txtGrade3.Name = "txtGrade3";
             this.txtGrade3.ReadOnly = true;
-            this.txtGrade3.Size = new System.Drawing.Size(267, 32);
+            this.txtGrade3.Size = new System.Drawing.Size(267, 27);
             this.txtGrade3.TabIndex = 9;
             // 
             // label3
@@ -2065,7 +2065,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Location = new System.Drawing.Point(563, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(267, 25);
+            this.label3.Size = new System.Drawing.Size(267, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "No. of Grade 5 Learners:";
             // 
@@ -2075,7 +2075,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Location = new System.Drawing.Point(39, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(245, 25);
+            this.label2.Size = new System.Drawing.Size(245, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "No. of Grade 1 Learners:";
             // 
@@ -2085,7 +2085,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Location = new System.Drawing.Point(290, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(267, 25);
+            this.label1.Size = new System.Drawing.Size(267, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "No. of Grade 3 Learners:";
             // 
@@ -2129,7 +2129,7 @@
             this.txtGrade1.Location = new System.Drawing.Point(39, 84);
             this.txtGrade1.Name = "txtGrade1";
             this.txtGrade1.ReadOnly = true;
-            this.txtGrade1.Size = new System.Drawing.Size(245, 32);
+            this.txtGrade1.Size = new System.Drawing.Size(245, 27);
             this.txtGrade1.TabIndex = 8;
             // 
             // txtGrade2
@@ -2141,7 +2141,7 @@
             this.txtGrade2.Location = new System.Drawing.Point(39, 143);
             this.txtGrade2.Name = "txtGrade2";
             this.txtGrade2.ReadOnly = true;
-            this.txtGrade2.Size = new System.Drawing.Size(245, 32);
+            this.txtGrade2.Size = new System.Drawing.Size(245, 27);
             this.txtGrade2.TabIndex = 11;
             // 
             // txtGrade4
@@ -2153,7 +2153,7 @@
             this.txtGrade4.Location = new System.Drawing.Point(290, 143);
             this.txtGrade4.Name = "txtGrade4";
             this.txtGrade4.ReadOnly = true;
-            this.txtGrade4.Size = new System.Drawing.Size(267, 32);
+            this.txtGrade4.Size = new System.Drawing.Size(267, 27);
             this.txtGrade4.TabIndex = 12;
             // 
             // txtGrade6
@@ -2165,7 +2165,7 @@
             this.txtGrade6.Location = new System.Drawing.Point(563, 143);
             this.txtGrade6.Name = "txtGrade6";
             this.txtGrade6.ReadOnly = true;
-            this.txtGrade6.Size = new System.Drawing.Size(267, 32);
+            this.txtGrade6.Size = new System.Drawing.Size(267, 27);
             this.txtGrade6.TabIndex = 13;
             // 
             // label4
@@ -2174,7 +2174,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
             this.label4.Location = new System.Drawing.Point(836, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(282, 25);
+            this.label4.Size = new System.Drawing.Size(282, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Total No. of Learners:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -2189,7 +2189,7 @@
             this.txtTotal.Location = new System.Drawing.Point(836, 84);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(282, 32);
+            this.txtTotal.Size = new System.Drawing.Size(282, 27);
             this.txtTotal.TabIndex = 7;
             // 
             // btnLoadAllEnrollments
@@ -2202,7 +2202,7 @@
             this.btnLoadAllEnrollments.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnLoadAllEnrollments.Location = new System.Drawing.Point(836, 143);
             this.btnLoadAllEnrollments.Name = "btnLoadAllEnrollments";
-            this.btnLoadAllEnrollments.Size = new System.Drawing.Size(282, 32);
+            this.btnLoadAllEnrollments.Size = new System.Drawing.Size(282, 27);
             this.btnLoadAllEnrollments.TabIndex = 14;
             this.btnLoadAllEnrollments.Text = "Load Enrollment";
             this.btnLoadAllEnrollments.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -2240,11 +2240,10 @@
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel10.Controls.Add(this.cbSchoolYear);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(95, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(150, 35);
+            this.panel10.Size = new System.Drawing.Size(150, 32);
             this.panel10.TabIndex = 1;
             // 
             // cbSchoolYear
@@ -2255,7 +2254,7 @@
             this.cbSchoolYear.FormattingEnabled = true;
             this.cbSchoolYear.Location = new System.Drawing.Point(0, 0);
             this.cbSchoolYear.Name = "cbSchoolYear";
-            this.cbSchoolYear.Size = new System.Drawing.Size(148, 33);
+            this.cbSchoolYear.Size = new System.Drawing.Size(148, 28);
             this.cbSchoolYear.TabIndex = 0;
             this.cbSchoolYear.DropDown += new System.EventHandler(this.cbSchoolYear_DropDown);
             this.cbSchoolYear.SelectedIndexChanged += new System.EventHandler(this.cbSchoolYear_SelectedIndexChanged_1);
@@ -2325,7 +2324,7 @@
             // 
             // Home_Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1712, 1055);

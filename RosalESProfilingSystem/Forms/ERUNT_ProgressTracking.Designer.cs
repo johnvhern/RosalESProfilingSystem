@@ -30,12 +30,10 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ERUNT_ProgressTracking));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -164,24 +162,16 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 107);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.Size = new System.Drawing.Size(1080, 812);
             this.dataGridView2.TabIndex = 1;
             // 
@@ -286,7 +276,7 @@
             // 
             this.metroComboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 24;
+            this.metroComboBox1.ItemHeight = 23;
             this.metroComboBox1.Items.AddRange(new object[] {
             "1",
             "2",
@@ -294,7 +284,7 @@
             "4"});
             this.metroComboBox1.Location = new System.Drawing.Point(118, 3);
             this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(217, 30);
+            this.metroComboBox1.Size = new System.Drawing.Size(217, 29);
             this.metroComboBox1.TabIndex = 1;
             this.metroComboBox1.UseSelectable = true;
             this.metroComboBox1.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
@@ -344,7 +334,7 @@
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(18, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(209, 36);
+            this.label8.Size = new System.Drawing.Size(168, 36);
             this.label8.TabIndex = 0;
             this.label8.Text = "No. of Comptencies Mastered:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -356,7 +346,7 @@
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(18, 36);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(235, 40);
+            this.label9.Size = new System.Drawing.Size(189, 40);
             this.label9.TabIndex = 1;
             this.label9.Text = "No. of Competencies Unmastered:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -369,7 +359,7 @@
             this.txtMastered.Location = new System.Drawing.Point(266, 3);
             this.txtMastered.Name = "txtMastered";
             this.txtMastered.ReadOnly = true;
-            this.txtMastered.Size = new System.Drawing.Size(66, 31);
+            this.txtMastered.Size = new System.Drawing.Size(66, 27);
             this.txtMastered.TabIndex = 2;
             // 
             // txtUnmastered
@@ -379,7 +369,7 @@
             this.txtUnmastered.Location = new System.Drawing.Point(266, 39);
             this.txtUnmastered.Name = "txtUnmastered";
             this.txtUnmastered.ReadOnly = true;
-            this.txtUnmastered.Size = new System.Drawing.Size(66, 34);
+            this.txtUnmastered.Size = new System.Drawing.Size(66, 29);
             this.txtUnmastered.TabIndex = 3;
             // 
             // label10
@@ -387,9 +377,9 @@
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 87);
+            this.label10.Location = new System.Drawing.Point(3, 92);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(352, 25);
+            this.label10.Size = new System.Drawing.Size(352, 20);
             this.label10.TabIndex = 1;
             this.label10.Text = "Skills Mastery";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -453,14 +443,6 @@
             this.gridLearners.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.gridLearners.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridLearners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridLearners.DefaultCellStyle = dataGridViewCellStyle4;
             this.gridLearners.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridLearners.Location = new System.Drawing.Point(0, 203);
             this.gridLearners.MultiSelect = false;
@@ -511,9 +493,9 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 2);
+            this.label1.Location = new System.Drawing.Point(93, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(358, 25);
+            this.label1.Size = new System.Drawing.Size(358, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "School Year:";
             // 
@@ -521,10 +503,10 @@
             // 
             this.cbSchoolYear.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbSchoolYear.FormattingEnabled = true;
-            this.cbSchoolYear.ItemHeight = 24;
+            this.cbSchoolYear.ItemHeight = 23;
             this.cbSchoolYear.Location = new System.Drawing.Point(93, 30);
             this.cbSchoolYear.Name = "cbSchoolYear";
-            this.cbSchoolYear.Size = new System.Drawing.Size(220, 30);
+            this.cbSchoolYear.Size = new System.Drawing.Size(220, 29);
             this.cbSchoolYear.TabIndex = 1;
             this.cbSchoolYear.UseSelectable = true;
             this.cbSchoolYear.DropDown += new System.EventHandler(this.cbSchoolYear_DropDown);
@@ -536,7 +518,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(93, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 27);
+            this.label2.Size = new System.Drawing.Size(76, 27);
             this.label2.TabIndex = 2;
             this.label2.Text = "Search By:";
             // 
@@ -544,7 +526,7 @@
             // 
             this.cbSearchTerm.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbSearchTerm.FormattingEnabled = true;
-            this.cbSearchTerm.ItemHeight = 24;
+            this.cbSearchTerm.ItemHeight = 23;
             this.cbSearchTerm.Items.AddRange(new object[] {
             "GradeLevel",
             "LRN",
@@ -553,7 +535,7 @@
             "MiddleName"});
             this.cbSearchTerm.Location = new System.Drawing.Point(93, 91);
             this.cbSearchTerm.Name = "cbSearchTerm";
-            this.cbSearchTerm.Size = new System.Drawing.Size(220, 30);
+            this.cbSearchTerm.Size = new System.Drawing.Size(220, 29);
             this.cbSearchTerm.TabIndex = 3;
             this.cbSearchTerm.UseSelectable = true;
             // 
@@ -563,7 +545,7 @@
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(93, 126);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 30);
+            this.textBox1.Size = new System.Drawing.Size(220, 26);
             this.textBox1.TabIndex = 4;
             // 
             // panel5
@@ -626,9 +608,9 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 15);
+            this.label3.Location = new System.Drawing.Point(70, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 43);
+            this.label3.Size = new System.Drawing.Size(123, 43);
             this.label3.TabIndex = 0;
             this.label3.Text = "Name of Learner:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -638,9 +620,9 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(86, 58);
+            this.label4.Location = new System.Drawing.Point(103, 58);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 42);
+            this.label4.Size = new System.Drawing.Size(90, 42);
             this.label4.TabIndex = 1;
             this.label4.Text = "Grade Level:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -653,7 +635,7 @@
             this.txtNameofLearner.Location = new System.Drawing.Point(199, 18);
             this.txtNameofLearner.Name = "txtNameofLearner";
             this.txtNameofLearner.ReadOnly = true;
-            this.txtNameofLearner.Size = new System.Drawing.Size(196, 34);
+            this.txtNameofLearner.Size = new System.Drawing.Size(196, 29);
             this.txtNameofLearner.TabIndex = 2;
             // 
             // txtGradeLevel
@@ -664,7 +646,7 @@
             this.txtGradeLevel.Location = new System.Drawing.Point(199, 61);
             this.txtGradeLevel.Name = "txtGradeLevel";
             this.txtGradeLevel.ReadOnly = true;
-            this.txtGradeLevel.Size = new System.Drawing.Size(196, 34);
+            this.txtGradeLevel.Size = new System.Drawing.Size(196, 29);
             this.txtGradeLevel.TabIndex = 3;
             // 
             // label5
@@ -687,7 +669,7 @@
             this.txtLRN.Location = new System.Drawing.Point(457, 18);
             this.txtLRN.Name = "txtLRN";
             this.txtLRN.ReadOnly = true;
-            this.txtLRN.Size = new System.Drawing.Size(236, 34);
+            this.txtLRN.Size = new System.Drawing.Size(236, 29);
             this.txtLRN.TabIndex = 5;
             // 
             // btnUpdateProgress
@@ -727,8 +709,9 @@
             // 
             // ERUNT_ProgressTracking
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 1022);
             this.Controls.Add(this.mainPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
