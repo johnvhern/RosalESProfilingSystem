@@ -119,7 +119,7 @@
             // 
             this.metroComboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 24;
+            this.metroComboBox1.ItemHeight = 23;
             this.metroComboBox1.Items.AddRange(new object[] {
             "1",
             "2",
@@ -127,7 +127,7 @@
             "4"});
             this.metroComboBox1.Location = new System.Drawing.Point(108, 3);
             this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(50, 30);
+            this.metroComboBox1.Size = new System.Drawing.Size(50, 29);
             this.metroComboBox1.TabIndex = 1;
             this.metroComboBox1.UseSelectable = true;
             this.metroComboBox1.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
@@ -157,9 +157,9 @@
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Right;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(44, 0);
+            this.label8.Location = new System.Drawing.Point(85, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(209, 39);
+            this.label8.Size = new System.Drawing.Size(168, 39);
             this.label8.TabIndex = 0;
             this.label8.Text = "No. of Comptencies Mastered:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -169,9 +169,9 @@
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(18, 39);
+            this.label9.Location = new System.Drawing.Point(64, 39);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(235, 38);
+            this.label9.Size = new System.Drawing.Size(189, 38);
             this.label9.TabIndex = 1;
             this.label9.Text = "No. of Competencies Unmastered:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -183,7 +183,7 @@
             this.txtMastered.Location = new System.Drawing.Point(259, 3);
             this.txtMastered.Name = "txtMastered";
             this.txtMastered.ReadOnly = true;
-            this.txtMastered.Size = new System.Drawing.Size(73, 34);
+            this.txtMastered.Size = new System.Drawing.Size(73, 29);
             this.txtMastered.TabIndex = 2;
             // 
             // txtUnmastered
@@ -193,7 +193,7 @@
             this.txtUnmastered.Location = new System.Drawing.Point(259, 42);
             this.txtUnmastered.Name = "txtUnmastered";
             this.txtUnmastered.ReadOnly = true;
-            this.txtUnmastered.Size = new System.Drawing.Size(73, 34);
+            this.txtUnmastered.Size = new System.Drawing.Size(73, 29);
             this.txtUnmastered.TabIndex = 3;
             // 
             // label10
@@ -201,9 +201,9 @@
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 87);
+            this.label10.Location = new System.Drawing.Point(3, 92);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(352, 25);
+            this.label10.Size = new System.Drawing.Size(352, 20);
             this.label10.TabIndex = 1;
             this.label10.Text = "Skills Mastery";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -298,9 +298,9 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 19);
+            this.label3.Location = new System.Drawing.Point(70, 19);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 40);
+            this.label3.Size = new System.Drawing.Size(123, 40);
             this.label3.TabIndex = 0;
             this.label3.Text = "Name of Learner:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -310,9 +310,9 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(86, 59);
+            this.label4.Location = new System.Drawing.Point(103, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 41);
+            this.label4.Size = new System.Drawing.Size(90, 41);
             this.label4.TabIndex = 1;
             this.label4.Text = "Grade Level:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -325,7 +325,7 @@
             this.txtNameofLearner.Location = new System.Drawing.Point(199, 22);
             this.txtNameofLearner.Name = "txtNameofLearner";
             this.txtNameofLearner.ReadOnly = true;
-            this.txtNameofLearner.Size = new System.Drawing.Size(196, 34);
+            this.txtNameofLearner.Size = new System.Drawing.Size(196, 29);
             this.txtNameofLearner.TabIndex = 2;
             // 
             // txtGradeLevel
@@ -336,7 +336,7 @@
             this.txtGradeLevel.Location = new System.Drawing.Point(199, 62);
             this.txtGradeLevel.Name = "txtGradeLevel";
             this.txtGradeLevel.ReadOnly = true;
-            this.txtGradeLevel.Size = new System.Drawing.Size(196, 34);
+            this.txtGradeLevel.Size = new System.Drawing.Size(196, 29);
             this.txtGradeLevel.TabIndex = 3;
             // 
             // label5
@@ -359,7 +359,7 @@
             this.txtLRN.Location = new System.Drawing.Point(460, 22);
             this.txtLRN.Name = "txtLRN";
             this.txtLRN.ReadOnly = true;
-            this.txtLRN.Size = new System.Drawing.Size(233, 34);
+            this.txtLRN.Size = new System.Drawing.Size(233, 29);
             this.txtLRN.TabIndex = 5;
             // 
             // label7
@@ -539,10 +539,10 @@
             // 
             this.cbCompetencyType.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbCompetencyType.FormattingEnabled = true;
-            this.cbCompetencyType.ItemHeight = 24;
+            this.cbCompetencyType.ItemHeight = 23;
             this.cbCompetencyType.Location = new System.Drawing.Point(164, 3);
             this.cbCompetencyType.Name = "cbCompetencyType";
-            this.cbCompetencyType.Size = new System.Drawing.Size(184, 30);
+            this.cbCompetencyType.Size = new System.Drawing.Size(184, 29);
             this.cbCompetencyType.TabIndex = 2;
             this.cbCompetencyType.UseSelectable = true;
             this.cbCompetencyType.SelectedIndexChanged += new System.EventHandler(this.cbCompetencyType_SelectedIndexChanged);
@@ -633,9 +633,9 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 0);
+            this.label1.Location = new System.Drawing.Point(93, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(358, 24);
+            this.label1.Size = new System.Drawing.Size(358, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "School Year:";
             // 
@@ -643,10 +643,10 @@
             // 
             this.cbSchoolYear.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbSchoolYear.FormattingEnabled = true;
-            this.cbSchoolYear.ItemHeight = 24;
+            this.cbSchoolYear.ItemHeight = 23;
             this.cbSchoolYear.Location = new System.Drawing.Point(93, 27);
             this.cbSchoolYear.Name = "cbSchoolYear";
-            this.cbSchoolYear.Size = new System.Drawing.Size(220, 30);
+            this.cbSchoolYear.Size = new System.Drawing.Size(220, 29);
             this.cbSchoolYear.TabIndex = 1;
             this.cbSchoolYear.UseSelectable = true;
             this.cbSchoolYear.DropDown += new System.EventHandler(this.cbSchoolYear_DropDown);
@@ -658,7 +658,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(93, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 26);
+            this.label2.Size = new System.Drawing.Size(76, 26);
             this.label2.TabIndex = 2;
             this.label2.Text = "Search By:";
             // 
@@ -666,7 +666,7 @@
             // 
             this.cbSearchTerm.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbSearchTerm.FormattingEnabled = true;
-            this.cbSearchTerm.ItemHeight = 24;
+            this.cbSearchTerm.ItemHeight = 23;
             this.cbSearchTerm.Items.AddRange(new object[] {
             "GradeLevel",
             "LRN",
@@ -675,7 +675,7 @@
             "MiddleName"});
             this.cbSearchTerm.Location = new System.Drawing.Point(93, 89);
             this.cbSearchTerm.Name = "cbSearchTerm";
-            this.cbSearchTerm.Size = new System.Drawing.Size(220, 30);
+            this.cbSearchTerm.Size = new System.Drawing.Size(220, 29);
             this.cbSearchTerm.TabIndex = 3;
             this.cbSearchTerm.UseSelectable = true;
             // 
@@ -684,7 +684,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Location = new System.Drawing.Point(93, 125);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 34);
+            this.textBox1.Size = new System.Drawing.Size(220, 29);
             this.textBox1.TabIndex = 4;
             // 
             // tableLayoutPanel2
@@ -720,7 +720,7 @@
             // 
             // LiteracyProgressTracking
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1920, 1055);
@@ -729,6 +729,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LiteracyProgressTracking";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "LiteracyProgressTracking";
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();

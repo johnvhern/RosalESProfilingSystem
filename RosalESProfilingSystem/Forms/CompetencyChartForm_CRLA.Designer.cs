@@ -118,6 +118,8 @@
             this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CompetencyChartForm_CRLA";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CompetencyChartForm_CRLA";
             this.Load += new System.EventHandler(this.CompetencyChartForm_CRLA_Load);

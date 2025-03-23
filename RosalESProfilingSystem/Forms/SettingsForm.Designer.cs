@@ -66,6 +66,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dateTimePickerSchedule = new System.Windows.Forms.DateTimePicker();
             this.listBoxLogs = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnRunBackupNow = new System.Windows.Forms.Button();
@@ -90,7 +91,6 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dateTimePickerSchedule = new System.Windows.Forms.DateTimePicker();
             this.metroPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -216,7 +216,7 @@
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(202, 169);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(154, 23);
+            this.label9.Size = new System.Drawing.Size(125, 19);
             this.label9.TabIndex = 21;
             this.label9.Text = "Current Username:";
             // 
@@ -226,7 +226,7 @@
             this.txtCurrrUsernamePass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurrrUsernamePass.Location = new System.Drawing.Point(206, 195);
             this.txtCurrrUsernamePass.Name = "txtCurrrUsernamePass";
-            this.txtCurrrUsernamePass.Size = new System.Drawing.Size(302, 32);
+            this.txtCurrrUsernamePass.Size = new System.Drawing.Size(302, 27);
             this.txtCurrrUsernamePass.TabIndex = 20;
             // 
             // newPassCheck
@@ -235,7 +235,7 @@
             this.newPassCheck.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPassCheck.Location = new System.Drawing.Point(206, 381);
             this.newPassCheck.Name = "newPassCheck";
-            this.newPassCheck.Size = new System.Drawing.Size(132, 24);
+            this.newPassCheck.Size = new System.Drawing.Size(108, 19);
             this.newPassCheck.TabIndex = 19;
             this.newPassCheck.Text = "Show Password";
             this.newPassCheck.UseVisualStyleBackColor = true;
@@ -247,7 +247,7 @@
             this.currentPassCheck.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPassCheck.Location = new System.Drawing.Point(206, 294);
             this.currentPassCheck.Name = "currentPassCheck";
-            this.currentPassCheck.Size = new System.Drawing.Size(132, 24);
+            this.currentPassCheck.Size = new System.Drawing.Size(108, 19);
             this.currentPassCheck.TabIndex = 18;
             this.currentPassCheck.Text = "Show Password";
             this.currentPassCheck.UseVisualStyleBackColor = true;
@@ -259,7 +259,7 @@
             this.confirmPassCheck.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmPassCheck.Location = new System.Drawing.Point(206, 469);
             this.confirmPassCheck.Name = "confirmPassCheck";
-            this.confirmPassCheck.Size = new System.Drawing.Size(132, 24);
+            this.confirmPassCheck.Size = new System.Drawing.Size(108, 19);
             this.confirmPassCheck.TabIndex = 17;
             this.confirmPassCheck.Text = "Show Password";
             this.confirmPassCheck.UseVisualStyleBackColor = true;
@@ -271,7 +271,7 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(202, 408);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(153, 23);
+            this.label5.Size = new System.Drawing.Size(126, 19);
             this.label5.TabIndex = 7;
             this.label5.Text = "Confirm Password:";
             // 
@@ -281,7 +281,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(202, 322);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 23);
+            this.label4.Size = new System.Drawing.Size(104, 19);
             this.label4.TabIndex = 6;
             this.label4.Text = "New Password:";
             // 
@@ -291,7 +291,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(202, 235);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 23);
+            this.label3.Size = new System.Drawing.Size(122, 19);
             this.label3.TabIndex = 5;
             this.label3.Text = "Current Password:";
             // 
@@ -313,7 +313,7 @@
             this.txtConfirmPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmPass.Location = new System.Drawing.Point(206, 434);
             this.txtConfirmPass.Name = "txtConfirmPass";
-            this.txtConfirmPass.Size = new System.Drawing.Size(302, 32);
+            this.txtConfirmPass.Size = new System.Drawing.Size(302, 27);
             this.txtConfirmPass.TabIndex = 3;
             this.txtConfirmPass.UseSystemPasswordChar = true;
             // 
@@ -323,7 +323,7 @@
             this.txtNewPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewPass.Location = new System.Drawing.Point(206, 348);
             this.txtNewPass.Name = "txtNewPass";
-            this.txtNewPass.Size = new System.Drawing.Size(302, 32);
+            this.txtNewPass.Size = new System.Drawing.Size(302, 27);
             this.txtNewPass.TabIndex = 2;
             this.txtNewPass.UseSystemPasswordChar = true;
             // 
@@ -333,7 +333,7 @@
             this.txtCurrPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurrPass.Location = new System.Drawing.Point(206, 261);
             this.txtCurrPass.Name = "txtCurrPass";
-            this.txtCurrPass.Size = new System.Drawing.Size(302, 32);
+            this.txtCurrPass.Size = new System.Drawing.Size(302, 27);
             this.txtCurrPass.TabIndex = 1;
             this.txtCurrPass.UseSystemPasswordChar = true;
             // 
@@ -399,7 +399,7 @@
             this.usernamePassCheck.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernamePassCheck.Location = new System.Drawing.Point(205, 413);
             this.usernamePassCheck.Name = "usernamePassCheck";
-            this.usernamePassCheck.Size = new System.Drawing.Size(148, 27);
+            this.usernamePassCheck.Size = new System.Drawing.Size(118, 21);
             this.usernamePassCheck.TabIndex = 16;
             this.usernamePassCheck.Text = "Show Password";
             this.usernamePassCheck.UseVisualStyleBackColor = true;
@@ -449,7 +449,7 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(201, 353);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 23);
+            this.label6.Size = new System.Drawing.Size(71, 19);
             this.label6.TabIndex = 14;
             this.label6.Text = "Password:";
             // 
@@ -459,7 +459,7 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(201, 283);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(131, 23);
+            this.label7.Size = new System.Drawing.Size(107, 19);
             this.label7.TabIndex = 13;
             this.label7.Text = "New Username:";
             // 
@@ -469,7 +469,7 @@
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(201, 215);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(154, 23);
+            this.label8.Size = new System.Drawing.Size(125, 19);
             this.label8.TabIndex = 12;
             this.label8.Text = "Current Username:";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -492,7 +492,7 @@
             this.txtUsernamePass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsernamePass.Location = new System.Drawing.Point(205, 379);
             this.txtUsernamePass.Name = "txtUsernamePass";
-            this.txtUsernamePass.Size = new System.Drawing.Size(302, 32);
+            this.txtUsernamePass.Size = new System.Drawing.Size(302, 27);
             this.txtUsernamePass.TabIndex = 10;
             this.txtUsernamePass.UseSystemPasswordChar = true;
             // 
@@ -502,7 +502,7 @@
             this.txtNewUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewUsername.Location = new System.Drawing.Point(205, 309);
             this.txtNewUsername.Name = "txtNewUsername";
-            this.txtNewUsername.Size = new System.Drawing.Size(302, 32);
+            this.txtNewUsername.Size = new System.Drawing.Size(302, 27);
             this.txtNewUsername.TabIndex = 9;
             // 
             // txtCurrUsername
@@ -511,7 +511,7 @@
             this.txtCurrUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurrUsername.Location = new System.Drawing.Point(205, 241);
             this.txtCurrUsername.Name = "txtCurrUsername";
-            this.txtCurrUsername.Size = new System.Drawing.Size(302, 32);
+            this.txtCurrUsername.Size = new System.Drawing.Size(302, 27);
             this.txtCurrUsername.TabIndex = 8;
             // 
             // tabPage2
@@ -562,15 +562,26 @@
             this.panel3.Size = new System.Drawing.Size(670, 718);
             this.panel3.TabIndex = 0;
             // 
+            // dateTimePickerSchedule
+            // 
+            this.dateTimePickerSchedule.CustomFormat = "hh:mm tt";
+            this.dateTimePickerSchedule.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerSchedule.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerSchedule.Location = new System.Drawing.Point(272, 220);
+            this.dateTimePickerSchedule.Name = "dateTimePickerSchedule";
+            this.dateTimePickerSchedule.ShowUpDown = true;
+            this.dateTimePickerSchedule.Size = new System.Drawing.Size(283, 23);
+            this.dateTimePickerSchedule.TabIndex = 12;
+            // 
             // listBoxLogs
             // 
             this.listBoxLogs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxLogs.FormattingEnabled = true;
             this.listBoxLogs.HorizontalScrollbar = true;
-            this.listBoxLogs.ItemHeight = 20;
+            this.listBoxLogs.ItemHeight = 15;
             this.listBoxLogs.Location = new System.Drawing.Point(216, 435);
             this.listBoxLogs.Name = "listBoxLogs";
-            this.listBoxLogs.Size = new System.Drawing.Size(432, 264);
+            this.listBoxLogs.Size = new System.Drawing.Size(432, 259);
             this.listBoxLogs.TabIndex = 11;
             // 
             // label12
@@ -579,7 +590,7 @@
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(98, 435);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(116, 25);
+            this.label12.Size = new System.Drawing.Size(95, 20);
             this.label12.TabIndex = 10;
             this.label12.Text = "Backup Logs:";
             // 
@@ -641,7 +652,7 @@
             this.txtBackupPath.Location = new System.Drawing.Point(216, 280);
             this.txtBackupPath.Name = "txtBackupPath";
             this.txtBackupPath.ReadOnly = true;
-            this.txtBackupPath.Size = new System.Drawing.Size(304, 31);
+            this.txtBackupPath.Size = new System.Drawing.Size(304, 27);
             this.txtBackupPath.TabIndex = 5;
             // 
             // label11
@@ -650,7 +661,7 @@
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(98, 280);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(112, 25);
+            this.label11.Size = new System.Drawing.Size(92, 20);
             this.label11.TabIndex = 4;
             this.label11.Text = "Backup Path:";
             // 
@@ -660,7 +671,7 @@
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(98, 220);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(167, 25);
+            this.label10.Size = new System.Drawing.Size(141, 20);
             this.label10.TabIndex = 2;
             this.label10.Text = "Select Backup Time:";
             // 
@@ -682,7 +693,7 @@
             this.rbDiffBackup.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbDiffBackup.Location = new System.Drawing.Point(236, 40);
             this.rbDiffBackup.Name = "rbDiffBackup";
-            this.rbDiffBackup.Size = new System.Drawing.Size(181, 29);
+            this.rbDiffBackup.Size = new System.Drawing.Size(154, 24);
             this.rbDiffBackup.TabIndex = 1;
             this.rbDiffBackup.TabStop = true;
             this.rbDiffBackup.Text = "Differential Backup";
@@ -694,7 +705,7 @@
             this.rbFullBackup.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFullBackup.Location = new System.Drawing.Point(40, 40);
             this.rbFullBackup.Name = "rbFullBackup";
-            this.rbFullBackup.Size = new System.Drawing.Size(122, 29);
+            this.rbFullBackup.Size = new System.Drawing.Size(102, 24);
             this.rbFullBackup.TabIndex = 0;
             this.rbFullBackup.TabStop = true;
             this.rbFullBackup.Text = "Full Backup";
@@ -833,20 +844,9 @@
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "About";
             // 
-            // dateTimePickerSchedule
-            // 
-            this.dateTimePickerSchedule.CustomFormat = "hh:mm tt";
-            this.dateTimePickerSchedule.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerSchedule.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerSchedule.Location = new System.Drawing.Point(272, 220);
-            this.dateTimePickerSchedule.Name = "dateTimePickerSchedule";
-            this.dateTimePickerSchedule.ShowUpDown = true;
-            this.dateTimePickerSchedule.Size = new System.Drawing.Size(283, 27);
-            this.dateTimePickerSchedule.TabIndex = 12;
-            // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1366, 768);
@@ -855,6 +855,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SettingsForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "SettingsForm";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.metroPanel1.ResumeLayout(false);

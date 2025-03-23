@@ -25,11 +25,6 @@ namespace RosalESProfilingSystem.Forms
             
         }
 
-        //private string HashPassword(string password)
-        //{
-        //    return BCrypt.Net.BCrypt.HashPassword(password);
-        //}
-
         private bool verifyPassword(string password, string hash)
         {
             return BCrypt.Net.BCrypt.Verify(password, hash);
@@ -133,6 +128,11 @@ namespace RosalESProfilingSystem.Forms
             //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //        return false;
             //    }
+        }
+
+        private string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
         private void UnlockLoginButton(object sender, ElapsedEventArgs e)

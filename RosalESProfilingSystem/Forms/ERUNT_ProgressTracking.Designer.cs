@@ -719,6 +719,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ERUNT_ProgressTracking";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "ERUNT_ProgressTracking";
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);

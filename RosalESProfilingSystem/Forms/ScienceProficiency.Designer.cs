@@ -49,6 +49,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(1158, 768);
             this.Name = "ScienceProficiency";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "ScienceProficiency";
             this.ResumeLayout(false);
 

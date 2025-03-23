@@ -51,6 +51,7 @@
             this.MinimumSize = new System.Drawing.Size(1158, 768);
             this.Name = "Home";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Home";
             this.ResumeLayout(false);
 

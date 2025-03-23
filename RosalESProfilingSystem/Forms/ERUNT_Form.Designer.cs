@@ -49,6 +49,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(1158, 768);
             this.Name = "ERUNT_Form";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "ERUNT_Form";
             this.ResumeLayout(false);
 
