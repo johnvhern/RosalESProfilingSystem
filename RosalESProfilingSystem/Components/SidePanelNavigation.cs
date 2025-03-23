@@ -15,7 +15,6 @@ namespace RosalESProfilingSystem.Components
         private Forms.MainForm mainForm;
         private Button activeButton;
         private bool isCollapsed;
-        private bool isCollapsed2;
         public SidePanelNavigation(Forms.MainForm form)
         {
             InitializeComponent();
