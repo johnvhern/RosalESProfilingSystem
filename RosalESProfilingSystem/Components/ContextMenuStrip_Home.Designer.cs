@@ -37,11 +37,11 @@
             this.btnHome.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Location = new System.Drawing.Point(0, 0);
             this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(111, 33);
+            this.btnHome.Size = new System.Drawing.Size(103, 28);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
@@ -52,11 +52,11 @@
             this.btnProfOfLearners.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnProfOfLearners.FlatAppearance.BorderSize = 0;
             this.btnProfOfLearners.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfOfLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfOfLearners.Location = new System.Drawing.Point(111, 0);
+            this.btnProfOfLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfOfLearners.Location = new System.Drawing.Point(103, 0);
             this.btnProfOfLearners.Margin = new System.Windows.Forms.Padding(4);
             this.btnProfOfLearners.Name = "btnProfOfLearners";
-            this.btnProfOfLearners.Size = new System.Drawing.Size(178, 33);
+            this.btnProfOfLearners.Size = new System.Drawing.Size(184, 28);
             this.btnProfOfLearners.TabIndex = 1;
             this.btnProfOfLearners.Text = "Profile of Learners";
             this.btnProfOfLearners.UseVisualStyleBackColor = true;
@@ -72,7 +72,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ContextMenuStrip_Home";
-            this.Size = new System.Drawing.Size(553, 33);
+            this.Size = new System.Drawing.Size(553, 28);
             this.ResumeLayout(false);
 
         }

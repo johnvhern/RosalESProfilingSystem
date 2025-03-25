@@ -114,7 +114,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(4, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -144,6 +144,7 @@
             this.btnChangePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(114)))), ((int)(((byte)(217)))));
             this.btnChangePass.FlatAppearance.BorderSize = 0;
             this.btnChangePass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangePass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePass.ForeColor = System.Drawing.Color.White;
             this.btnChangePass.Location = new System.Drawing.Point(117, 237);
             this.btnChangePass.Name = "btnChangePass";
@@ -160,7 +161,7 @@
             this.lblBackToLogin.ForeColor = System.Drawing.Color.MediumBlue;
             this.lblBackToLogin.Location = new System.Drawing.Point(273, 208);
             this.lblBackToLogin.Name = "lblBackToLogin";
-            this.lblBackToLogin.Size = new System.Drawing.Size(37, 15);
+            this.lblBackToLogin.Size = new System.Drawing.Size(46, 20);
             this.lblBackToLogin.TabIndex = 5;
             this.lblBackToLogin.Text = "Login";
             this.lblBackToLogin.Click += new System.EventHandler(this.lblBackToLogin_Click);
@@ -203,7 +204,7 @@
             this.txtConfirmPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtConfirmPass.Location = new System.Drawing.Point(3, 4);
             this.txtConfirmPass.Name = "txtConfirmPass";
-            this.txtConfirmPass.Size = new System.Drawing.Size(180, 20);
+            this.txtConfirmPass.Size = new System.Drawing.Size(180, 25);
             this.txtConfirmPass.TabIndex = 0;
             this.txtConfirmPass.UseSystemPasswordChar = true;
             // 
@@ -225,7 +226,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(77, 148);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 15);
+            this.label4.Size = new System.Drawing.Size(130, 20);
             this.label4.TabIndex = 4;
             this.label4.Text = "Confirm Password:";
             // 
@@ -235,7 +236,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(77, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 15);
+            this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Password:";
             // 
@@ -245,7 +246,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(77, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 15);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Username:";
             // 
@@ -287,7 +288,7 @@
             this.txtNewPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNewPass.Location = new System.Drawing.Point(3, 4);
             this.txtNewPass.Name = "txtNewPass";
-            this.txtNewPass.Size = new System.Drawing.Size(180, 20);
+            this.txtNewPass.Size = new System.Drawing.Size(180, 25);
             this.txtNewPass.TabIndex = 0;
             this.txtNewPass.UseSystemPasswordChar = true;
             // 
@@ -317,12 +318,12 @@
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Location = new System.Drawing.Point(6, 8);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(219, 20);
+            this.txtUsername.Size = new System.Drawing.Size(219, 25);
             this.txtUsername.TabIndex = 1;
             // 
             // ChangePassword_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(400, 495);

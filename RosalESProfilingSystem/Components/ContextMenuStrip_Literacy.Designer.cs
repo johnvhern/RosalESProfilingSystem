@@ -39,10 +39,11 @@
             this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.Location = new System.Drawing.Point(0, 0);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(146, 28);
+            this.btnDashboard.Size = new System.Drawing.Size(152, 34);
             this.btnDashboard.TabIndex = 0;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
@@ -55,10 +56,11 @@
             this.btnProgTrack.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnProgTrack.FlatAppearance.BorderSize = 0;
             this.btnProgTrack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProgTrack.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.btnProgTrack.Location = new System.Drawing.Point(146, 0);
+            this.btnProgTrack.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProgTrack.Location = new System.Drawing.Point(152, 0);
+            this.btnProgTrack.Margin = new System.Windows.Forms.Padding(4);
             this.btnProgTrack.Name = "btnProgTrack";
-            this.btnProgTrack.Size = new System.Drawing.Size(202, 28);
+            this.btnProgTrack.Size = new System.Drawing.Size(303, 34);
             this.btnProgTrack.TabIndex = 2;
             this.btnProgTrack.Text = "Literacy Progress Tracking";
             this.btnProgTrack.UseVisualStyleBackColor = false;
@@ -66,14 +68,15 @@
             // 
             // ContextMenuStrip_Literacy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnProgTrack);
             this.Controls.Add(this.btnDashboard);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ContextMenuStrip_Literacy";
-            this.Size = new System.Drawing.Size(348, 28);
+            this.Size = new System.Drawing.Size(464, 34);
             this.ResumeLayout(false);
 
         }
