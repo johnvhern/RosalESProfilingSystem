@@ -93,7 +93,7 @@ namespace RosalESProfilingSystem.Forms
             chartLearners.Titles.Clear();
             Title chartTitle = new Title("Learner Distribution by Grade Level")
             {
-                Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold)
+                Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold)
             };
             chartLearners.Titles.Add(chartTitle);
             Series series = new Series
@@ -117,7 +117,7 @@ namespace RosalESProfilingSystem.Forms
             series.Points.Add(dp2);
             series.Points.Add(dp3);
 
-            series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+            series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
 
             chartLearners.Invalidate();
         }
@@ -260,7 +260,7 @@ namespace RosalESProfilingSystem.Forms
 
                         Title chartTitle = new Title($"CRLA Classification - {language}")
                         {
-                            Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold)
+                            Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold)
                         };
                         chartRMA.Titles.Add(chartTitle);
 
@@ -318,7 +318,7 @@ namespace RosalESProfilingSystem.Forms
                         }
 
 
-                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
                         chartRMA.DataBind();
                         chartRMA.Invalidate();
                     }
