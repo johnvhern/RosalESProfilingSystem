@@ -58,7 +58,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(277, 1056);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(208, 858);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // pictureBox1
@@ -67,10 +67,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(269, 183);
+            this.pictureBox1.Size = new System.Drawing.Size(202, 149);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -84,12 +83,12 @@
             this.btnHome.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnHome.Location = new System.Drawing.Point(0, 195);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.btnHome.Location = new System.Drawing.Point(0, 158);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnHome.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnHome.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnHome.Size = new System.Drawing.Size(293, 94);
+            this.btnHome.Size = new System.Drawing.Size(220, 76);
             this.btnHome.TabIndex = 7;
             this.btnHome.Text = "Home";
             this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -103,12 +102,12 @@
             this.btnLiteracyPage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLiteracyPage.Image = ((System.Drawing.Image)(resources.GetObject("btnLiteracyPage.Image")));
             this.btnLiteracyPage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLiteracyPage.Location = new System.Drawing.Point(0, 297);
-            this.btnLiteracyPage.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.btnLiteracyPage.Location = new System.Drawing.Point(0, 240);
+            this.btnLiteracyPage.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnLiteracyPage.Name = "btnLiteracyPage";
-            this.btnLiteracyPage.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnLiteracyPage.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnLiteracyPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnLiteracyPage.Size = new System.Drawing.Size(289, 94);
+            this.btnLiteracyPage.Size = new System.Drawing.Size(217, 76);
             this.btnLiteracyPage.TabIndex = 8;
             this.btnLiteracyPage.Text = "Literacy";
             this.btnLiteracyPage.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -120,12 +119,12 @@
             this.panelNumeracy.Controls.Add(this.btnERUNT);
             this.panelNumeracy.Controls.Add(this.btnRMA);
             this.panelNumeracy.Controls.Add(this.btnNumeracyPage);
-            this.panelNumeracy.Location = new System.Drawing.Point(0, 399);
-            this.panelNumeracy.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.panelNumeracy.MaximumSize = new System.Drawing.Size(276, 191);
-            this.panelNumeracy.MinimumSize = new System.Drawing.Size(276, 94);
+            this.panelNumeracy.Location = new System.Drawing.Point(0, 322);
+            this.panelNumeracy.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.panelNumeracy.MaximumSize = new System.Drawing.Size(207, 155);
+            this.panelNumeracy.MinimumSize = new System.Drawing.Size(207, 76);
             this.panelNumeracy.Name = "panelNumeracy";
-            this.panelNumeracy.Size = new System.Drawing.Size(276, 94);
+            this.panelNumeracy.Size = new System.Drawing.Size(207, 76);
             this.panelNumeracy.TabIndex = 12;
             // 
             // btnERUNT
@@ -134,11 +133,10 @@
             this.btnERUNT.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnERUNT.FlatAppearance.BorderSize = 0;
             this.btnERUNT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnERUNT.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnERUNT.Location = new System.Drawing.Point(0, 142);
-            this.btnERUNT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnERUNT.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnERUNT.Location = new System.Drawing.Point(0, 115);
             this.btnERUNT.Name = "btnERUNT";
-            this.btnERUNT.Size = new System.Drawing.Size(276, 48);
+            this.btnERUNT.Size = new System.Drawing.Size(207, 39);
             this.btnERUNT.TabIndex = 4;
             this.btnERUNT.Text = "ERUNT";
             this.btnERUNT.UseVisualStyleBackColor = false;
@@ -150,11 +148,10 @@
             this.btnRMA.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRMA.FlatAppearance.BorderSize = 0;
             this.btnRMA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRMA.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRMA.Location = new System.Drawing.Point(0, 94);
-            this.btnRMA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRMA.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRMA.Location = new System.Drawing.Point(0, 76);
             this.btnRMA.Name = "btnRMA";
-            this.btnRMA.Size = new System.Drawing.Size(276, 48);
+            this.btnRMA.Size = new System.Drawing.Size(207, 39);
             this.btnRMA.TabIndex = 3;
             this.btnRMA.Text = "RMA";
             this.btnRMA.UseVisualStyleBackColor = false;
@@ -170,11 +167,11 @@
             this.btnNumeracyPage.Image = ((System.Drawing.Image)(resources.GetObject("btnNumeracyPage.Image")));
             this.btnNumeracyPage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNumeracyPage.Location = new System.Drawing.Point(0, 0);
-            this.btnNumeracyPage.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.btnNumeracyPage.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnNumeracyPage.Name = "btnNumeracyPage";
-            this.btnNumeracyPage.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnNumeracyPage.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnNumeracyPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnNumeracyPage.Size = new System.Drawing.Size(276, 94);
+            this.btnNumeracyPage.Size = new System.Drawing.Size(207, 76);
             this.btnNumeracyPage.TabIndex = 2;
             this.btnNumeracyPage.Text = "⮟         Numeracy";
             this.btnNumeracyPage.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -188,12 +185,12 @@
             this.btnSciProf.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSciProf.Image = ((System.Drawing.Image)(resources.GetObject("btnSciProf.Image")));
             this.btnSciProf.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSciProf.Location = new System.Drawing.Point(0, 501);
-            this.btnSciProf.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.btnSciProf.Location = new System.Drawing.Point(0, 404);
+            this.btnSciProf.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnSciProf.Name = "btnSciProf";
-            this.btnSciProf.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.btnSciProf.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
             this.btnSciProf.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnSciProf.Size = new System.Drawing.Size(289, 94);
+            this.btnSciProf.Size = new System.Drawing.Size(217, 76);
             this.btnSciProf.TabIndex = 10;
             this.btnSciProf.Text = "Science Proficiency";
             this.btnSciProf.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -207,12 +204,12 @@
             this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSettings.Location = new System.Drawing.Point(0, 603);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.btnSettings.Location = new System.Drawing.Point(0, 486);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnSettings.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnSettings.Size = new System.Drawing.Size(289, 94);
+            this.btnSettings.Size = new System.Drawing.Size(217, 76);
             this.btnSettings.TabIndex = 11;
             this.btnSettings.Text = "Settings";
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -226,13 +223,12 @@
             // 
             // SidePanelNavigation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SidePanelNavigation";
-            this.Size = new System.Drawing.Size(277, 1056);
+            this.Size = new System.Drawing.Size(208, 858);
             this.Load += new System.EventHandler(this.SidePanelNavigation_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
