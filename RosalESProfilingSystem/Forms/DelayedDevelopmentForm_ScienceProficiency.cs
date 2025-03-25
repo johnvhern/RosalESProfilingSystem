@@ -329,7 +329,7 @@ namespace RosalESProfilingSystem.Forms
 
                         if (gradeReadyLearners.Count > 0)
                         {
-                            document.Add(new Paragraph("Grade Ready Learners in Science Proficiency").SetFont(boldFont).SetFontSize(11).SetTextAlignment(TextAlignment.CENTER).SetPaddingTop(5).SetPaddingBottom(5));
+                            document.Add(new Paragraph("Exceptional Proficiency Learners in Science Proficiency").SetFont(boldFont).SetFontSize(11).SetTextAlignment(TextAlignment.CENTER).SetPaddingTop(5).SetPaddingBottom(5));
                             Table gradeReadyTable = new Table(5).UseAllAvailableWidth().SetFontSize(10);
                             gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
                             gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));

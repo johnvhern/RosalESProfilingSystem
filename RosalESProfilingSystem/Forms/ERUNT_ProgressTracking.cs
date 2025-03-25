@@ -285,10 +285,23 @@ namespace RosalESProfilingSystem.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (CompetenciesExpandedView view = new CompetenciesExpandedView(dataGridView2))
+            if (dataGridView2.DataSource == null)
             {
-                view.DataUpdated += ExpandedForm_DataUpdated;
-                view.ShowDialog();
+                MessageBox.Show("Please select a learner first.", "No Learner Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                using (CompetenciesExpandedView view = new CompetenciesExpandedView(dataGridView2))
+                {
+                    view.DataUpdated += ExpandedForm_DataUpdated;
+                    view.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex);
             }
         }
 

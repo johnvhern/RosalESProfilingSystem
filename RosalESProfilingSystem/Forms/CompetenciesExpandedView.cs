@@ -19,6 +19,11 @@ namespace RosalESProfilingSystem.Forms
             InitializeComponent();
             originalGrid = sourceGrid;
 
+            if (originalGrid.DataSource == null)
+            {
+                return;
+            }
+
             dataGridView1.DataSource = originalGrid.DataSource;
             dataGridView1.Columns["CompetencyId"].Visible = false;
         }

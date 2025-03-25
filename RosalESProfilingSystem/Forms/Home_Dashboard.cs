@@ -18,7 +18,7 @@ namespace RosalESProfilingSystem.Forms
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered",
             System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
-            null, panel4, new object[] { true });
+            null, panel3, new object[] { true });
         }
 
         protected override CreateParams CreateParams
@@ -30,7 +30,6 @@ namespace RosalESProfilingSystem.Forms
                 return cp;
             }
         }
-
 
         private void dataOnLoad()
         {
@@ -48,7 +47,7 @@ namespace RosalESProfilingSystem.Forms
                 cbERUNT.SelectedIndex = 0;
                 btnLoadERUNT_Click(this, EventArgs.Empty);
             }
-            
+
         }
 
         private void cbSchoolYear_DropDown(object sender, EventArgs e)
@@ -57,7 +56,7 @@ namespace RosalESProfilingSystem.Forms
             {
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
-                    string query = "SELECT DISTINCT SchoolYear FROM LearnersProfile ORDER BY SchoolYear ASC";
+                    string query = @"SELECT DISTINCT SchoolYear FROM LearnersProfile UNION SELECT DISTINCT SchoolYear FROM LearnersProfileScience ORDER BY SchoolYear ASC";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -232,15 +231,15 @@ namespace RosalESProfilingSystem.Forms
                         txtLowEmerging.Text = "0";
                         txtHighEmerging.Text = "0";
                         txtDeveloping.Text = "0";
-                        txttTransitioning.Text = "0";
-                        txttGradeReady.Text = "0";
+                        txtTransitioning.Text = "0";
+                        txtGradeReady.Text = "0";
 
                         RMAChart.Series.Clear();
                         RMAChart.Titles.Clear();
 
                         Title chartTitle = new Title("RMA Classification")
                         {
-                            Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold)
+                            Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold)
                         };
 
                         RMAChart.Titles.Add(chartTitle);
@@ -252,7 +251,7 @@ namespace RosalESProfilingSystem.Forms
                             ChartType = SeriesChartType.Doughnut
                         };
 
-                        
+
 
                         RMAChart.Series.Add(series);
 
@@ -284,8 +283,8 @@ namespace RosalESProfilingSystem.Forms
                         txtLowEmerging.Text = classificationData["Low Emerging"].ToString();
                         txtHighEmerging.Text = classificationData["High Emerging"].ToString();
                         txtDeveloping.Text = classificationData["Developing"].ToString();
-                        txttTransitioning.Text = classificationData["Transitioning"].ToString();
-                        txttGradeReady.Text = classificationData["Grade Ready"].ToString();
+                        txtTransitioning.Text = classificationData["Transitioning"].ToString();
+                        txtGradeReady.Text = classificationData["Grade Ready"].ToString();
 
                         int totalLearners = classificationData.Values.Sum();
 
@@ -301,7 +300,7 @@ namespace RosalESProfilingSystem.Forms
                             series.Points.Add(dp);
                         }
 
-                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
                         RMAChart.Invalidate();
 
                     }
@@ -437,7 +436,7 @@ namespace RosalESProfilingSystem.Forms
 
                         Title chartTitle = new Title($"CRLA Classification - {language}")
                         {
-                            Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold)
+                            Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold)
                         };
                         CRLAChart.Titles.Add(chartTitle);
 
@@ -495,7 +494,7 @@ namespace RosalESProfilingSystem.Forms
                         }
 
 
-                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
                         CRLAChart.DataBind();
                         CRLAChart.Invalidate();
                     }
@@ -595,10 +594,10 @@ namespace RosalESProfilingSystem.Forms
                         txtNoProficiency.Text = "0";
                         txtPoorProficiency.Text = "0";
                         txtWeakProficiency.Text = "0";
-                        txtSatisfactoryProf.Text = "0";
-                        txtGoodProficiency.Text = "0";
-                        txtVeryGoodProficiency.Text = "0";
-                        txtExcepProficiency.Text = "0";
+                        txtSatProf.Text = "0";
+                        txtGoodProf.Text = "0";
+                        txtVeryGoodProf.Text = "0";
+                        txtExcepProf.Text = "0";
 
                         // Reset the chart properly
                         SciCATChart.Series.Clear();
@@ -606,7 +605,7 @@ namespace RosalESProfilingSystem.Forms
 
                         Title chartTitle = new Title($"Science Proficiency Classification")
                         {
-                            Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold)
+                            Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold)
                         };
                         SciCATChart.Titles.Add(chartTitle);
 
@@ -620,15 +619,15 @@ namespace RosalESProfilingSystem.Forms
 
                         int totalClassification = 0;
                         Dictionary<string, int> classificationData = new Dictionary<string, int>()
-                {
-                    { "No Proficiency at All", 0 },
-                    { "Poor Proficiency", 0 },
-                    { "Weak Proficiency", 0 },
-                    { "Satisfactory Proficiency", 0 },
-                    { "Good Proficiency", 0 },
-                    { "Very Good Proficiency", 0 },
-                    { "Exceptional Proficiency", 0 }
-                };
+                            {
+                                { "No Proficiency at All", 0 },
+                                { "Poor Proficiency", 0 },
+                                { "Weak Proficiency", 0 },
+                                { "Satisfactory Proficiency", 0 },
+                                { "Good Proficiency", 0 },
+                                { "Very Good Proficiency", 0 },
+                                { "Exceptional Proficiency", 0 }
+                            };
 
                         while (reader.Read())
                         {
@@ -647,11 +646,11 @@ namespace RosalESProfilingSystem.Forms
                         txtNoProficiency.Text = classificationData["No Proficiency at All"].ToString();
                         txtPoorProficiency.Text = classificationData["Poor Proficiency"].ToString();
                         txtWeakProficiency.Text = classificationData["Weak Proficiency"].ToString();
-                        txtSatisfactoryProf.Text = classificationData["Satisfactory Proficiency"].ToString();
-                        txtGoodProficiency.Text = classificationData["Good Proficiency"].ToString();
-                        txtVeryGoodProficiency.Text = classificationData["Very Good Proficiency"].ToString();
-                        txtExcepProficiency.Text = classificationData["Exceptional Proficiency"].ToString();
-                        
+                        txtSatProf.Text = classificationData["Satisfactory Proficiency"].ToString();
+                        txtGoodProf.Text = classificationData["Good Proficiency"].ToString();
+                        txtVeryGoodProf.Text = classificationData["Very Good Proficiency"].ToString();
+                        txtExcepProf.Text = classificationData["Exceptional Proficiency"].ToString();
+
 
                         // Calculate total learners correctly (instead of summing classificationData values)
                         int totalLearners = classificationData.Values.Sum();
@@ -667,17 +666,15 @@ namespace RosalESProfilingSystem.Forms
                             };
                             series.Points.Add(dp);
                         }
-
-
-                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
                         SciCATChart.DataBind();
                         SciCATChart.Invalidate();
                     }
 
-
                 }
             }
         }
+        
 
         private void cbSchoolYear_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -686,12 +683,12 @@ namespace RosalESProfilingSystem.Forms
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = tabControl1.TabPages[1];
+            tabControl1.SelectedTab = tabPage2;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = tabControl1.TabPages[0];
+            tabControl1.SelectedTab = tabPage1;
         }
 
         private void btnLoadERUNT_Click(object sender, EventArgs e)
@@ -700,24 +697,25 @@ namespace RosalESProfilingSystem.Forms
             {
                 MessageBox.Show("Please select a school year.", "No School Year Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-            }else if (cbERUNT.SelectedIndex == -1)
+            }
+            else if (cbERUNT.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select an assessment type.", "No Assessment Type Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-                try
-                {
-                    string selectedAssessment = cbERUNT.SelectedItem.ToString();
-                    string Year = cbSchoolYear.SelectedItem.ToString();
-                    TallyERUNTData(selectedAssessment);
-                    TallyERUNTLearner(Year);
+            try
+            {
+                string selectedAssessment = cbERUNT.SelectedItem.ToString();
+                string Year = cbSchoolYear.SelectedItem.ToString();
+                TallyERUNTData(selectedAssessment);
+                TallyERUNTLearner(Year);
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void TallyERUNTLearner(string year)
@@ -733,7 +731,7 @@ namespace RosalESProfilingSystem.Forms
                     int grade6Count = GetERUNTLearnerCount(conn, 6);
                     int totalCount = grade4Count + grade5Count + grade6Count;
 
-                    txtERUNTLearnerAssessed.Text = totalCount.ToString();
+                    txtERUNTLearners.Text = totalCount.ToString();
 
                 }
             }
@@ -774,20 +772,20 @@ namespace RosalESProfilingSystem.Forms
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         txtNotProficient.Text = "0";
-                        txtLowProficiency.Text = "0";
-                        txtNearlyProficient.Text = "0";
                         txtProficient.Text = "0";
+                        txtNearlyProficient.Text = "0";
+                        txtLowProficient.Text = "0";
                         txtHighlyProficient.Text = "0";
 
-                        chart1.Series.Clear();
-                        chart1.Titles.Clear();
+                        chartERUNT.Series.Clear();
+                        chartERUNT.Titles.Clear();
 
                         Title chartTitle = new Title("ERUNT Classification")
                         {
-                            Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold)
+                            Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold)
                         };
 
-                        chart1.Titles.Add(chartTitle);
+                        chartERUNT.Titles.Add(chartTitle);
                         Series series = new Series
                         {
                             Name = "ERUNT Classification",
@@ -797,7 +795,7 @@ namespace RosalESProfilingSystem.Forms
 
 
 
-                        chart1.Series.Add(series);
+                        chartERUNT.Series.Add(series);
 
                         int totalClassification = 0;
                         Dictionary<string, int> classificationData = new Dictionary<string, int>()
@@ -825,9 +823,9 @@ namespace RosalESProfilingSystem.Forms
 
                         // Update the textboxes
                         txtNotProficient.Text = classificationData["Not Proficient"].ToString();
-                        txtLowProficiency.Text = classificationData["Low Proficiency"].ToString();
+                        txtProficient.Text = classificationData["Low Proficiency"].ToString();
                         txtNearlyProficient.Text = classificationData["Nearly Proficient"].ToString();
-                        txtProficient.Text = classificationData["Proficient"].ToString();
+                        txtLowProficient.Text = classificationData["Proficient"].ToString();
                         txtHighlyProficient.Text = classificationData["Highly Proficient"].ToString();
 
                         int totalLearners = classificationData.Values.Sum();
@@ -844,8 +842,8 @@ namespace RosalESProfilingSystem.Forms
                             series.Points.Add(dp);
                         }
 
-                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
-                        chart1.Invalidate();
+                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+                        chartERUNT.Invalidate();
 
                     }
 
@@ -857,6 +855,7 @@ namespace RosalESProfilingSystem.Forms
 
         private void Home_Dashboard_Load(object sender, EventArgs e)
         {
+          
         }
 
         private void RMAChart_Click(object sender, EventArgs e)
@@ -870,6 +869,11 @@ namespace RosalESProfilingSystem.Forms
         }
 
         private void tableLayoutPanel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
         {
 
         }

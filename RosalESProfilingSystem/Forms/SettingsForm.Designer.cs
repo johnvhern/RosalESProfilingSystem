@@ -66,6 +66,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbSchedule = new System.Windows.Forms.ComboBox();
             this.dateTimePickerSchedule = new System.Windows.Forms.DateTimePicker();
             this.listBoxLogs = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -83,6 +84,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnRestore = new System.Windows.Forms.Button();
+            this.btnRestoreBrowse = new System.Windows.Forms.Button();
+            this.txtRestorePath = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lbRestoreLogs = new System.Windows.Forms.ListBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -544,6 +551,7 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.cbSchedule);
             this.panel3.Controls.Add(this.dateTimePickerSchedule);
             this.panel3.Controls.Add(this.listBoxLogs);
             this.panel3.Controls.Add(this.label12);
@@ -562,15 +570,29 @@
             this.panel3.Size = new System.Drawing.Size(670, 718);
             this.panel3.TabIndex = 0;
             // 
+            // cbSchedule
+            // 
+            this.cbSchedule.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSchedule.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSchedule.FormattingEnabled = true;
+            this.cbSchedule.Items.AddRange(new object[] {
+            "Weekly",
+            "Monthly",
+            "Yearly"});
+            this.cbSchedule.Location = new System.Drawing.Point(300, 227);
+            this.cbSchedule.Name = "cbSchedule";
+            this.cbSchedule.Size = new System.Drawing.Size(121, 23);
+            this.cbSchedule.TabIndex = 13;
+            // 
             // dateTimePickerSchedule
             // 
             this.dateTimePickerSchedule.CustomFormat = "hh:mm tt";
             this.dateTimePickerSchedule.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerSchedule.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerSchedule.Location = new System.Drawing.Point(272, 220);
+            this.dateTimePickerSchedule.Location = new System.Drawing.Point(427, 227);
             this.dateTimePickerSchedule.Name = "dateTimePickerSchedule";
             this.dateTimePickerSchedule.ShowUpDown = true;
-            this.dateTimePickerSchedule.Size = new System.Drawing.Size(283, 23);
+            this.dateTimePickerSchedule.Size = new System.Drawing.Size(92, 23);
             this.dateTimePickerSchedule.TabIndex = 12;
             // 
             // listBoxLogs
@@ -613,9 +635,9 @@
             // 
             this.btnDisableScheduling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDisableScheduling.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisableScheduling.Location = new System.Drawing.Point(397, 323);
+            this.btnDisableScheduling.Location = new System.Drawing.Point(370, 323);
             this.btnDisableScheduling.Name = "btnDisableScheduling";
-            this.btnDisableScheduling.Size = new System.Drawing.Size(175, 31);
+            this.btnDisableScheduling.Size = new System.Drawing.Size(149, 31);
             this.btnDisableScheduling.TabIndex = 8;
             this.btnDisableScheduling.Text = "Disable Scheduling";
             this.btnDisableScheduling.UseVisualStyleBackColor = true;
@@ -627,7 +649,7 @@
             this.btnEnableScheduling.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnableScheduling.Location = new System.Drawing.Point(216, 323);
             this.btnEnableScheduling.Name = "btnEnableScheduling";
-            this.btnEnableScheduling.Size = new System.Drawing.Size(175, 31);
+            this.btnEnableScheduling.Size = new System.Drawing.Size(148, 31);
             this.btnEnableScheduling.TabIndex = 7;
             this.btnEnableScheduling.Text = "Enable Scheduling";
             this.btnEnableScheduling.UseVisualStyleBackColor = true;
@@ -637,11 +659,11 @@
             // 
             this.btnSelectPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelectPath.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelectPath.Location = new System.Drawing.Point(526, 280);
+            this.btnSelectPath.Location = new System.Drawing.Point(526, 278);
             this.btnSelectPath.Name = "btnSelectPath";
-            this.btnSelectPath.Size = new System.Drawing.Size(122, 31);
+            this.btnSelectPath.Size = new System.Drawing.Size(73, 31);
             this.btnSelectPath.TabIndex = 6;
-            this.btnSelectPath.Text = "Change Path";
+            this.btnSelectPath.Text = "Browse";
             this.btnSelectPath.UseVisualStyleBackColor = true;
             this.btnSelectPath.Click += new System.EventHandler(this.btnSelectPath_Click);
             // 
@@ -669,11 +691,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(98, 220);
+            this.label10.Location = new System.Drawing.Point(98, 227);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(141, 20);
+            this.label10.Size = new System.Drawing.Size(197, 20);
             this.label10.TabIndex = 2;
-            this.label10.Text = "Select Backup Time:";
+            this.label10.Text = "Backup Time and Frequency:";
             // 
             // groupBox1
             // 
@@ -690,10 +712,10 @@
             // rbDiffBackup
             // 
             this.rbDiffBackup.AutoSize = true;
-            this.rbDiffBackup.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbDiffBackup.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbDiffBackup.Location = new System.Drawing.Point(236, 40);
             this.rbDiffBackup.Name = "rbDiffBackup";
-            this.rbDiffBackup.Size = new System.Drawing.Size(154, 24);
+            this.rbDiffBackup.Size = new System.Drawing.Size(139, 21);
             this.rbDiffBackup.TabIndex = 1;
             this.rbDiffBackup.TabStop = true;
             this.rbDiffBackup.Text = "Differential Backup";
@@ -702,10 +724,10 @@
             // rbFullBackup
             // 
             this.rbFullBackup.AutoSize = true;
-            this.rbFullBackup.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFullBackup.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFullBackup.Location = new System.Drawing.Point(40, 40);
             this.rbFullBackup.Name = "rbFullBackup";
-            this.rbFullBackup.Size = new System.Drawing.Size(102, 24);
+            this.rbFullBackup.Size = new System.Drawing.Size(95, 21);
             this.rbFullBackup.TabIndex = 0;
             this.rbFullBackup.TabStop = true;
             this.rbFullBackup.Text = "Full Backup";
@@ -752,12 +774,86 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.btnRestore);
+            this.panel4.Controls.Add(this.btnRestoreBrowse);
+            this.panel4.Controls.Add(this.txtRestorePath);
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.lbRestoreLogs);
+            this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.tableLayoutPanel6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(679, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(670, 718);
             this.panel4.TabIndex = 1;
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnRestore.FlatAppearance.BorderSize = 0;
+            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestore.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestore.ForeColor = System.Drawing.Color.White;
+            this.btnRestore.Location = new System.Drawing.Point(217, 323);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(175, 31);
+            this.btnRestore.TabIndex = 21;
+            this.btnRestore.Text = "Restore Now";
+            this.btnRestore.UseVisualStyleBackColor = false;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
+            // 
+            // btnRestoreBrowse
+            // 
+            this.btnRestoreBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestoreBrowse.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestoreBrowse.Location = new System.Drawing.Point(527, 226);
+            this.btnRestoreBrowse.Name = "btnRestoreBrowse";
+            this.btnRestoreBrowse.Size = new System.Drawing.Size(73, 31);
+            this.btnRestoreBrowse.TabIndex = 20;
+            this.btnRestoreBrowse.Text = "Browse";
+            this.btnRestoreBrowse.UseVisualStyleBackColor = true;
+            this.btnRestoreBrowse.Click += new System.EventHandler(this.btnRestoreBrowse_Click);
+            // 
+            // txtRestorePath
+            // 
+            this.txtRestorePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRestorePath.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRestorePath.Location = new System.Drawing.Point(217, 228);
+            this.txtRestorePath.Name = "txtRestorePath";
+            this.txtRestorePath.ReadOnly = true;
+            this.txtRestorePath.Size = new System.Drawing.Size(304, 27);
+            this.txtRestorePath.TabIndex = 19;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(99, 228);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(94, 20);
+            this.label16.TabIndex = 18;
+            this.label16.Text = "Restore Path:";
+            // 
+            // lbRestoreLogs
+            // 
+            this.lbRestoreLogs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRestoreLogs.FormattingEnabled = true;
+            this.lbRestoreLogs.HorizontalScrollbar = true;
+            this.lbRestoreLogs.ItemHeight = 15;
+            this.lbRestoreLogs.Location = new System.Drawing.Point(217, 435);
+            this.lbRestoreLogs.Name = "lbRestoreLogs";
+            this.lbRestoreLogs.Size = new System.Drawing.Size(432, 259);
+            this.lbRestoreLogs.TabIndex = 17;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(99, 435);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 20);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Restore Logs:";
             // 
             // tableLayoutPanel6
             // 
@@ -884,6 +980,7 @@
             this.tableLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -954,5 +1051,12 @@
         private System.Windows.Forms.Button btnDisableScheduling;
         private System.Windows.Forms.Button btnEnableScheduling;
         private System.Windows.Forms.DateTimePicker dateTimePickerSchedule;
+        private System.Windows.Forms.ComboBox cbSchedule;
+        private System.Windows.Forms.ListBox lbRestoreLogs;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnRestore;
+        private System.Windows.Forms.Button btnRestoreBrowse;
+        private System.Windows.Forms.TextBox txtRestorePath;
+        private System.Windows.Forms.Label label16;
     }
 }
