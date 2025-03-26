@@ -18,6 +18,8 @@ namespace RosalESProfilingSystem.Forms
         public ERUNT_Dashboard()
         {
             InitializeComponent();
+            cbAssessmentType.SelectedIndex = 0;
+            cbPollingAssessment.SelectedIndex = 0;
         }
 
         private void cbScienceLearnerEnrollment_DropDown(object sender, EventArgs e)

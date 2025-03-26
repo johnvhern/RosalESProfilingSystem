@@ -667,6 +667,16 @@ namespace RosalESProfilingSystem.Forms
                             series.Points.Add(dp);
                         }
                         series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+
+                        SciCATChart.Legends.Clear();
+                        Legend legend = new Legend()
+                        {
+                            Font = new System.Drawing.Font("Segoe UI", 7, System.Drawing.FontStyle.Regular),
+                            ForeColor = System.Drawing.Color.Black,
+                            Docking = Docking.Right // You can change to Top, Right, or Left
+                        };
+
+                        SciCATChart.Legends.Add(legend);
                         SciCATChart.DataBind();
                         SciCATChart.Invalidate();
                     }
