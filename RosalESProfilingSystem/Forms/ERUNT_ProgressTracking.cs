@@ -210,7 +210,7 @@ namespace RosalESProfilingSystem.Forms
 
             series.IsValueShownAsLabel = true;
             series.Label = "#VALX: #VALY (#PERCENT{P0})";
-            series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+            series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             chart1.Series.Add(series);
 
             chart1.Legends.Clear();
