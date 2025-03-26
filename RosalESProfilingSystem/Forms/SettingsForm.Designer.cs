@@ -142,7 +142,7 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ImageList = this.imageList1;
             this.tabControl1.ItemSize = new System.Drawing.Size(75, 30);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -220,10 +220,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(202, 169);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 19);
+            this.label9.Size = new System.Drawing.Size(138, 20);
             this.label9.TabIndex = 21;
             this.label9.Text = "Current Username:";
             // 
@@ -233,16 +233,16 @@
             this.txtCurrrUsernamePass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurrrUsernamePass.Location = new System.Drawing.Point(206, 195);
             this.txtCurrrUsernamePass.Name = "txtCurrrUsernamePass";
-            this.txtCurrrUsernamePass.Size = new System.Drawing.Size(302, 27);
+            this.txtCurrrUsernamePass.Size = new System.Drawing.Size(302, 32);
             this.txtCurrrUsernamePass.TabIndex = 20;
             // 
             // newPassCheck
             // 
             this.newPassCheck.AutoSize = true;
-            this.newPassCheck.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newPassCheck.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPassCheck.Location = new System.Drawing.Point(206, 381);
             this.newPassCheck.Name = "newPassCheck";
-            this.newPassCheck.Size = new System.Drawing.Size(108, 19);
+            this.newPassCheck.Size = new System.Drawing.Size(121, 21);
             this.newPassCheck.TabIndex = 19;
             this.newPassCheck.Text = "Show Password";
             this.newPassCheck.UseVisualStyleBackColor = true;
@@ -251,10 +251,10 @@
             // currentPassCheck
             // 
             this.currentPassCheck.AutoSize = true;
-            this.currentPassCheck.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentPassCheck.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPassCheck.Location = new System.Drawing.Point(206, 294);
             this.currentPassCheck.Name = "currentPassCheck";
-            this.currentPassCheck.Size = new System.Drawing.Size(108, 19);
+            this.currentPassCheck.Size = new System.Drawing.Size(121, 21);
             this.currentPassCheck.TabIndex = 18;
             this.currentPassCheck.Text = "Show Password";
             this.currentPassCheck.UseVisualStyleBackColor = true;
@@ -263,10 +263,10 @@
             // confirmPassCheck
             // 
             this.confirmPassCheck.AutoSize = true;
-            this.confirmPassCheck.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmPassCheck.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmPassCheck.Location = new System.Drawing.Point(206, 469);
             this.confirmPassCheck.Name = "confirmPassCheck";
-            this.confirmPassCheck.Size = new System.Drawing.Size(108, 19);
+            this.confirmPassCheck.Size = new System.Drawing.Size(121, 21);
             this.confirmPassCheck.TabIndex = 17;
             this.confirmPassCheck.Text = "Show Password";
             this.confirmPassCheck.UseVisualStyleBackColor = true;
@@ -275,37 +275,37 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(202, 408);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 19);
+            this.label5.Size = new System.Drawing.Size(136, 20);
             this.label5.TabIndex = 7;
             this.label5.Text = "Confirm Password:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(202, 322);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 19);
+            this.label4.Size = new System.Drawing.Size(112, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "New Password:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(202, 235);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 19);
+            this.label3.Size = new System.Drawing.Size(133, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Current Password:";
             // 
             // btnChangePass
             // 
             this.btnChangePass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangePass.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePass.Location = new System.Drawing.Point(286, 502);
             this.btnChangePass.Name = "btnChangePass";
             this.btnChangePass.Size = new System.Drawing.Size(134, 35);
@@ -320,7 +320,7 @@
             this.txtConfirmPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmPass.Location = new System.Drawing.Point(206, 434);
             this.txtConfirmPass.Name = "txtConfirmPass";
-            this.txtConfirmPass.Size = new System.Drawing.Size(302, 27);
+            this.txtConfirmPass.Size = new System.Drawing.Size(302, 32);
             this.txtConfirmPass.TabIndex = 3;
             this.txtConfirmPass.UseSystemPasswordChar = true;
             // 
@@ -330,7 +330,7 @@
             this.txtNewPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewPass.Location = new System.Drawing.Point(206, 348);
             this.txtNewPass.Name = "txtNewPass";
-            this.txtNewPass.Size = new System.Drawing.Size(302, 27);
+            this.txtNewPass.Size = new System.Drawing.Size(302, 32);
             this.txtNewPass.TabIndex = 2;
             this.txtNewPass.UseSystemPasswordChar = true;
             // 
@@ -340,15 +340,15 @@
             this.txtCurrPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurrPass.Location = new System.Drawing.Point(206, 261);
             this.txtCurrPass.Name = "txtCurrPass";
-            this.txtCurrPass.Size = new System.Drawing.Size(302, 27);
+            this.txtCurrPass.Size = new System.Drawing.Size(302, 32);
             this.txtCurrPass.TabIndex = 1;
             this.txtCurrPass.UseSystemPasswordChar = true;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.62874F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.37125F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.46707F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.53293F));
             this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -363,10 +363,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(241, 0);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(280, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(424, 76);
+            this.label1.Size = new System.Drawing.Size(385, 76);
             this.label1.TabIndex = 1;
             this.label1.Text = "Change Password";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -375,7 +375,7 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(203, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(242, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 70);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -403,10 +403,10 @@
             // usernamePassCheck
             // 
             this.usernamePassCheck.AutoSize = true;
-            this.usernamePassCheck.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernamePassCheck.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernamePassCheck.Location = new System.Drawing.Point(205, 413);
             this.usernamePassCheck.Name = "usernamePassCheck";
-            this.usernamePassCheck.Size = new System.Drawing.Size(118, 21);
+            this.usernamePassCheck.Size = new System.Drawing.Size(121, 21);
             this.usernamePassCheck.TabIndex = 16;
             this.usernamePassCheck.Text = "Show Password";
             this.usernamePassCheck.UseVisualStyleBackColor = true;
@@ -415,8 +415,8 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.62874F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.37125F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.86826F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.13174F));
             this.tableLayoutPanel3.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.pictureBox2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -431,10 +431,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(241, 0);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(276, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(424, 76);
+            this.label2.Size = new System.Drawing.Size(389, 76);
             this.label2.TabIndex = 1;
             this.label2.Text = "Change Username";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -443,7 +443,7 @@
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(203, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(238, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 70);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -453,30 +453,30 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(201, 353);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 19);
+            this.label6.Size = new System.Drawing.Size(77, 20);
             this.label6.TabIndex = 14;
             this.label6.Text = "Password:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(201, 283);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 19);
+            this.label7.Size = new System.Drawing.Size(117, 20);
             this.label7.TabIndex = 13;
             this.label7.Text = "New Username:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(201, 215);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(125, 19);
+            this.label8.Size = new System.Drawing.Size(138, 20);
             this.label8.TabIndex = 12;
             this.label8.Text = "Current Username:";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -484,7 +484,7 @@
             // btnChangeUsername
             // 
             this.btnChangeUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeUsername.Location = new System.Drawing.Point(286, 454);
             this.btnChangeUsername.Name = "btnChangeUsername";
             this.btnChangeUsername.Size = new System.Drawing.Size(134, 35);
@@ -499,7 +499,7 @@
             this.txtUsernamePass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsernamePass.Location = new System.Drawing.Point(205, 379);
             this.txtUsernamePass.Name = "txtUsernamePass";
-            this.txtUsernamePass.Size = new System.Drawing.Size(302, 27);
+            this.txtUsernamePass.Size = new System.Drawing.Size(302, 32);
             this.txtUsernamePass.TabIndex = 10;
             this.txtUsernamePass.UseSystemPasswordChar = true;
             // 
@@ -509,7 +509,7 @@
             this.txtNewUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewUsername.Location = new System.Drawing.Point(205, 309);
             this.txtNewUsername.Name = "txtNewUsername";
-            this.txtNewUsername.Size = new System.Drawing.Size(302, 27);
+            this.txtNewUsername.Size = new System.Drawing.Size(302, 32);
             this.txtNewUsername.TabIndex = 9;
             // 
             // txtCurrUsername
@@ -518,7 +518,7 @@
             this.txtCurrUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurrUsername.Location = new System.Drawing.Point(205, 241);
             this.txtCurrUsername.Name = "txtCurrUsername";
-            this.txtCurrUsername.Size = new System.Drawing.Size(302, 27);
+            this.txtCurrUsername.Size = new System.Drawing.Size(302, 32);
             this.txtCurrUsername.TabIndex = 8;
             // 
             // tabPage2
@@ -530,7 +530,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1358, 730);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Database";
+            this.tabPage2.Text = "Backup";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4
@@ -581,7 +581,7 @@
             "Yearly"});
             this.cbSchedule.Location = new System.Drawing.Point(300, 227);
             this.cbSchedule.Name = "cbSchedule";
-            this.cbSchedule.Size = new System.Drawing.Size(121, 23);
+            this.cbSchedule.Size = new System.Drawing.Size(121, 28);
             this.cbSchedule.TabIndex = 13;
             // 
             // dateTimePickerSchedule
@@ -592,7 +592,7 @@
             this.dateTimePickerSchedule.Location = new System.Drawing.Point(427, 227);
             this.dateTimePickerSchedule.Name = "dateTimePickerSchedule";
             this.dateTimePickerSchedule.ShowUpDown = true;
-            this.dateTimePickerSchedule.Size = new System.Drawing.Size(92, 23);
+            this.dateTimePickerSchedule.Size = new System.Drawing.Size(92, 27);
             this.dateTimePickerSchedule.TabIndex = 12;
             // 
             // listBoxLogs
@@ -600,17 +600,17 @@
             this.listBoxLogs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxLogs.FormattingEnabled = true;
             this.listBoxLogs.HorizontalScrollbar = true;
-            this.listBoxLogs.ItemHeight = 15;
+            this.listBoxLogs.ItemHeight = 20;
             this.listBoxLogs.Location = new System.Drawing.Point(216, 435);
             this.listBoxLogs.Name = "listBoxLogs";
-            this.listBoxLogs.Size = new System.Drawing.Size(432, 259);
+            this.listBoxLogs.Size = new System.Drawing.Size(432, 244);
             this.listBoxLogs.TabIndex = 11;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(98, 435);
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(115, 435);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(95, 20);
             this.label12.TabIndex = 10;
@@ -669,19 +669,20 @@
             // 
             // txtBackupPath
             // 
+            this.txtBackupPath.BackColor = System.Drawing.Color.White;
             this.txtBackupPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBackupPath.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBackupPath.Location = new System.Drawing.Point(216, 280);
             this.txtBackupPath.Name = "txtBackupPath";
             this.txtBackupPath.ReadOnly = true;
-            this.txtBackupPath.Size = new System.Drawing.Size(304, 27);
+            this.txtBackupPath.Size = new System.Drawing.Size(304, 31);
             this.txtBackupPath.TabIndex = 5;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(98, 280);
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(118, 278);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 20);
             this.label11.TabIndex = 4;
@@ -690,8 +691,8 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(98, 227);
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(97, 227);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(197, 20);
             this.label10.TabIndex = 2;
@@ -702,6 +703,7 @@
             this.groupBox1.Controls.Add(this.rbDiffBackup);
             this.groupBox1.Controls.Add(this.rbFullBackup);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(103, 108);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(452, 100);
@@ -712,10 +714,10 @@
             // rbDiffBackup
             // 
             this.rbDiffBackup.AutoSize = true;
-            this.rbDiffBackup.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbDiffBackup.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbDiffBackup.Location = new System.Drawing.Point(236, 40);
             this.rbDiffBackup.Name = "rbDiffBackup";
-            this.rbDiffBackup.Size = new System.Drawing.Size(139, 21);
+            this.rbDiffBackup.Size = new System.Drawing.Size(161, 24);
             this.rbDiffBackup.TabIndex = 1;
             this.rbDiffBackup.TabStop = true;
             this.rbDiffBackup.Text = "Differential Backup";
@@ -724,10 +726,10 @@
             // rbFullBackup
             // 
             this.rbFullBackup.AutoSize = true;
-            this.rbFullBackup.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFullBackup.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFullBackup.Location = new System.Drawing.Point(40, 40);
             this.rbFullBackup.Name = "rbFullBackup";
-            this.rbFullBackup.Size = new System.Drawing.Size(95, 21);
+            this.rbFullBackup.Size = new System.Drawing.Size(109, 24);
             this.rbFullBackup.TabIndex = 0;
             this.rbFullBackup.TabStop = true;
             this.rbFullBackup.Text = "Full Backup";
@@ -752,7 +754,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(301, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(364, 76);
@@ -816,19 +818,20 @@
             // 
             // txtRestorePath
             // 
+            this.txtRestorePath.BackColor = System.Drawing.Color.White;
             this.txtRestorePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRestorePath.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRestorePath.Location = new System.Drawing.Point(217, 228);
             this.txtRestorePath.Name = "txtRestorePath";
             this.txtRestorePath.ReadOnly = true;
-            this.txtRestorePath.Size = new System.Drawing.Size(304, 27);
+            this.txtRestorePath.Size = new System.Drawing.Size(304, 31);
             this.txtRestorePath.TabIndex = 19;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(99, 228);
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(117, 228);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(94, 20);
             this.label16.TabIndex = 18;
@@ -839,17 +842,17 @@
             this.lbRestoreLogs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRestoreLogs.FormattingEnabled = true;
             this.lbRestoreLogs.HorizontalScrollbar = true;
-            this.lbRestoreLogs.ItemHeight = 15;
+            this.lbRestoreLogs.ItemHeight = 20;
             this.lbRestoreLogs.Location = new System.Drawing.Point(217, 435);
             this.lbRestoreLogs.Name = "lbRestoreLogs";
-            this.lbRestoreLogs.Size = new System.Drawing.Size(432, 259);
+            this.lbRestoreLogs.Size = new System.Drawing.Size(432, 244);
             this.lbRestoreLogs.TabIndex = 17;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(99, 435);
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(114, 435);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(97, 20);
             this.label13.TabIndex = 16;
@@ -874,7 +877,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(307, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(358, 76);
@@ -942,7 +945,7 @@
             // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1366, 768);
