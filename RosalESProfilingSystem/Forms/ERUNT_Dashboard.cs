@@ -88,7 +88,7 @@ namespace RosalESProfilingSystem.Forms
             chartLearners.Titles.Clear();
             Title chartTitle = new Title("Learner Distribution by Grade Level")
             {
-                Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold)
+                Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold)
             };
             chartLearners.Titles.Add(chartTitle);
             Series series = new Series
@@ -112,7 +112,7 @@ namespace RosalESProfilingSystem.Forms
             series.Points.Add(dp2);
             series.Points.Add(dp3);
 
-            series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+            series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
 
             chartLearners.Invalidate();
         }
@@ -215,7 +215,7 @@ namespace RosalESProfilingSystem.Forms
 
                         Title chartTitle = new Title("ERUNT Classification")
                         {
-                            Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold)
+                            Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold)
                         };
 
                         chartERUNT.Titles.Add(chartTitle);
@@ -275,7 +275,7 @@ namespace RosalESProfilingSystem.Forms
                             series.Points.Add(dp);
                         }
 
-                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+                        series.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
                         chartERUNT.Invalidate();
 
                     }
@@ -418,12 +418,12 @@ namespace RosalESProfilingSystem.Forms
 
         private void btnViewDelayedG6_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtDelayedNumbersG6.Text))
+            if (string.IsNullOrEmpty(txtDelayedNumbersG5.Text))
             {
                 MessageBox.Show("No data to display for Grade 6. Please select school year and assessment type first.", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            else if (txtDelayedNumbersG6.Text == "0")
+            else if (txtDelayedNumbersG5.Text == "0")
             {
                 MessageBox.Show("No delayed learners for Grade 6", "Empty Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
