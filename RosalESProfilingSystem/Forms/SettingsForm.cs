@@ -446,6 +446,7 @@ namespace RosalESProfilingSystem.Forms
         {
             LoadBackupLogs();
             LoadBackupLogsRestore();
+            LoadLogs();
         }
 
         private void btnRestoreBrowse_Click(object sender, EventArgs e)
@@ -590,6 +591,20 @@ namespace RosalESProfilingSystem.Forms
                 string[] logs = File.ReadAllLines(logFilePath);
                 lbRestoreLogs.Items.AddRange(logs);
             }
+        }
+
+        private void LoadLogs()
+        {
+            ActivityLogger logger = new ActivityLogger();
+            List<string> logs = logger.ReadLogs();
+
+            listBox1.Items.Clear(); // Clear old logs
+            listBox1.Items.AddRange(logs.ToArray()); // Add new logs
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadLogs();
         }
     }
 }

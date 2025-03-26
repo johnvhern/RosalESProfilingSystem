@@ -60,6 +60,7 @@ namespace RosalESProfilingSystem.Forms
             if (AuthenticateUser(username, password))
             {
                 MessageBox.Show("Login successful!");
+                LoggedUser.Username = username;
                 loginAttempts = 0;
                 this.Hide();
                 Forms.MainForm mainForm = new Forms.MainForm();

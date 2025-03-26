@@ -17,6 +17,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
+using static iText.Kernel.Pdf.Colorspace.PdfDeviceCs;
 
 namespace RosalESProfilingSystem.Forms
 {
@@ -174,6 +175,8 @@ namespace RosalESProfilingSystem.Forms
                 }
 
                 MessageBox.Show("Report exported successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ActivityLogger logger = new ActivityLogger();
+                logger.LogActivity(LoggedUser.Username, $"Exported Delayed Development in Numeracy Report for Grade {_gradeLevel} ({_assessmentType} {_schoolYear})");
             }
         }
 

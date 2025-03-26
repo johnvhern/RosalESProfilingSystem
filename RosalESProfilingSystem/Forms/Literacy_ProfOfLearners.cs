@@ -400,7 +400,19 @@ namespace RosalESProfilingSystem.Forms
             }
 
             MessageBox.Show("Data saved successfully.", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            dataTable.Clear();
+            ActivityLogger logger = new ActivityLogger();
+
+            if (dataGridView1.Columns.Equals("RMA Classification"))
+            {
+                logger.LogActivity(LoggedUser.Username, "Saved Learners Profile Data(Literacy_Numeracy)");
+            }
+            else
+            {
+                logger.LogActivity(LoggedUser.Username, "Saved Learners Profile Data(Science_ERUNT)");
+            }
+
+
+                dataTable.Clear();
         }
 
 

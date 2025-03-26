@@ -98,6 +98,11 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.metroPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -118,6 +123,10 @@
             this.panel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanel1
@@ -230,10 +239,10 @@
             // txtCurrrUsernamePass
             // 
             this.txtCurrrUsernamePass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCurrrUsernamePass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurrrUsernamePass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurrrUsernamePass.Location = new System.Drawing.Point(206, 195);
             this.txtCurrrUsernamePass.Name = "txtCurrrUsernamePass";
-            this.txtCurrrUsernamePass.Size = new System.Drawing.Size(302, 32);
+            this.txtCurrrUsernamePass.Size = new System.Drawing.Size(302, 27);
             this.txtCurrrUsernamePass.TabIndex = 20;
             // 
             // newPassCheck
@@ -317,30 +326,30 @@
             // txtConfirmPass
             // 
             this.txtConfirmPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtConfirmPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmPass.Location = new System.Drawing.Point(206, 434);
             this.txtConfirmPass.Name = "txtConfirmPass";
-            this.txtConfirmPass.Size = new System.Drawing.Size(302, 32);
+            this.txtConfirmPass.Size = new System.Drawing.Size(302, 27);
             this.txtConfirmPass.TabIndex = 3;
             this.txtConfirmPass.UseSystemPasswordChar = true;
             // 
             // txtNewPass
             // 
             this.txtNewPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNewPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewPass.Location = new System.Drawing.Point(206, 348);
             this.txtNewPass.Name = "txtNewPass";
-            this.txtNewPass.Size = new System.Drawing.Size(302, 32);
+            this.txtNewPass.Size = new System.Drawing.Size(302, 27);
             this.txtNewPass.TabIndex = 2;
             this.txtNewPass.UseSystemPasswordChar = true;
             // 
             // txtCurrPass
             // 
             this.txtCurrPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCurrPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurrPass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurrPass.Location = new System.Drawing.Point(206, 261);
             this.txtCurrPass.Name = "txtCurrPass";
-            this.txtCurrPass.Size = new System.Drawing.Size(302, 32);
+            this.txtCurrPass.Size = new System.Drawing.Size(302, 27);
             this.txtCurrPass.TabIndex = 1;
             this.txtCurrPass.UseSystemPasswordChar = true;
             // 
@@ -496,29 +505,29 @@
             // txtUsernamePass
             // 
             this.txtUsernamePass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsernamePass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsernamePass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsernamePass.Location = new System.Drawing.Point(205, 379);
             this.txtUsernamePass.Name = "txtUsernamePass";
-            this.txtUsernamePass.Size = new System.Drawing.Size(302, 32);
+            this.txtUsernamePass.Size = new System.Drawing.Size(302, 27);
             this.txtUsernamePass.TabIndex = 10;
             this.txtUsernamePass.UseSystemPasswordChar = true;
             // 
             // txtNewUsername
             // 
             this.txtNewUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNewUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewUsername.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewUsername.Location = new System.Drawing.Point(205, 309);
             this.txtNewUsername.Name = "txtNewUsername";
-            this.txtNewUsername.Size = new System.Drawing.Size(302, 32);
+            this.txtNewUsername.Size = new System.Drawing.Size(302, 27);
             this.txtNewUsername.TabIndex = 9;
             // 
             // txtCurrUsername
             // 
             this.txtCurrUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCurrUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurrUsername.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurrUsername.Location = new System.Drawing.Point(205, 241);
             this.txtCurrUsername.Name = "txtCurrUsername";
-            this.txtCurrUsername.Size = new System.Drawing.Size(302, 32);
+            this.txtCurrUsername.Size = new System.Drawing.Size(302, 27);
             this.txtCurrUsername.TabIndex = 8;
             // 
             // tabPage2
@@ -738,8 +747,8 @@
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.61078F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.38922F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.25748F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.74252F));
             this.tableLayoutPanel5.Controls.Add(this.label14, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.pictureBox3, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -755,9 +764,9 @@
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(301, 0);
+            this.label14.Location = new System.Drawing.Point(312, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(364, 76);
+            this.label14.Size = new System.Drawing.Size(353, 76);
             this.label14.TabIndex = 1;
             this.label14.Text = "Backup";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -766,7 +775,7 @@
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(263, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(274, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 70);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -861,8 +870,8 @@
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.65868F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.34132F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.75449F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.24551F));
             this.tableLayoutPanel6.Controls.Add(this.label15, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.pictureBox4, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -878,9 +887,9 @@
             this.label15.AutoSize = true;
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(307, 0);
+            this.label15.Location = new System.Drawing.Point(322, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(358, 76);
+            this.label15.Size = new System.Drawing.Size(343, 76);
             this.label15.TabIndex = 1;
             this.label15.Text = "Restore";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -889,7 +898,7 @@
             // 
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(269, 3);
+            this.pictureBox4.Location = new System.Drawing.Point(284, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(32, 70);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -898,6 +907,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.panel6);
+            this.tabPage5.Controls.Add(this.panel5);
             this.tabPage5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage5.Location = new System.Drawing.Point(4, 34);
             this.tabPage5.Name = "tabPage5";
@@ -943,6 +954,67 @@
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "About";
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.tableLayoutPanel7);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 695);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1358, 35);
+            this.panel5.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.listBox1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1358, 695);
+            this.panel6.TabIndex = 1;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 23;
+            this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(1358, 695);
+            this.listBox1.TabIndex = 0;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 7;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel7.Controls.Add(this.btnRefresh, 3, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1358, 35);
+            this.tableLayoutPanel7.TabIndex = 0;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(585, 3);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(188, 29);
+            this.btnRefresh.TabIndex = 1;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -987,6 +1059,10 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1061,5 +1137,10 @@
         private System.Windows.Forms.Button btnRestoreBrowse;
         private System.Windows.Forms.TextBox txtRestorePath;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

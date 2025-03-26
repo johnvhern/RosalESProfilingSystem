@@ -208,6 +208,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityLogger.cs" />
     <Compile Include="Components\ContextMenuStrip_Home.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -431,6 +432,7 @@
     <Compile Include="Forms\SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoggedUser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Components\ContextMenuStrip_Home.resx">
