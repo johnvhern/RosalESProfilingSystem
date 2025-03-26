@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NumeracyProgressTracking_Form));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -156,14 +156,14 @@
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(2, 71);
@@ -172,10 +172,10 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView2.Size = new System.Drawing.Size(155, 544);
             this.dataGridView2.TabIndex = 1;
             // 
@@ -427,18 +427,18 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Top;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(12, 16);
             this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(421, 316);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "chart1";
@@ -615,12 +615,12 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 6;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.909091F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.10909F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.2F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.381818F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.18182F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.21818F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.305057F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.66069F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.81729F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.177814F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.28548F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.4062F));
             this.tableLayoutPanel3.Controls.Add(this.label3, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.label4, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.txtNameofLearner, 2, 1);
@@ -644,10 +644,10 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 30);
+            this.label3.Location = new System.Drawing.Point(33, 30);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 31);
+            this.label3.Size = new System.Drawing.Size(67, 31);
             this.label3.TabIndex = 0;
             this.label3.Text = "Name of Learner:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -657,10 +657,10 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(27, 61);
+            this.label4.Location = new System.Drawing.Point(10, 61);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 32);
+            this.label4.Size = new System.Drawing.Size(90, 32);
             this.label4.TabIndex = 1;
             this.label4.Text = "Grade Level:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -670,11 +670,11 @@
             this.txtNameofLearner.BackColor = System.Drawing.Color.White;
             this.txtNameofLearner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNameofLearner.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNameofLearner.Location = new System.Drawing.Point(80, 32);
+            this.txtNameofLearner.Location = new System.Drawing.Point(104, 32);
             this.txtNameofLearner.Margin = new System.Windows.Forms.Padding(2);
             this.txtNameofLearner.Name = "txtNameofLearner";
             this.txtNameofLearner.ReadOnly = true;
-            this.txtNameofLearner.Size = new System.Drawing.Size(138, 27);
+            this.txtNameofLearner.Size = new System.Drawing.Size(141, 27);
             this.txtNameofLearner.TabIndex = 2;
             // 
             // txtGradeLevel
@@ -682,11 +682,11 @@
             this.txtGradeLevel.BackColor = System.Drawing.Color.White;
             this.txtGradeLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGradeLevel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtGradeLevel.Location = new System.Drawing.Point(80, 63);
+            this.txtGradeLevel.Location = new System.Drawing.Point(104, 63);
             this.txtGradeLevel.Margin = new System.Windows.Forms.Padding(2);
             this.txtGradeLevel.Name = "txtGradeLevel";
             this.txtGradeLevel.ReadOnly = true;
-            this.txtGradeLevel.Size = new System.Drawing.Size(138, 27);
+            this.txtGradeLevel.Size = new System.Drawing.Size(141, 27);
             this.txtGradeLevel.TabIndex = 3;
             // 
             // label5
@@ -694,10 +694,10 @@
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(222, 30);
+            this.label5.Location = new System.Drawing.Point(249, 30);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 31);
+            this.label5.Size = new System.Drawing.Size(39, 31);
             this.label5.TabIndex = 4;
             this.label5.Text = "LRN:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -707,11 +707,11 @@
             this.txtLRN.BackColor = System.Drawing.Color.White;
             this.txtLRN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLRN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLRN.Location = new System.Drawing.Point(254, 32);
+            this.txtLRN.Location = new System.Drawing.Point(292, 32);
             this.txtLRN.Margin = new System.Windows.Forms.Padding(2);
             this.txtLRN.Name = "txtLRN";
             this.txtLRN.ReadOnly = true;
-            this.txtLRN.Size = new System.Drawing.Size(156, 27);
+            this.txtLRN.Size = new System.Drawing.Size(149, 27);
             this.txtLRN.TabIndex = 5;
             // 
             // btnUpdateProgress
@@ -722,10 +722,10 @@
             this.btnUpdateProgress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateProgress.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateProgress.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateProgress.Location = new System.Drawing.Point(254, 63);
+            this.btnUpdateProgress.Location = new System.Drawing.Point(292, 63);
             this.btnUpdateProgress.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateProgress.Name = "btnUpdateProgress";
-            this.btnUpdateProgress.Size = new System.Drawing.Size(156, 28);
+            this.btnUpdateProgress.Size = new System.Drawing.Size(149, 28);
             this.btnUpdateProgress.TabIndex = 6;
             this.btnUpdateProgress.Text = "Update Progress";
             this.btnUpdateProgress.UseVisualStyleBackColor = false;
