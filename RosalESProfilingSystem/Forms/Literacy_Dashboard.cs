@@ -20,6 +20,10 @@ namespace RosalESProfilingSystem.Forms
         public Literacy_Dashboard()
         {
             InitializeComponent();
+            cbPollingAssessment.SelectedIndex = 0;
+            cbAssessmentType.SelectedIndex = 0;
+            cbCRLALanguage.SelectedIndex = 0;
+            cbPollingLanguage.SelectedIndex = 0;
 
 
 

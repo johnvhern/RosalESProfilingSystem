@@ -20,7 +20,8 @@ namespace RosalESProfilingSystem.Forms
         {
             InitializeComponent();
             cbAssessmentType.SelectedIndex = 0;
-           
+            cbPollingAssessment.SelectedIndex = 0;
+
         }
 
         private void btnLoadEnrollment_Click(object sender, EventArgs e)

@@ -13,16 +13,16 @@ namespace RosalESProfilingSystem.Forms
 {
     public partial class MainForm: Form
     {
+        private bool isDragging = false;
         public MainForm()
         {
             InitializeComponent();
             SidePanelNavigation sidePanelNavigation = new SidePanelNavigation(this);
             sidePanelNavigation.Dock = DockStyle.Left;
             this.Controls.Add(sidePanelNavigation);
-            this.WindowState = FormWindowState.Maximized;
             this.Load += MainForm_Load;
-
-            showAppVersion();
+            this.Text = "RosalES Profiling System";
+            this.WindowState = FormWindowState.Maximized;
             typeof(Panel).InvokeMember("DoubleBuffered",
             System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
             null, panel2, new object[] { true });
@@ -73,13 +73,6 @@ namespace RosalESProfilingSystem.Forms
             //this.Left = 0;
             //this.Top = 0;
         }
-
-        private void showAppVersion()
-        {
-            string version = Application.ProductVersion;
-            this.Text = "RosalES Profiling System " + version;
-        }
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -92,7 +85,37 @@ namespace RosalESProfilingSystem.Forms
 
         private void MainForm_Load_1(object sender, EventArgs e)
         {
-            
+           
+
         }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_SYSCOMMAND = 0x0112;
+            const int WM_NCLBUTTONDBLCLK = 0x00A3;
+            const int SC_MOVE = 0xF010; // Move command
+            const int WM_EXITSIZEMOVE = 0x0232; // Event when dragging stops
+
+            if (m.Msg == WM_NCLBUTTONDBLCLK)
+            {
+                return; // Ignore the double-click event on the title bar
+            }
+
+            // Detect when dragging starts
+            if (m.Msg == WM_SYSCOMMAND && (m.WParam.ToInt32() & 0xFFF0) == SC_MOVE)
+            {
+                isDragging = true;
+            }
+
+            // Detect when dragging stops
+            if (m.Msg == WM_EXITSIZEMOVE && isDragging)
+            {
+                isDragging = false;
+                this.WindowState = FormWindowState.Maximized; // Re-maximize
+            }
+
+            base.WndProc(ref m);
+        }
+
     }
 }
