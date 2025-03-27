@@ -256,6 +256,7 @@ namespace RosalESProfilingSystem.Forms
                 Directory.CreateDirectory(backupPath);
             }
 
+
             // Generate a timestamped subfolder inside the backup path
             string backupType = rbFullBackup.Checked ? "full" : "diff";
             string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
@@ -459,7 +460,7 @@ namespace RosalESProfilingSystem.Forms
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     txtRestorePath.Text = openFileDialog.FileName;
-                    AppendToLog($"[{DateTime.Now}] Selected backup file: {txtRestorePath.Text}");
+                    AppendToLogRestore($"[{DateTime.Now}] Selected backup file: {txtRestorePath.Text}");
                 }
             }
         }
