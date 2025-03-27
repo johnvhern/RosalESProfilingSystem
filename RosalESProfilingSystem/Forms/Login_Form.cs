@@ -21,8 +21,9 @@ namespace RosalESProfilingSystem.Forms
 
         public Login_Form()
         {
-            InitializeComponent();           
-            
+            InitializeComponent();
+            this.AcceptButton = btnLogin;
+
         }
 
         private bool verifyPassword(string password, string hash)

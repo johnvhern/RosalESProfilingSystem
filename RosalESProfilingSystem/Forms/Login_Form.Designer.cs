@@ -143,10 +143,10 @@
             // txtUsername
             // 
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(36, 4);
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(36, 8);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(186, 20);
+            this.txtUsername.Size = new System.Drawing.Size(186, 16);
             this.txtUsername.TabIndex = 1;
             // 
             // pictureBox2
@@ -174,10 +174,10 @@
             // txtPassword
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(36, 5);
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(36, 9);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(186, 19);
+            this.txtPassword.Size = new System.Drawing.Size(186, 16);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
