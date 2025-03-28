@@ -402,7 +402,7 @@ namespace RosalESProfilingSystem.Forms
             {
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
-                    string query = "SELECT DISTINCT SchoolYear FROM LearnersProfile ORDER BY SchoolYear ASC";
+                    string query = "SELECT DISTINCT SchoolYear FROM LearnersProfile UNION SELECT DISTINCT SchoolYear FROM LearnersProfileScience ORDER BY SchoolYear ASC";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
