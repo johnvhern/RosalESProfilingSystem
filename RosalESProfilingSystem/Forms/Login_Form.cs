@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,9 @@ namespace RosalESProfilingSystem.Forms
         {
             InitializeComponent();
             this.AcceptButton = btnLogin;
+            txtPassword.WaterMark = "Password";
+            txtUsername.WaterMark = "Username";
+            this.ActiveControl = label1;
 
         }
 
@@ -190,9 +194,16 @@ namespace RosalESProfilingSystem.Forms
 
         private void cbShowPass_CheckedChanged(object sender, EventArgs e)
         {
-           
-                txtPassword.UseSystemPasswordChar = !txtPassword.UseSystemPasswordChar;
-            
+            if (cbShowPass.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false; // Show password
+                txtPassword.PasswordChar = '\0'; // Ensure password is visible
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true; // Hide password
+                txtPassword.PasswordChar = '●'; // Mask password
+            }
         }
 
     }
