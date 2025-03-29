@@ -19,7 +19,8 @@ namespace RosalESProfilingSystem.Forms
     {
         private readonly string dbConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=RosalES;Integrated Security=True;";
         private string backupPath = @"C:\RosalESBackup"; // Default backup path
-        public SettingsForm()
+        private Forms.MainForm mainForm;
+        public SettingsForm(MainForm form)
         {
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.None;
@@ -29,6 +30,7 @@ namespace RosalESProfilingSystem.Forms
             tabPage6.ImageIndex = 4;
             txtBackupPath.Text = backupPath; // Set default backup path
             cbSchedule.SelectedIndex = 0;
+            mainForm = form;
 
 
         }
@@ -198,7 +200,9 @@ namespace RosalESProfilingSystem.Forms
 
         private void LogoutUser()
         {
-           Application.Restart();
+            mainForm.Hide();
+            Forms.Login_Form loginForm = new Forms.Login_Form();
+            loginForm.Show();  
         }
 
         private void currentPassCheck_CheckedChanged(object sender, EventArgs e)

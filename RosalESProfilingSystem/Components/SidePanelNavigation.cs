@@ -106,8 +106,24 @@ namespace RosalESProfilingSystem.Components
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            mainForm.OpenForm(new Forms.SettingsForm());
+            mainForm.OpenForm(new Forms.SettingsForm(mainForm));
             ColorActiveButton((Button)sender);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                mainForm.Hide();
+                Forms.Login_Form loginForm = new Forms.Login_Form();
+                loginForm.Show();
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

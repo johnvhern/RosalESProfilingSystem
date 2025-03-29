@@ -58,8 +58,8 @@ namespace RosalESProfilingSystem.Forms
         private void lblBackToLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login_Form login = new Login_Form();
-            login.Show();
+            Forms.Login_Form login = new Forms.Login_Form();
+            login.ShowDialog();
         }
 
         private void btnChangePass_Click(object sender, EventArgs e)

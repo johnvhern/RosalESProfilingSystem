@@ -206,5 +206,9 @@ namespace RosalESProfilingSystem.Forms
             }
         }
 
+        private void Login_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
