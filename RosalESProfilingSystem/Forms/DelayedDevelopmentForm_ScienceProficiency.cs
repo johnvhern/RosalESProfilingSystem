@@ -337,7 +337,7 @@ namespace RosalESProfilingSystem.Forms
                             gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
                             gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
                             gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("Sex").SetFont(boldFont)));
-                            gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("Age").SetFont(boldFont)));
+                            gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("SciCAT Classification").SetFont(boldFont)));
 
                             foreach (var learner in gradeReadyLearners)
                             {
@@ -440,13 +440,13 @@ namespace RosalESProfilingSystem.Forms
                             maleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
                             maleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
                             maleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
-                            maleTable.AddHeaderCell(new Cell().Add(new Paragraph("Classification Level").SetFont(boldFont)));
+                            maleTable.AddHeaderCell(new Cell().Add(new Paragraph("SciCAT Classification").SetFont(boldFont)));
 
                             Table femaleTable = new Table(4).UseAllAvailableWidth().SetFontSize(11);
                             femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("Last Name").SetFont(boldFont)));
                             femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
                             femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
-                            femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("Classification Level").SetFont(boldFont)));
+                            femaleTable.AddHeaderCell(new Cell().Add(new Paragraph("SciCAT Classification").SetFont(boldFont)));
 
                             foreach (DataGridViewRow row in dataGridView1.Rows)
                             {

@@ -323,7 +323,7 @@ namespace RosalESProfilingSystem.Forms
                         gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("First Name").SetFont(boldFont)));
                         gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("LRN").SetFont(boldFont)));
                         gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("Sex").SetFont(boldFont)));
-                        gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("Age").SetFont(boldFont)));
+                        gradeReadyTable.AddHeaderCell(new Cell().Add(new Paragraph("RMA Classification").SetFont(boldFont)));
 
                         foreach (var learner in gradeReadyLearners)
                         {
