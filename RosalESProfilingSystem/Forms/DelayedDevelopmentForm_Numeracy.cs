@@ -363,8 +363,8 @@ namespace RosalESProfilingSystem.Forms
                     // Create chart
                     Chart chart = new Chart
                     {
-                        Width = 500,
-                        Height = 300
+                        Width = 600,
+                        Height = 400
                     };
 
                     ChartArea chartArea = new ChartArea();
